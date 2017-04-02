@@ -350,13 +350,13 @@ module.exports = function (grunt) {
             deploy: {
                 command: function () {
                     var branch = grunt.option('branch') || 'master';
-                    return 'ssh deploy@zube.io -A \'cd /home/deploy/zube/neon; git checkout ' + branch + '; git pull origin ' + branch + '\'';
+                    return 'ssh deploy@zube.io -A \'cd /home/deploy/zube/docs; git checkout ' + branch + '; git pull origin ' + branch + '\'';
                 }
             },
             stage: {
                 command: function () {
                     var branch = grunt.option('branch') || 'master';
-                    return 'ssh deploy@staging.zube.io -A \'cd /home/deploy/zube/neon; git checkout ' + branch + '; git pull origin ' + branch + '\'';
+                    return 'ssh deploy@staging.zube.io -A \'cd /home/deploy/zube/docs; git checkout ' + branch + '; git pull origin ' + branch + '\'';
                 }
             }
         }
