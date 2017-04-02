@@ -43,7 +43,7 @@ module.exports = function (grunt) {
                     livereload: grunt.option('livereloadport') || LIVERELOAD_PORT
                 },
                 files: [
-                    '<%= yeoman.app %>/*.html',
+                    '<%= yeoman.app %>/docs/*.html',
                     '{.tmp,<%= yeoman.app %>}/styles/**/*.*',
                     '{.tmp,<%= yeoman.app %>}/scripts/**/*.js',
                     '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp}',
