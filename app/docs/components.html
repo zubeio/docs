@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <title>Zube Docs | Agile Project Management Components</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Getting started with Zube's Agile project management workflow components.">
+    <link rel="icon" type="image/ico" href="/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- build:css({.tmp,app}) /styles/main.css -->
+    <link rel='stylesheet' href='/styles/main.css'>
+    <!-- endbuild -->
+
+    <!-- build:js /scripts/vendor.js -->
+    <script src='../vendor/scripts/jquery-1.12.3.min.js'></script>
+    <script src='../vendor/scripts/bootstrap/js/bootstrap.min.js'></script>
+    <script src='../vendor/scripts/jquery-match-height/jquery.matchHeight-min.js'></script>
+    <script src='../vendor/scripts/jquery-scrollTo/jquery.scrollTo.min.js'></script>
+    <script src='../vendor/scripts/lightbox/dist/ekko-lightbox.min.js'></script>
+    <script src='../vendor/scripts/prettydocs/scripts/main.js'></script>
+    <!-- endbuild -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="body-blue">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="/docs">
+                            <span aria-hidden="true" class="zubeicon-zube-mark icon"></span>
+                            <span class="text-bold">Zube</span> <span class="text-highlight">Docs</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+                <ol class="breadcrumb">
+                    <li><a href="/docs">Home</a></li>
+                    <li class="active">Agile Components</li>
+                </ol>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon icon_puzzle_alt"></span> Agile Components</h1>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Jan 25th, 2016</div>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="projects-section" class="doc-section">
+                                <h2 class="section-title">Projects</h2>
+                                <div class="section-block">
+                                    <p>
+                                        Projects are the highest level containers in Zube. You attach one or more data sources (GitHub Repositories) to a Project and that defines what information you can manage within the Project. Projects are made up of Workspaces, the Issue Manager, and Tickets, all of which are described in more detail below. A project also allows you to control which team members have access to your data. Only your team members that are project users will be able to view the components of a Project. Project admins can add or remove project users or make other users a project admin. A list of your Projects can be found on the Zube homepage, after you sign in. If you do not currently belong to any Projects, there will be a form that allows you to create your first Project.
+                                    </p>
+                                    <p>
+                                        To create a Project, enter a name for your Project, select a GitHub organization, and select one or more source repositories to add to your project. Note that a particular source can only belong to a single project on Zube. If you need to share sources between teams, you should add all the sources you want to share to a single project. If you then need to separate out work items into separate boards, you can use Workspaces for that. Once you submit your new Project, Zube will automatically import the issues from the source repositories, turn those issues into Zube cards and generate a Workspace for your Project. Once the import is finished, you'll be redirected to your Workspace Kanban board.
+                                    </p>
+                                </div>
+                            </section><!--//doc-section-->
+                            <section id="workspaces-section" class="doc-section">
+                                <h2 class="section-title">Workspaces</h2>
+                                <div class="section-block">
+                                    <p>
+                                        Workspaces allow you break apart your cards into separate spaces. Workspaces contain a Kanban board, Sprint board, Sprints, and Burndown charts. Each project has at least one Workspace, but you can create multiple Workspaces for your Project. Every Workspace on a Project will have access to the same source repositories that have been added to the Project. However, cards can only exist on one Workspace at a time, which allows you to segment your cards as appropriate. Cards can be moved between Workspaces so you can create a workflow across different teams.
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="kanban-board"  class="section-block">
+                                    <h3 class="block-title">Kanban Board</h3>
+                                    <p>
+                                        The Kanban board is set of columns that allow you to track the progress of tasks as they move through your workflow. The Zube Kanban board default columns are Inbox, Backlog, Ready, In Progress, In Review and Done. Cards that are newly added to the Workspace (such as when an issue is made on GitHub) will go into the Inbox column by default. Cards that are moved into the Done column on Zube will be automatically closed and cards closed via GitHub will be automatically moved into the Done column.
+                                    </p>
+                                    <p>
+                                        A Kanban board is a component of a Workspace, and kanban boards on different Workspaces can have different of columns. This lets you set up a well tailored workflow for each Workspace. Columns can be customized on the Workspace settings page.
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="sprint-board"  class="section-block">
+                                    <h3 class="block-title">Sprint Board</h3>
+                                    <p>
+                                        The Sprint board allows you to organize your tasks into Sprints. An Agile sprint is a set duration of development time in which work is to be completed. The columns on the left side of the sprint board are tasks that are not currently part of any sprint. They are a slightly darker color and are outside of the sprint section. The sprint section is comprised of the columns beneath the sprint header information, and are slightly lighter in color than the global columns. By default the first sprint column is called "Ready". To add a card to a sprint, simply drag it into any of the columns in the sprint section. Typically, to add a card to a sprint, you would drag a card from the Backlog, which is a global column intended to be used as your product backlog, to the Ready column, which is sprint column and is supposed to be used as your sprint backlog.
+                                    </p>
+                                    <p>
+                                        You can change which column serves as the sprint backlog on the Workspace settings page and any column to the right of the sprint backlog will be a sprint column on a Sprint board.
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="burndown"  class="section-block">
+                                    <h3 class="block-title">Sprints and Burndown Charts</h3>
+                                    <p>
+                                        The Sprints section allows you to create, edit, close and delete sprints. Sprints must have a start and end date.
+                                    </p>
+                                    <p>
+                                        If your Workspace has points enabled, you can view the historical progress of your sprints with Burndown charts. A Burndown chart consists of an ideal line (blue) and a burndown line (orange). The ideal line is the ideal number of points that should be left in a given Sprint in order to complete the work on time. The burndown line is the actual number of points left per day. You can filter burndown chart data by source and can exclude weekends from the ideal trajectory.
+                                    </p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+
+                            <section id="triage-section" class="doc-section">
+                                <h2 class="section-title">Triage</h2>
+                                <div class="section-block">
+                                    <p>
+                                        If you create more than one Workspace for your Project, you will enable the Triage view. You can also choose to enable the Triage view for Projects with a single Workspace. Triage is a place to organize, prioritize, and add additional information to cards before they are assigned to a Workspace. New issues created on GitHub will go to Triage if Triage has been enabled. If your Project only has one Workspace and Triage is disabled, new cards will appear in the default new column of the Kanban/Sprint board (by default it is the column called "Inbox"). Triage is also a good place to create cards when you are unsure of which Workspace they should belong to, so it is an ideal entry point for less technical team members.
+                                    </p>
+                                    <p>
+                                        You can drag cards from the Triage list to one of the Workspace dropzone found on the right hand side. It is also possible to select several cards at once, and move them in bulk to a workspace using the "Move Select Cards" action. Cards that are dragged to a Workspace, or moved in bulk, will go to the default new column of the destination Workspace.
+                                    </p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                            <section id="epics-section" class="doc-section">
+                                <h2 class="section-title">Epics</h2>
+                                <div class="section-block">
+                                    <p>
+                                        Epics are a fundamental component of Agile project management which allow you to group related issues (user stories) together amd track their progress. To create an Epic, click the 'New Epic' button at the top of the screen on the Epics page. Once you've created your Epic, you can attach cards to the Epic and the Epic wil automatically track the status of those cards as they move through your workflow. The Epic will update it's status as your cards move from creation to completion.
+                                        Epics also keep track of the number of open and closed cards and open and closed points and display progress bars with that information.
+                                    </p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                            <section id="manager-section" class="doc-section">
+                                <h2 class="section-title">Issue Manager</h2>
+                                <div class="section-block">
+                                    <p>
+                                        The Issue Manager is the most powerful way to search for, update, and move your cards across your entire Project. The Issue Manager gives you access to every card in your Project. Search, filter, and sort to find what you're looking for and easily update or move them all at once. Zube also provides a JSON export of your cards from the Issue Manager so you always have easy access to your data. A JSON export means that you are free to generate custom reports and analytics, or just take your data with you.
+                                    </p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                            <section id="tickets-section" class="doc-section">
+                                <h2 class="section-title">Tickets</h2>
+                                <div class="section-block">
+                                    <p>
+                                        Zube Tickets allow your team members to log bugs, feature requests, and other items that don't become GitHub Issues. Tickets are a great way for everyone to communicate with the development team. Zube cards can be attached to Tickets, and the Ticket will track the progress of those issues and automatically update to reflect the state of the tasks being done.
+                                    </p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+
+                            <div class="section-block">
+                                <div class="callout-block contact-callout">
+                                    <div class="content">
+                                        <p>
+                                            Have more questions? Need help setting up your workflow? Get in touch!
+                                        </p>
+                                        <p>
+                                            <a href="mailto:team@zube.io" target="_top"><i class="zubeicon-envelope"></i> team@zube.io</a>
+                                            <a href="http://slack.zube.io" target="_blank"><i class="zubeicon-slack"></i> Zube on Slack</a>
+                                        </p>
+                                    </div><!--//content-->
+                                </div><!--//callout-block-->
+                            </div>
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li><a class="scrollto" href="#projects-section">Projects</a></li>
+                                <li>
+                                    <a class="scrollto" href="#workspaces-section">Workspaces</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#kanban-board">Kanban Boards</a></li>
+                                        <li><a class="scrollto" href="#sprint-board">Sprint Boards</a></li>
+                                        <li><a class="scrollto" href="#burndown">Sprints and Burndown Charts</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                                <li><a class="scrollto" href="#triage-section">Triage</a></li>
+                                <li><a class="scrollto" href="#epics-section">Epics</a></li>
+                                <li><a class="scrollto" href="#manager-section">Issue Manager</a></li>
+                                <li><a class="scrollto" href="#tickets-section">Tickets</a></li>
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+
+    </div><!--//page-wrapper-->
+
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li><a href="/">Home</a></li>
+                        <li>&sdot;</li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li>&sdot;</li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li>&sdot;</li>
+                        <li><a href="/team">Team</a></li>
+                        <li>&sdot;</li>
+                        <li><a href="/tos">Terms and Privacy</a></li>
+                    </ul>
+                    <p class="copyright text-center medium">Copyright &copy; Pivit Inc. 2017. All Rights Reserved</p>
+                </div>
+            </div>
+        </div><!--//container-->
+    </footer><!--//footer-->
+</body>
+</html>

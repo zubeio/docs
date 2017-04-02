@@ -1,0 +1,445 @@
+@font-face {
+    font-family: 'zubeicons';
+    src:url('./fonts/zubeicons/zubeicons.eot');
+    src:url('./fonts/zubeicons/zubeicons.eot') format('embedded-opentype'),
+        url('./fonts/zubeicons/zubeicons.woff') format('woff'),
+        url('./fonts/zubeicons/zubeicons.ttf') format('truetype'),
+        url('./fonts/zubeicons/zubeicons.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+[class^="zubeicon-"], [class*=" zubeicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'zubeicons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: inherit;
+  font-size: inherit;
+  // fixed width by default
+  width: 1.28571429em;
+  text-align: center;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.zubeicon-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+.zubeicon-2x {
+  font-size: 2em;
+}
+.zubeicon-3x {
+  font-size: 3em;
+}
+.zubeicon-4x {
+  font-size: 4em;
+}
+.zubeicon-5x {
+  font-size: 5em;
+}
+
+.zubeicon-spin {
+  display: inline-block;
+  -webkit-animation: zubeicon-spin 2s infinite linear;
+  animation: zubeicon-spin 2s infinite linear;
+}
+.zubeicon-pulse {
+  display: inline-block;
+  -webkit-animation: zubeicon-spin 1s infinite steps(8);
+  animation: zubeicon-spin 1s infinite steps(8);
+}
+@-webkit-keyframes zubeicon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes zubeicon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+.zubeicon-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.zubeicon-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.zubeicon-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.zubeicon-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+.zubeicon-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+:root .zubeicon-rotate-90,
+:root .zubeicon-rotate-180,
+:root .zubeicon-rotate-270,
+:root .zubeicon-flip-horizontal,
+:root .zubeicon-flip-vertical {
+  filter: none;
+}
+
+/* Icons */
+.zubeicon-add-user:before {
+  content: "\e900";
+}
+.zubeicon-add:before {
+  content: "\e901";
+}
+.zubeicon-alert:before {
+  content: "\e902";
+}
+.zubeicon-archive:before {
+  content: "\e903";
+}
+.zubeicon-arrow-down-thick:before {
+  content: "\e904";
+}
+.zubeicon-arrow-down:before {
+  content: "\e905";
+}
+.zubeicon-arrow-left:before {
+  content: "\e906";
+}
+.zubeicon-arrow-right:before {
+  content: "\e907";
+}
+.zubeicon-arrow-up-thick:before {
+  content: "\e908";
+}
+.zubeicon-arrow-up:before {
+  content: "\e909";
+}
+.zubeicon-ban:before {
+  content: "\e90a";
+}
+.zubeicon-book:before {
+  content: "\e90b";
+}
+.zubeicon-bookmark:before {
+  content: "\e90c";
+}
+.zubeicon-bookmarked:before {
+  content: "\e90d";
+}
+.zubeicon-box-add:before {
+  content: "\e90e";
+}
+.zubeicon-box-check:before {
+  content: "\e90f";
+}
+.zubeicon-box-minus:before {
+  content: "\e910";
+}
+.zubeicon-box-square:before {
+  content: "\e911";
+}
+.zubeicon-box:before {
+  content: "\e912";
+}
+.zubeicon-burndown:before {
+  content: "\e913";
+}
+.zubeicon-calendar:before {
+  content: "\e914";
+}
+.zubeicon-caret-down:before {
+  content: "\e915";
+}
+.zubeicon-caret-left:before {
+  content: "\e916";
+}
+.zubeicon-caret-right:before {
+  content: "\e917";
+}
+.zubeicon-caret-up:before {
+  content: "\e918";
+}
+.zubeicon-chart:before {
+  content: "\e919";
+}
+.zubeicon-check:before {
+  content: "\e91a";
+}
+.zubeicon-chevron-down:before {
+  content: "\e91b";
+}
+.zubeicon-chevron-left:before {
+  content: "\e91c";
+}
+.zubeicon-chevron-right:before {
+  content: "\e91d";
+}
+.zubeicon-chevron-up:before {
+  content: "\e91e";
+}
+.zubeicon-circle-dot:before {
+  content: "\e91f";
+}
+.zubeicon-circle-open-notch:before {
+  content: "\e920";
+}
+.zubeicon-circle-open:before {
+  content: "\e921";
+}
+.zubeicon-circle:before {
+  content: "\e922";
+}
+.zubeicon-clip:before {
+  content: "\e923";
+}
+.zubeicon-clock:before {
+  content: "\e924";
+}
+.zubeicon-cog:before {
+  content: "\e925";
+}
+.zubeicon-combine:before {
+  content: "\e926";
+}
+.zubeicon-comment:before {
+  content: "\e927";
+}
+.zubeicon-commit:before {
+  content: "\e928";
+}
+.zubeicon-compress:before {
+  content: "\e929";
+}
+.zubeicon-docs:before {
+  content: "\e92a";
+}
+.zubeicon-dots-horiz:before {
+  content: "\e92b";
+}
+.zubeicon-dots-vert:before {
+  content: "\e92c";
+}
+.zubeicon-download:before {
+  content: "\e92d";
+}
+.zubeicon-drag-handle:before {
+  content: "\e92e";
+}
+.zubeicon-edit:before {
+  content: "\e92f";
+}
+.zubeicon-envelope:before {
+  content: "\e930";
+}
+.zubeicon-exclamation:before {
+  content: "\e931";
+}
+.zubeicon-expand:before {
+  content: "\e932";
+}
+.zubeicon-filter-list:before {
+  content: "\e933";
+}
+.zubeicon-filter:before {
+  content: "\e934";
+}
+.zubeicon-fire:before {
+  content: "\e935";
+}
+.zubeicon-flag:before {
+  content: "\e936";
+}
+.zubeicon-sprints:before {
+  content: "\e936";
+}
+.zubeicon-folder-open:before {
+  content: "\e937";
+}
+.zubeicon-folder:before {
+  content: "\e938";
+}
+.zubeicon-github-mark-reverse:before {
+  content: "\e939";
+}
+.zubeicon-github-mark:before {
+  content: "\e93a";
+}
+.zubeicon-grid:before {
+  content: "\e93b";
+}
+.zubeicon-help-dark:before {
+  content: "\e93c";
+}
+.zubeicon-help:before {
+  content: "\e93d";
+}
+.zubeicon-home:before {
+  content: "\e93e";
+}
+.zubeicon-info:before {
+  content: "\e93f";
+}
+.zubeicon-issue:before {
+  content: "\e940";
+}
+.zubeicon-kanban:before {
+  content: "\e941";
+}
+.zubeicon-label-open:before {
+  content: "\e942";
+}
+.zubeicon-label:before {
+  content: "\e943";
+}
+.zubeicon-linkedin:before {
+  content: "\e944";
+}
+.zubeicon-list-light:before {
+  content: "\e945";
+}
+.zubeicon-list:before {
+  content: "\e946";
+}
+.zubeicon-lock-closed:before {
+  content: "\e947";
+}
+.zubeicon-lock-open:before {
+  content: "\e948";
+}
+.zubeicon-markdown:before {
+  content: "\e949";
+}
+.zubeicon-menu:before {
+  content: "\e94a";
+}
+.zubeicon-milestone-plus:before {
+  content: "\e94b";
+}
+.zubeicon-milestone:before {
+  content: "\e94c";
+}
+.zubeicon-open:before {
+  content: "\e94d";
+}
+.zubeicon-people:before {
+  content: "\e94e";
+}
+.zubeicon-phone:before {
+  content: "\e94f";
+}
+.zubeicon-points:before {
+  content: "\e950";
+}
+.zubeicon-pull-request:before {
+  content: "\e951";
+}
+.zubeicon-real-time:before {
+  content: "\e952";
+}
+.zubeicon-refresh:before {
+  content: "\e953";
+}
+.zubeicon-repo:before {
+  content: "\e954";
+}
+.zubeicon-rss:before {
+  content: "\e955";
+}
+.zubeicon-search:before {
+  content: "\e956";
+}
+.zubeicon-sign-in:before {
+  content: "\e957";
+}
+.zubeicon-sign-out:before {
+  content: "\e958";
+}
+.zubeicon-slack:before {
+  content: "\e959";
+}
+.zubeicon-sort-asc:before {
+  content: "\e95a";
+}
+.zubeicon-sort-desc:before {
+  content: "\e95b";
+}
+.zubeicon-sprinter:before {
+  content: "\e95c";
+}
+.zubeicon-sprintboard:before {
+  content: "\e95c";
+}
+.zubeicon-tag:before {
+  content: "\e95d";
+}
+.zubeicon-thumbs-up:before {
+  content: "\e95e";
+}
+.zubeicon-tickets:before {
+  content: "\e95f";
+}
+.zubeicon-trash:before {
+  content: "\e960";
+}
+.zubeicon-trello:before {
+  content: "\e961";
+}
+.zubeicon-triage:before {
+  content: "\e962";
+}
+.zubeicon-twitter:before {
+  content: "\e963";
+}
+.zubeicon-two-way:before {
+  content: "\e964";
+}
+.zubeicon-user:before {
+  content: "\e965";
+}
+.zubeicon-warning:before {
+  content: "\e966";
+}
+.zubeicon-workspace:before {
+  content: "\e967";
+}
+.zubeicon-x:before {
+  content: "\e968";
+}
+.zubeicon-zube-logo:before {
+  content: "\e969";
+}
+.zubeicon-zube-mark:before {
+  content: "\e96a";
+}

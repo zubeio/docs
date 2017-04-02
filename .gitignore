@@ -1,0 +1,15 @@
+.DS_store
+node_modules
+test/temp
+.sass-cache
+app/bower_components
+.tmp
+test/bower_components/
+*.orig
+*.log
+config/config.js
+s3_backup
+app/files
+app/avatars
+dist/files
+dist/avatars
