@@ -207,7 +207,7 @@ module.exports = function (grunt) {
         usemin: {
             html: ['<%= yeoman.dist %>/*.html'],
             css: ['<%= yeoman.dist %>/docs/styles/**/*.css'],
-            js: ['<%= yeoman.dist %>/docs/scripts/*.js'],
+            js: ['<%= yeoman.dist %>/docs/scripts/**/*.js'],
             options: {
                 // Added this to make dist css images correct
                 assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/docs/images'],
