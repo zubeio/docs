@@ -1401,11 +1401,11 @@ pre.line-numbers > code {
 
 @font-face {
 	font-family: 'ElegantIcons';
-	src:url('../../docs/styles/fonts/elegant_font/226cf63ec48fcc231e6a4744c0b88044.ElegantIcons.eot');
-	src:url('../../docs/styles/fonts/elegant_font/226cf63ec48fcc231e6a4744c0b88044.ElegantIcons.eot?#iefix') format('embedded-opentype'),
-		url('../../docs/styles/fonts/elegant_font/c69dec0f08dce22ff3d8ca2a50b170d2.ElegantIcons.woff') format('woff'),
-		url('../../docs/styles/fonts/elegant_font/7f77ef93acd0541e3fccad7b1f243a68.ElegantIcons.ttf') format('truetype'),
-		url('../../docs/styles/fonts/elegant_font/907b74de12b89805612e69cd9ece33f6.ElegantIcons.svg#ElegantIcons') format('svg');
+	src:url('../../docs/styles/fonts/elegant_font/ElegantIcons.eot');
+	src:url('../../docs/styles/fonts/elegant_font/ElegantIcons.eot?#iefix') format('embedded-opentype'),
+		url('../../docs/styles/fonts/elegant_font/ElegantIcons.woff') format('woff'),
+		url('../../docs/styles/fonts/elegant_font/ElegantIcons.ttf') format('truetype'),
+		url('../../docs/styles/fonts/elegant_font/ElegantIcons.svg#ElegantIcons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -2567,11 +2567,11 @@ text-shadow: none;
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src:url('../../docs/styles/fonts/font-awesome/7fe336db79f995204f6683b2758875ac.fontawesome-webfont.eot');
-  src:url('../../docs/styles/fonts/font-awesome/7fe336db79f995204f6683b2758875ac.fontawesome-webfont.eot') format('embedded-opentype'),
-      url('../../docs/styles/fonts/font-awesome/006791a427d209f73638985516ecab8b.fontawesome-webfont.woff') format('woff'),
-      url('../../docs/styles/fonts/font-awesome/1926a4dea4a2893cf7b11bb95529b526.fontawesome-webfont.ttf') format('truetype'),
-      url('../../docs/styles/fonts/font-awesome/d7c639084f684d66a1bc66855d193ed8.fontawesome-webfont.svg') format('svg');
+  src:url('../../docs/styles/fonts/font-awesome/fontawesome-webfont.eot');
+  src:url('../../docs/styles/fonts/font-awesome/fontawesome-webfont.eot') format('embedded-opentype'),
+      url('../../docs/styles/fonts/font-awesome/fontawesome-webfont.woff') format('woff'),
+      url('../../docs/styles/fonts/font-awesome/fontawesome-webfont.ttf') format('truetype'),
+      url('../../docs/styles/fonts/font-awesome/fontawesome-webfont.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -4740,11 +4740,11 @@ text-shadow: none;
 
 @font-face {
     font-family: 'zubeicons';
-    src:url('../../docs/styles/fonts/zubeicons/00032b3a841cdee839ef03d929fcc974.zubeicons.eot');
-    src:url('../../docs/styles/fonts/zubeicons/00032b3a841cdee839ef03d929fcc974.zubeicons.eot') format('embedded-opentype'),
-        url('../../docs/styles/fonts/zubeicons/86419e4c4e633103e8e356c2d2fdacd2.zubeicons.woff') format('woff'),
-        url('../../docs/styles/fonts/zubeicons/49fa9e033e8314955a5a84868c132a29.zubeicons.ttf') format('truetype'),
-        url('../../docs/styles/fonts/zubeicons/3490641ad53e5fd1f46f1a2966f16dec.zubeicons.svg') format('svg');
+    src:url('../../docs/styles/fonts/zubeicons/zubeicons.eot');
+    src:url('../../docs/styles/fonts/zubeicons/zubeicons.eot') format('embedded-opentype'),
+        url('../../docs/styles/fonts/zubeicons/zubeicons.woff') format('woff'),
+        url('../../docs/styles/fonts/zubeicons/zubeicons.ttf') format('truetype'),
+        url('../../docs/styles/fonts/zubeicons/zubeicons.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
