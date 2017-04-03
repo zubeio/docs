@@ -269,8 +269,8 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: '<%= yeoman.app %>',
-                    dest: '<%= yeoman.dist %>',
+                    cwd: '<%= yeoman.app %>/docs',
+                    dest: '<%= yeoman.dist %>/docs',
                     src: [
                         '*.{ico,txt}',
                         'favicons/{,*/}*.*',

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="40"
+   height="40"
+   viewBox="0 0 40 40"
+   id="svg4362"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="google_login_btn.svg">
+  <defs
+     id="defs4364">
+    <clipPath
+       id="b-4">
+      <use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         overflow="visible"
+         xlink:href="#a"
+         id="use44" />
+    </clipPath>
+    <clipPath
+       id="b-73">
+      <use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         overflow="visible"
+         xlink:href="#a"
+         id="use8-9" />
+    </clipPath>
+    <clipPath
+       id="b-4-5">
+      <use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         overflow="visible"
+         xlink:href="#a"
+         id="use44-6" />
+    </clipPath>
+    <clipPath
+       id="b-73-2">
+      <use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         overflow="visible"
+         xlink:href="#a"
+         id="use8-9-4" />
+    </clipPath>
+    <clipPath
+       id="clipPath6072">
+      <use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         overflow="visible"
+         xlink:href="#a"
+         id="use6074" />
+    </clipPath>
+    <clipPath
+       id="clipPath6076">
+      <use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         overflow="visible"
+         xlink:href="#a"
+         id="use6078" />
+    </clipPath>
+    <path
+       id="a"
+       d="M 0,0 24,0 24,24 0,24 Z"
+       inkscape:connector-curvature="0" />
+    <filter
+       id="filter-1"
+       filterUnits="objectBoundingBox"
+       height="2"
+       width="2"
+       y="-0.5"
+       x="-0.5">
+      <feOffset
+         id="feOffset4584"
+         result="shadowOffsetOuter1"
+         in="SourceAlpha"
+         dy="1"
+         dx="0" />
+      <feGaussianBlur
+         id="feGaussianBlur4586"
+         result="shadowBlurOuter1"
+         in="shadowOffsetOuter1"
+         stdDeviation="0.5" />
+      <feColorMatrix
+         id="feColorMatrix4588"
+         result="shadowMatrixOuter1"
+         type="matrix"
+         in="shadowBlurOuter1"
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.168 0" />
+      <feOffset
+         id="feOffset4590"
+         result="shadowOffsetOuter2"
+         in="SourceAlpha"
+         dy="0"
+         dx="0" />
+      <feGaussianBlur
+         id="feGaussianBlur4592"
+         result="shadowBlurOuter2"
+         in="shadowOffsetOuter2"
+         stdDeviation="0.5" />
+      <feColorMatrix
+         id="feColorMatrix4594"
+         result="shadowMatrixOuter2"
+         type="matrix"
+         in="shadowBlurOuter2"
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.084 0" />
+      <feMerge
+         id="feMerge4596">
+        <feMergeNode
+           id="feMergeNode4598"
+           in="shadowMatrixOuter1" />
+        <feMergeNode
+           id="feMergeNode4600"
+           in="shadowMatrixOuter2" />
+        <feMergeNode
+           id="feMergeNode4602"
+           in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <rect
+       rx="2"
+       height="40"
+       width="40"
+       y="0"
+       x="0"
+       id="path-2" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2"
+     inkscape:cx="54.162388"
+     inkscape:cy="189.48473"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:showpageshadow="false"
+     borderlayer="true"
+     units="px"
+     inkscape:window-width="1703"
+     inkscape:window-height="1277"
+     inkscape:window-x="143"
+     inkscape:window-y="22"
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata4367">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-257.03308,-295.509)">
+    <g
+       id="g4868">
+      <path
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 259.03308,295.509 36,0 c 1.108,0 2,0.892 2,2 l 0,36 c 0,1.108 -0.892,2 -2,2 l -36,0 c -1.108,0 -2,-0.892 -2,-2 l 0,-36 c 0,-1.108 0.892,-2 2,-2 z"
+         id="rect4829"
+         inkscape:connector-curvature="0" />
+      <g
+         transform="translate(268.03308,306.509)"
+         id="logo_googleg_48dp-7"
+         sketch:type="MSLayerGroup"
+         style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
+        <path
+           style="fill:#4285f4"
+           inkscape:connector-curvature="0"
+           d="m 17.64,9.2045455 c 0,-0.6381819 -0.05727,-1.2518182 -0.163636,-1.8409091 L 9,7.3636364 9,10.845 l 4.843636,0 C 13.635,11.97 13.000909,12.923182 12.047727,13.561364 l 0,2.258182 2.908637,0 C 16.658182,14.252727 17.64,11.945455 17.64,9.2045455 l 0,0 z"
+           id="Shape-6-9"
+           sketch:type="MSShapeGroup" />
+        <path
+           style="fill:#34a853"
+           inkscape:connector-curvature="0"
+           d="m 9,18 c 2.43,0 4.467273,-0.805909 5.956364,-2.180454 l -2.908637,-2.258182 c -0.805909,0.54 -1.836818,0.859091 -3.047727,0.859091 -2.3440909,0 -4.3281818,-1.583182 -5.0359091,-3.710455 l -3.00681817,0 0,2.331818 C 2.4381818,15.983182 5.4818182,18 9,18 l 0,0 z"
+           id="path4620-2"
+           sketch:type="MSShapeGroup" />
+        <path
+           style="fill:#fbbc05"
+           inkscape:connector-curvature="0"
+           d="M 3.9640909,10.71 C 3.7840909,10.17 3.6818182,9.5931818 3.6818182,9 c 0,-0.5931818 0.1022727,-1.17 0.2822727,-1.71 l 0,-2.3318182 -3.00681817,0 C 0.34772727,6.1731818 0,7.5477273 0,9 c 0,1.452273 0.34772727,2.826818 0.95727273,4.041818 L 3.9640909,10.71 l 0,0 z"
+           id="path4622-0"
+           sketch:type="MSShapeGroup" />
+        <path
+           style="fill:#ea4335"
+           inkscape:connector-curvature="0"
+           d="m 9,3.5795455 c 1.321364,0 2.507727,0.4540909 3.440455,1.3459091 L 15.021818,2.3440909 C 13.463182,0.89181818 11.425909,0 9,0 5.4818182,0 2.4381818,2.0168182 0.95727273,4.9581818 L 3.9640909,7.29 C 4.6718182,5.1627273 6.6559091,3.5795455 9,3.5795455 l 0,0 z"
+           id="path4624-8"
+           sketch:type="MSShapeGroup" />
+        <path
+           inkscape:connector-curvature="0"
+           d="M 0,0 18,0 18,18 0,18 0,0 Z"
+           id="path4626-4"
+           sketch:type="MSShapeGroup" />
+      </g>
+    </g>
+    <g
+       id="g5454"
+       transform="translate(69.25,0)" />
+  </g>
+</svg>
