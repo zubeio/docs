@@ -206,11 +206,11 @@ module.exports = function (grunt) {
         },
         usemin: {
             html: ['<%= yeoman.dist %>/*.html'],
-            css: ['<%= yeoman.dist %>/docs/styles/**/*.css'],
+            css: ['<%= yeoman.dist %>/docs/styles/*.css'],
             js: ['<%= yeoman.dist %>/docs/scripts/*.js'],
             options: {
                 // Added this to make dist css images correct
-                assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/docs/images'],
+                assetsDirs: ['<%= yeoman.dist %>/docs', '<%= yeoman.dist %>/docs/images'],
                 patterns: {
                     js: [
                         // check to make sure this regex does not break css font names
