@@ -210,7 +210,7 @@ module.exports = function (grunt) {
             js: ['<%= yeoman.dist %>/docs/scripts/*.js'],
             options: {
                 // Added this to make dist css images correct
-                assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images'],
+                assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/docs/images'],
                 patterns: {
                     js: [
                         // check to make sure this regex does not break css font names
