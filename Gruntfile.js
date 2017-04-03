@@ -159,12 +159,12 @@ module.exports = function (grunt) {
         less: {
             dist: {
                 files: {
-                    '.tmp/styles/main.css': '<%= yeoman.app %>/styles/main.less'
+                    '.tmp/styles/main.css': '<%= yeoman.app %>/docs/styles/main.less'
                 }
             },
             server: {
                 files: {
-                    '.tmp/styles/main.css': '<%= yeoman.app %>/styles/main.less'
+                    '.tmp/styles/main.css': '<%= yeoman.app %>/docs/styles/main.less'
                 },
                 options: {
                     sourceMap: true,
@@ -205,12 +205,12 @@ module.exports = function (grunt) {
             }
         },
         usemin: {
-            html: ['<%= yeoman.dist %>/**/*.html'],
-            css: ['<%= yeoman.dist %>/styles/**/*.css'],
-            js: ['<%= yeoman.dist %>/scripts/*.js'],
+            html: ['<%= yeoman.dist %>/*.html'],
+            css: ['<%= yeoman.dist %>/docs/styles/**/*.css'],
+            js: ['<%= yeoman.dist %>/docs/scripts/*.js'],
             options: {
                 // Added this to make dist css images correct
-                assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images'],
+                assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/docs/images'],
                 patterns: {
                     js: [
                         // check to make sure this regex does not break css font names
@@ -227,18 +227,18 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>/images',
+                    cwd: '<%= yeoman.app %>/docs/images',
                     src: '*.{png,jpg,jpeg,svg}',
-                    dest: '<%= yeoman.dist %>/images'
+                    dest: '<%= yeoman.dist %>/docs/images'
                 }]
             }
         },
         cssmin: {
             dist: {
                 files: {
-                    '<%= yeoman.dist %>/styles/main.css': [
+                    '<%= yeoman.dist %>/docs/styles/main.css': [
                         '.tmp/styles/**/*.css',
-                        '<%= yeoman.app %>/styles/**/*.css'
+                        '<%= yeoman.app %>/docs/styles/**/*.css'
                     ]
                 }
             }
@@ -284,14 +284,14 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>/.htaccess'
                 }, {
                     src: '.tmp/styles/main.css',
-                    dest: '<%= yeoman.dist %>/styles/main.css'
+                    dest: '<%= yeoman.dist %>/docs/styles/main.css'
                 }]
             },
             compressed: {
                 expand: true,
                 dot: true,
                 cwd: '.tmp/gzip',
-                dest: '<%= yeoman.dist %>',
+                dest: '<%= yeoman.dist %>/docs',
                 src: ['**/*.*']
             }
         },
@@ -319,18 +319,11 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     src: [
-                        '<%= yeoman.dist %>/bower_components/font-awesome/fonts/*.*',
-                        '<%= yeoman.dist %>/bower_components/octicons/octicons/*.*',
-                        '<%= yeoman.dist %>/favicons/*.*',
-                        '<%= yeoman.dist %>/images/{,*/}*.*',
-                        '!<%= yeoman.dist %>/images/emails/*.*',
-                        '!<%= yeoman.dist %>/images/no_rev/*.*',
-                        '<%= yeoman.dist %>/videos/{,*/}*.*',
-                        '<%= yeoman.dist %>/scripts/{,*/}*.js',
-                        '<%= yeoman.dist %>/static/**/*.*',
-                        '<%= yeoman.dist %>/styles/fonts/**/*.*',
-                        '<%= yeoman.dist %>/styles/**/*.css',
-                        '<%= yeoman.dist %>/vendor/fonts/**/*.*'
+                        '<%= yeoman.dist %>/docs/images/{,*/}*.*',
+                        '<%= yeoman.dist %>/docs/scripts/{,*/}*.js',
+                        '<%= yeoman.dist %>/docs/styles/fonts/**/*.*',
+                        '<%= yeoman.dist %>/docs/styles/**/*.css',
+                        '<%= yeoman.dist %>/docs/vendor/fonts/**/*.*'
                     ]
                 }
             }
@@ -357,6 +350,11 @@ module.exports = function (grunt) {
                 command: function () {
                     var branch = grunt.option('branch') || 'master';
                     return 'ssh deploy@staging.zube.io -A \'cd /home/deploy/zube/docs; git checkout ' + branch + '; git pull origin ' + branch + '\'';
+                }
+            },
+            move: {
+                command: function () {
+                    return 'mv ./dist/docs/* ./dist; rm -rf ./dist/docs';
                 }
             }
         }
@@ -434,7 +432,8 @@ module.exports = function (grunt) {
         'uglify', // uglifies .tmp js and moves to dist
         'copy', // copies things to dist
         'rev', // md5 hash files
-        'usemin' // replaces references in code
+        'usemin', // replaces references in code
+        'shell:move' // move assets up on dir and remove docs directory
     ]);
 
     grunt.registerTask('default', [
