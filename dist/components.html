@@ -84,7 +84,7 @@
                                 <h2 class="section-title">Workspaces</h2>
                                 <div class="section-block">
                                     <p>
-                                        Workspaces allow you break apart your cards into separate spaces. Workspaces contain a Kanban board, Sprint board, Sprints, and Burndown charts. Each project has at least one Workspace, but you can create multiple Workspaces for your Project. Every Workspace on a Project will have access to the same source repositories that have been added to the Project. However, cards can only exist on one Workspace at a time, which allows you to segment your cards as appropriate. Cards can be moved between Workspaces so you can create a workflow across different teams.
+                                        Workspaces allow you break apart your cards into separate spaces. Workspaces contain a Kanban board, Sprint board, Sprints, and Analytics. Each project has at least one Workspace, but you can create multiple Workspaces for your Project. Every Workspace on a Project will have access to the same source repositories that have been added to the Project. However, cards can only exist on one Workspace at a time, which allows you to segment your cards as appropriate. Cards can be moved between Workspaces so you can create a workflow across different teams.
                                     </p>
                                 </div><!--//section-block-->
                                 <div id="kanban-board" class="section-block">
@@ -104,14 +104,45 @@
                                     <p>
                                         You can change which column serves as the sprint backlog on the Workspace settings page and any column to the right of the sprint backlog will be a sprint column on a Sprint board.
                                     </p>
-                                </div><!--//section-block-->
-                                <div id="burndown" class="section-block">
-                                    <h3 class="block-title">Sprints and Burndown Charts</h3>
                                     <p>
-                                        The Sprints section allows you to create, edit, close and delete sprints. Sprints must have a start and end date.
+                                        You can manage your Sprints from the Sprints page. The Sprints page allows you to create, edit, close and delete sprints. Sprints must have a start and end date.
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="analytics" class="section-block">
+                                    <h3 class="block-title">Analytics</h3>
+                                    <p>
+                                        Zube offers a variety of Agile charts and analytics to help you keep track of how your team is doing.
+                                    </p>
+                                    <h4>Burndown and Burnup Charts</h4>
+                                    <p>
+                                        If your team is using Sprints, you can track your sprint progress using Burndown and Burnup charts. Burndowns allow you to see how much work your team has left to do in the Sprint and if your team is on schedule to complete all the Sprint work on time. The Burndown chart has two lines. The Open Points/Cards (blue) line show how many open points are left in your Sprint by day. The Ideal Open Points/Cards line (red) shows how much work should still be open in order to complete the work in the Sprint on time.
                                     </p>
                                     <p>
-                                        If your Workspace has points enabled, you can view the historical progress of your sprints with Burndown charts. A Burndown chart consists of an ideal line (blue) and a burndown line (orange). The ideal line is the ideal number of points that should be left in a given Sprint in order to complete the work on time. The burndown line is the actual number of points left per day. You can filter burndown chart data by source and can exclude weekends from the ideal trajectory.
+                                        A Burnup chart tracks how much work has been completed during the Sprint. Burnup charts have three lines, Goal, Closed Points/Cards, and Ideal Closed Points/Cards. The Goal line allows you to easily see when new work is added to a sprint. Similar to the Burndown Ideal line, the Burnup ideal line marks how much work should have been closed in order to ensure all of the work in your Sprint is completed on time. The Closed line shows the total number of points or cards closed that have been closed.
+                                    </p>
+                                    <p>
+                                        Both Burndown and Burnup charts can be filtered by source and can be set to exclude weekends in the Ideal line calculation. They can also display data using point totals or card totals.
+                                    </p>
+                                    <h4>Throughput Chart</h4>
+                                    <p>
+                                        The Throughput chart shows you how much work your team is completing everyday. The chart is a stacked bar chart with each segment representing the work done on each of your sources. Throughput charts can help you spot changes in your team's productivity or workflow. Zube's Throughput chart has many filters that allow you dig into the details of what work is being completed everyday.
+                                    </p>
+                                    <p>
+                                        The Throughput chart can be filtered by card type, source, assignee, epic, label, milestone and sprint. You can also adjust the date range displayed. Data can be presented as point totals or card totals.
+                                    </p>
+                                    <h4>Users Throughput Chart</h4>
+                                    <p>
+                                        The Users Throughput chart tracks how much is being done by each team member weekly. Like the Throughput chart, the Users throughput chart allows you to track how efficiently your team is working and spot potential problems in your team members' workflows. The Users Throughput chart also offers a rich set of filters. The chart can be displayed as a stacked area chart or stacked bar chart.
+                                    </p>
+                                    <p>
+                                        The Users Throughput chart can be filtered by source, assignee, label, milestone and sprint. You can also adjust the date range displayed. Data can be presented as point totals or card totals.
+                                    </p>
+                                    <h4>Velocity Chart</h4>
+                                    <p>
+                                        If you are using Sprints, you can track how much work your team is getting done per sprint with the Velocity chart. The Velocity chart is a stacked bar chart showing how many cards or points were closed during each sprint in the selected date range. Each section of the bars represents one of your sources. The Velocity chart allows you to see potential problems in your team's efficiency as well as providing a way to predict how much work your team will be able to accomplish in future sprints.
+                                    </p>
+                                    <p>
+                                        The Velocity chart can be filtered by source and label. You can also adjust the date range displayed. Data can be presented as point totals or card totals.
                                     </p>
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
@@ -131,7 +162,7 @@
                                 <h2 class="section-title">Epics</h2>
                                 <div class="section-block">
                                     <p>
-                                        Epics are a fundamental component of Agile project management which allow you to group related issues (user stories) together amd track their progress. To create an Epic, click the 'New Epic' button at the top of the screen on the Epics page. Once you've created your Epic, you can attach cards to the Epic and the Epic wil automatically track the status of those cards as they move through your workflow. The Epic will update it's status as your cards move from creation to completion.
+                                        Epics are a fundamental component of Agile project management which allow you to group related issues (user stories) together and track their progress. To create an Epic, click the 'New Epic' button at the top of the screen on the Epics page. Once you've created your Epic, you can attach cards to the Epic and the Epic will automatically track the status of those cards as they move through your workflow. The Epic will update its status as your cards move from creation to completion.
                                         Epics also keep track of the number of open and closed cards and open and closed points and display progress bars with that information.
                                     </p>
                                 </div><!--//section-block-->
@@ -152,6 +183,8 @@
                                     </p>
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
+
+
 
                             <div class="section-block">
                                 <div class="callout-block contact-callout">
@@ -178,7 +211,7 @@
                                     <ul class="nav doc-sub-menu">
                                         <li><a class="scrollto" href="#kanban-board">Kanban Boards</a></li>
                                         <li><a class="scrollto" href="#sprint-board">Sprint Boards</a></li>
-                                        <li><a class="scrollto" href="#burndown">Sprints and Burndown Charts</a></li>
+                                        <li><a class="scrollto" href="#analytics">Analytics</a></li>
                                     </ul><!--//nav-->
                                 </li>
                                 <li><a class="scrollto" href="#triage-section">Triage</a></li>
