@@ -1,11 +1,9 @@
 'use strict';
-var LIVERELOAD_PORT = 35729;
+var LIVERELOAD_PORT = 35728;
 var SERVER_PORT = 9100;
 var modRewrite = require('connect-modrewrite');
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
-var mountFolder = function (connect, dir) {
-    return connect.static(require('path').resolve(dir));
-};
+var serveStatic = require('serve-static');
 var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 
 // # Globbing
@@ -32,7 +30,7 @@ module.exports = function (grunt) {
         watch: {
             options: {
                 nospawn: true,
-                livereload: true
+                livereload: LIVERELOAD_PORT
             },
             less: {
                 files: ['<%= yeoman.app %>/styles/**/*.*'],
@@ -89,13 +87,16 @@ module.exports = function (grunt) {
             // }],
             livereload: {
                 options: {
-                    middleware: function (connect) {
+                    middleware: function () {
                         return [
                             proxySnippet,
-                            modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.gif|\\.jpg|\\.jpeg|\\.woff|\\.ttf|\\.eot|\\.mp4$ /index.html [L]']),
+                            modRewrite([
+                                '^/$ /docs/ [L]',
+                                '(^((?!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.gif|\\.jpg|\\.jpeg|\\.woff|\\.ttf|\\.eot|\\.mp4|\/$).)*$) /$1.html'
+                            ]),
                             lrSnippet,
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app)
+                            serveStatic('.tmp'),
+                            serveStatic(yeomanConfig.app)
                         ];
                     }
                 }
@@ -103,21 +104,21 @@ module.exports = function (grunt) {
             test: {
                 options: {
                     port: 9001,
-                    middleware: function (connect) {
+                    middleware: function () {
                         return [
                             lrSnippet,
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'test'),
-                            mountFolder(connect, yeomanConfig.app)
+                            serveStatic('.tmp'),
+                            serveStatic('test'),
+                            serveStatic(yeomanConfig.app)
                         ];
                     }
                 }
             },
             dist: {
                 options: {
-                    middleware: function (connect) {
+                    middleware: function () {
                         return [
-                            mountFolder(connect, yeomanConfig.dist)
+                            serveStatic(yeomanConfig.dist)
                         ];
                     }
                 }
@@ -205,7 +206,7 @@ module.exports = function (grunt) {
             }
         },
         usemin: {
-            html: ['<%= yeoman.dist %>/*.html'],
+            html: ['<%= yeoman.dist %>/docs/*.html'],
             css: ['<%= yeoman.dist %>/docs/styles/**/*.css'],
             js: ['<%= yeoman.dist %>/docs/scripts/**/*.js'],
             options: {
@@ -258,9 +259,9 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>',
+                    cwd: '<%= yeoman.app %>/docs',
                     src: '*.html',
-                    dest: '<%= yeoman.dist %>'
+                    dest: '<%= yeoman.dist %>/docs'
                 }]
             }
         },
