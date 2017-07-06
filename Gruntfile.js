@@ -91,7 +91,7 @@ module.exports = function (grunt) {
                         return [
                             proxySnippet,
                             modRewrite([
-                                '^/$ /docs/ [L]',
+                                '^/$ /docs/ [R]',
                                 '(^((?!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.gif|\\.jpg|\\.jpeg|\\.woff|\\.ttf|\\.eot|\\.mp4|\/$).)*$) /$1.html'
                             ]),
                             lrSnippet,
