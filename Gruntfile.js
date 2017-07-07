@@ -33,7 +33,7 @@ module.exports = function (grunt) {
                 livereload: LIVERELOAD_PORT
             },
             less: {
-                files: ['<%= yeoman.app %>/styles/**/*.*'],
+                files: ['<%= yeoman.app %>/docs/styles/**/*.*'],
                 tasks: ['less', 'postcss']
             },
             livereload: {
@@ -41,18 +41,18 @@ module.exports = function (grunt) {
                     livereload: grunt.option('livereloadport') || LIVERELOAD_PORT
                 },
                 files: [
-                    '<%= yeoman.app %>/*.html',
-                    '{.tmp,<%= yeoman.app %>}/styles/**/*.*',
-                    '{.tmp,<%= yeoman.app %>}/scripts/**/*.js',
-                    '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp}',
-                    '<%= yeoman.app %>/videos/**/*.{mp4}',
-                    '<%= yeoman.app %>/scripts/templates/**/*.{ejs,mustache,hbs}',
+                    '<%= yeoman.app %>/docs/*.html',
+                    '{.tmp,<%= yeoman.app %>}/docs/styles/**/*.*',
+                    '{.tmp,<%= yeoman.app %>}/docs/scripts/**/*.js',
+                    '<%= yeoman.app %>/docs/images/**/*.{png,jpg,jpeg,gif,webp}',
+                    '<%= yeoman.app %>/docs/videos/**/*.{mp4}',
+                    '<%= yeoman.app %>/docs/scripts/templates/**/*.{ejs,mustache,hbs}',
                     'test/spec/**/*.js'
                 ]
             },
             jst: {
                 files: [
-                    '<%= yeoman.app %>/scripts/templates/**/*.ejs'
+                    '<%= yeoman.app %>/docs/scripts/templates/**/*.ejs'
                 ],
                 tasks: ['jst']
             },

@@ -77,7 +77,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> Getting Started</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: April 4, 2017</div>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: July 6, 2017</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -85,7 +85,7 @@
                             <section id="signup-section" class="doc-section">
                                 <h2 class="section-title">Sign Up</h2>
                                 <p>
-                                    Getting started with Zube is quick and easy. You can signup using either GitHub OAuth or Google OAuth.
+                                    Getting started with Zube is quick and easy. You can sign up using either GitHub OAuth or Google OAuth.
                                 </p>
                                 <div id="github-auth"  class="section-block">
                                     <h3 class="block-title">GitHub Authentication</h3>
@@ -122,48 +122,74 @@
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
 
-                            <section id="organization-section" class="doc-section">
-                                <h2 class="section-title">Create an Organization</h2>
+                            <section id="organizations-section" class="doc-section">
+                                <h2 class="section-title">Organizations</h2>
                                 <p>
                                     Zube organizations are the home base for your different projects. An Zube organization can be linked to a GitHub organization, which will allow your team members to import repositories from that GitHub organization into projects. A GitHub organization can only be linked to one Zube organization.
                                 </p>
                                 <p>
-                                    On the welcome page, there is a form to make your first Zube organization. If you logged in with GitHub, you'll have the option to add a GitHub organization. Enter your organization name, select a GitHub organization (optional) and click 'Create Organization'.
+                                    After logging into Zube, you will be able to either create an organization or join an existing organization.
                                 </p>
                                 <div class="screenshot-holder">
-                                    <a href="/docs/images/create_organization.png" data-toggle="lightbox" data-title="Create an Organization"><img class="img-responsive" src="/docs/images/create_organization.png" alt="screenshot" /></a>
-                                    <a class="mask" href="/docs/images/create_organization.png" data-toggle="lightbox" data-title="Create an Organization"><i class="icon fa fa-search-plus"></i></a>
+                                    <a href="/docs/images/welcome_page.png" data-toggle="lightbox" data-title="Welcome Page"><img class="img-responsive" src="/docs/images/welcome_page.png" alt="screenshot" /></a>
+                                    <a class="mask" href="/docs/images/welcome_page.png" data-toggle="lightbox" data-title="Welcome Page"><i class="icon fa fa-search-plus"></i></a>
                                 </div>
-
-                                <div class="callout-block callout-info">
+                                <div class="callout-block callout-success">
                                     <div class="icon-holder">
                                         <i class="fa fa-info-circle"></i>
                                     </div><!--//icon-holder-->
                                     <div class="content">
-                                        <h4 class="callout-title">Hint:</h4>
+                                        <h4 class="callout-title">Tip:</h4>
                                         <p>
                                             If you signed up with GitHub and are a collaborator on GitHub repositories that are being managed in Zube, you will be automatically added to those projects. To create a new organization, click the blue button at the top right of the page.
                                         </p>
                                     </div><!--//content-->
                                 </div><!--//callout-block-->
-                            </section><!--//doc-section-->
+                                <p>
+                                    <small>If you signed up for Zube through the GitHub Marketplace, your organization will be created automatically and you will be prompted to create your first Project. <strong><a href="#project-section">Skip to Creating a Project</a></strong>.</small>
+                                </p>
 
-                            <section id="project-section" class="doc-section">
-                                <h2 class="section-title">Create a Project</h2>
-                                <p>
-                                    After you create a new organization, it's time to make the first Project for your organization. Projects are the highest level containers for your workflow on Zube and contain project management components such as Tickets, Triage and Workspaces.
-                                </p>
-                                <p>
-                                    If your organization is linked to a GitHub organization (and you have signed in with GitHub), you'll be able to select one or more source repositories to import into your Project. Projects can have many source repos, but source repos can only belong to one Project. Give your Project a name, description and optionally link one or more GitHub source repositories. When you're ready, click 'Create Project'.
-                                </p>
-                                <div class="screenshot-holder">
-                                    <a href="/docs/images/create_project.png" data-toggle="lightbox" data-title="Create a Project"><img class="img-responsive" src="/docs/images/create_project.png" alt="screenshot" /></a>
-                                    <a class="mask" href="/docs/images/create_project.png" data-toggle="lightbox" data-title="Create a Project"><i class="icon fa fa-search-plus"></i></a>
+                                <div id="create-organization-section"  class="section-block">
+                                    <h3 class="block-title">Create an Organization</h3>
+                                    <p>
+                                        To create a new organization on Zube, click "Create a new Organization" button to bring up the new organization form. If you logged in with GitHub, you'll have the option to add a GitHub organization. Enter your organization name, select a GitHub organization (optional) and click 'Create Organization'.
+                                    </p>
+                                    <div class="screenshot-holder">
+                                        <a href="/docs/images/create_organization.png" data-toggle="lightbox" data-title="Create an Organization"><img class="img-responsive" src="/docs/images/create_organization.png" alt="screenshot" /></a>
+                                        <a class="mask" href="/docs/images/create_organization.png" data-toggle="lightbox" data-title="Create an Organization"><i class="icon fa fa-search-plus"></i></a>
+                                    </div>
+                                </div><!--//section-block-->
+                                <div id="create-project-section"  class="section-block">
+                                    <h3 class="block-title">Create a Project</h3>
+                                    <p>
+                                        After you create a new organization, it's time to make the first Project for your organization. Projects are the highest level containers for your workflow on Zube and contain project management components such as Tickets, Triage and Workspaces.
+                                    </p>
+                                    <p>
+                                        If your organization is linked to a GitHub organization (and you have signed in with GitHub), you'll be able to select one or more source repositories to import into your Project. Projects can have many source repos, but source repos can only belong to one Project. Give your Project a name, description and optionally link one or more GitHub source repositories. When you're ready, click 'Create Project'.
+                                    </p>
+                                    <div class="screenshot-holder">
+                                        <a href="/docs/images/create_project.png" data-toggle="lightbox" data-title="Create a Project"><img class="img-responsive" src="/docs/images/create_project.png" alt="screenshot" /></a>
+                                        <a class="mask" href="/docs/images/create_project.png" data-toggle="lightbox" data-title="Create a Project"><i class="icon fa fa-search-plus"></i></a>
+                                    </div>
+
+                                    <p>
+                                        If you attached any GitHub repositories to your Project, Zube will import the Issues from those repos to your Project. Once the import is complete, you'll be redirected to your Workspace where you can begin managing your project!
+                                    </p>
                                 </div>
 
-                                <p>
-                                    If you attached any GitHub repositories to your Project, Zube will import the Issues from those repos to your Project. Once the import is complete, you'll be redirected to your Workspace where you can begin managing your project!
-                                </p>
+                                <div id="join-organization-section"  class="section-block">
+                                    <h3 class="block-title">Join an Organization</h3>
+                                    <p>
+                                        To create a new organization on Zube, click "Join an existing Organization" button to bring up the organization search form. If you signed in with your GitHub account and have access to a GitHub organization already linked to a Zube organization, you can select it from the GitHub organization drop down list. You will be immediately added to the Zube organization.
+                                    </p>
+                                    <p>
+                                        You can also use the organization search box to search for a Zube organization by name. Selecting a Zube organization by name will send a request to join notification to the admins for that organization. Organization admins can either approve the request, which will add the requester to the organization, or deny the request.
+                                    </p>
+                                    <div class="screenshot-holder">
+                                        <a href="/docs/images/join_organization.png" data-toggle="lightbox" data-title="Join an Organization"><img class="img-responsive" src="/docs/images/join_organization.png" alt="screenshot" /></a>
+                                        <a class="mask" href="/docs/images/join_organization.png" data-toggle="lightbox" data-title="Join an Organization"><i class="icon fa fa-search-plus"></i></a>
+                                    </div>
+                                </div><!--//section-block-->
                             </section><!--//doc-section-->
 
                             <section id="team-section" class="doc-section">
@@ -172,7 +198,7 @@
                                     Once you've created your first Project, you'll probably want to have the rest of your team join in as well. To add team members to your Project, they must be part of your organization.
                                 </p>
                                 <p>
-                                    To add new team members, go to the organization settings page. Under the Organization Members' tab, you'll see a list of the organization admins and members and a search box to look for teammates on Zube. If your team members have already joined Zube, you can use the search box to find them by name or username.
+                                    To add new team members, go to the organization settings page. Under the Organization Members' tab, you'll see a list of the organization admins and members and a search box to look for teammates on Zube. You can send email invitations to join Zube to your team members via the "Invite Team Members" form. If your team members have already joined Zube, you can use the search box to find them by name, username or email address.
                                 </p>
                                 <p>
                                     If your organization is linked to a GitHub organization, you will also see a list of GitHub Collaborators. This is a list of people who are collaborators on your project sources but are not on your Zube organization. You can use the invite form to send them an email inviting them to join your Zube organization.
@@ -203,7 +229,7 @@
                                     <div class="content">
                                         <h4 class="callout-title">TL;DR:</h4>
                                         <p>
-                                            To add Google authenticated team members to your Zube organization, have them sign up for Zube and then use the search bar on your Organization Settings page to add them to your organization. Once team members are on your organization, you can add team members to any of your organization projects.
+                                            You can invite new team members to Zube or search for people already on Zube to add to your organization. Once team members are on your organization, you can add team members to any of your organization projects.
                                         </p>
                                     </div><!--//content-->
                                 </div>
@@ -292,9 +318,13 @@
                                     </ul><!--//nav-->
                                 </li>
                                 <li>
-                                    <a class="scrollto" href="#organization-section">Create an Organization</a>
+                                    <a class="scrollto" href="#organizations-section">Organizations</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#create-organization-section">Create an Organization</a></li>
+                                        <li><a class="scrollto" href="#create-project-section">Create a Project</a></li>
+                                        <li><a class="scrollto" href="#join-organization-section">Join an existing Organization</a></li>
+                                    </ul><!--//nav-->
                                 </li>
-                                <li><a class="scrollto" href="#project-section">Create a Project</a></li>
                                 <li><a class="scrollto" href="#team-section">Adding Team Members</a></li>
                                 <li>
                                     <a class="scrollto" href="#zubebot-section">Zubebot GitHub Integration</a>
