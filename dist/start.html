@@ -76,8 +76,29 @@
                             <section id="signup-section" class="doc-section">
                                 <h2 class="section-title">Sign Up</h2>
                                 <p>
-                                    Getting started with Zube is quick and easy. You can sign up using either GitHub OAuth or Google OAuth.
+                                    You can get started using Zube by signing up with either Google or GitHub OAuth.
                                 </p>
+                                <div id="google-auth" class="section-block">
+                                    <h3 class="block-title">Google Authentication</h3>
+                                    <a class="btn provider-btn google-btn btn-login btn-signup word-wrap" href="/auth/google">
+                                        <img class="vendor-icon" src="/docs/images/49ecdd2fe890ff864bdfb1d71566efdc.google_login_btn.svg" alt="Google">
+                                        <span>Sign up with Google</span>
+                                    </a>
+                                    <p>
+                                        Logging in with Google is easy and secure.
+                                    </p>
+                                    <div class="callout-block callout-success">
+                                        <div class="icon-holder">
+                                            <i class="fa fa-thumbs-up"></i>
+                                        </div><!--//icon-holder-->
+                                        <div class="content">
+                                            <h4 class="callout-title">Tip:</h4>
+                                            <p>
+                                                If you have multiple Google accounts make sure you choose the appropriate account. For example, you may have a personal email account like your.name@gmail.com and a work email like name@company.com. You'll most likely want to choose your work account when signing up for Zube.
+                                            </p>
+                                        </div><!--//content-->
+                                    </div>
+                                </div><!--//section-block-->
                                 <div id="github-auth" class="section-block">
                                     <h3 class="block-title">GitHub Authentication</h3>
                                     <a class="btn provider-btn github-btn btn-login btn-signup word-wrap" href="/auth/github">
@@ -85,9 +106,8 @@
                                         <span>Sign up with GitHub</span>
                                     </a>
                                     <p>
-                                        Logging in with GitHub allows you to import your GitHub projects' Issues into Zube projects. If you are a GitHub collaborator on GitHub repositories that are being managed on Zube, you will be automatically added to them when you sign up.
+                                        Logging in with GitHub allows you to change your GitHub Issues data directly from Zube. If you have a GitHub account and are using Zube for software development, you'll want to choose this option. Using GitHub authentication will allow you create new GitHub Issues directly from Zube as well as comment as yourself.
                                     </p>
-
                                     <div class="callout-block callout-success">
                                         <div class="icon-holder">
                                             <i class="fa fa-thumbs-up"></i>
@@ -100,30 +120,16 @@
                                         </div><!--//content-->
                                     </div>
                                 </div><!--//section-block-->
-
-                                <div id="google-auth" class="section-block">
-                                    <h3 class="block-title">Google Authentication</h3>
-                                    <a class="btn provider-btn google-btn btn-login btn-signup word-wrap" href="/auth/google">
-                                        <img class="vendor-icon" src="/docs/images/49ecdd2fe890ff864bdfb1d71566efdc.google_login_btn.svg" alt="Google">
-                                        <span>Sign up with Google</span>
-                                    </a>
-                                    <p>
-                                        Logging in with Google will not allow you to import GitHub repositories to projects unless you also have logged in with a GitHub account.
-                                    </p>
-                                </div><!--//section-block-->
                             </section><!--//doc-section-->
 
                             <section id="organizations-section" class="doc-section">
                                 <h2 class="section-title">Organizations</h2>
                                 <p>
-                                    Zube organizations are the home base for your different projects. An Zube organization can be linked to a GitHub organization, which will allow your team members to import repositories from that GitHub organization into projects. A GitHub organization can only be linked to one Zube organization.
-                                </p>
-                                <p>
-                                    After logging into Zube, you will be able to either create an organization or join an existing organization.
+                                    Zube organizations are the home base for your different projects. After logging into Zube, you will be able to either create a new organization or join an existing organization.
                                 </p>
                                 <div class="screenshot-holder">
-                                    <a href="/docs/images/welcome_page.png" data-toggle="lightbox" data-title="Welcome Page"><img class="img-responsive" src="/docs/images/welcome_page.png" alt="screenshot"></a>
-                                    <a class="mask" href="/docs/images/welcome_page.png" data-toggle="lightbox" data-title="Welcome Page"><i class="icon fa fa-search-plus"></i></a>
+                                    <a href="/docs/images/10ae2dfb8b90fcca139b2cca9a968422.welcome_screen.png" data-toggle="lightbox" data-title="Welcome Page"><img class="img-responsive" src="/docs/images/10ae2dfb8b90fcca139b2cca9a968422.welcome_screen.png" alt="screenshot"></a>
+                                    <a class="mask" href="/docs/images/10ae2dfb8b90fcca139b2cca9a968422.welcome_screen.png" data-toggle="lightbox" data-title="Welcome Page"><i class="icon fa fa-search-plus"></i></a>
                                 </div>
                                 <div class="callout-block callout-success">
                                     <div class="icon-holder">
@@ -149,6 +155,17 @@
                                         <a href="/docs/images/325c0d7a455ff37da9be3cdde39d2840.create_organization.png" data-toggle="lightbox" data-title="Create an Organization"><img class="img-responsive" src="/docs/images/325c0d7a455ff37da9be3cdde39d2840.create_organization.png" alt="screenshot"></a>
                                         <a class="mask" href="/docs/images/325c0d7a455ff37da9be3cdde39d2840.create_organization.png" data-toggle="lightbox" data-title="Create an Organization"><i class="icon fa fa-search-plus"></i></a>
                                     </div>
+                                    <div class="callout-block callout-success">
+                                    <div class="icon-holder">
+                                        <i class="fa fa-info-circle"></i>
+                                    </div><!--//icon-holder-->
+                                    <div class="content">
+                                        <h4 class="callout-title">Tip:</h4>
+                                        <p>
+                                            Optionally, you can link a GitHub organization to your Zube organization. You'll want to go this route if you'd like to use Zube to help manage your GitHub Issues. Note that a GitHub organization can be linked to one and only one Zube organization.
+                                        </p>
+                                    </div><!--//content-->
+                                </div><!--//callout-block-->
                                 </div><!--//section-block-->
                                 <div id="create-project-section" class="section-block">
                                     <h3 class="block-title">Create a Project</h3>
@@ -171,10 +188,10 @@
                                 <div id="join-organization-section" class="section-block">
                                     <h3 class="block-title">Join an Organization</h3>
                                     <p>
-                                        To create a new organization on Zube, click "Join an existing Organization" button to bring up the organization search form. If you signed in with your GitHub account and have access to a GitHub organization already linked to a Zube organization, you can select it from the GitHub organization drop down list. You will be immediately added to the Zube organization.
+                                        To join an existing organization on Zube, click "Join an existing Organization" button to bring up the organization search form. If you signed in with your GitHub account and have access to a GitHub organization already linked to a Zube organization, you be able to select it from the GitHub organization drop down list.
                                     </p>
                                     <p>
-                                        You can also use the organization search box to search for a Zube organization by name. Selecting a Zube organization by name will send a request to join notification to the admins for that organization. Organization admins can either approve the request, which will add the requester to the organization, or deny the request.
+                                        You can also use the organization search box to search for a Zube organization by name. Selecting a Zube organization by name will send an approval request to the organization admins. Organization admins can either approve the request, which will add the requester to the organization, or deny the request.
                                     </p>
                                     <div class="screenshot-holder">
                                         <a href="/docs/images/02c67e678613cf617301562d0adda61d.join_organization.png" data-toggle="lightbox" data-title="Join an Organization"><img class="img-responsive" src="/docs/images/02c67e678613cf617301562d0adda61d.join_organization.png" alt="screenshot"></a>
@@ -189,10 +206,10 @@
                                     Once you've created your first Project, you'll probably want to have the rest of your team join in as well. To add team members to your Project, they must be part of your organization.
                                 </p>
                                 <p>
-                                    To add new team members, go to the organization settings page. Under the Organization Members' tab, you'll see a list of the organization admins and members and a search box to look for teammates on Zube. You can send email invitations to join Zube to your team members via the "Invite Team Members" form. If your team members have already joined Zube, you can use the search box to find them by name, username or email address.
+                                    To add new team members, go to the organization settings page. Under the Organization Members' tab, you'll see a list of the organization admins and members and a search box to look for teammates on Zube. You can send email invitations to your team members via the "Invite Team Members" form. If your team members have already joined Zube, you can use the search box to find them by name, username, or email address.
                                 </p>
                                 <p>
-                                    If your organization is linked to a GitHub organization, you will also see a list of GitHub Collaborators. This is a list of people who are collaborators on your project sources but are not on your Zube organization. You can use the invite form to send them an email inviting them to join your Zube organization.
+                                    If your organization is linked to a GitHub organization, you will also see a list of GitHub Collaborators. This is a list of people who are collaborators on your project sources but are not members of your Zube organization. You can use the invite form to send them an email inviting them to join your Zube organization.
                                 </p>
                                 <div class="screenshot-holder">
                                     <a href="/docs/images/a67254afb4bb018e14c0026cf9a3d588.add_team_members.png" data-toggle="lightbox" data-title="Add Team Members to an Organization"><img class="img-responsive" src="/docs/images/a67254afb4bb018e14c0026cf9a3d588.add_team_members.png" alt="screenshot"></a>
@@ -230,7 +247,7 @@
                             <section id="zubebot-section" class="doc-section">
                                 <h2 class="section-title">The Zubebot GitHub Integration</h2>
                                 <p>
-                                    If your organization has a linked GitHub organization, we recommend installing the Zubebot GitHub Integration to make communication across your team seamless. The Zubebot allows your non-technical team members and team members with read-only access to your source repositories to communicate with your developers without giving them write GitHub access to your repositories.
+                                    If your organization has a linked GitHub organization, we recommend installing the Zubebot GitHub Integration to make communication across your team seamless. The Zubebot allows your non-technical team members and team members with read-only access to your source repositories to communicate with your developers without giving them write access to your GitHub repositories.
                                 </p>
 
                                 <div class="callout-block callout-info">
@@ -252,11 +269,13 @@
                                     </p>
 
                                     <ol class="list">
-                                        <li>Navigate to the organization settings page and click the Integrations tab</li>
-                                        <li>Link a GitHub organization to your Zube organization</li>
-                                        <li>Click the 'Install Zubebot' button</li>
-                                        <li>Click the 'Install' button</li>
-                                        <li>Select the repositories you want to give the integration access to (we recommend selecting all repositories)</li>
+                                        <li>On Zube, navigate to your Zube organization's settings page and click the Integrations tab.
+                                        <br><br>Note: You can get to your Zube organization's settings page via the <a href="https://zube.io" target="_blank">homepage</a> by clicking the "organization settings" link next to the name of your organization.</li>
+                                        <li>Make sure there is a GitHub organization linked to your Zube organization. If not, link your GitHub organization.</li>
+                                        <li>Click the 'Install Zubebot' button.</li>
+                                        <li>In the new window, click the 'Install' button (or 'Configure' button).</li>
+                                        <li>If you are the owner of multiple GitHub organizations, choose the appropriate GitHub organization.</li>
+                                        <li>Select the repositories you want to give the integration access to (we recommend selecting 'All repositories')</li>
                                         <li>Click the install button at the bottom of the screen to authorize the Zubebot integration</li>
                                         <li>
                                             Navigate back to Zube, sit back and enjoy seamless communication across your entire team!
