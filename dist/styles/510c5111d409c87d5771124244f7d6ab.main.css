@@ -1401,10 +1401,10 @@ pre.line-numbers > code {
 
 @font-face {
 	font-family: 'ElegantIcons';
-	src:url('../../docs/styles/fonts/elegant_font/f470a82cef5ab3e9a4b94d3ee69b1738.ElegantIcons.eot');
-	src:url('../../docs/styles/fonts/elegant_font/f470a82cef5ab3e9a4b94d3ee69b1738.ElegantIcons.eot?#iefix') format('embedded-opentype'),
-		url('../../docs/styles/fonts/elegant_font/b0b52064249031d37aaabaab2afbb737.ElegantIcons.woff') format('woff'),
-		url('../../docs/styles/fonts/elegant_font/6ecd055c8b074e17746fdc118dc12c8c.ElegantIcons.ttf') format('truetype'),
+	src:url('../../docs/styles/fonts/elegant_font/7686f69d30abe27891af89acb4139675.ElegantIcons.eot');
+	src:url('../../docs/styles/fonts/elegant_font/7686f69d30abe27891af89acb4139675.ElegantIcons.eot?#iefix') format('embedded-opentype'),
+		url('../../docs/styles/fonts/elegant_font/15c3f62f1b4bdf0e3cd6b86509221dbc.ElegantIcons.woff') format('woff'),
+		url('../../docs/styles/fonts/elegant_font/7495e56ca14459f9c5826ea33721fb1c.ElegantIcons.ttf') format('truetype'),
 		url('../../docs/styles/fonts/elegant_font/907b74de12b89805612e69cd9ece33f6.ElegantIcons.svg#ElegantIcons') format('svg');
 	font-weight: normal;
 	font-style: normal;
@@ -2567,10 +2567,10 @@ text-shadow: none;
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src:url('../../docs/styles/fonts/font-awesome/688b7f88c61ff694a1e2530e4cad550e.fontawesome-webfont.eot');
-  src:url('../../docs/styles/fonts/font-awesome/688b7f88c61ff694a1e2530e4cad550e.fontawesome-webfont.eot') format('embedded-opentype'),
-      url('../../docs/styles/fonts/font-awesome/0b68b617e1d078eccaa332be3149be6c.fontawesome-webfont.woff') format('woff'),
-      url('../../docs/styles/fonts/font-awesome/e23b3ac2ba8a0f7172afe1efb1c4d162.fontawesome-webfont.ttf') format('truetype'),
+  src:url('../../docs/styles/fonts/font-awesome/1b69fccbd2c5e59d4ca6299a8f4845cc.fontawesome-webfont.eot');
+  src:url('../../docs/styles/fonts/font-awesome/1b69fccbd2c5e59d4ca6299a8f4845cc.fontawesome-webfont.eot') format('embedded-opentype'),
+      url('../../docs/styles/fonts/font-awesome/23c077cff1acc299d648f6122f936cdd.fontawesome-webfont.woff') format('woff'),
+      url('../../docs/styles/fonts/font-awesome/0582041a3ad7ba86fd5a629bc5d7213d.fontawesome-webfont.ttf') format('truetype'),
       url('../../docs/styles/fonts/font-awesome/d7c639084f684d66a1bc66855d193ed8.fontawesome-webfont.svg') format('svg');
   font-weight: normal;
   font-style: normal;
@@ -4740,10 +4740,10 @@ text-shadow: none;
 
 @font-face {
     font-family: 'zubeicons';
-    src:url('../../docs/styles/fonts/zubeicons/919b3844eaaa3cce36e58751da1af030.zubeicons.eot');
-    src:url('../../docs/styles/fonts/zubeicons/919b3844eaaa3cce36e58751da1af030.zubeicons.eot') format('embedded-opentype'),
-        url('../../docs/styles/fonts/zubeicons/a844c29445b3414fef39da92d4251bcd.zubeicons.woff') format('woff'),
-        url('../../docs/styles/fonts/zubeicons/6f51cd2e1c1d507442ed9dd0bea1b09b.zubeicons.ttf') format('truetype'),
+    src:url('../../docs/styles/fonts/zubeicons/0a0ac1e2290f48c9199d9773879233db.zubeicons.eot');
+    src:url('../../docs/styles/fonts/zubeicons/0a0ac1e2290f48c9199d9773879233db.zubeicons.eot') format('embedded-opentype'),
+        url('../../docs/styles/fonts/zubeicons/9867d10a29469d0b69fa1b0d5765cdb8.zubeicons.woff') format('woff'),
+        url('../../docs/styles/fonts/zubeicons/2d09c665a97bea118b65931495c9c1b3.zubeicons.ttf') format('truetype'),
         url('../../docs/styles/fonts/zubeicons/3490641ad53e5fd1f46f1a2966f16dec.zubeicons.svg') format('svg');
     font-weight: normal;
     font-style: normal;
