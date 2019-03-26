@@ -76,7 +76,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><span aria-hidden="true" class="icon icon_lifesaver"></span> FAQs</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Feb 23, 2018</div>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Mar 26, 2019</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -250,7 +250,7 @@
                         <li>&sdot;</li>
                         <li><a href="/tos">Terms and Privacy</a></li>
                     </ul>
-                    <p class="copyright text-center medium">Copyright &copy; Pivit Inc. 2018. All Rights Reserved</p>
+                    <p class="copyright text-center medium">Copyright &copy; Pivit Inc. <span id="copyright-date"></span>. All Rights Reserved</p>
                 </div>
             </div>
         </div><!--//container-->
@@ -284,6 +284,9 @@
             s0.parentNode.insertBefore(s1,s0);
         })();
     </script>
-    <!--End of Tawk.to Script-->
+
+    <script>
+      $('#copyright-date').html(new Date().getFullYear());
+    </script>
 </body>
 </html>

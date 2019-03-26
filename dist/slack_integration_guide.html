@@ -67,7 +67,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><span aria-hidden="true" class="icon fa fa-slack"></span> Slack Integration Guide</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Feb 23, 2018</div>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Mar 26, 2019</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -89,8 +89,8 @@
                                         Navigate to the Project Settings page for the Project that you want to add the Slack integration to. If you'd like to create a Slack integration for a Workspace, navigate to the Project Settings page for the parent Project of the Workspace. You can find a link to the Project Settings page in the dark blue navigation sidebar on any Project page.
                                     </p>
                                     <div class="screenshot-holder">
-                                        <a href="/docs/images/8cedf8431c78481e0369ab1067b08253.slack_project_settings_nav.png" data-toggle="lightbox" data-title="Project Settings link"><img class="img-responsive" src="/docs/images/8cedf8431c78481e0369ab1067b08253.slack_project_settings_nav.png" alt="screenshot"></a>
-                                        <a class="mask" href="/docs/images/8cedf8431c78481e0369ab1067b08253.slack_project_settings_nav.png" data-toggle="lightbox" data-title="Project Settings link"><i class="icon fa fa-search-plus"></i></a>
+                                        <a href="/docs/images/7309472c95a52dc572bb0132e7398581.slack_project_settings_nav.png" data-toggle="lightbox" data-title="Project Settings link"><img class="img-responsive" src="/docs/images/7309472c95a52dc572bb0132e7398581.slack_project_settings_nav.png" alt="screenshot"></a>
+                                        <a class="mask" href="/docs/images/7309472c95a52dc572bb0132e7398581.slack_project_settings_nav.png" data-toggle="lightbox" data-title="Project Settings link"><i class="icon fa fa-search-plus"></i></a>
                                     </div>
                                 </div><!--//section-block-->
                                 <div id="step-two" class="section-block">
@@ -99,8 +99,8 @@
                                         Click on the Integrations tab to open the Integrations Settings view and click the Create a new Slack Channel Integration button to open the Slack Channel Integration builder. Inside the builder, you can select whether your Slack integration should be Project or Workspace scoped and customize which notifications you'd like to receive in Slack.
                                     </p>
                                     <div class="screenshot-holder">
-                                        <a href="/docs/images/ad3c123c32968ab2ff713dfaa712ed25.slack_integration_builder.png" data-toggle="lightbox" data-title="Slack Channel Integration Builder"><img class="img-responsive" src="/docs/images/ad3c123c32968ab2ff713dfaa712ed25.slack_integration_builder.png" alt="screenshot"></a>
-                                        <a class="mask" href="/docs/images/ad3c123c32968ab2ff713dfaa712ed25.slack_integration_builder.png" data-toggle="lightbox" data-title="Slack Channel Integration Builder"><i class="icon fa fa-search-plus"></i></a>
+                                        <a href="/docs/images/38fb21d8d5ec7ce66d5f2b4e23778db4.slack_integration_builder.png" data-toggle="lightbox" data-title="Slack Channel Integration Builder"><img class="img-responsive" src="/docs/images/38fb21d8d5ec7ce66d5f2b4e23778db4.slack_integration_builder.png" alt="screenshot"></a>
+                                        <a class="mask" href="/docs/images/38fb21d8d5ec7ce66d5f2b4e23778db4.slack_integration_builder.png" data-toggle="lightbox" data-title="Slack Channel Integration Builder"><i class="icon fa fa-search-plus"></i></a>
                                     </div>
                                 </div><!--//section-block-->
                                 <div id="step-three" class="section-block">
@@ -172,7 +172,7 @@
                         <li>&sdot;</li>
                         <li><a href="/tos">Terms and Privacy</a></li>
                     </ul>
-                    <p class="copyright text-center medium">Copyright &copy; Pivit Inc. 2018. All Rights Reserved</p>
+                    <p class="copyright text-center medium">Copyright &copy; Pivit Inc. <span id="copyright-date"></span>. All Rights Reserved</p>
                 </div>
             </div>
         </div><!--//container-->
@@ -206,6 +206,9 @@
             s0.parentNode.insertBefore(s1,s0);
         })();
     </script>
-    <!--End of Tawk.to Script-->
+
+    <script>
+      $('#copyright-date').html(new Date().getFullYear());
+    </script>
 </body>
 </html>
