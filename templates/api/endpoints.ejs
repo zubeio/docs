@@ -9,6 +9,134 @@
                     <div class="pointer">
                         <span class="method"><%= endpoint.method %></span> <span><%= endpoint.path %></span>
                     </div>
+                    <% if (endpoint.where) { %>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        name
+                                    </td>
+                                    <td>
+                                        type
+                                    </td>
+                                    <td>
+                                        description
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <% endpoint.where.forEach(attr => { %>
+                                        <td>
+                                            <%= attr.name %>
+                                        </td>
+                                        <td>
+                                            <%= attr.type %>
+                                        </td>
+                                        <td>
+                                            <%= attr.desc %>
+                                        </td>
+                                    <% }) %>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <% } %>
+                    <% if (endpoint.select) { %>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        name
+                                    </td>
+                                    <td>
+                                        type
+                                    </td>
+                                    <td>
+                                        description
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <% endpoint.select.forEach(attr => { %>
+                                        <td>
+                                            <%= attr.name %>
+                                        </td>
+                                        <td>
+                                            <%= attr.type %>
+                                        </td>
+                                        <td>
+                                            <%= attr.desc %>
+                                        </td>
+                                    <% }) %>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <% } %>
+                    <% if (endpoint.orderBy) { %>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        name
+                                    </td>
+                                    <td>
+                                        type
+                                    </td>
+                                    <td>
+                                        description
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <% endpoint.orderBy.forEach(attr => { %>
+                                        <td>
+                                            <%= attr.name %>
+                                        </td>
+                                        <td>
+                                            <%= attr.type %>
+                                        </td>
+                                        <td>
+                                            <%= attr.desc %>
+                                        </td>
+                                    <% }) %>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <% } %>
+                    <% if (endpoint.formData) { %>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        name
+                                    </td>
+                                    <td>
+                                        type
+                                    </td>
+                                    <td>
+                                        description
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <% endpoint.formData.forEach(attr => { %>
+                                        <td>
+                                            <%= attr.name %>
+                                        </td>
+                                        <td>
+                                            <%= attr.type %>
+                                        </td>
+                                        <td>
+                                            <%= attr.desc %>
+                                        </td>
+                                    <% }) %>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <% } %>
                 </div>
             <% }) %>
         </div>
