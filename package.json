@@ -9,6 +9,7 @@
     "apache-server-configs": "^2.13.0",
     "connect-livereload": "^0.6.0",
     "connect-modrewrite": "^0.10.1",
+    "ejs": "^2.6.1",
     "grunt": "^1.0.1",
     "grunt-aws-s3": "^1.0.0",
     "grunt-cdn": "^0.6.5",

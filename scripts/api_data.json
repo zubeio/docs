@@ -1,0 +1,80 @@
+{
+    "GettingStarted": {
+        "body": "Here are some articles to help you get started using the Zube API.",
+        "articles": [
+            {
+                "id": "authentication-section",
+                "title": "Authentication",
+                "body": "Some information about auth <br/> Testing breaks"
+            },
+            {
+                "id": "example-request-response-section",
+                "title": "Example Request Response",
+                "body": "An example of Request and Response"
+            },
+            {
+                "id": "etag-caching-section",
+                "title": "ETag Caching",
+                "body": "We use ETags!"
+            },
+            {
+                "id": "rate-limiting-section",
+                "title": "Rate Limiting",
+                "body": "Don't make too many requests please"
+            },
+            {
+                "id": "pagination-section",
+                "title": "Pagination",
+                "body": "You can get your data in pages"
+            }
+        ]
+    },
+    "EndpointSections": [
+        {
+            "title": "Cards",
+            "id": "cards",
+            "endpoints": [
+                {
+                    "id": "endpoint-get-cards",
+                    "name": "Get a list of cards",
+                    "method": "GET",
+                    "path": "/api/cards",
+                    "where": [
+                        {
+                            "name": "title",
+                            "type": "String",
+                            "desc": "Some description"
+                        }
+                    ],
+                    "select": [
+                        {
+                            "name": "title",
+                            "type": "String",
+                            "desc": "Some description"
+                        }
+                    ],
+                    "orderBy": [
+                        {
+                            "name": "title",
+                            "type": "String",
+                            "desc": "Some description"
+                        }
+                    ]
+                },
+                {
+                    "id": "endpoint-create-card",
+                    "name": "Create a card",
+                    "method": "POST",
+                    "path": "/api/cards",
+                    "formData": [
+                        {
+                            "name": "title",
+                            "type": "String",
+                            "desc": "Some description"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

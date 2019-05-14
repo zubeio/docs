@@ -1,0 +1,16 @@
+<section id="endpoints-section" class="doc-section">
+    <h2 class="section-title">API Endpoints</h2>
+    <% EndpointSections.forEach(model => { %>
+        <div id="<%= model.id %>"  class="section-block">
+            <h3 class="block-title model"><%= model.title %></h3>
+            <% model.endpoints.forEach(endpoint => { %>
+                <div class="endpoint">
+                    <h4 id="<%= endpoint.id %>"><%= endpoint.name %></h4>
+                    <div class="pointer">
+                        <span class="method"><%= endpoint.method %></span> <span><%= endpoint.path %></span>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <% }) %>
+</section>
