@@ -39,26 +39,28 @@
                     "name": "Get a list of cards",
                     "method": "GET",
                     "path": "/api/cards",
-                    "where": [
-                        {
-                            "name": "title",
-                            "type": "String",
-                            "desc": "Some description"
-                        }
-                    ],
-                    "select": [
-                        {
-                            "name": "title",
-                            "type": "String",
-                            "desc": "Some description"
-                        }
-                    ],
-                    "orderBy": [
-                        {
-                            "name": "title",
-                            "type": "String",
-                            "desc": "Some description"
-                        }
+                    "params": [
+                        {"where": [
+                            {
+                                "name": "title",
+                                "type": "String",
+                                "desc": "Some description"
+                            }
+                        ]},
+                        {"select": [
+                            {
+                                "name": "title",
+                                "type": "String",
+                                "desc": "Some description"
+                            }
+                        ]},
+                        {"orderBy": [
+                            {
+                                "name": "title",
+                                "type": "String",
+                                "desc": "Some description"
+                            }
+                        ]}
                     ]
                 },
                 {
@@ -66,13 +68,22 @@
                     "name": "Create a card",
                     "method": "POST",
                     "path": "/api/cards",
-                    "formData": [
-                        {
-                            "name": "title",
-                            "type": "String",
-                            "desc": "Some description"
-                        }
+                    "params": [
+                        {"formData": [
+                            {
+                                "name": "title",
+                                "type": "String",
+                                "desc": "Some description"
+                            }
+                        ]}
                     ]
+                },
+                {
+                    "id": "endpoint-delete-card",
+                    "name": "Delete a card",
+                    "method": "DELETE",
+                    "path": "/api/cards/:id",
+                    "params": []
                 }
             ]
         }

@@ -160,4 +160,46 @@ h3.model {
         font-family: monospace;
         margin: 15px 0;
     }
+    .params-tables-section {
+        h5 {
+            font-weight: 400;
+        };
+        .request-options-header {
+            font-family: monospace;
+            display: inline-block;
+        }
+        table.table {
+            tr  {
+                td, th {
+                    padding: 8px 10px;
+                    border: none;
+                }
+            }
+            thead {
+                th {
+                    border-bottom: 2px solid #58bbee55;
+                }
+            }
+            tbody {
+                td {
+                    &.name {
+                        span{
+                            font-family: monospace;
+                            display: inline-block;
+                            padding: 2px 4px;
+                            background: rgba(0,0,0,0.04);
+                            border-radius: 4px;
+                        }
+                    }
+                    &.type {
+                        span {
+                            font-family: monospace;
+                            color: darken(#58bbee, 30%);
+                        }
+                    }
+                    &.desc {}
+                }
+            }
+        }
+    }
 }
