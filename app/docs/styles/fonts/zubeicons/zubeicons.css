@@ -122,11 +122,20 @@
 .zubeicon-add:before {
   content: "\e901";
 }
+.zubeicon-plus:before {
+  content: "\e901";
+}
 .zubeicon-alert:before {
+  content: "\e902";
+}
+.zubeicon-bell:before {
   content: "\e902";
 }
 .zubeicon-archive:before {
   content: "\e903";
+}
+.zubeicon-area-chart:before {
+  content: "\e96e";
 }
 .zubeicon-arrow-down-thick:before {
   content: "\e904";
@@ -148,6 +157,9 @@
 }
 .zubeicon-ban:before {
   content: "\e90a";
+}
+.zubeicon-bar-chart:before {
+  content: "\e96f";
 }
 .zubeicon-book:before {
   content: "\e90b";
@@ -176,6 +188,9 @@
 .zubeicon-burndown:before {
   content: "\e913";
 }
+.zubeicon-burnup:before {
+  content: "\e970";
+}
 .zubeicon-calendar:before {
   content: "\e914";
 }
@@ -195,6 +210,15 @@
   content: "\e919";
 }
 .zubeicon-check:before {
+  content: "\e975";
+}
+.zubeicon-checkmark:before {
+  content: "\e975";
+}
+.zubeicon-checkbox:before {
+  content: "\e91a";
+}
+.zubeicon-checked:before {
   content: "\e91a";
 }
 .zubeicon-chevron-down:before {
@@ -227,8 +251,20 @@
 .zubeicon-clock:before {
   content: "\e924";
 }
+.zubeicon-code:before {
+  content: "\e977";
+}
 .zubeicon-cog:before {
   content: "\e925";
+}
+.zubeicon-columns:before {
+  content: "\e973";
+}
+.zubeicon-column:before {
+  content: "\e973";
+}
+.zubeicon-category:before {
+  content: "\e973";
 }
 .zubeicon-combine:before {
   content: "\e926";
@@ -263,6 +299,9 @@
 .zubeicon-envelope:before {
   content: "\e930";
 }
+.zubeicon-epic:before {
+  content: "\e96b";
+}
 .zubeicon-exclamation:before {
   content: "\e931";
 }
@@ -289,6 +328,9 @@
 }
 .zubeicon-folder:before {
   content: "\e938";
+}
+.zubeicon-key:before {
+  content: "\e976";
 }
 .zubeicon-github-mark-reverse:before {
   content: "\e939";
@@ -332,6 +374,12 @@
 .zubeicon-list:before {
   content: "\e946";
 }
+.zubeicon-link:before {
+  content: "\e971";
+}
+.zubeicon-linked:before {
+  content: "\e971";
+}
 .zubeicon-lock-closed:before {
   content: "\e947";
 }
@@ -343,6 +391,12 @@
 }
 .zubeicon-menu:before {
   content: "\e94a";
+}
+.zubeicon-mentioned:before {
+  content: "\e974";
+}
+.zubeicon-merged:before {
+  content: "\e972";
 }
 .zubeicon-milestone-plus:before {
   content: "\e94b";
@@ -401,8 +455,20 @@
 .zubeicon-sprintboard:before {
   content: "\e95c";
 }
+.zubeicon-sprint:before {
+  content: "\e95c";
+}
+.zubeicon-status:before {
+  content: "\e96c";
+}
 .zubeicon-tag:before {
   content: "\e95d";
+}
+.zubeicon-task:before {
+  content: "\e96d";
+}
+.zubeicon-card:before {
+  content: "\e96d";
 }
 .zubeicon-thumbs-up:before {
   content: "\e95e";

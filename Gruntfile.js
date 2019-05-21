@@ -42,6 +42,7 @@ module.exports = function (grunt) {
                 },
                 files: [
                     '<%= yeoman.app %>/docs/*.html',
+                    '{.tmp,<%= yeoman.app %>}/docs/favicons/**/*.*',
                     '{.tmp,<%= yeoman.app %>}/docs/styles/**/*.*',
                     '{.tmp,<%= yeoman.app %>}/docs/scripts/**/*.js',
                     '<%= yeoman.app %>/docs/images/**/*.{png,jpg,jpeg,gif,webp}',
@@ -320,6 +321,7 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     src: [
+                        '<%= yeoman.dist %>/docs/favicons/*.*',
                         '<%= yeoman.dist %>/docs/images/{,*/}*.*',
                         '<%= yeoman.dist %>/docs/scripts/{,*/}*.js',
                         '<%= yeoman.dist %>/docs/styles/fonts/**/*.*',
