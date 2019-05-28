@@ -1,31 +1,34 @@
 {
     "GettingStarted": {
-        "body": "Here are some articles to help you get started using the Zube API.",
         "articles": [
+            {
+                "id": "intro-section",
+                "contentPath": "../templates/api/articles/intro.ejs"
+            },
             {
                 "id": "authentication-section",
                 "title": "Authentication",
-                "body": "Some information about auth <br/> Testing breaks"
+                "contentPath": "../templates/api/articles/authentication.ejs"
             },
             {
                 "id": "example-request-response-section",
                 "title": "Example Request Response",
-                "body": "An example of Request and Response"
+                "contentPath": "An example of Request and Response"
             },
             {
                 "id": "etag-caching-section",
                 "title": "ETag Caching",
-                "body": "We use ETags!"
+                "contentPath": "We use ETags!"
             },
             {
                 "id": "rate-limiting-section",
                 "title": "Rate Limiting",
-                "body": "Don't make too many requests please"
+                "contentPath": "Don't make too many requests please"
             },
             {
                 "id": "pagination-section",
                 "title": "Pagination",
-                "body": "You can get your data in pages"
+                "contentPath": "You can get your data in pages"
             }
         ]
     },

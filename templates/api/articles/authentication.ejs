@@ -1,0 +1,39 @@
+<h4>Generating a Private Key</h4>
+<p>
+    To access the Zube API, you first need to generate a private key. You will then use this private key to to sign access token requests.
+    <ol class="list">
+        <li>
+            Log into Zube, navigate to your profile settings page and click on the API Access tab.
+            <span>
+                <a
+                    tabindex="0"
+                    data-trigger="focus"
+                    data-toggle="popover"
+                    data-content="You can find a link to your settings page at the bottom of any project navigation sidebar or by clicking on your picture at the top of the home dashboard screen."
+                >
+                    <i class='fa fa-question'></i>
+                </a>
+            </span>
+        </li>
+        <li>
+            Click the 'Generate an API Key' button. You will be prompted to download a .pem file containing your Private API Key. Click save.
+            <div class="callout-block callout-warn">
+                <p>
+                    Make sure to store this file! Zube only stores the public portion of the key and you will not be able to view this key again.
+                </p>
+            </div>
+        </li>
+        <li>
+            After you've generated your first private key, you will also be issued a Client Id and shown the fingerprint for your private key, which you can use to verify the key.
+            <span class='image-popper'>
+                <a>
+                    <i class='fa fa-image'></i>
+                </a>
+                <div class="popper-target screenshot-holder">
+                    <a href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Welcome Page"><img class="img-responsive" src="/docs/images/private_key_ids.png" alt="screenshot" /></a>
+                    <a class="mask" href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="API Key Information"><i class="icon fa fa-search-plus"></i></a>
+                </div>
+            </span>
+        </li>
+    </ol>
+</p>

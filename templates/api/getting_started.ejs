@@ -1,14 +1,11 @@
 <section id="getting-started-section" class="doc-section">
     <h2 class="section-title">Getting Started with the Zube API</h2>
-    <p>
-        <%- body %>
-    </p>
     <% articles.forEach(article => { %>
         <div id="<%= article.id %>"  class="section-block">
-            <h3 class="block-title"><%= article.title %></h3>
-            <p>
-                <%- article.body %>
-            </p>
+            <% if (article.title) { %>
+                <h3 class="block-title"><%= article.title %></h3>
+            <% } %>
+            <%- article.body %>
         </div>
     <% }) %>
 </section>

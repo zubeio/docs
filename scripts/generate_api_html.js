@@ -8,12 +8,12 @@ let endpointsBlock = '';
 let sidebarBlock = '';
 let page = '';
 
-// apiData.GettingStarted.articles.forEach(article => {
-//     const url = path.join(__dirname, '../templates/api/article.ejs');
-//     ejs.renderFile(url, article, (err, html) => {
-//         articlesHtml += html;
-//     });
-// });
+apiData.GettingStarted.articles.forEach(article => {
+    const url = path.join(__dirname, article.contentPath);
+    ejs.renderFile(url, article, (err, html) => {
+        article.body = html;
+    });
+});
 
 const gettingStartedPath = path.join(__dirname, '../templates/api/getting_started.ejs');
 ejs.renderFile(gettingStartedPath, apiData.GettingStarted, (err, html) => {
@@ -51,7 +51,7 @@ ejs.renderFile(sidebarPath, apiData, (err, html) => {
 });
 
 const boilerplatePath = path.join(__dirname, '../templates/boilerplate.ejs');
-ejs.renderFile(boilerplatePath, {documentationContent: gettingStartedBlock + endpointsBlock, sidebar: sidebarBlock}, (err, html) => {
+ejs.renderFile(boilerplatePath, {documentationContent: gettingStartedBlock + endpointsBlock, sidebar: sidebarBlock, id: 'api-documentation' }, (err, html) => {
     if (err) console.log(err);
     page = html;
 });
