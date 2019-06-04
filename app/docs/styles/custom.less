@@ -143,14 +143,23 @@ a.google-btn:hover, a.google-btn:focus, a.google-btn:active {
 
 /* API Page */
 #api-documentation {
-    a {
-        cursor: pointer;
-    }
     h3.model {
         margin-bottom: 10px;
     }
-    .popper-target {
-        display: none;
+    h4 {
+        opacity: 0.75;
+    }
+    a {
+        cursor: pointer;
+    }
+    .image-popper {
+        display: inline-block;
+        margin-left: .3em;
+        margin-right: .3em;
+        vertical-align: middle;
+        .popper-target {
+            display: none;
+        }
     }
     .callout-block {
         margin: 10px 0;
@@ -175,7 +184,6 @@ a.google-btn:hover, a.google-btn:focus, a.google-btn:active {
     }
     .endpoint {
         h4 {
-            opacity: 0.75;
             margin-top: 30px;
             margin-bottom: 15px;
         }

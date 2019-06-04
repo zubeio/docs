@@ -100,22 +100,22 @@
             
                 <h3 class="block-title">Authentication</h3>
             
-            <h4>Generating a Private Key</h4>
-<p>
-    To access the Zube API, you first need to generate a private key. You will then use this private key to to sign access token requests.
+            <div id="generating-a-private-key" class='section-block'>
+    <h4>Generating a Private Key</h4>
+    <p>
+        To access the Zube API, you first need to generate a private key. You will then use this private key to to sign access token requests.
+    </p>
     <ol class="list">
         <li>
             Log into Zube, navigate to your profile settings page and click on the API Access tab.
-            <span>
-                <a
-                    tabindex="0"
-                    data-trigger="focus"
-                    data-toggle="popover"
-                    data-content="You can find a link to your settings page at the bottom of any project navigation sidebar or by clicking on your picture at the top of the home dashboard screen."
+            <a
+                tabindex="0"
+                data-trigger="focus"
+                data-toggle="popover"
+                data-content="You can find a link to your settings page at the bottom of any project navigation sidebar or by clicking on your picture at the top of the home dashboard screen."
                 >
-                    <i class='fa fa-question'></i>
-                </a>
-            </span>
+                <i class='fa fa-question'></i>
+            </a>
         </li>
         <li>
             Click the 'Generate an API Key' button. You will be prompted to download a .pem file containing your Private API Key. Click save.
@@ -127,18 +127,77 @@
         </li>
         <li>
             After you've generated your first private key, you will also be issued a Client Id and shown the fingerprint for your private key, which you can use to verify the key.
-            <span class='image-popper'>
+            <div class='image-popper'>
                 <a>
                     <i class='fa fa-image'></i>
                 </a>
                 <div class="popper-target screenshot-holder">
-                    <a href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Welcome Page"><img class="img-responsive" src="/docs/images/private_key_ids.png" alt="screenshot" /></a>
-                    <a class="mask" href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Welcome Page"><i class="icon fa fa-search-plus"></i></a>
+                    <a href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><img class="img-responsive" src="/docs/images/private_key_ids.png" alt="screenshot" /></a>
+                    <a class="mask" href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><i class="icon fa fa-search-plus"></i></a>
                 </div>
-            </span>
+            </div>
         </li>
     </ol>
-</p>
+</div>
+<div id="verifying-a-private-key" class='section-block'>
+    <h4>Verifying a Private Key</h4>
+    <p>
+        Zube generates a fingerprint for your private and public key pair using a SHA-1 hash function. You can verify that your private key matches the public key stored on Zube by generating the fingerprint of your private key and comparing it to the fingerprint displayed on Zube.
+
+        To verify your private key:
+        <ol class="list">
+            <li>
+                Generate the fingerprint for your private key locally with the following command:
+                <p>
+                    <code>
+                        openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha1 -c
+                    </code>
+                </p>
+            </li>
+            <li>
+                Compare the resulting fingerprint to the fingerprint displayed on Zube for your private key. They should match.
+            </li>
+        </ol>
+    </p>
+</div>
+<div id="deleting-a-private-key" class='section-block'>
+    <h4>Deleting a Private Key</h4>
+    <p>
+        You can remove a lost, compromised or unwanted private key by deleting it in the Zube interface. After you have deleted your private key, you will be able to generate a new one.
+    </p>
+    <div class="screenshot-holder">
+        <a href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><img class="img-responsive" src="/docs/images/private_key_ids.png" alt="screenshot" /></a>
+        <a class="mask" href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><i class="icon fa fa-search-plus"></i></a>
+    </div>
+</div>
+<div id="requesting-an-api-access-token" class='section-block'>
+    <h4>Requesting an API Access Token</h4>
+    <p>
+        Before you can send requests to Zube's API endpoints, you will need an access token. To get an access token from Zube, you will need to create a <a href="https://jwt.io/introduction/" target="_blank">JSON Web Token (JWT)</a> signed by your private key and encode it using the <code>RS256</code> algorithm. Zube checks the JWT you create with your private key against the public key stored by Zube and returns a JWT you can use to access Zube's other API endpoints.
+    </p>
+    <div class='code-block'>
+        The following Node.js code can be used to generate the JWT used to request an API access token.
+        <pre class='language-javascript'>
+            <code class="language-javascript">
+                // Generate a JWT with your zube_private_key.pem to send to Zube
+                var fs = require('fs');
+                var jsonwebtoken = require('jsonwebtoken'); //$ npm install jsonwebtoken
+
+                var client_id = YOUR_CLIENT_ID;
+                var private_key = fs.readFileSync(PATH_TO_PEM_FILE);
+
+                var now = Math.floor(Date.now() / 1000);
+                var jwt = jsonwebtoken.sign({
+                    iat: now,
+                    exp: now + 60, // Set expiration to 1 minute because Zube expects your JWT to expire in 10 minutes or less
+                    iss: client_id // Set the issuer to your Zube client_id
+                }, private_key, { algorithm: 'RS256' });
+
+                console.log(jwt);
+            </code>
+        </pre>
+    </div>
+</div>
 
         </div>
     
