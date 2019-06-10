@@ -75,24 +75,25 @@
     </p>
     <div class='code-block'>
         The following Node.js code can be used to generate the JWT used to request an API access token.
-        <pre class='language-javascript'>
-            <code class="language-javascript">
-                // Generate a JWT with your zube_private_key.pem to send to Zube
-                var fs = require('fs');
-                var jsonwebtoken = require('jsonwebtoken'); //$ npm install jsonwebtoken
+        <pre><code class="language-javascript">var fs = require(&#x27;fs&#x27;);
+var jsonwebtoken = require(&#x27;jsonwebtoken&#x27;); // $ npm install jsonwebtoken
 
-                var client_id = YOUR_CLIENT_ID;
-                var private_key = fs.readFileSync(PATH_TO_PEM_FILE);
+var client_id = YOUR_CLIENT_ID;
+var private_key = fs.readFileSync(PATH_TO_PEM_FILE);
 
-                var now = Math.floor(Date.now() / 1000);
-                var jwt = jsonwebtoken.sign({
-                    iat: now,
-                    exp: now + 60, // Set expiration to 1 minute because Zube expects your JWT to expire in 10 minutes or less
-                    iss: client_id // Set the issuer to your Zube client_id
-                }, private_key, { algorithm: 'RS256' });
+var now = Math.floor(Date.now() / 1000);
+var jwt = jsonwebtoken.sign({
+    iat: now,      // Issued at time
+    exp: now + 60, // JWT expiration time (10 minute maximum)
+    iss: client_id // Your Zube client id
+}, private_key, { algorithm: &#x27;RS256&#x27; });
 
-                console.log(jwt);
-            </code>
-        </pre>
+console.log(jwt);</code></pre>
     </div>
+    <p>
+      Replace <code>YOUR_CLIENT_ID</code> and <code>PATH_TO_PEM_FILE</code> in the above code with your information.
+    </p>
+    <p>
+      The code above creates a request JWT with a one minute expiry. You can create your request JWT with an expiry of up to 10 minutes. Once your JWT is expired, you will need to generate a new request JWT to request new access tokens.
+    </p>
 </div>
