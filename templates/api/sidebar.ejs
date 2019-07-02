@@ -4,7 +4,7 @@
             <li>
                 <a class="scrollto" href="#getting-started-section">Getting Started</a>
                 <ul class="nav doc-sub-menu">
-                    <% GettingStarted.articles.forEach(article => { %>
+                    <% articles.forEach(article => { %>
                         <li><a class="scrollto" href="#<%= article.id%>"><%= article.title %></a></li>
                     <% }) %>
                 </ul>
@@ -12,7 +12,7 @@
             <li>
                 <a class="scrollto" href="#api-endpoints-section">API Endpoints</a>
                 <ul class="nav doc-sub-menu">
-                    <% EndpointSections.forEach(modelSection => { %>
+                    <% endpointSections.forEach(modelSection => { %>
                         <li>
                             <a class="scrollto" href="#<%= modelSection.id %>">
                                 <strong>

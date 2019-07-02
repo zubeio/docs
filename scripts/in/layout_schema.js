@@ -1,54 +1,70 @@
-module.exports ={
+module.exports = {
   "accounts": [
     {
       // index
       "path": "/api/accounts",
       "rawPath": "/api/accounts",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get a list of accounts"
     },
     {
       // read
       "path": "/api/accounts/:account_id",
       "rawPath": "/api/accounts/:id",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get an account"
     },
     // Account Admin Members
     {
       // index
       "path": "/api/accounts/:account_id/admin_members",
       "rawPath": "/api/accounts/:id/admin_members",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get a list of account administrators"
     },
     {
       // create
       "path": "/api/accounts/:account_id/admin_members",
       "rawPath": "/api/accounts/:id/admin_members",
-      "method": "POST"
+      "method": "POST",
+      "name": "Create an account administrator"
     },
     {
       // destroy
       "path": "/api/accounts/:account_id/admin_members/:admin_member_id",
       "rawPath": "/api/accounts/:account_id/admin_members/:id",
-      "method": "DELETE"
+      "method": "DELETE",
+      "name": "Remove and account administrator"
     },
     // Account Members
     {
       // index
       "path": "/api/accounts/:account_id/members",
       "rawPath": "/api/accounts/:id/members",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get a list of account memebers"
     },
     {
       // create
       "path": "/api/accounts/:account_id/members",
       "rawPath": "/api/accounts/:id/members",
-      "method": "POST"
+      "method": "POST",
+      "name": "Create an account member"
     },
     {
       // destroy
       "path": "/api/accounts/:account_id/members/:member_id",
       "rawPath": "/api/accounts/:account_id/members/:id",
-      "method": "DELETE"
+      "method": "DELETE",
+      "name": "Remove an account member"
+    },
+    // Account Projects
+    {
+      // index
+      "path": "/api/accounts/:account_id/projects",
+      "rawPath": "/api/accounts/:id/projects",
+      "method": "GET",
+      "name": "Get a list of projects for an account"
     },
   ],
   "cards": [
@@ -56,141 +72,165 @@ module.exports ={
       // index
       "path": "/api/cards",
       "rawPath": "/api/cards",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get a list of cards"
     },
     {
       // create
       "path": "/api/cards",
       "rawPath": "/api/cards",
-      "method": "POST"
+      "method": "POST",
+      "name": "Create a card"
     },
     {
       // read
       "path": "/api/cards/:card_id",
       "rawPath": "/api/cards/:id",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get a card"
     },
     {
       // update
       "path": "/api/cards/:card_id",
       "rawPath": "/api/cards/:id",
-      "method": "PUT"
+      "method": "PUT",
+      "name": "Update a card"
     },
     {
       // destroy
       "path": "/api/cards/:card_id",
       "rawPath": "/api/cards/:id",
-      "method": "DELETE"
+      "method": "DELETE",
+      "name": "Archive a card",
+      "note": "This endpoint does not delete the card from the database"
     },
     // Move a card
     {
       "path": "/api/cards/:card_id/move",
       "rawPath": "/api/cards/:id/move",
-      "method": "PUT"
+      "method": "PUT",
+      "name": "Move a card",
+      "description": "Moves a card to a new destination and/or position."
     },
     // Add a Card to a Source Repo
     {
       "path": "/api/cards/:card_id/add_to_source",
       "rawPath": "/api/cards/:id/add_to_source",
-      "method": "PUT"
+      "method": "PUT",
+      "name": "Add a card to a source repo"
     },
     // Card Relations
     {
       // index
       "path": "/api/card_relations",
       "rawPath": "/api/card_relations",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get a list of card relations"
     },
     {
       // create
       "path": "/api/card_relations",
       "rawPath": "/api/card_relations",
-      "method": "POST"
+      "method": "POST",
+      "name": "Create a card relationship"
     },
     {
       // delete
       "path": "/api/card_relations/:card_relation_id",
       "rawPath": "/api/card_relations/:id",
-      "method": "DELETE"
+      "method": "DELETE",
+      "name": "Remove a card relationship"
     },
     // Card Comments
     {
       // index
       "path": "/api/cards/:card_id/comments",
       "rawPath": "/api/cards/:id/comments",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get a list of card comments"
     },
     {
       // create
       "path": "/api/cards/:card_id/comments",
       "rawPath": "/api/cards/:id/comments",
-      "method": "POST"
+      "method": "POST",
+      "name": "Create a new card comment"
     },
     {
       // update
       "path": "/api/cards/:card_id/comments/:comment_id",
       "rawPath": "/api/cards/:id/comments/:comment_id",
-      "method": "PUT"
+      "method": "PUT",
+      "name": "Update a card comment"
     },
     {
       // destroy
       "path": "/api/cards/:card_id/comments/:comment_id",
       "rawPath": "/api/cards/:id/comments/:comment_id",
-      "method": "DELETE"
+      "method": "DELETE",
+      "name": "Remove a card comment"
     },
     // Card Events
     {
       // index
       "path": "/api/cards/:card_id/events",
       "rawPath": "/api/cards/:id/events",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get a list of card events"
     },
     // Card Commit References
     {
       // index
       "path": "/api/cards/:card_id/commit_references",
       "rawPath": "/api/cards/:id/commit_references",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get a list of commit references"
     },
     // Card Subscriptions
     {
       // index
       "path": "/api/cards/:card_id/subscriptions",
       "rawPath": "/api/cards/:id/subscriptions",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get a list of card subscriptions"
     },
     {
       // create
       "path": "/api/cards/:card_id/subscriptions",
       "rawPath": "/api/cards/:id/subscriptions",
-      "method": "POST"
+      "method": "POST",
+      "name": "Create a card subscription"
     },
     {
       // Delete
       "path": "/api/cards/:card_id/subscriptions/:subscription_id",
       "rawPath": "/api/cards/:card_id/subscriptions/:id",
-      "method": "DELETE"
+      "method": "DELETE",
+      "name": "Remove a card subscription"
     },
     // Card Tickets
     {
       // index
       "path": "/api/cards/:card_id/tickets",
       "rawPath": "/api/cards/:id/tickets",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get a list of related tickets"
     },
     // Card Upvoters
     {
       // index
       "path": "/api/cards/:card_id/upvoters",
       "rawPath": "/api/cards/:id/upvoters",
-      "method": "GET"
+      "method": "GET",
+      "name": "Get a list of upvoters (people)"
     },
     // Card Upvotes
     {
       // create
       "path": "/api/cards/:card_id/upvotes",
       "rawPath": "/api/cards/:id/upvotes",
-      "method": "POST"
+      "method": "POST",
+      "name": "Create a card upvote"
     },
   ],
   "epics": [

@@ -196,7 +196,7 @@ a.google-btn:hover, a.google-btn:focus, a.google-btn:active {
             font-family: monospace;
             margin: 15px 0;
         }
-        .params-tables-section {
+        .attrs-section {
             h5 {
                 font-weight: 400;
             };
@@ -217,25 +217,32 @@ a.google-btn:hover, a.google-btn:focus, a.google-btn:active {
                     }
                 }
                 tbody {
-                    td {
-                        &.name {
-                            span{
-                                font-family: monospace;
-                                display: inline-block;
-                                padding: 2px 4px;
-                                background: rgba(0,0,0,0.04);
-                                border-radius: 4px;
-                            }
-                        }
-                        &.type {
-                            span {
-                                font-family: monospace;
-                                color: darken(#58bbee, 30%);
-                            }
-                        }
-                        &.desc {}
-                        }
+                  tr {
+                    &:not(.indexed) {
+                      background: #58bbee10;
                     }
+                    td {
+                      &.name {
+                        span{
+                          font-family: monospace;
+                          display: inline-block;
+                          padding: 2px 6px;
+                          color: darken(#58bbee, 30%);
+                          border: 1px solid #58bbee55;
+                          background: white;
+                          border-radius: 4px;
+                        }
+                      }
+                      &.type {
+                        span {
+                          font-family: monospace;
+                          color: darken(#58bbee, 30%);
+                        }
+                      }
+                      &.desc {}
+                      }
+                    }
+                  }
                 }
             }
         }
