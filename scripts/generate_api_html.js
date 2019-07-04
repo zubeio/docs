@@ -1,7 +1,9 @@
 const fs = require('fs');
 const endpointDataJSON = require('./out/endpoint_data.json');
+const getEndpointSectionsHTML = require('./generate_endpoint_sections');
 const ejs = require('ejs');
 const path = require('path');
+
 
 const articles = [
   {
@@ -55,20 +57,22 @@ ejs.renderFile(gettingStartedPath, {articles}, (err, html) => {
   gettingStartedBlock = html;
 });
 
-// Generate endpoint sections
-const endpointsPath = path.join(__dirname, '../templates/api/endpoints.ejs');
-ejs.renderFile(endpointsPath, { sections: endpointDataJSON }, (err, html) => {
-    if (err) console.log(err);
-    endpointsBlock = html;
-});
+// // Generate endpoint sections
+// const endpointsPath = path.join(__dirname, '../templates/api/endpoints.ejs');
+// ejs.renderFile(endpointsPath, { sections: endpointDataJSON }, (err, html) => {
+//     if (err) console.log(err);
+//     endpointsBlock = html;
+// });
 
-// Generate sidebar with links to content
-const sidebarPath = path.join(__dirname, '../templates/api/sidebar.ejs');
-const sidebarData = { articles, endpointSections: endpointDataJSON };
-ejs.renderFile(sidebarPath, sidebarData, (err, html) => {
-    if (err) console.log(err);
-    sidebarBlock = html;
-});
+// // Generate sidebar with links to content
+// const sidebarPath = path.join(__dirname, '../templates/api/sidebar.ejs');
+// const sidebarData = { articles, endpointSections: endpointDataJSON };
+// ejs.renderFile(sidebarPath, sidebarData, (err, html) => {
+//     if (err) console.log(err);
+//     sidebarBlock = html;
+// });
+
+endpointsBlock = getEndpointSectionsHTML()
 
 // Generate the entire document with boilerplate
 const boilerplatePath = path.join(__dirname, '../templates/boilerplate.ejs');
