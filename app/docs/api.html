@@ -86,584 +86,2972 @@
                 <div class="doc-body">
                     <div class="doc-content">
                         <div class="content-inner">
-                            <section id="getting-started-section" class="doc-section">
-    <h2 class="section-title">Getting Started with the Zube API</h2>
-    
-        <div id="intro-section"  class="section-block">
-            
-            <p>
-    XXX INTRODUCTION TO ZUBE API
-</p>
-
-        </div>
-    
-        <div id="authentication-section"  class="section-block">
-            
-                <h3 class="block-title">Authentication</h3>
-            
-            <div id="generating-a-private-key" class='section-block'>
-    <h4>Generating a Private Key</h4>
-    <p>
-        To access the Zube API, you first need to generate a private key. You will then use this private key to to sign access token requests.
-    </p>
-    <ol class="list">
-        <li>
-            Log into Zube, navigate to your profile settings page and click on the API Access tab.
-            <a
-                tabindex="0"
-                data-trigger="focus"
-                data-toggle="popover"
-                data-content="You can find a link to your settings page at the bottom of any project navigation sidebar or by clicking on your picture at the top of the home dashboard screen."
-                >
-                <i class='fa fa-question'></i>
-            </a>
-        </li>
-        <li>
-            Click the 'Generate an API Key' button. You will be prompted to download a .pem file containing your Private API Key. Click save.
-            <div class="callout-block callout-warn">
-                <p>
-                    Make sure to store this file! Zube only stores the public portion of the key and you will not be able to view this key again.
-                </p>
-            </div>
-        </li>
-        <li>
-            After you've generated your first private key, you will also be issued a Client Id and shown the fingerprint for your private key, which you can use to verify the key.
-            <div class='image-popper'>
-                <a>
-                    <i class='fa fa-image'></i>
-                </a>
-                <div class="popper-target screenshot-holder">
-                    <a href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><img class="img-responsive" src="/docs/images/private_key_ids.png" alt="screenshot" /></a>
-                    <a class="mask" href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><i class="icon fa fa-search-plus"></i></a>
-                </div>
-            </div>
-        </li>
-    </ol>
-</div>
-<div id="verifying-a-private-key" class='section-block'>
-    <h4>Verifying a Private Key</h4>
-    <p>
-        Zube generates a fingerprint for your private and public key pair using a SHA-1 hash function. You can verify that your private key matches the public key stored on Zube by generating the fingerprint of your private key and comparing it to the fingerprint displayed on Zube.
-
-        To verify your private key:
-        <ol class="list">
-            <li>
-                Generate the fingerprint for your private key locally with the following command:
-                <p>
-                    <code>
-                        openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha1 -c
-                    </code>
-                </p>
-            </li>
-            <li>
-                Compare the resulting fingerprint to the fingerprint displayed on Zube for your private key. They should match.
-            </li>
-        </ol>
-    </p>
-</div>
-<div id="deleting-a-private-key" class='section-block'>
-    <h4>Deleting a Private Key</h4>
-    <p>
-        You can remove a lost, compromised or unwanted private key by deleting it in the Zube interface. After you have deleted your private key, you will be able to generate a new one.
-    </p>
-    <div class="screenshot-holder">
-        <a href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><img class="img-responsive" src="/docs/images/private_key_ids.png" alt="screenshot" /></a>
-        <a class="mask" href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><i class="icon fa fa-search-plus"></i></a>
-    </div>
-</div>
-<div id="requesting-an-api-access-token" class='section-block'>
-    <h4>Requesting an API Access Token</h4>
-    <p>
-        Before you can send requests to Zube's API endpoints, you will need an access token. To get an access token from Zube, you will need to create a <a href="https://jwt.io/introduction/" target="_blank">JSON Web Token (JWT)</a> signed by your private key and encode it using the <code>RS256</code> algorithm. Zube checks the JWT you create with your private key against the public key stored by Zube and returns a JWT you can use to access Zube's other API endpoints.
-    </p>
-    <div class='code-block'>
-        The following Node.js code can be used to generate the JWT used to request an API access token.
-        <pre><code class="language-javascript">var fs = require(&#x27;fs&#x27;);
-var jsonwebtoken = require(&#x27;jsonwebtoken&#x27;); // $ npm install jsonwebtoken
-
-var client_id = YOUR_CLIENT_ID;
-var private_key = fs.readFileSync(PATH_TO_PEM_FILE);
-
-var now = Math.floor(Date.now() / 1000);
-var jwt = jsonwebtoken.sign({
-    iat: now,      // Issued at time
-    exp: now + 60, // JWT expiration time (10 minute maximum)
-    iss: client_id // Your Zube client id
-}, private_key, { algorithm: &#x27;RS256&#x27; });
-
-console.log(jwt);</code></pre>
-    </div>
-    <p>
-      Replace <code>YOUR_CLIENT_ID</code> and <code>PATH_TO_PEM_FILE</code> in the above code with your information.
-    </p>
-    <p>
-      The code above creates a request JWT with a one minute expiry. You can create your request JWT with an expiry of up to 10 minutes. Once your JWT is expired, you will need to generate a new request JWT to request new access tokens.
-    </p>
-</div>
-
-        </div>
-    
-        <div id="example-request-response-section"  class="section-block">
-            
-                <h3 class="block-title">Example Request Response</h3>
-            
-            
-        </div>
-    
-        <div id="etag-caching-section"  class="section-block">
-            
-                <h3 class="block-title">ETag Caching</h3>
-            
-            
-        </div>
-    
-        <div id="rate-limiting-section"  class="section-block">
-            
-                <h3 class="block-title">Rate Limiting</h3>
-            
-            
-        </div>
-    
-        <div id="pagination-section"  class="section-block">
-            
-                <h3 class="block-title">Pagination</h3>
-            
-            
-        </div>
-    
-</section>
-<div id="accounts"  class="section-block">
+                            <div id="accounts"  class="section-block">
   <h3 class="block-title section">Accounts</h3>
   
   
-    <p>accounts</p>
-    <table class='table table-bordered table-condensed table-responsive'>
-      <thead>
-        <th>
-          name
-        </th>
-        <th>
-          type
-        </th>
-      </thead>
-      <tbody>
-        
-          <tr>
-            <td>
-              id
-            </td>
-            <td>
-              integer
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              display_name
-            </td>
-            <td>
-              text
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              status
-            </td>
-            <td>
-              text
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              created_at
-            </td>
-            <td>
-              timestamp
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              updated_at
-            </td>
-            <td>
-              timestamp
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              private_users_count
-            </td>
-            <td>
-              integer
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              first_billable_at
-            </td>
-            <td>
-              timestamp
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              slug
-            </td>
-            <td>
-              text
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              has_github_billing
-            </td>
-            <td>
-              boolean
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              discount
-            </td>
-            <td>
-              integer
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              has_annual_billing
-            </td>
-            <td>
-              boolean
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              seats
-            </td>
-            <td>
-              integer
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              annual_amount
-            </td>
-            <td>
-              numeric
-            </td>
-          </tr>
-        
-      </tbody>
-    </table>
-    <div class="endpoints">
-      
-        <h4 id="Get-a-list-of-accounts">Get a list of accounts</h4>
-          <div class="pointer">
-            <span class="method">GET</span> <span>/api/accounts</span>
-          </div>
-        </div>
-      
-        <h4 id="Get-an-account">Get an account</h4>
-          <div class="pointer">
-            <span class="method">GET</span> <span>/api/accounts/:account_id</span>
-          </div>
-        </div>
-      
+    <div class='note'>
+      Zube Organizations are referred to as <code>accounts</code> in the Zube API.
+    </div>
   
-    <p>people</p>
-    <table class='table table-bordered table-condensed table-responsive'>
-      <thead>
-        <th>
-          name
-        </th>
-        <th>
-          type
-        </th>
-      </thead>
-      <tbody>
-        
-          <tr>
-            <td>
-              id
-            </td>
-            <td>
-              integer
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              avatar_path
-            </td>
-            <td>
-              text
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              name
-            </td>
-            <td>
-              text
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              username
-            </td>
-            <td>
-              text
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              created_at
-            </td>
-            <td>
-              timestamp
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              updated_at
-            </td>
-            <td>
-              timestamp
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              github_user_id
-            </td>
-            <td>
-              integer
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              is_user
-            </td>
-            <td>
-              boolean
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              name_is_locked
-            </td>
-            <td>
-              boolean
-            </td>
-          </tr>
-        
-          <tr>
-            <td>
-              avatar_path_is_locked
-            </td>
-            <td>
-              boolean
-            </td>
-          </tr>
-        
-      </tbody>
-    </table>
-    <div class="endpoints">
-      
-        <h4 id="Get-a-list-of-account-administrators">Get a list of account administrators</h4>
-          <div class="pointer">
-            <span class="method">GET</span> <span>/api/accounts/:account_id/admin_members</span>
-          </div>
-        </div>
-      
-        <h4 id="Create-an-account-administrator">Create an account administrator</h4>
-          <div class="pointer">
-            <span class="method">POST</span> <span>/api/accounts/:account_id/admin_members</span>
-          </div>
-        </div>
-      
-        <h4 id="Remove-and-account-administrator">Remove and account administrator</h4>
-          <div class="pointer">
-            <span class="method">DELETE</span> <span>/api/accounts/:account_id/admin_members/:admin_member_id</span>
-          </div>
-        </div>
-      
-        <h4 id="Get-a-list-of-account-memebers">Get a list of account memebers</h4>
-          <div class="pointer">
-            <span class="method">GET</span> <span>/api/accounts/:account_id/members</span>
-          </div>
-        </div>
-      
-        <h4 id="Create-an-account-member">Create an account member</h4>
-          <div class="pointer">
-            <span class="method">POST</span> <span>/api/accounts/:account_id/members</span>
-          </div>
-        </div>
-      
-        <h4 id="Remove-an-account-member">Remove an account member</h4>
-          <div class="pointer">
-            <span class="method">DELETE</span> <span>/api/accounts/:account_id/members/:member_id</span>
-          </div>
-        </div>
-      
   
-    <p>projects</p>
-    <table class='table table-bordered table-condensed table-responsive'>
-      <thead>
-        <th>
-          name
-        </th>
-        <th>
-          type
-        </th>
-      </thead>
-      <tbody>
-        
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-accounts'>Get a list of accounts</h5>
+    <div class='endpoint'>
+      GET /api/accounts
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-an-account'>Get an account</h5>
+    <div class='endpoint'>
+      GET /api/accounts/:account_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>accounts</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              id
-            </td>
-            <td>
-              integer
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>display_name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>status</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>private_users_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>first_billable_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>slug</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>has_github_billing</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>discount</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>has_annual_billing</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>seats</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>annual_amount</td><td>numeric</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-account-admins'>Get a list of account admins</h5>
+    <div class='endpoint'>
+      GET /api/accounts/:account_id/admin_members
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-an-account-admin'>Create an account admin</h5>
+    <div class='endpoint'>
+      POST /api/accounts/:account_id/admin_members
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='remove-an-account-admin'>Remove an account admin</h5>
+    <div class='endpoint'>
+      DELETE /api/accounts/:account_id/admin_members/:admin_member_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-list-of-account-memebers'>Get a list of account memebers</h5>
+    <div class='endpoint'>
+      GET /api/accounts/:account_id/members
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-an-account-member'>Create an account member</h5>
+    <div class='endpoint'>
+      POST /api/accounts/:account_id/members
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='remove-an-account-member'>Remove an account member</h5>
+    <div class='endpoint'>
+      DELETE /api/accounts/:account_id/members/:member_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>people</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              account_id
-            </td>
-            <td>
-              integer
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>avatar_path</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>username</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>github_user_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>is_user</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>name_is_locked</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>avatar_path_is_locked</td><td>boolean</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-projects-for-an-account'>Get a list of projects for an account</h5>
+    <div class='endpoint'>
+      GET /api/accounts/:account_id/projects
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>projects</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              description
-            </td>
-            <td>
-              text
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>account_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>description</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>slug</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>private</td><td>boolean</td>
+            </tr>
+          
+            <tr class=''>
+              <td>priority_format</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>priority</td><td>boolean</td>
+            </tr>
+          
+            <tr class=''>
+              <td>points</td><td>boolean</td>
+            </tr>
+          
+            <tr class=''>
+              <td>triage</td><td>boolean</td>
+            </tr>
+          
+            <tr class=''>
+              <td>upvotes</td><td>boolean</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+</div>
+<div id="cards"  class="section-block">
+  <h3 class="block-title section">Cards</h3>
+  
+  
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-cards'>Get a list of cards</h5>
+    <div class='endpoint'>
+      GET /api/cards
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-a-card'>Create a card</h5>
+    <div class='endpoint'>
+      POST /api/cards
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-card'>Get a card</h5>
+    <div class='endpoint'>
+      GET /api/cards/:card_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='update-a-card'>Update a card</h5>
+    <div class='endpoint'>
+      PUT /api/cards/:card_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='archive-a-card'>Archive a card</h5>
+    <div class='endpoint'>
+      PUT /api/cards/:card_id/archive
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='move-a-card'>Move a card</h5>
+    <div class='endpoint'>
+      PUT /api/cards/:card_id/move
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='add-a-card-to-a-source-repo'>Add a card to a source repo</h5>
+    <div class='endpoint'>
+      PUT /api/cards/:card_id/add_to_source
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>cards</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              name
-            </td>
-            <td>
-              text
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>creator_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>project_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>sprint_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>workspace_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>body</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>category_name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closed_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>comments_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>last_comment_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>number</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>points</td><td>number</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>priority</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>search_key</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>state</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>status</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>title</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>upvotes_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>epic_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closer_id</td><td>integer</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-card-relations'>Get a list of card relations</h5>
+    <div class='endpoint'>
+      GET /api/card_relations
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-a-card-relationship'>Create a card relationship</h5>
+    <div class='endpoint'>
+      POST /api/card_relations
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='remove-a-card-relationship'>Remove a card relationship</h5>
+    <div class='endpoint'>
+      DELETE /api/card_relations/:card_relation_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>card_relations</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              created_at
-            </td>
-            <td>
-              timestamp
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>card_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>linked_card_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-card-comments'>Get a list of card comments</h5>
+    <div class='endpoint'>
+      GET /api/cards/:card_id/comments
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-a-new-card-comment'>Create a new card comment</h5>
+    <div class='endpoint'>
+      POST /api/cards/:card_id/comments
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='update-a-card-comment'>Update a card comment</h5>
+    <div class='endpoint'>
+      PUT /api/cards/:card_id/comments/:comment_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='remove-a-card-comment'>Remove a card comment</h5>
+    <div class='endpoint'>
+      DELETE /api/cards/:card_id/comments/:comment_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>comments</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              updated_at
-            </td>
-            <td>
-              timestamp
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>card_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>creator_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>body</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-card-events'>Get a list of card events</h5>
+    <div class='endpoint'>
+      GET /api/cards/:card_id/events
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>events</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              slug
-            </td>
-            <td>
-              text
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>bigint</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>actor_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>assignee_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>source_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>github_issue_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>commit_id</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>event</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>label</td><td>json</td>
+            </tr>
+          
+            <tr class=''>
+              <td>milestone</td><td>json</td>
+            </tr>
+          
+            <tr class=''>
+              <td>message</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>rename</td><td>json</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-commit-references'>Get a list of commit references</h5>
+    <div class='endpoint'>
+      GET /api/cards/:card_id/commit_references
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>commits</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              private
-            </td>
-            <td>
-              boolean
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>author_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>source_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>committer_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>comments_url</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>files</td><td>json</td>
+            </tr>
+          
+            <tr class=''>
+              <td>html_url</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>message</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>parents</td><td>json</td>
+            </tr>
+          
+            <tr class=''>
+              <td>stats</td><td>json</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>authored_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>committed_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-card-subscriptions'>Get a list of card subscriptions</h5>
+    <div class='endpoint'>
+      GET /api/cards/:card_id/subscriptions
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-a-card-subscription'>Create a card subscription</h5>
+    <div class='endpoint'>
+      POST /api/cards/:card_id/subscriptions
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='remove-a-card-subscription'>Remove a card subscription</h5>
+    <div class='endpoint'>
+      DELETE /api/cards/:card_id/subscriptions/:subscription_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>cards_users_subscriptions</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              priority_format
-            </td>
-            <td>
-              text
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>card_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>user_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-related-tickets'>Get a list of related tickets</h5>
+    <div class='endpoint'>
+      GET /api/cards/:card_id/tickets
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>cards_tickets</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              priority
-            </td>
-            <td>
-              boolean
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>card_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>ticket_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-upvoters'>Get a list of upvoters</h5>
+    <div class='endpoint'>
+      GET /api/cards/:card_id/upvoters
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>people</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              points
-            </td>
-            <td>
-              boolean
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>avatar_path</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>username</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>github_user_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>is_user</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>name_is_locked</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>avatar_path_is_locked</td><td>boolean</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='create-a-card-upvote'>Create a card upvote</h5>
+    <div class='endpoint'>
+      POST /api/cards/:card_id/upvotes
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>upvotes</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              triage
-            </td>
-            <td>
-              boolean
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>card_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>person_id</td><td>integer</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+</div>
+<div id="epics"  class="section-block">
+  <h3 class="block-title section">Epics</h3>
+  
+  
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-epic-cards'>Get a list of epic cards</h5>
+    <div class='endpoint'>
+      GET /api/epics/:epic_id/cards
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='add-a-card-to-an-epic'>Add a card to an epic</h5>
+    <div class='endpoint'>
+      POST /api/epics/:epic_id/cards
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='remove-a-card-from-an-epic'>Remove a card from an epic</h5>
+    <div class='endpoint'>
+      DELETE /api/epics/:epic_id/cards/:card_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>cards</h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td>
-              upvotes
-            </td>
-            <td>
-              boolean
-            </td>
+            <th>name</th><th>type</th>
           </tr>
-        
-      </tbody>
-    </table>
-    <div class="endpoints">
-      
-        <h4 id="Get-a-list-of-projects-for-an-account">Get a list of projects for an account</h4>
-          <div class="pointer">
-            <span class="method">GET</span> <span>/api/accounts/:account_id/projects</span>
-          </div>
-        </div>
-      
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>creator_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>project_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>sprint_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>workspace_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>body</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>category_name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closed_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>comments_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>last_comment_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>number</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>points</td><td>number</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>priority</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>search_key</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>state</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>status</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>title</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>upvotes_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>epic_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closer_id</td><td>integer</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-epic-comments'>Get a list of epic comments</h5>
+    <div class='endpoint'>
+      GET /api/epics/:epic_id/comments
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-an-epic-comment'>Create an epic comment</h5>
+    <div class='endpoint'>
+      POST /api/epics/:epic_id/comments
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='update-an-epic-comment'>Update an epic comment</h5>
+    <div class='endpoint'>
+      PUT /api/epics/:epic_id/comments/:comment_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='remove-an-epic-comment'>Remove an epic comment</h5>
+    <div class='endpoint'>
+      DELETE /api/epics/:epic_id/comments/:comment_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>epic_comments</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>creator_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>epic_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>project_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>body</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-epic-events'>Get a list of epic events</h5>
+    <div class='endpoint'>
+      GET /api/epics/:epic_id/events
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>events</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>bigint</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>actor_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>assignee_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>source_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>github_issue_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>commit_id</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>event</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>label</td><td>json</td>
+            </tr>
+          
+            <tr class=''>
+              <td>milestone</td><td>json</td>
+            </tr>
+          
+            <tr class=''>
+              <td>message</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>rename</td><td>json</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-epic-subscriptions'>Get a list of epic subscriptions</h5>
+    <div class='endpoint'>
+      GET /api/epics/:epic_id/subscriptions
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-an-epic-subscription'>Create an epic subscription</h5>
+    <div class='endpoint'>
+      POST /api/epics/:epic_id/subscriptions
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='remove-an-epic-subscription'>Remove an epic subscription</h5>
+    <div class='endpoint'>
+      DELETE /api/epics/:epic_id/subscriptions/:subscription_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>epics_users_subscriptions</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>epic_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>user_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+</div>
+<div id="notifications"  class="section-block">
+  <h3 class="block-title section">Notifications</h3>
+  
+  
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-notifications'>Get a list of notifications</h5>
+    <div class='endpoint'>
+      GET /api/notifications
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='update-a-notification'>Update a notification</h5>
+    <div class='endpoint'>
+      PUT /api/notifications/:_notificationId
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='delete-a-notification'>Delete a notification</h5>
+    <div class='endpoint'>
+      DELETE /api/notifications/:_notificationId
+    </div>
+    
+  
+  
+</div>
+
+  
+</div>
+<div id="projects"  class="section-block">
+  <h3 class="block-title section">Projects</h3>
+  
+  
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-projects'>Get a list of projects</h5>
+    <div class='endpoint'>
+      GET /api/projects
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-a-project'>Create a project</h5>
+    <div class='endpoint'>
+      POST /api/projects
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-project'>Get a project</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='update-a-project'>Update a project</h5>
+    <div class='endpoint'>
+      PUT /api/projects/:project_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='delete-a-project'>Delete a project</h5>
+    <div class='endpoint'>
+      DELETE /api/projects/:project_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>projects</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>account_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>description</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>slug</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>private</td><td>boolean</td>
+            </tr>
+          
+            <tr class=''>
+              <td>priority_format</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>priority</td><td>boolean</td>
+            </tr>
+          
+            <tr class=''>
+              <td>points</td><td>boolean</td>
+            </tr>
+          
+            <tr class=''>
+              <td>triage</td><td>boolean</td>
+            </tr>
+          
+            <tr class=''>
+              <td>upvotes</td><td>boolean</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-project-admins'>Get a list of project admins</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id/admin_members
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='add-a-project-admin'>Add a project admin</h5>
+    <div class='endpoint'>
+      POST /api/projects/:project_id/admin_members/:person_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='remove-a-project-admin'>Remove a project admin</h5>
+    <div class='endpoint'>
+      DELETE /api/projects/:project_id/admin_members/:person_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-list-of-project-members'>Get a list of project members</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id/members
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='add-a-project-member'>Add a project member</h5>
+    <div class='endpoint'>
+      POST /api/projects/:project_id/members
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='remove-a-project-member'>Remove a project member</h5>
+    <div class='endpoint'>
+      DELETE /api/projects/:project_id/members/:person_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-list-of-project-collaborators'>Get a list of project collaborators</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id/collaborators
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>people</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>avatar_path</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>username</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>github_user_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>is_user</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>name_is_locked</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>avatar_path_is_locked</td><td>boolean</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-cards'>Get a list of cards</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id/cards
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-list-of-cards-in-triage'>Get a list of cards in triage</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id/triage_cards
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>cards</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>creator_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>project_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>sprint_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>workspace_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>body</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>category_name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closed_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>comments_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>last_comment_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>number</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>points</td><td>number</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>priority</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>search_key</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>state</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>status</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>title</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>upvotes_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>epic_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closer_id</td><td>integer</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-epics'>Get a list of epics</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id/epics
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-an-epic'>Create an epic</h5>
+    <div class='endpoint'>
+      POST /api/projects/:project_id/epics
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-an-epic'>Get an epic</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id/epics/:epic_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='update-an-epic'>Update an epic</h5>
+    <div class='endpoint'>
+      PUT /api/projects/:project_id/epics/:epic_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>epics</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>assignee_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>creator_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>workspace_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>project_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>cards_status</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>description</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>due_on</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>number</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>search_key</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>state</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>status</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>title</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>track_cards</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>open_cards_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closed_cards_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>open_points</td><td>number</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closed_points</td><td>number</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>comments_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closed_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closer_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>color</td><td>text</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-labels'>Get a list of labels</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id/labels
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-a-label'>Create a label</h5>
+    <div class='endpoint'>
+      POST /api/projects/:project_id/labels
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-label'>Get a label</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id/labels/:label_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='update-a-label'>Update a label</h5>
+    <div class='endpoint'>
+      PUT /api/projects/:project_id/labels/:label_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='delete-a-label'>Delete a label</h5>
+    <div class='endpoint'>
+      DELETE /api/projects/:project_id/labels/:label_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>labels</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>project_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>color</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>slug</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-milestones'>Get a list of milestones</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id/milestones
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>milestones</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>source_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>creator_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closed_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>due_on</td><td>timestamp</td>
+            </tr>
+          
+            <tr class=''>
+              <td>description</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>html_url</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>number</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>state</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>title</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class=''>
+              <td>open_cards_count</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>closed_cards_count</td><td>integer</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-tickets'>Get a list of tickets</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id/tickets
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-a-ticket'>Create a ticket</h5>
+    <div class='endpoint'>
+      POST /api/projects/:project_id/tickets
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-ticket'>Get a ticket</h5>
+    <div class='endpoint'>
+      GET /api/projects/:project_id/tickets/:ticket_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='update-a-ticket'>Update a ticket</h5>
+    <div class='endpoint'>
+      PUT /api/projects/:project_id/tickets/:ticket_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>tickets</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>assignee_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>creator_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>comments_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>cards_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>cards_status</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>description</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>number</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>priority</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>status</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>track_cards</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>type</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>title</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>due_on</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>start_date</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>project_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>search_key</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>state</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closer_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closed_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+</div>
+<div id="sources"  class="section-block">
+  <h3 class="block-title section">Sources</h3>
+  
+  
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-sources'>Get a list of sources</h5>
+    <div class='endpoint'>
+      GET /api/sources
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='remove-a-source'>Remove a source</h5>
+    <div class='endpoint'>
+      DELETE /api/sources/:source_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>sources</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>github_owner_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>description</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>full_name</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>homepage</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>has_webhooks</td><td>boolean</td>
+            </tr>
+          
+            <tr class=''>
+              <td>html_url</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>issues_updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>name</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>private</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>webhook_verified_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class=''>
+              <td>initial_import_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-source-collaborators'>Get a list of source collaborators</h5>
+    <div class='endpoint'>
+      GET /api/sources/:source_id/collaborators
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>people</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>avatar_path</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>username</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>github_user_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>is_user</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>name_is_locked</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>avatar_path_is_locked</td><td>boolean</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-milestones'>Get a list of milestones</h5>
+    <div class='endpoint'>
+      GET /api/sources/:source_id/milestones
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-a-milestone'>Create a milestone</h5>
+    <div class='endpoint'>
+      POST /api/sources/:source_id/milestones
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-milestone'>Get a milestone</h5>
+    <div class='endpoint'>
+      GET /api/sources/:source_id/milestones/:milestone_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='update-a-milestone'>Update a milestone</h5>
+    <div class='endpoint'>
+      PUT /api/sources/:source_id/milestones/:milestone_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='delete-a-milestone'>Delete a milestone</h5>
+    <div class='endpoint'>
+      DELETE /api/sources/:source_id/milestones/:milestone_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>milestones</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>source_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>creator_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closed_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>due_on</td><td>timestamp</td>
+            </tr>
+          
+            <tr class=''>
+              <td>description</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>html_url</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>number</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>state</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>title</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class=''>
+              <td>open_cards_count</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>closed_cards_count</td><td>integer</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+</div>
+<div id="sprints"  class="section-block">
+  <h3 class="block-title section">Sprints</h3>
+  
+  
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-events'>Get a list of events</h5>
+    <div class='endpoint'>
+      GET /api/sprints/:sprint_id/events
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>events</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>bigint</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>actor_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>assignee_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>source_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>github_issue_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>commit_id</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>event</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>label</td><td>json</td>
+            </tr>
+          
+            <tr class=''>
+              <td>milestone</td><td>json</td>
+            </tr>
+          
+            <tr class=''>
+              <td>message</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>rename</td><td>json</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+</div>
+<div id="tickets"  class="section-block">
+  <h3 class="block-title section">Tickets</h3>
+  
+  
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-cards'>Get a list of cards</h5>
+    <div class='endpoint'>
+      GET /api/tickets/:ticket_id/cards
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='add-a-card-to-a-ticket'>Add a card to a ticket</h5>
+    <div class='endpoint'>
+      POST /api/tickets/:ticket_id/cards
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='remove-a-card-from-a-ticket'>Remove a card from a ticket</h5>
+    <div class='endpoint'>
+      DELETE /api/tickets/:ticket_id/cards/:card_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>cards</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>creator_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>project_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>sprint_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>workspace_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>body</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>category_name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closed_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>comments_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>last_comment_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>number</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>points</td><td>number</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>priority</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>search_key</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>state</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>status</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>title</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>upvotes_count</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>epic_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closer_id</td><td>integer</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-ticket-comments'>Get a list of ticket comments</h5>
+    <div class='endpoint'>
+      GET /api/tickets/:ticket_id/comments
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-a-ticket-comment'>Create a ticket comment</h5>
+    <div class='endpoint'>
+      POST /api/tickets/:ticket_id/comments
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='update-a-ticket-comment'>Update a ticket comment</h5>
+    <div class='endpoint'>
+      PUT /api/tickets/:ticket_id/comments/:comment_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='delete-a-ticket-comment'>Delete a ticket comment</h5>
+    <div class='endpoint'>
+      DELETE /api/tickets/:ticket_id/comments/:comment_id
+    </div>
+    
+  
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-ticket-events'>Get a list of ticket events</h5>
+    <div class='endpoint'>
+      GET /api/tickets/:ticket_id/events
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>events</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>bigint</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>actor_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>assignee_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>source_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>github_issue_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>commit_id</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>event</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>label</td><td>json</td>
+            </tr>
+          
+            <tr class=''>
+              <td>milestone</td><td>json</td>
+            </tr>
+          
+            <tr class=''>
+              <td>message</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>rename</td><td>json</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-ticket-subscriptions'>Get a list of ticket subscriptions</h5>
+    <div class='endpoint'>
+      GET /api/tickets/:ticket_id/subscriptions
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-a-ticket-subscription'>Create a ticket subscription</h5>
+    <div class='endpoint'>
+      POST /api/tickets/:ticket_id/subscriptions
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='delete-a-ticket-subscription'>Delete a ticket subscription</h5>
+    <div class='endpoint'>
+      DELETE /api/tickets/:ticket_id/subscriptions/:subscription_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>tickets_users_subscriptions</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>ticket_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>user_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+</div>
+<div id="users"  class="section-block">
+  <h3 class="block-title section">Users</h3>
+  
+  
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-an-api-token'>Get an API token</h5>
+    <div class='endpoint'>
+      POST /api/users/:client_id/tokens
+    </div>
+    
+  
+  
+</div>
+
+  
+</div>
+<div id="workspaces"  class="section-block">
+  <h3 class="block-title section">Workspaces</h3>
+  
+  
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-workspaces'>Get a list of workspaces</h5>
+    <div class='endpoint'>
+      GET /api/workspaces
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-a-workspace'>Create a workspace</h5>
+    <div class='endpoint'>
+      POST /api/workspaces
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-workspace'>Get a workspace</h5>
+    <div class='endpoint'>
+      GET /api/workspaces/:workspace_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='update-a-workspace'>Update a workspace</h5>
+    <div class='endpoint'>
+      PUT /api/workspaces/:workspace_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='delete-a-workspace'>Delete a workspace</h5>
+    <div class='endpoint'>
+      DELETE /api/workspaces/workspace_:id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>workspaces</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>project_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>description</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>name</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>slug</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>private</td><td>boolean</td>
+            </tr>
+          
+            <tr class=''>
+              <td>priority_format</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>priority</td><td>boolean</td>
+            </tr>
+          
+            <tr class=''>
+              <td>points</td><td>boolean</td>
+            </tr>
+          
+            <tr class=''>
+              <td>upvotes</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>archive_merged_prs</td><td>boolean</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>use_category_labels</td><td>boolean</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-categories'>Get a list of categories</h5>
+    <div class='endpoint'>
+      GET /api/workspaces/:workspace_id/categories
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-category'>Get a category</h5>
+    <div class='endpoint'>
+      GET /api/workspaces/:workspace_id/categories/:_categoryId
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-list-of-categories-metadata'>Get a list of categories metadata</h5>
+    <div class='endpoint'>
+      GET /api/workspaces/:workspace_id/categories_metadata
+    </div>
+    
+      <p class="note">
+        Returns a list of information for a category without it's list of cards.
+      </p>
+    
+  
+    <h5 class='endpoint-name' id='get-a-category&#39;s-metadata'>Get a category&#39;s metadata</h5>
+    <div class='endpoint'>
+      GET /api/workspaces/:workspace_id/categories_metadata/:_categoryId
+    </div>
+    
+      <p class="note">
+        Returns a single category without it's list of cards.
+      </p>
+    
+  
+  
+</div>
+
+  
+    <div class='table-group'>
+  
+    <h5 class='endpoint-name' id='get-a-list-of-sprints'>Get a list of sprints</h5>
+    <div class='endpoint'>
+      GET /api/workspaces/:workspace_id/sprints
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='create-a-sprint'>Create a sprint</h5>
+    <div class='endpoint'>
+      POST /api/workspaces/:workspace_id/sprints
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='get-a-sprint'>Get a sprint</h5>
+    <div class='endpoint'>
+      GET /api/workspaces/:workspace_id/sprints/:sprint_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='update-a-sprint'>Update a sprint</h5>
+    <div class='endpoint'>
+      PUT /api/workspaces/:workspace_id/sprints/:sprint_id
+    </div>
+    
+  
+    <h5 class='endpoint-name' id='delete-a-sprint'>Delete a sprint</h5>
+    <div class='endpoint'>
+      DELETE /api/workspaces/:workspace_id/sprints/:sprint_id
+    </div>
+    
+  
+  
+    <div class='table-group-attrs'>
+      <h4>sprints</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr class='indexed'>
+              <td>id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>closed_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class=''>
+              <td>description</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>end_date</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>start_date</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>state</td><td>text</td>
+            </tr>
+          
+            <tr class=''>
+              <td>title</td><td>text</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>created_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>updated_at</td><td>timestamp</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>project_id</td><td>integer</td>
+            </tr>
+          
+            <tr class='indexed'>
+              <td>workspace_id</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>open_cards_count</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>closed_cards_count</td><td>integer</td>
+            </tr>
+          
+            <tr class=''>
+              <td>open_points</td><td>number</td>
+            </tr>
+          
+            <tr class=''>
+              <td>closed_points</td><td>number</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+
   
 </div>
 
