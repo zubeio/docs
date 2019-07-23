@@ -2,7 +2,7 @@ const sections = [
   {
     title: 'Accounts',
     desc: '',
-    note: 'Zube Organizations are referred to as <code>accounts</code> in the Zube API.',
+    note: 'Zube Organizations are referred to as <code class="inline">accounts</code> in the Zube API.',
     tableGroups: [
       {
         table: 'accounts',

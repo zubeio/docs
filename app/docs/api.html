@@ -176,7 +176,7 @@
 <div id="requesting-an-api-access-token" class='section-block'>
     <h4>Requesting an API Access Token</h4>
     <p>
-        Before you can send requests to Zube's API endpoints, you will need an access token. To get an access token from Zube, you will need to create a <a href="https://jwt.io/introduction/" target="_blank">JSON Web Token (JWT)</a> signed by your private key and encode it using the <code>RS256</code> algorithm. Zube checks the JWT you create with your private key against the public key stored by Zube and returns a JWT you can use to access Zube's other API endpoints.
+        Before you can send requests to Zube's API endpoints, you will need an access token. To get an access token from Zube, you will need to create a <a href="https://jwt.io/introduction/" target="_blank">JSON Web Token (JWT)</a> signed by your private key and encode it using the <code class='inline'>RS256</code> algorithm. Zube checks the JWT you create with your private key against the public key stored by Zube and returns a JWT you can use to access Zube's other API endpoints.
     </p>
     <div class='code-block'>
         The following Node.js code can be used to generate the JWT used to request an API access token.
@@ -196,7 +196,7 @@ var jwt = jsonwebtoken.sign({
 console.log(jwt);</code></pre>
     </div>
     <p>
-      Replace <code>YOUR_CLIENT_ID</code> and <code>PATH_TO_PEM_FILE</code> in the above code with your information.
+      Replace <code class='inline'>YOUR_CLIENT_ID</code> and <code class='inline'>PATH_TO_PEM_FILE</code> in the above code with your information.
     </p>
     <p>
       The code above creates a request JWT with a one minute expiry. You can create your request JWT with an expiry of up to 10 minutes. Once your JWT is expired, you will need to generate a new request JWT to request new access tokens.
@@ -241,7 +241,7 @@ console.log(jwt);</code></pre>
   
   
     <div class='note'>
-      Zube Organizations are referred to as <code>accounts</code> in the Zube API.
+      Zube Organizations are referred to as <code class="inline">accounts</code> in the Zube API.
     </div>
   
   
@@ -276,7 +276,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -285,7 +285,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>display_name</code>
+                <code class='inline'>display_name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -294,7 +294,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>status</code>
+                <code class='inline'>status</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -303,7 +303,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -312,7 +312,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -321,7 +321,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>private_users_count</code>
+                <code class='inline'>private_users_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -330,7 +330,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>first_billable_at</code>
+                <code class='inline'>first_billable_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -339,7 +339,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>slug</code>
+                <code class='inline'>slug</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -348,7 +348,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>has_github_billing</code>
+                <code class='inline'>has_github_billing</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -357,7 +357,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>discount</code>
+                <code class='inline'>discount</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -366,7 +366,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>has_annual_billing</code>
+                <code class='inline'>has_annual_billing</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -375,7 +375,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>seats</code>
+                <code class='inline'>seats</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -384,7 +384,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>annual_amount</code>
+                <code class='inline'>annual_amount</code>
               </td>
               <td class="type">
                 <span>numeric</span>
@@ -461,7 +461,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -470,7 +470,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>avatar_path</code>
+                <code class='inline'>avatar_path</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -479,7 +479,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>name</code>
+                <code class='inline'>name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -488,7 +488,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>username</code>
+                <code class='inline'>username</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -497,7 +497,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -506,7 +506,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -515,7 +515,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>github_user_id</code>
+                <code class='inline'>github_user_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -524,7 +524,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>is_user</code>
+                <code class='inline'>is_user</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -533,7 +533,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>name_is_locked</code>
+                <code class='inline'>name_is_locked</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -542,7 +542,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>avatar_path_is_locked</code>
+                <code class='inline'>avatar_path_is_locked</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -579,7 +579,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -588,7 +588,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>account_id</code>
+                <code class='inline'>account_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -597,7 +597,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>description</code>
+                <code class='inline'>description</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -606,7 +606,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>name</code>
+                <code class='inline'>name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -615,7 +615,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -624,7 +624,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -633,7 +633,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>slug</code>
+                <code class='inline'>slug</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -642,7 +642,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>private</code>
+                <code class='inline'>private</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -651,7 +651,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>priority_format</code>
+                <code class='inline'>priority_format</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -660,7 +660,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>priority</code>
+                <code class='inline'>priority</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -669,7 +669,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>points</code>
+                <code class='inline'>points</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -678,7 +678,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>triage</code>
+                <code class='inline'>triage</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -687,7 +687,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>upvotes</code>
+                <code class='inline'>upvotes</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -778,7 +778,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -787,7 +787,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>creator_id</code>
+                <code class='inline'>creator_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -796,7 +796,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>project_id</code>
+                <code class='inline'>project_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -805,7 +805,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>sprint_id</code>
+                <code class='inline'>sprint_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -814,7 +814,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>workspace_id</code>
+                <code class='inline'>workspace_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -823,7 +823,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>body</code>
+                <code class='inline'>body</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -832,7 +832,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>category_name</code>
+                <code class='inline'>category_name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -841,7 +841,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closed_at</code>
+                <code class='inline'>closed_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -850,7 +850,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>comments_count</code>
+                <code class='inline'>comments_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -859,7 +859,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>last_comment_at</code>
+                <code class='inline'>last_comment_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -868,7 +868,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>number</code>
+                <code class='inline'>number</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -877,7 +877,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>points</code>
+                <code class='inline'>points</code>
               </td>
               <td class="type">
                 <span>number</span>
@@ -886,7 +886,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>priority</code>
+                <code class='inline'>priority</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -895,7 +895,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>search_key</code>
+                <code class='inline'>search_key</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -904,7 +904,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>state</code>
+                <code class='inline'>state</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -913,7 +913,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>status</code>
+                <code class='inline'>status</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -922,7 +922,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>title</code>
+                <code class='inline'>title</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -931,7 +931,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>upvotes_count</code>
+                <code class='inline'>upvotes_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -940,7 +940,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -949,7 +949,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -958,7 +958,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>epic_id</code>
+                <code class='inline'>epic_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -967,7 +967,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closer_id</code>
+                <code class='inline'>closer_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1020,7 +1020,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1029,7 +1029,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>card_id</code>
+                <code class='inline'>card_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1038,7 +1038,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>linked_card_id</code>
+                <code class='inline'>linked_card_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1047,7 +1047,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1108,7 +1108,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1117,7 +1117,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>card_id</code>
+                <code class='inline'>card_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1126,7 +1126,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>creator_id</code>
+                <code class='inline'>creator_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1135,7 +1135,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>body</code>
+                <code class='inline'>body</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1144,7 +1144,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1153,7 +1153,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1190,7 +1190,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>bigint</span>
@@ -1199,7 +1199,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>actor_id</code>
+                <code class='inline'>actor_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1208,7 +1208,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>assignee_id</code>
+                <code class='inline'>assignee_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1217,7 +1217,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>source_id</code>
+                <code class='inline'>source_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1226,7 +1226,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>github_issue_id</code>
+                <code class='inline'>github_issue_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1235,7 +1235,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>commit_id</code>
+                <code class='inline'>commit_id</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1244,7 +1244,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>event</code>
+                <code class='inline'>event</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1253,7 +1253,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>label</code>
+                <code class='inline'>label</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -1262,7 +1262,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>milestone</code>
+                <code class='inline'>milestone</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -1271,7 +1271,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>message</code>
+                <code class='inline'>message</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1280,7 +1280,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>rename</code>
+                <code class='inline'>rename</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -1289,7 +1289,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1298,7 +1298,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1335,7 +1335,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1344,7 +1344,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>author_id</code>
+                <code class='inline'>author_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1353,7 +1353,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>source_id</code>
+                <code class='inline'>source_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1362,7 +1362,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>committer_id</code>
+                <code class='inline'>committer_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1371,7 +1371,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>comments_url</code>
+                <code class='inline'>comments_url</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1380,7 +1380,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>files</code>
+                <code class='inline'>files</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -1389,7 +1389,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>html_url</code>
+                <code class='inline'>html_url</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1398,7 +1398,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>message</code>
+                <code class='inline'>message</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1407,7 +1407,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>parents</code>
+                <code class='inline'>parents</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -1416,7 +1416,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>stats</code>
+                <code class='inline'>stats</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -1425,7 +1425,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>authored_at</code>
+                <code class='inline'>authored_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1434,7 +1434,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>committed_at</code>
+                <code class='inline'>committed_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1443,7 +1443,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1452,7 +1452,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1505,7 +1505,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1514,7 +1514,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>card_id</code>
+                <code class='inline'>card_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1523,7 +1523,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>user_id</code>
+                <code class='inline'>user_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1532,7 +1532,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1569,7 +1569,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1578,7 +1578,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>card_id</code>
+                <code class='inline'>card_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1587,7 +1587,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>ticket_id</code>
+                <code class='inline'>ticket_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1596,7 +1596,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1605,7 +1605,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1642,7 +1642,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1651,7 +1651,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>avatar_path</code>
+                <code class='inline'>avatar_path</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1660,7 +1660,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>name</code>
+                <code class='inline'>name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1669,7 +1669,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>username</code>
+                <code class='inline'>username</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1678,7 +1678,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1687,7 +1687,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1696,7 +1696,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>github_user_id</code>
+                <code class='inline'>github_user_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1705,7 +1705,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>is_user</code>
+                <code class='inline'>is_user</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -1714,7 +1714,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>name_is_locked</code>
+                <code class='inline'>name_is_locked</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -1723,7 +1723,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>avatar_path_is_locked</code>
+                <code class='inline'>avatar_path_is_locked</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -1760,7 +1760,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1769,7 +1769,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>card_id</code>
+                <code class='inline'>card_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1778,7 +1778,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1787,7 +1787,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1796,7 +1796,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>person_id</code>
+                <code class='inline'>person_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1855,7 +1855,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1864,7 +1864,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>creator_id</code>
+                <code class='inline'>creator_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1873,7 +1873,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>project_id</code>
+                <code class='inline'>project_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1882,7 +1882,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>sprint_id</code>
+                <code class='inline'>sprint_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1891,7 +1891,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>workspace_id</code>
+                <code class='inline'>workspace_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1900,7 +1900,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>body</code>
+                <code class='inline'>body</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1909,7 +1909,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>category_name</code>
+                <code class='inline'>category_name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1918,7 +1918,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closed_at</code>
+                <code class='inline'>closed_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1927,7 +1927,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>comments_count</code>
+                <code class='inline'>comments_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1936,7 +1936,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>last_comment_at</code>
+                <code class='inline'>last_comment_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -1945,7 +1945,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>number</code>
+                <code class='inline'>number</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1954,7 +1954,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>points</code>
+                <code class='inline'>points</code>
               </td>
               <td class="type">
                 <span>number</span>
@@ -1963,7 +1963,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>priority</code>
+                <code class='inline'>priority</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -1972,7 +1972,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>search_key</code>
+                <code class='inline'>search_key</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1981,7 +1981,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>state</code>
+                <code class='inline'>state</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1990,7 +1990,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>status</code>
+                <code class='inline'>status</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -1999,7 +1999,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>title</code>
+                <code class='inline'>title</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2008,7 +2008,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>upvotes_count</code>
+                <code class='inline'>upvotes_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2017,7 +2017,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2026,7 +2026,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2035,7 +2035,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>epic_id</code>
+                <code class='inline'>epic_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2044,7 +2044,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closer_id</code>
+                <code class='inline'>closer_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2105,7 +2105,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2114,7 +2114,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>creator_id</code>
+                <code class='inline'>creator_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2123,7 +2123,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>epic_id</code>
+                <code class='inline'>epic_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2132,7 +2132,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>project_id</code>
+                <code class='inline'>project_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2141,7 +2141,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>body</code>
+                <code class='inline'>body</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2150,7 +2150,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2159,7 +2159,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2196,7 +2196,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>bigint</span>
@@ -2205,7 +2205,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>actor_id</code>
+                <code class='inline'>actor_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2214,7 +2214,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>assignee_id</code>
+                <code class='inline'>assignee_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2223,7 +2223,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>source_id</code>
+                <code class='inline'>source_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2232,7 +2232,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>github_issue_id</code>
+                <code class='inline'>github_issue_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2241,7 +2241,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>commit_id</code>
+                <code class='inline'>commit_id</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2250,7 +2250,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>event</code>
+                <code class='inline'>event</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2259,7 +2259,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>label</code>
+                <code class='inline'>label</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -2268,7 +2268,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>milestone</code>
+                <code class='inline'>milestone</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -2277,7 +2277,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>message</code>
+                <code class='inline'>message</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2286,7 +2286,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>rename</code>
+                <code class='inline'>rename</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -2295,7 +2295,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2304,7 +2304,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2357,7 +2357,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2366,7 +2366,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>epic_id</code>
+                <code class='inline'>epic_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2375,7 +2375,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>user_id</code>
+                <code class='inline'>user_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2384,7 +2384,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2495,7 +2495,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2504,7 +2504,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>account_id</code>
+                <code class='inline'>account_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2513,7 +2513,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>description</code>
+                <code class='inline'>description</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2522,7 +2522,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>name</code>
+                <code class='inline'>name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2531,7 +2531,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2540,7 +2540,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2549,7 +2549,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>slug</code>
+                <code class='inline'>slug</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2558,7 +2558,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>private</code>
+                <code class='inline'>private</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -2567,7 +2567,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>priority_format</code>
+                <code class='inline'>priority_format</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2576,7 +2576,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>priority</code>
+                <code class='inline'>priority</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -2585,7 +2585,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>points</code>
+                <code class='inline'>points</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -2594,7 +2594,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>triage</code>
+                <code class='inline'>triage</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -2603,7 +2603,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>upvotes</code>
+                <code class='inline'>upvotes</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -2688,7 +2688,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2697,7 +2697,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>avatar_path</code>
+                <code class='inline'>avatar_path</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2706,7 +2706,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>name</code>
+                <code class='inline'>name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2715,7 +2715,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>username</code>
+                <code class='inline'>username</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2724,7 +2724,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2733,7 +2733,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2742,7 +2742,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>github_user_id</code>
+                <code class='inline'>github_user_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2751,7 +2751,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>is_user</code>
+                <code class='inline'>is_user</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -2760,7 +2760,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>name_is_locked</code>
+                <code class='inline'>name_is_locked</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -2769,7 +2769,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>avatar_path_is_locked</code>
+                <code class='inline'>avatar_path_is_locked</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -2814,7 +2814,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2823,7 +2823,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>creator_id</code>
+                <code class='inline'>creator_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2832,7 +2832,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>project_id</code>
+                <code class='inline'>project_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2841,7 +2841,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>sprint_id</code>
+                <code class='inline'>sprint_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2850,7 +2850,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>workspace_id</code>
+                <code class='inline'>workspace_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2859,7 +2859,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>body</code>
+                <code class='inline'>body</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2868,7 +2868,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>category_name</code>
+                <code class='inline'>category_name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2877,7 +2877,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closed_at</code>
+                <code class='inline'>closed_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2886,7 +2886,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>comments_count</code>
+                <code class='inline'>comments_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2895,7 +2895,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>last_comment_at</code>
+                <code class='inline'>last_comment_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2904,7 +2904,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>number</code>
+                <code class='inline'>number</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2913,7 +2913,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>points</code>
+                <code class='inline'>points</code>
               </td>
               <td class="type">
                 <span>number</span>
@@ -2922,7 +2922,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>priority</code>
+                <code class='inline'>priority</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2931,7 +2931,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>search_key</code>
+                <code class='inline'>search_key</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2940,7 +2940,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>state</code>
+                <code class='inline'>state</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2949,7 +2949,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>status</code>
+                <code class='inline'>status</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2958,7 +2958,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>title</code>
+                <code class='inline'>title</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -2967,7 +2967,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>upvotes_count</code>
+                <code class='inline'>upvotes_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -2976,7 +2976,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2985,7 +2985,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -2994,7 +2994,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>epic_id</code>
+                <code class='inline'>epic_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3003,7 +3003,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closer_id</code>
+                <code class='inline'>closer_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3064,7 +3064,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3073,7 +3073,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>assignee_id</code>
+                <code class='inline'>assignee_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3082,7 +3082,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>creator_id</code>
+                <code class='inline'>creator_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3091,7 +3091,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>workspace_id</code>
+                <code class='inline'>workspace_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3100,7 +3100,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>project_id</code>
+                <code class='inline'>project_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3109,7 +3109,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>cards_status</code>
+                <code class='inline'>cards_status</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3118,7 +3118,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>description</code>
+                <code class='inline'>description</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3127,7 +3127,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>due_on</code>
+                <code class='inline'>due_on</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3136,7 +3136,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>number</code>
+                <code class='inline'>number</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3145,7 +3145,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>search_key</code>
+                <code class='inline'>search_key</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3154,7 +3154,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>state</code>
+                <code class='inline'>state</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3163,7 +3163,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>status</code>
+                <code class='inline'>status</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3172,7 +3172,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>title</code>
+                <code class='inline'>title</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3181,7 +3181,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>track_cards</code>
+                <code class='inline'>track_cards</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -3190,7 +3190,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>open_cards_count</code>
+                <code class='inline'>open_cards_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3199,7 +3199,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closed_cards_count</code>
+                <code class='inline'>closed_cards_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3208,7 +3208,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>open_points</code>
+                <code class='inline'>open_points</code>
               </td>
               <td class="type">
                 <span>number</span>
@@ -3217,7 +3217,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closed_points</code>
+                <code class='inline'>closed_points</code>
               </td>
               <td class="type">
                 <span>number</span>
@@ -3226,7 +3226,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>comments_count</code>
+                <code class='inline'>comments_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3235,7 +3235,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closed_at</code>
+                <code class='inline'>closed_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3244,7 +3244,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3253,7 +3253,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3262,7 +3262,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closer_id</code>
+                <code class='inline'>closer_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3271,7 +3271,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>color</code>
+                <code class='inline'>color</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3340,7 +3340,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3349,7 +3349,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>project_id</code>
+                <code class='inline'>project_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3358,7 +3358,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>color</code>
+                <code class='inline'>color</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3367,7 +3367,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>name</code>
+                <code class='inline'>name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3376,7 +3376,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>slug</code>
+                <code class='inline'>slug</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3385,7 +3385,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3394,7 +3394,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3431,7 +3431,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3440,7 +3440,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>source_id</code>
+                <code class='inline'>source_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3449,7 +3449,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>creator_id</code>
+                <code class='inline'>creator_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3458,7 +3458,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closed_at</code>
+                <code class='inline'>closed_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3467,7 +3467,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>due_on</code>
+                <code class='inline'>due_on</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3476,7 +3476,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>description</code>
+                <code class='inline'>description</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3485,7 +3485,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>html_url</code>
+                <code class='inline'>html_url</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3494,7 +3494,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>number</code>
+                <code class='inline'>number</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3503,7 +3503,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>state</code>
+                <code class='inline'>state</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3512,7 +3512,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>title</code>
+                <code class='inline'>title</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3521,7 +3521,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3530,7 +3530,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3539,7 +3539,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>open_cards_count</code>
+                <code class='inline'>open_cards_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3548,7 +3548,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>closed_cards_count</code>
+                <code class='inline'>closed_cards_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3609,7 +3609,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3618,7 +3618,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>assignee_id</code>
+                <code class='inline'>assignee_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3627,7 +3627,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>creator_id</code>
+                <code class='inline'>creator_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3636,7 +3636,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>comments_count</code>
+                <code class='inline'>comments_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3645,7 +3645,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>cards_count</code>
+                <code class='inline'>cards_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3654,7 +3654,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>cards_status</code>
+                <code class='inline'>cards_status</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3663,7 +3663,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>description</code>
+                <code class='inline'>description</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3672,7 +3672,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>number</code>
+                <code class='inline'>number</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3681,7 +3681,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>priority</code>
+                <code class='inline'>priority</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3690,7 +3690,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>status</code>
+                <code class='inline'>status</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3699,7 +3699,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>track_cards</code>
+                <code class='inline'>track_cards</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -3708,7 +3708,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>type</code>
+                <code class='inline'>type</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3717,7 +3717,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>title</code>
+                <code class='inline'>title</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3726,7 +3726,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3735,7 +3735,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3744,7 +3744,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>due_on</code>
+                <code class='inline'>due_on</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3753,7 +3753,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>start_date</code>
+                <code class='inline'>start_date</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3762,7 +3762,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>project_id</code>
+                <code class='inline'>project_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3771,7 +3771,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>search_key</code>
+                <code class='inline'>search_key</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3780,7 +3780,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>state</code>
+                <code class='inline'>state</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3789,7 +3789,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closer_id</code>
+                <code class='inline'>closer_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3798,7 +3798,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closed_at</code>
+                <code class='inline'>closed_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3849,7 +3849,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3858,7 +3858,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>github_owner_id</code>
+                <code class='inline'>github_owner_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -3867,7 +3867,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>description</code>
+                <code class='inline'>description</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3876,7 +3876,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>full_name</code>
+                <code class='inline'>full_name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3885,7 +3885,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>homepage</code>
+                <code class='inline'>homepage</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3894,7 +3894,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>has_webhooks</code>
+                <code class='inline'>has_webhooks</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -3903,7 +3903,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>html_url</code>
+                <code class='inline'>html_url</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3912,7 +3912,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>issues_updated_at</code>
+                <code class='inline'>issues_updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3921,7 +3921,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>name</code>
+                <code class='inline'>name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -3930,7 +3930,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>private</code>
+                <code class='inline'>private</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -3939,7 +3939,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3948,7 +3948,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3957,7 +3957,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>webhook_verified_at</code>
+                <code class='inline'>webhook_verified_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -3966,7 +3966,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>initial_import_at</code>
+                <code class='inline'>initial_import_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4003,7 +4003,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4012,7 +4012,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>avatar_path</code>
+                <code class='inline'>avatar_path</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4021,7 +4021,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>name</code>
+                <code class='inline'>name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4030,7 +4030,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>username</code>
+                <code class='inline'>username</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4039,7 +4039,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4048,7 +4048,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4057,7 +4057,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>github_user_id</code>
+                <code class='inline'>github_user_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4066,7 +4066,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>is_user</code>
+                <code class='inline'>is_user</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -4075,7 +4075,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>name_is_locked</code>
+                <code class='inline'>name_is_locked</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -4084,7 +4084,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>avatar_path_is_locked</code>
+                <code class='inline'>avatar_path_is_locked</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -4153,7 +4153,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4162,7 +4162,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>source_id</code>
+                <code class='inline'>source_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4171,7 +4171,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>creator_id</code>
+                <code class='inline'>creator_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4180,7 +4180,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closed_at</code>
+                <code class='inline'>closed_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4189,7 +4189,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>due_on</code>
+                <code class='inline'>due_on</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4198,7 +4198,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>description</code>
+                <code class='inline'>description</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4207,7 +4207,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>html_url</code>
+                <code class='inline'>html_url</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4216,7 +4216,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>number</code>
+                <code class='inline'>number</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4225,7 +4225,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>state</code>
+                <code class='inline'>state</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4234,7 +4234,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>title</code>
+                <code class='inline'>title</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4243,7 +4243,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4252,7 +4252,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4261,7 +4261,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>open_cards_count</code>
+                <code class='inline'>open_cards_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4270,7 +4270,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>closed_cards_count</code>
+                <code class='inline'>closed_cards_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4313,7 +4313,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>bigint</span>
@@ -4322,7 +4322,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>actor_id</code>
+                <code class='inline'>actor_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4331,7 +4331,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>assignee_id</code>
+                <code class='inline'>assignee_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4340,7 +4340,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>source_id</code>
+                <code class='inline'>source_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4349,7 +4349,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>github_issue_id</code>
+                <code class='inline'>github_issue_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4358,7 +4358,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>commit_id</code>
+                <code class='inline'>commit_id</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4367,7 +4367,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>event</code>
+                <code class='inline'>event</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4376,7 +4376,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>label</code>
+                <code class='inline'>label</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -4385,7 +4385,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>milestone</code>
+                <code class='inline'>milestone</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -4394,7 +4394,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>message</code>
+                <code class='inline'>message</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4403,7 +4403,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>rename</code>
+                <code class='inline'>rename</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -4412,7 +4412,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4421,7 +4421,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4480,7 +4480,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4489,7 +4489,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>creator_id</code>
+                <code class='inline'>creator_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4498,7 +4498,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>project_id</code>
+                <code class='inline'>project_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4507,7 +4507,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>sprint_id</code>
+                <code class='inline'>sprint_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4516,7 +4516,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>workspace_id</code>
+                <code class='inline'>workspace_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4525,7 +4525,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>body</code>
+                <code class='inline'>body</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4534,7 +4534,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>category_name</code>
+                <code class='inline'>category_name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4543,7 +4543,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closed_at</code>
+                <code class='inline'>closed_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4552,7 +4552,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>comments_count</code>
+                <code class='inline'>comments_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4561,7 +4561,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>last_comment_at</code>
+                <code class='inline'>last_comment_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4570,7 +4570,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>number</code>
+                <code class='inline'>number</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4579,7 +4579,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>points</code>
+                <code class='inline'>points</code>
               </td>
               <td class="type">
                 <span>number</span>
@@ -4588,7 +4588,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>priority</code>
+                <code class='inline'>priority</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4597,7 +4597,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>search_key</code>
+                <code class='inline'>search_key</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4606,7 +4606,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>state</code>
+                <code class='inline'>state</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4615,7 +4615,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>status</code>
+                <code class='inline'>status</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4624,7 +4624,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>title</code>
+                <code class='inline'>title</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4633,7 +4633,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>upvotes_count</code>
+                <code class='inline'>upvotes_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4642,7 +4642,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4651,7 +4651,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4660,7 +4660,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>epic_id</code>
+                <code class='inline'>epic_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4669,7 +4669,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closer_id</code>
+                <code class='inline'>closer_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4744,7 +4744,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>bigint</span>
@@ -4753,7 +4753,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>actor_id</code>
+                <code class='inline'>actor_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4762,7 +4762,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>assignee_id</code>
+                <code class='inline'>assignee_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4771,7 +4771,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>source_id</code>
+                <code class='inline'>source_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4780,7 +4780,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>github_issue_id</code>
+                <code class='inline'>github_issue_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4789,7 +4789,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>commit_id</code>
+                <code class='inline'>commit_id</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4798,7 +4798,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>event</code>
+                <code class='inline'>event</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4807,7 +4807,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>label</code>
+                <code class='inline'>label</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -4816,7 +4816,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>milestone</code>
+                <code class='inline'>milestone</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -4825,7 +4825,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>message</code>
+                <code class='inline'>message</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -4834,7 +4834,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>rename</code>
+                <code class='inline'>rename</code>
               </td>
               <td class="type">
                 <span>json</span>
@@ -4843,7 +4843,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4852,7 +4852,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -4905,7 +4905,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4914,7 +4914,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>ticket_id</code>
+                <code class='inline'>ticket_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4923,7 +4923,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>user_id</code>
+                <code class='inline'>user_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -4932,7 +4932,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -5027,7 +5027,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -5036,7 +5036,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>project_id</code>
+                <code class='inline'>project_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -5045,7 +5045,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>description</code>
+                <code class='inline'>description</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -5054,7 +5054,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>name</code>
+                <code class='inline'>name</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -5063,7 +5063,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>slug</code>
+                <code class='inline'>slug</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -5072,7 +5072,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>private</code>
+                <code class='inline'>private</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -5081,7 +5081,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>priority_format</code>
+                <code class='inline'>priority_format</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -5090,7 +5090,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>priority</code>
+                <code class='inline'>priority</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -5099,7 +5099,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>points</code>
+                <code class='inline'>points</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -5108,7 +5108,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>upvotes</code>
+                <code class='inline'>upvotes</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -5117,7 +5117,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -5126,7 +5126,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -5135,7 +5135,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>archive_merged_prs</code>
+                <code class='inline'>archive_merged_prs</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -5144,7 +5144,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>use_category_labels</code>
+                <code class='inline'>use_category_labels</code>
               </td>
               <td class="type">
                 <span>boolean</span>
@@ -5259,7 +5259,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>id</code>
+                <code class='inline'>id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -5268,7 +5268,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>closed_at</code>
+                <code class='inline'>closed_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -5277,7 +5277,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>description</code>
+                <code class='inline'>description</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -5286,7 +5286,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>end_date</code>
+                <code class='inline'>end_date</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -5295,7 +5295,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>start_date</code>
+                <code class='inline'>start_date</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -5304,7 +5304,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>state</code>
+                <code class='inline'>state</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -5313,7 +5313,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>title</code>
+                <code class='inline'>title</code>
               </td>
               <td class="type">
                 <span>text</span>
@@ -5322,7 +5322,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>created_at</code>
+                <code class='inline'>created_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -5331,7 +5331,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>updated_at</code>
+                <code class='inline'>updated_at</code>
               </td>
               <td class="type">
                 <span>timestamp</span>
@@ -5340,7 +5340,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>project_id</code>
+                <code class='inline'>project_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -5349,7 +5349,7 @@ console.log(jwt);</code></pre>
           
             <tr class=''>
               <td class="name">
-                <code>workspace_id</code>
+                <code class='inline'>workspace_id</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -5358,7 +5358,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>open_cards_count</code>
+                <code class='inline'>open_cards_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -5367,7 +5367,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>closed_cards_count</code>
+                <code class='inline'>closed_cards_count</code>
               </td>
               <td class="type">
                 <span>integer</span>
@@ -5376,7 +5376,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>open_points</code>
+                <code class='inline'>open_points</code>
               </td>
               <td class="type">
                 <span>number</span>
@@ -5385,7 +5385,7 @@ console.log(jwt);</code></pre>
           
             <tr class='unindexed'>
               <td class="name">
-                <code>closed_points</code>
+                <code class='inline'>closed_points</code>
               </td>
               <td class="type">
                 <span>number</span>

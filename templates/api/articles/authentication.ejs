@@ -71,7 +71,7 @@
 <div id="requesting-an-api-access-token" class='section-block'>
     <h4>Requesting an API Access Token</h4>
     <p>
-        Before you can send requests to Zube's API endpoints, you will need an access token. To get an access token from Zube, you will need to create a <a href="https://jwt.io/introduction/" target="_blank">JSON Web Token (JWT)</a> signed by your private key and encode it using the <code>RS256</code> algorithm. Zube checks the JWT you create with your private key against the public key stored by Zube and returns a JWT you can use to access Zube's other API endpoints.
+        Before you can send requests to Zube's API endpoints, you will need an access token. To get an access token from Zube, you will need to create a <a href="https://jwt.io/introduction/" target="_blank">JSON Web Token (JWT)</a> signed by your private key and encode it using the <code class='inline'>RS256</code> algorithm. Zube checks the JWT you create with your private key against the public key stored by Zube and returns a JWT you can use to access Zube's other API endpoints.
     </p>
     <div class='code-block'>
         The following Node.js code can be used to generate the JWT used to request an API access token.
@@ -91,7 +91,7 @@ var jwt = jsonwebtoken.sign({
 console.log(jwt);</code></pre>
     </div>
     <p>
-      Replace <code>YOUR_CLIENT_ID</code> and <code>PATH_TO_PEM_FILE</code> in the above code with your information.
+      Replace <code class='inline'>YOUR_CLIENT_ID</code> and <code class='inline'>PATH_TO_PEM_FILE</code> in the above code with your information.
     </p>
     <p>
       The code above creates a request JWT with a one minute expiry. You can create your request JWT with an expiry of up to 10 minutes. Once your JWT is expired, you will need to generate a new request JWT to request new access tokens.
