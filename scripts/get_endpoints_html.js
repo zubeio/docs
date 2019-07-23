@@ -6,6 +6,7 @@ const path = require('path');
 const schema = require('./schema.js');
 const cobaltEndpointJSON = require('../../cobalt/scripts/api/out/api_endpoints.json');
 
+let endpointsHTML = '';
 let finalHTML = '';
 let sidebarInfo = [];
 
@@ -23,7 +24,7 @@ const sectionTemplate = path.join(__dirname, '../templates/api/endpoints/section
 function renderSection(section) {
   ejs.renderFile(sectionTemplate, { section }, (err, html) => {
     if (err) console.log(err);
-    finalHTML += html;
+    endpointsHTML += html;
   });
 }
 
@@ -65,6 +66,16 @@ module.exports = function () {
     if (v) return;
     console.log('Endpoint', k, 'missing from schema.');
   });
+
+  const finalSectionTemplate = path.join(__dirname, '../templates/api/endpoints/endpoints_section.ejs');
+  function getFinalHTML(section) {
+    ejs.renderFile(finalSectionTemplate, { endpointsHTML }, (err, html) => {
+      if (err) console.log(err);
+      finalHTML = html;
+    });
+  }
+
+  getFinalHTML();
 
   return { finalHTML, sidebarInfo };
 }

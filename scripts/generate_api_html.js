@@ -46,7 +46,7 @@ let page = '';
 let endpointsData = getEndpoints();
 endpointsBlock = endpointsData.finalHTML;
 
-Generate the body content for each article
+// Generate the body content for each article
 articles.forEach(article => {
   const url = path.join(__dirname, article.contentPath);
   ejs.renderFile(url, article, (err, html) => {
