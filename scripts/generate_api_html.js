@@ -8,6 +8,7 @@ const path = require('path');
 const articles = [
   {
     "id": "intro-section",
+    "title": "Introduction",
     "contentPath": "../templates/api/articles/intro.ejs"
   },
   {
@@ -45,27 +46,20 @@ let page = '';
 let endpointsData = getEndpoints();
 endpointsBlock = endpointsData.finalHTML;
 
-// Generate the body content for each article
-// articles.forEach(article => {
-//   const url = path.join(__dirname, article.contentPath);
-//   ejs.renderFile(url, article, (err, html) => {
-//       article.body = html;
-//   });
-// });
-//
-// // Group all articles together into Getting Started section
-// const gettingStartedPath = path.join(__dirname, '../templates/api/getting_started.ejs');
-// ejs.renderFile(gettingStartedPath, {articles}, (err, html) => {
-//   if (err) console.log(err);
-//   gettingStartedBlock = html;
-// });
+Generate the body content for each article
+articles.forEach(article => {
+  const url = path.join(__dirname, article.contentPath);
+  ejs.renderFile(url, article, (err, html) => {
+      article.body = html;
+  });
+});
 
-// // Generate endpoint sections
-// const endpointsPath = path.join(__dirname, '../templates/api/endpoints.ejs');
-// ejs.renderFile(endpointsPath, { sections: endpointDataJSON }, (err, html) => {
-//     if (err) console.log(err);
-//     endpointsBlock = html;
-// });
+// Group all articles together into Getting Started section
+const gettingStartedPath = path.join(__dirname, '../templates/api/getting_started.ejs');
+ejs.renderFile(gettingStartedPath, {articles}, (err, html) => {
+  if (err) console.log(err);
+  gettingStartedBlock = html;
+});
 
 // Generate sidebar with links to content
 const sidebarPath = path.join(__dirname, '../templates/api/sidebar.ejs');
