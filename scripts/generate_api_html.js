@@ -1,6 +1,6 @@
 const fs = require('fs');
-const endpointDataJSON = require('./out/endpoint_data.json');
-const getEndpointsBlock = require('./get_endpoints_html');
+// const endpointDataJSON = require('./out/endpoint_data.json');
+const getEndpoints = require('./get_endpoints_html');
 const ejs = require('ejs');
 const path = require('path');
 
@@ -42,7 +42,8 @@ let endpointsBlock = '';
 let sidebarBlock = '';
 let page = '';
 
-endpointsBlock = getEndpointsBlock();
+let endpointsData = getEndpoints();
+endpointsBlock = endpointsData.finalHTML;
 
 // Generate the body content for each article
 // articles.forEach(article => {
@@ -66,14 +67,13 @@ endpointsBlock = getEndpointsBlock();
 //     endpointsBlock = html;
 // });
 
-// // Generate sidebar with links to content
-// const sidebarPath = path.join(__dirname, '../templates/api/sidebar.ejs');
-// const sidebarData = { articles, endpointSections: endpointDataJSON };
-// ejs.renderFile(sidebarPath, sidebarData, (err, html) => {
-//     if (err) console.log(err);
-//     sidebarBlock = html;
-// });
-
+// Generate sidebar with links to content
+const sidebarPath = path.join(__dirname, '../templates/api/sidebar.ejs');
+const sidebarData = { articles: [], endpoints: endpointsData.sidebarInfo };
+ejs.renderFile(sidebarPath, sidebarData, (err, html) => {
+    if (err) console.log(err);
+    sidebarBlock = html;
+});
 
 // Generate the entire document with boilerplate
 const boilerplatePath = path.join(__dirname, '../templates/boilerplate.ejs');

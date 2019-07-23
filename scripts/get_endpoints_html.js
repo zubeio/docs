@@ -7,6 +7,7 @@ const schema = require('./schema.js');
 const cobaltEndpointJSON = require('../../cobalt/scripts/api/out/api_endpoints.json');
 
 let finalHTML = '';
+let sidebarInfo = [];
 
 const tableGroupTemplate = path.join(__dirname, '../templates/api/endpoints/table_group.ejs');
 function renderTableGroup(tableGroup) {
@@ -36,26 +37,28 @@ module.exports = function () {
 
   let sectionsHTML = '';
   schema.forEach(function (section) {
-    section.id = section.title.toLowerCase().split(' ').join('-'); // set the id for hashLink
+    section.id = section.title.toLowerCase().replace('\'', '').split(' ').join('-'); // set the id for hashLink
+    let sidebarSection = { title: section.title, id: section.id, endpoints: [] };
     section.tableGroups.forEach(function (tableGroup) {
       tableGroup.attrs = cobaltEndpointJSON.database_info[tableGroup.table] || []; // Attach the table attrs for the tableGroup
       if (!tableGroup.attrs.length === 0) console.log('No attributes found for ' + tableGroup.table);
       tableGroup.endpoints.forEach(function (endpoint) { // iterate over the endpoints for validation against cobaltEndpointCheckHash
         // Add formatted ID here for convenience
-        endpoint.id = endpoint.name.toLowerCase().split(' ').join('-');
+        endpoint.id = endpoint.name.toLowerCase().replace('\'', '').split(' ').join('-');
         // Check that schema does not contain any invalid endpoints
         if (cobaltEndpointCheckHash[endpoint.method + endpoint.rawPath] === void 0) {
           console.log('Invalid endpoint', endpoint.method, endpoint.rawPath, endpoint.name);
           return endpoint = null;
         } else {
           cobaltEndpointCheckHash[endpoint.method + endpoint.rawPath] = true;
+          sidebarSection['endpoints'].push({ name: endpoint.name, id: endpoint.id });
         }
         tableGroup.html = renderTableGroup(tableGroup);
       });
     });
+    sidebarInfo.push(sidebarSection);
     renderSection(section);
   });
-
 
   // Check that cobaltEndpointJSON does not contain any endpoints not included in schema
   _.each(cobaltEndpointCheckHash, function (v, k) {
@@ -63,5 +66,5 @@ module.exports = function () {
     console.log('Endpoint', k, 'missing from schema.');
   });
 
-  return finalHTML;
+  return { finalHTML, sidebarInfo };
 }
