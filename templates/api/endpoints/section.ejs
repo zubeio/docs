@@ -1,0 +1,14 @@
+<div id="<%= section.id %>"  class="section-block endpoint-section">
+  <h3 class="block-title section"><%= section.title %></h3>
+  <% if (section.desc) { %>
+    <p>
+      <%- section.desc %>
+    </p>
+  <% } %>
+  <% if (section.note) { %>
+    <div class='note'>
+      <%- section.note %>
+    </div>
+  <% } %>
+  <%- section.endpointsHTML %>
+</div>
