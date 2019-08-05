@@ -106,7 +106,6 @@ module.exports = function () {
     ejs.renderFile(finalSectionTemplate, { sectionsHTML }, (err, html) => {
       if (err) console.log(err);
       finalHTML = html;
-      console.log(finalHTML)
     });
   }
 

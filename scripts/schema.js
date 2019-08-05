@@ -152,11 +152,12 @@ const sections = [
         rawPath: '/api/cards/:id/move',
         method: 'PUT',
         name: 'Move a card',
+        note: 'XXX',
         formData: [
-          { name: 'destination.type', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">category</code> or <code class="inline">project</code>' },
           { name: 'destination.position', type: 'Integer', isRequired: true },
-          { name: 'destination.workspace_id', type: 'Integer', isRequired: false, note: 'Required if sending <code class="inline">destination.type</code> as <code class="inline">project</code>' },
-          { name: 'destination._id', type: 'Integer', isRequired: false, note: 'Where <code class="inline">_id</code> is the <code class="inline">category._id</code> <br /> Required if sending <code class="inline">destination.type</code> as <code class="inline">category</code>' },
+          { name: 'destination.type', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">category</code> or <code class="inline">project</code>' },
+          { name: 'destination.name', type: 'Integer', isRequired: false, note: 'Name of the destination category.' },
+          { name: 'destination.workspace_id', type: 'Integer', isRequired: false, note: 'Required if sending <code class="inline">destination.type</code> as <code class="inline">category</code>' },
         ]
       },
       {

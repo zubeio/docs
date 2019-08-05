@@ -129,7 +129,7 @@
             </div>
         </li>
         <li>
-            After you've generated your first private key, you will also be issued a Client Id and shown the fingerprint for your private key, which you can use to verify the key.
+            After you've generated your first private key, you will be issued a Client Id. You will also be shown the fingerprint for your private key, which you can use to verify the key.
             <div class='image-popper'>
                 <a>
                     <i class='fa fa-image'></i>
@@ -142,44 +142,13 @@
         </li>
     </ol>
 </div>
-<div id="verifying-a-private-key" class='section-block'>
-    <h4>Verifying a Private Key</h4>
-    <p>
-        Zube generates a fingerprint for your private and public key pair using a SHA-1 hash function. You can verify that your private key matches the public key stored on Zube by generating the fingerprint of your private key and comparing it to the fingerprint displayed on Zube.
-
-        To verify your private key:
-        <ol class="list">
-            <li>
-                Generate the fingerprint for your private key locally with the following command:
-                <p>
-                    <code>
-                        openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha1 -c
-                    </code>
-                </p>
-            </li>
-            <li>
-                Compare the resulting fingerprint to the fingerprint displayed on Zube for your private key. They should match.
-            </li>
-        </ol>
-    </p>
-</div>
-<div id="deleting-a-private-key" class='section-block'>
-    <h4>Deleting a Private Key</h4>
-    <p>
-        You can remove a lost, compromised or unwanted private key by deleting it in the Zube interface. After you have deleted your private key, you will be able to generate a new one.
-    </p>
-    <div class="screenshot-holder">
-        <a href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><img class="img-responsive" src="/docs/images/private_key_ids.png" alt="screenshot" /></a>
-        <a class="mask" href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><i class="icon fa fa-search-plus"></i></a>
-    </div>
-</div>
 <div id="requesting-an-api-access-token" class='section-block'>
     <h4>Requesting an API Access Token</h4>
     <p>
-        Before you can send requests to Zube's API endpoints, you will need an access token. To get an access token from Zube, you will need to create a <a href="https://jwt.io/introduction/" target="_blank">JSON Web Token (JWT)</a> signed by your private key and encode it using the <code class='inline'>RS256</code> algorithm. Zube checks the JWT you create with your private key against the public key stored by Zube and returns a JWT you can use to access Zube's other API endpoints.
+        Before you can send requests to Zube's API endpoints, you will need an access token. To get an access token from Zube, you will need to create a <a href="https://jwt.io/introduction/" target="_blank">JSON Web Token (JWT)</a> signed by your private key and encode it using the <code class='inline'>RS256</code> algorithm. Zube checks the JWT you create with your private key against the public key stored by Zube and returns a new JWT you can use to access Zube's other API endpoints.
     </p>
     <div class='code-block'>
-        The following Node.js code can be used to generate the JWT used to request an API access token.
+        As an example, the following Node.js code can be used to generate the JWT used to request an API access token.
         <pre><code class="language-javascript">var fs = require(&#x27;fs&#x27;);
 var jsonwebtoken = require(&#x27;jsonwebtoken&#x27;); // $ npm install jsonwebtoken
 
@@ -201,6 +170,60 @@ console.log(jwt);</code></pre>
     <p>
       The code above creates a request JWT with a one minute expiry. You can create your request JWT with an expiry of up to 10 minutes. Once your JWT is expired, you will need to generate a new request JWT to request new access tokens.
     </p>
+    <p>
+      After creating the JWT, you can request a new access token. Set your JWT and Client Id in the <code class='inline'>Header</code> of the API request:
+    </p>
+    <p>
+      <pre><code class="language-bash">curl -i \
+-H &#x22;Authorization: Bearer YOUR_REQUEST_JWT&#x22; \
+-H &#x22;X-Client-ID: CLIENT_ID&#x22; \
+-H &#x22;Accept: application/json&#x22; \
+-X POST \
+https://zube.io/api/users/CLIENT_ID/tokens</code></pre>
+    </p>
+    <p>
+      <code class='inline'>YOUR_REQUEST_JWT</code> and <code class='inline'>CLIENT_ID</code> is the value you must replace.
+    </p>
+    <p>
+      The API request above will return an access token which you can use to make further requests to Zube's API endpoints.
+    </p>
+    <pre><code class='language-bash'>curl -i \
+-H &#x22;Authorization: Bearer ACCESS_JWT&#x22; \
+-H &#x22;X-Client-ID: CLIENT_ID&#x22; \
+-H &#x22;Accept: application/json&#x22; \
+https://zube.io/api/ANY_END_POINT</code>
+    </pre>
+</div>
+<div id="verifying-a-private-key" class='section-block'>
+  <h4>Verifying a Private Key</h4>
+  <p>
+    Zube generates a fingerprint for your private and public key pair using a SHA-1 hash function. You can verify that your private key matches the public key stored on Zube by generating the fingerprint of your private key and comparing it to the fingerprint displayed on Zube.
+
+    To verify your private key:
+    <ol class="list">
+      <li>
+        Generate the fingerprint for your private key locally with the following command:
+        <p>
+          <code>
+            openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha1 -c
+          </code>
+        </p>
+      </li>
+      <li>
+        Compare the resulting fingerprint to the fingerprint displayed on Zube for your private key. They should match.
+      </li>
+    </ol>
+  </p>
+</div>
+<div id="deleting-a-private-key" class='section-block'>
+  <h4>Deleting a Private Key</h4>
+  <p>
+    You can remove a lost, compromised or unwanted private key by deleting it in the Zube interface. After you have deleted your private key, you will be able to generate a new one.
+  </p>
+  <div class="screenshot-holder">
+    <a href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><img class="img-responsive" src="/docs/images/private_key_ids.png" alt="screenshot" /></a>
+    <a class="mask" href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><i class="icon fa fa-search-plus"></i></a>
+  </div>
 </div>
 
         </div>
@@ -567,7 +590,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -736,7 +759,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1281,7 +1304,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1311,7 +1334,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1371,7 +1394,7 @@ console.log(jwt);</code></pre>
                 <span>Array</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Array of assignee objects with key <code class="inline">id</code></span>
@@ -1386,7 +1409,7 @@ console.log(jwt);</code></pre>
                 <span>Text</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1401,7 +1424,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1416,7 +1439,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1431,7 +1454,7 @@ console.log(jwt);</code></pre>
                 <span>Array</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Array of label objects; see <a href="#labels">Labels</a></span>
@@ -1446,7 +1469,7 @@ console.log(jwt);</code></pre>
                 <span>Number</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1461,7 +1484,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Must be one of <code class="inline">1</code>, <code class="inline">2</code>, <code class="inline">3</code>, <code class="inline">4</code>, <code class="inline">5</code>, or <code class="inline">null</code></span>
@@ -1476,7 +1499,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1491,7 +1514,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1506,7 +1529,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Only accepts <code class="inline">open</code> or <code class="inline">closed</code></span>
@@ -1521,7 +1544,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1536,7 +1559,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1575,7 +1598,7 @@ console.log(jwt);</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>destination._id</code>
+                <code class='inline'>destination.name</code>
               </td>
               <td class="type">
                 <span>Integer</span>
@@ -1584,7 +1607,7 @@ console.log(jwt);</code></pre>
                 <span></span>
               </td>
               <td class="note">
-                <span>Where <code class="inline">_id</code> is the <code class="inline">category._id</code> <br /> Required if sending <code class="inline">destination.type</code> as <code class="inline">category</code></span>
+                <span>Name of the destination category.</span>
               </td>
             </tr>
           
@@ -1596,7 +1619,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1611,7 +1634,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Only accepts <code class="inline">category</code> or <code class="inline">project</code></span>
@@ -1629,7 +1652,7 @@ console.log(jwt);</code></pre>
                 <span></span>
               </td>
               <td class="note">
-                <span>Required if sending <code class="inline">destination.type</code> as <code class="inline">project</code></span>
+                <span>Required if sending <code class="inline">destination.type</code> as <code class="inline">category</code></span>
               </td>
             </tr>
           
@@ -1663,7 +1686,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>You cannot change the source for a card that already has a source</span>
@@ -1767,7 +1790,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1782,7 +1805,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1907,7 +1930,7 @@ console.log(jwt);</code></pre>
                 <span>Text</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -1944,7 +1967,7 @@ console.log(jwt);</code></pre>
                 <span>Text</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -2796,7 +2819,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -2856,7 +2879,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -2871,7 +2894,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Hex color code string without preceding "#"</span>
@@ -2886,7 +2909,7 @@ console.log(jwt);</code></pre>
                 <span>Text</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -2901,7 +2924,7 @@ console.log(jwt);</code></pre>
                 <span>Timestamp</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -2916,7 +2939,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Only accepts <code class="inline">open</code> or <code class="inline">closed</code></span>
@@ -2931,7 +2954,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Must be one of <code class="inline">new</code>, <code class="inline">queued</code>, <code class="inline">in_progress</code>, <code class="inline">completed</code>, <code class="inline">closed</code>, or <code class="inline">archived</code></span>
@@ -2946,7 +2969,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -2961,7 +2984,7 @@ console.log(jwt);</code></pre>
                 <span>Boolean</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -3245,7 +3268,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -3370,7 +3393,7 @@ console.log(jwt);</code></pre>
                 <span>Text</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -3407,7 +3430,7 @@ console.log(jwt);</code></pre>
                 <span>Text</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -3694,7 +3717,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Hex color code string without preceding "#"</span>
@@ -3709,7 +3732,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -3754,7 +3777,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Hex color code string without preceding "#"</span>
@@ -3769,7 +3792,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -3828,7 +3851,7 @@ console.log(jwt);</code></pre>
                 <span>Boolean</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -3991,7 +4014,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -4021,7 +4044,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -4081,7 +4104,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -4265,7 +4288,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -4434,7 +4457,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -5154,7 +5177,7 @@ console.log(jwt);</code></pre>
                 <span>Timestamp</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -5169,7 +5192,7 @@ console.log(jwt);</code></pre>
                 <span>Timestamp</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -5184,7 +5207,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -5229,7 +5252,7 @@ console.log(jwt);</code></pre>
                 <span>Text</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -5244,7 +5267,7 @@ console.log(jwt);</code></pre>
                 <span>Timestamp</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -5259,7 +5282,7 @@ console.log(jwt);</code></pre>
                 <span>Timestamp</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -5274,7 +5297,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Only accepts <code class="inline">open</code> or <code class="inline">closed</code></span>
@@ -5289,7 +5312,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -5896,7 +5919,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -5941,7 +5964,7 @@ console.log(jwt);</code></pre>
                 <span>Text</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -5956,7 +5979,7 @@ console.log(jwt);</code></pre>
                 <span>Timestamp</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -5971,7 +5994,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Only accepts <code class="inline">open</code> or <code class="inline">closed</code></span>
@@ -5986,7 +6009,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -6368,7 +6391,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -6443,7 +6466,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -6458,7 +6481,7 @@ console.log(jwt);</code></pre>
                 <span>Text</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -6473,7 +6496,7 @@ console.log(jwt);</code></pre>
                 <span>Timestamp</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -6488,7 +6511,7 @@ console.log(jwt);</code></pre>
                 <span>Number</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Must be one of <code class="inline">1</code>, <code class="inline">2</code>, <code class="inline">3</code>, <code class="inline">4</code></span>
@@ -6503,7 +6526,7 @@ console.log(jwt);</code></pre>
                 <span>Timestamp</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -6518,7 +6541,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Only accepts <code class="inline">open</code> or <code class="inline">closed</code></span>
@@ -6533,7 +6556,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Must be one of <code class="inline">new</code>, <code class="inline">queued</code>, <code class="inline">in_progress</code>, <code class="inline">completed</code>, <code class="inline">closed</code>, or <code class="inline">archived</code></span>
@@ -6548,7 +6571,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -6563,7 +6586,7 @@ console.log(jwt);</code></pre>
                 <span>Boolean</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -6578,7 +6601,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Must be one of <code class="inline">task</code>, <code class="inline">bug</code>, <code class="inline">feature</code>, or <code class="inline">question</code></span>
@@ -6862,7 +6885,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -6987,7 +7010,7 @@ console.log(jwt);</code></pre>
                 <span>Text</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -7024,7 +7047,7 @@ console.log(jwt);</code></pre>
                 <span>Text</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -7376,7 +7399,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -7391,7 +7414,7 @@ console.log(jwt);</code></pre>
                 <span>Integer</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -7436,7 +7459,7 @@ console.log(jwt);</code></pre>
                 <span>Boolean</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -7451,7 +7474,7 @@ console.log(jwt);</code></pre>
                 <span>Text</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -7466,7 +7489,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -7481,7 +7504,7 @@ console.log(jwt);</code></pre>
                 <span>Boolean</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -7496,7 +7519,7 @@ console.log(jwt);</code></pre>
                 <span>Boolean</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -7511,7 +7534,7 @@ console.log(jwt);</code></pre>
                 <span>String</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span>Must be one of <code class="inline">number</code>, <code class="inline">name</code>, or <code class="inline">color</code></span>
@@ -7526,7 +7549,7 @@ console.log(jwt);</code></pre>
                 <span>Boolean</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
@@ -7541,7 +7564,7 @@ console.log(jwt);</code></pre>
                 <span>Boolean</span>
               </td>
               <td class="required">
-                <span>✓</span>
+                <span>✅</span>
               </td>
               <td class="note">
                 <span></span>
