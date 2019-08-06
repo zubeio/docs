@@ -89,16 +89,6 @@
                             <section id="getting-started-section" class="doc-section">
     <h2 class="section-title">Getting Started with the Zube API</h2>
     
-        <div id="intro-section"  class="section-block">
-            
-                <h3 class="block-title">Introduction</h3>
-            
-            <p>
-    XXX INTRODUCTION TO ZUBE API
-</p>
-
-        </div>
-    
         <div id="authentication-section"  class="section-block">
             
                 <h3 class="block-title">Authentication</h3>
@@ -156,13 +146,13 @@ var client_id = YOUR_CLIENT_ID;
 var private_key = fs.readFileSync(PATH_TO_PEM_FILE);
 
 var now = Math.floor(Date.now() / 1000);
-var jwt = jsonwebtoken.sign({
+var request_jwt = jsonwebtoken.sign({
     iat: now,      // Issued at time
     exp: now + 60, // JWT expiration time (10 minute maximum)
     iss: client_id // Your Zube client id
 }, private_key, { algorithm: &#x27;RS256&#x27; });
 
-console.log(jwt);</code></pre>
+console.log(request_jwt);</code></pre>
     </div>
     <p>
       Replace <code class='inline'>YOUR_CLIENT_ID</code> and <code class='inline'>PATH_TO_PEM_FILE</code> in the above code with your information.
@@ -182,7 +172,7 @@ console.log(jwt);</code></pre>
 https://zube.io/api/users/CLIENT_ID/tokens</code></pre>
     </p>
     <p>
-      <code class='inline'>YOUR_REQUEST_JWT</code> and <code class='inline'>CLIENT_ID</code> is the value you must replace.
+      <code class='inline'>YOUR_REQUEST_JWT</code> and <code class='inline'>CLIENT_ID</code> are the values you must replace.
     </p>
     <p>
       The API request above will return an access token which you can use to make further requests to Zube's API endpoints.
@@ -191,8 +181,10 @@ https://zube.io/api/users/CLIENT_ID/tokens</code></pre>
 -H &#x22;Authorization: Bearer ACCESS_JWT&#x22; \
 -H &#x22;X-Client-ID: CLIENT_ID&#x22; \
 -H &#x22;Accept: application/json&#x22; \
-https://zube.io/api/ANY_END_POINT</code>
-    </pre>
+https://zube.io/api/ANY_END_POINT</code></pre>
+  <p>
+    The access token expires in 24 hours, after which you will need to request a new access token by repeating the steps outlined above.    
+  </p>
 </div>
 <div id="verifying-a-private-key" class='section-block'>
   <h4>Verifying a Private Key</h4>
@@ -232,7 +224,90 @@ https://zube.io/api/ANY_END_POINT</code>
             
                 <h3 class="block-title">Example Request Response</h3>
             
-            
+            <div id="example-request" class='section-block'>
+    <h4>Example Request</h4>
+    <p>
+      You can find instructions for getting your <code class='inline'>CLIENT_ID</code> and generating your <code class='inline'>YOUR_REQUEST_JWT</code> in the <a href='#authentication'>Authentication</a> section above.
+    </p>
+    <p>
+      To send a request to a Zube API endpoint, include your <code class='inline'>ACCESS_JWT</code> and <code class='inline'>CLIENT_ID</code> in the <code class='inline'>Header</code> for your request.
+    </p>
+    <p>
+      The code below will send a <code class='inline'>GET</code> request to the <code class='inline'>projects</code> endpoint.
+    </p>
+    <pre><code class='language-bash'>curl -i \
+-H &#x22;Authorization: Bearer ACCESS_JWT&#x22; \
+-H &#x22;X-Client-ID: CLIENT_ID&#x22; \
+-H &#x22;Accept: application/json&#x22; \
+https://zube.io/api/projects</code></pre>
+</div>
+<div id="example-response" class='section-block'>
+    <h4>Example Response</h4>
+    <p>
+      The code above will return a JSON object:
+    </p>
+
+    <pre><code class='language-javascript'>{
+  &#x22;pagination&#x22;:{
+    &#x22;page&#x22;:1,
+    &#x22;per_page&#x22;:30,
+    &#x22;total_pages&#x22;:1,
+    &#x22;total&#x22;:1
+  },
+  &#x22;data&#x22;:[
+    {
+      &#x22;id&#x22;:123456,
+      &#x22;account_id&#x22;:54321,
+      &#x22;description&#x22;:&#x22;The place to organize our web application&#x22;,
+      &#x22;name&#x22;:&#x22;Web Project&#x22;,
+      &#x22;created_at&#x22;:&#x22;2018-07-06T03:52:29.513Z&#x22;,
+      &#x22;updated_at&#x22;:&#x22;2018-07-06T03:52:29.513Z&#x22;,
+      &#x22;slug&#x22;:&#x22;web-project&#x22;,
+      &#x22;private&#x22;:true,
+      &#x22;priority_format&#x22;:&#x22;number&#x22;,
+      &#x22;priority&#x22;:true,
+      &#x22;points&#x22;:true,
+      &#x22;triage&#x22;:false,
+      &#x22;upvotes&#x22;:false,
+      &#x22;sources&#x22;:[
+        {
+          &#x22;id&#x22;:123456789,
+          &#x22;github_owner_id&#x22;:87654321,
+          &#x22;description&#x22;:&#x22;Javascript frontend repository&#x22;,
+          &#x22;full_name&#x22;:&#x22;zubeio/js-frontend&#x22;,
+          &#x22;homepage&#x22;:null,
+          &#x22;html_url&#x22;:&#x22;https://github.com/zubeio/js-frontend&#x22;,
+          &#x22;name&#x22;:&#x22;js-frontend&#x22;,
+          &#x22;private&#x22;:true,
+          &#x22;created_at&#x22;:&#x22;2018-09-13T19:53:09.000Z&#x22;,
+          &#x22;updated_at&#x22;:&#x22;2019-07-02T22:25:48.000Z&#x22;,
+          &#x22;webhook_verified_at&#x22;:&#x22;2019-07-03T23:29:09.894Z&#x22;,
+          &#x22;initial_import_at&#x22;:&#x22;2018-12-17T04:09:49.348Z&#x22;
+        }
+      ],
+      &#x22;workspaces&#x22;:[
+        {
+          &#x22;id&#x22;:654321,
+          &#x22;project_id&#x22;:123456,
+          &#x22;description&#x22;:null,
+          &#x22;name&#x22;:&#x22;Product Team Workspace&#x22;,
+          &#x22;slug&#x22;:&#x22;product-team-workspace&#x22;,
+          &#x22;private&#x22;:true,
+          &#x22;priority_format&#x22;:&#x22;number&#x22;,
+          &#x22;priority&#x22;:true,
+          &#x22;points&#x22;:true,
+          &#x22;upvotes&#x22;:false,
+          &#x22;created_at&#x22;:&#x22;2018-12-17T04:09:49.348Z&#x22;,
+          &#x22;updated_at&#x22;:&#x22;2018-12-17T04:09:49.348Z&#x22;,
+          &#x22;archive_merged_prs&#x22;:false,
+          &#x22;use_category_labels&#x22;:false
+        }
+      ]
+    }
+  ]
+}</code></pre>
+</div>
+
         </div>
     
         <div id="etag-caching-section"  class="section-block">
@@ -7610,6 +7685,16 @@ https://zube.io/api/ANY_END_POINT</code>
             <li>
                 <a class="scrollto" href="#getting-started-section">Getting Started</a>
                 <ul class="nav doc-sub-menu">
+                    
+                        <li><a class="scrollto" href="#authentication-section">Authentication</a></li>
+                    
+                        <li><a class="scrollto" href="#example-request-response-section">Example Request Response</a></li>
+                    
+                        <li><a class="scrollto" href="#etag-caching-section">ETag Caching</a></li>
+                    
+                        <li><a class="scrollto" href="#rate-limiting-section">Rate Limiting</a></li>
+                    
+                        <li><a class="scrollto" href="#pagination-section">Pagination</a></li>
                     
                 </ul>
             </li>

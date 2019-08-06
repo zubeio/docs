@@ -7,11 +7,6 @@ const path = require('path');
 
 const articles = [
   {
-    "id": "intro-section",
-    "title": "Introduction",
-    "contentPath": "../templates/api/articles/intro.ejs"
-  },
-  {
     "id": "authentication-section",
     "title": "Authentication",
     "contentPath": "../templates/api/articles/authentication.ejs"
@@ -19,7 +14,7 @@ const articles = [
   {
     "id": "example-request-response-section",
     "title": "Example Request Response",
-    "contentPath": "An example of Request and Response"
+    "contentPath": "../templates/api/articles/example_request_response.ejs"
   },
   {
     "id": "etag-caching-section",
@@ -63,7 +58,7 @@ ejs.renderFile(gettingStartedPath, {articles}, (err, html) => {
 
 // Generate sidebar with links to content
 const sidebarPath = path.join(__dirname, '../templates/api/sidebar.ejs');
-const sidebarData = { articles: [], endpoints: endpointsData.sidebarInfo };
+const sidebarData = { articles, endpoints: endpointsData.sidebarInfo };
 ejs.renderFile(sidebarPath, sidebarData, (err, html) => {
     if (err) console.log(err);
     sidebarBlock = html;

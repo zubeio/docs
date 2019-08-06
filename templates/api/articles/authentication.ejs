@@ -51,13 +51,13 @@ var client_id = YOUR_CLIENT_ID;
 var private_key = fs.readFileSync(PATH_TO_PEM_FILE);
 
 var now = Math.floor(Date.now() / 1000);
-var jwt = jsonwebtoken.sign({
+var request_jwt = jsonwebtoken.sign({
     iat: now,      // Issued at time
     exp: now + 60, // JWT expiration time (10 minute maximum)
     iss: client_id // Your Zube client id
 }, private_key, { algorithm: &#x27;RS256&#x27; });
 
-console.log(jwt);</code></pre>
+console.log(request_jwt);</code></pre>
     </div>
     <p>
       Replace <code class='inline'>YOUR_CLIENT_ID</code> and <code class='inline'>PATH_TO_PEM_FILE</code> in the above code with your information.
@@ -77,7 +77,7 @@ console.log(jwt);</code></pre>
 https://zube.io/api/users/CLIENT_ID/tokens</code></pre>
     </p>
     <p>
-      <code class='inline'>YOUR_REQUEST_JWT</code> and <code class='inline'>CLIENT_ID</code> is the value you must replace.
+      <code class='inline'>YOUR_REQUEST_JWT</code> and <code class='inline'>CLIENT_ID</code> are the values you must replace.
     </p>
     <p>
       The API request above will return an access token which you can use to make further requests to Zube's API endpoints.
@@ -86,8 +86,10 @@ https://zube.io/api/users/CLIENT_ID/tokens</code></pre>
 -H &#x22;Authorization: Bearer ACCESS_JWT&#x22; \
 -H &#x22;X-Client-ID: CLIENT_ID&#x22; \
 -H &#x22;Accept: application/json&#x22; \
-https://zube.io/api/ANY_END_POINT</code>
-    </pre>
+https://zube.io/api/ANY_END_POINT</code></pre>
+  <p>
+    The access token expires in 24 hours, after which you will need to request a new access token by repeating the steps outlined above.    
+  </p>
 </div>
 <div id="verifying-a-private-key" class='section-block'>
   <h4>Verifying a Private Key</h4>
