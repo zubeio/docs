@@ -99,7 +99,7 @@ const sections = [
           { name: 'title', type: 'String', isRequired: true },
           { name: 'project_id', type: 'Integer', isRequired: true },
           { name: 'sprint_id', type: 'Integer', isRequired: false },
-          { name: 'github_issue.source_id', type: 'Integer', isRequired: false, note: 'Required if <code class="inline">github_issue<code class="inline"> object is sent' },
+          { name: 'github_issue.source_id', type: 'Integer', isRequired: false, note: 'Required if <code class="inline">github_issue</code> object is sent' },
           { name: 'github_issue.milestone_id', type: 'Integer', isRequired: false },
           { name: 'workspace_id', type: 'Integer', isRequired: false },
           { name: 'category_name', type: 'String', isRequired: false },
@@ -167,7 +167,7 @@ const sections = [
         method: 'PUT',
         name: 'Add a card to a source repo',
         formData: [
-          { name: 'new_source_id', type: 'Integer', isRequired: true, note: 'You cannot change the source for a card that already has a source' },
+          { name: 'source_id', type: 'Integer', isRequired: true, note: 'You cannot change the source for a card that already has a source' },
         ]
       },
       // Card Relations
@@ -237,21 +237,24 @@ const sections = [
         path: '/api/cards/:card_id/events',
         rawPath: '/api/cards/:id/events',
         method: 'GET',
-        name: 'Get a list of card events'
+        name: 'Get a list of card events',
+        note: 'Does not take any parameters.'
       },
       {
         // index
         path: '/api/cards/:card_id/commit_references',
         rawPath: '/api/cards/:id/commit_references',
         method: 'GET',
-        name: 'Get a list of commit references'
+        name: 'Get a list of commit references',
+        note: 'Does not take any parameters.'
       },
       {
         // index
         path: '/api/cards/:card_id/subscriptions',
         rawPath: '/api/cards/:id/subscriptions',
         method: 'GET',
-        name: 'Get a list of card subscriptions'
+        name: 'Get a list of card subscriptions',
+        note: 'Returns either zero or one subscription. Does not take any parameters'
       },
       {
         // create
@@ -281,7 +284,8 @@ const sections = [
         path: '/api/cards/:card_id/upvoters',
         rawPath: '/api/cards/:id/upvoters',
         method: 'GET',
-        name: 'Get a list of upvoters'
+        name: 'Get a list of upvoters',
+        note: 'Does not take any parameters.'
       },
       // Card Upvotes
       {
@@ -303,14 +307,16 @@ const sections = [
         name: 'Get a list of categories',
         path: '/api/workspaces/:workspace_id/categories',
         rawPath: '/api/workspaces/:id/categories',
-        method: 'GET'
+        method: 'GET',
+        note: 'Does not take any parameters.'
       },
       {
         // read
         name: 'Get a category',
         path: '/api/workspaces/:workspace_id/categories/:_categoryId',
         rawPath: '/api/workspaces/:id/categories/:_categoryId',
-        method: 'GET'
+        method: 'GET',
+        note: '_categoryId is an ObjectId, not an integer.'
       },
       {
         // index
@@ -318,7 +324,7 @@ const sections = [
         path: '/api/workspaces/:workspace_id/categories_metadata',
         rawPath: '/api/workspaces/:id/categories_metadata',
         method: 'GET',
-        note: 'Returns a list of information for a category without it\'s list of cards.'
+        note: 'Returns a set of categories without their lists of cards. Does not take any parameters.'
       },
       {
         // read
@@ -326,7 +332,7 @@ const sections = [
         path: '/api/workspaces/:workspace_id/categories_metadata/:_categoryId',
         rawPath: '/api/workspaces/:id/categories_metadata/:_categoryId',
         method: 'GET',
-        note: 'Returns a single category without it\'s list of cards.'
+        note: 'Returns a single category without it\'s list of cards. _categoryId is an ObjectId, not an integer.'
       },
     ]
   },
@@ -454,7 +460,8 @@ const sections = [
         name: 'Get a list of epic subscriptions',
         path: '/api/epics/:epic_id/subscriptions',
         rawPath: '/api/epics/:id/subscriptions',
-        method: 'GET'
+        method: 'GET',
+        note: 'Returns either zero or one subscription. Does not take any parameters.'
       },
       {
         // create
@@ -531,7 +538,8 @@ const sections = [
         name: 'Get a list of notifications',
         path: '/api/notifications',
         rawPath: '/api/notifications',
-        method: 'GET'
+        method: 'GET',
+        note: 'Does not take any parameters.'
       },
       {
         // update
@@ -541,14 +549,16 @@ const sections = [
         method: 'PUT',
         formData: [
           { name: 'read', type: 'Boolean', isRequired: true },
-        ]
+        ],
+        note: '_id is an ObjectId, not an integer.'
       },
       {
         // destroy
         name: 'Delete a notification',
         path: '/api/notifications/:_notificationId',
         rawPath: '/api/notifications/:_id',
-        method: 'DELETE'
+        method: 'DELETE',
+        note: '_id is an ObjectId, not an integer.'
       },
     ]
   },
@@ -671,7 +681,8 @@ const sections = [
         name: 'Get a list of cards in triage',
         path: '/api/projects/:project_id/triage_cards',
         rawPath: '/api/projects/:id/triage_cards',
-        method: 'GET'
+        method: 'GET',
+        note: 'Does not take any parameters.'
       },
       // Milestones
       {
@@ -740,7 +751,8 @@ const sections = [
         name: 'Get a list of events',
         path: '/api/sprints/:sprint_id/events',
         rawPath: '/api/sprints/:id/events',
-        method: 'GET'
+        method: 'GET',
+        note: 'Does not take any parameters.'
       },
     ]
   },
@@ -940,7 +952,8 @@ const sections = [
         name: 'Get a list of ticket events',
         path: '/api/tickets/:ticket_id/events',
         rawPath: '/api/tickets/:id/events',
-        method: 'GET'
+        method: 'GET',
+        note: 'Does not take any parameters.'
       },
       // Subscriptions
       {
@@ -948,7 +961,8 @@ const sections = [
         name: 'Get a list of ticket subscriptions',
         path: '/api/tickets/:ticket_id/subscriptions',
         rawPath: '/api/tickets/:id/subscriptions',
-        method: 'GET'
+        method: 'GET',
+        note: 'Returns either zero or one subscription. Does not take any parameters.'
       },
       {
         // create
