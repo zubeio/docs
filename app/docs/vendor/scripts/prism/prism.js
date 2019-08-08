@@ -1,5 +1,5 @@
 /* PrismJS 1.17.1
-https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+bash+json */
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+bash+json */
 var _self = (typeof window !== 'undefined')
 	? window   // if in browser
 	: (
