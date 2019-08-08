@@ -1,0 +1,33 @@
+<div id="pagination-params" class='section-block'>
+    <h4>Pagination</h4>
+    <p>
+      Most endpoints that return lists will return their data as paginated collections defaulting to 100 items per page. You can specify further pages by passing the <code class='inline'>?page</code> parameter. For pages that allow customized pagination, you can set the number of results per page with the <code class='inline'>?per_page</code> parameter.
+    </p>
+    <pre><code class='language-bash'>curl -i \
+-H "Authorization: Bearer YOUR_ACCESS_JWT" \
+-H "X-Client-ID: YOUR_CLIENT_ID" \
+"https://zube.io/api/cards?page=2&per_page=10"</code></pre>
+</div>
+<div id="ordering-params" class='section-block'>
+  <h4>Ordering</h4>
+  <p>
+    Most endpoints that return lists accept <code class="inline">order by</code> and <code class="inline">order direction</code> parameters. <code class="inline">order direction</code> accepts <code class='inline'>asc</code> or <code class='inline'>desc</code>. For endpoints that support ordering, the attributes available for <code class="inline">order by</code> appear in the table below the endpoint.
+  </p>
+  <pre><code class='language-bash'>curl -i \
+-H "Authorization: Bearer YOUR_ACCESS_JWT" \
+-H "X-Client-ID: YOUR_CLIENT_ID" \
+"https://zube.io/api/cards?order%5Bby%5D=points&order%5Bdirection%5D=desc"</code></pre>
+</div>
+<div id="where-params" class='section-block'>
+    <h4>Where</h4>
+    <p>
+      Most endpoints that return lists can be filtered using <code class='inline'>where</code>. For endpoints that support ordering <code class='inline'>where</code> filtering, the attributes available for <code class="inline">where</code> appear in the table below the endpoint.
+    </p>
+    <pre><code class='language-bash'>curl -i \
+  -H "Authorization: Bearer YOUR_ACCESS_JWT" \
+  -H "X-Client-ID: YOUR_CLIENT_ID" \
+  "https://zube.io/api/cards?where%5Bproject_id=3"</code></pre>
+</div>
+<div id="selects-params" class='section-block'>
+  <h4>Select</h4>
+</div>

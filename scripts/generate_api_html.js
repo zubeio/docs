@@ -17,6 +17,11 @@ const articles = [
     "contentPath": "../templates/api/articles/example_request_response.ejs"
   },
   {
+    "id": "request-parameters-section",
+    "title": "Request Parameters",
+    "contentPath": "../templates/api/articles/request_parameters.ejs"
+  },
+  {
     "id": "etag-caching-section",
     "title": "ETag Caching",
     "contentPath": "We use ETags!"
@@ -26,11 +31,6 @@ const articles = [
     "title": "Rate Limiting",
     "contentPath": "Don't make too many requests please"
   },
-  {
-    "id": "pagination-section",
-    "title": "Pagination",
-    "contentPath": "You can get your data in pages"
-  }
 ];
 
 let gettingStartedBlock = '';

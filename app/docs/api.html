@@ -120,17 +120,12 @@
         </li>
         <li>
             After you've generated your first private key, you will be issued a Client Id. You will also be shown the fingerprint for your private key, which you can use to verify the key.
-            <div class='image-popper'>
-                <a>
-                    <i class='fa fa-image'></i>
-                </a>
-                <div class="popper-target screenshot-holder">
-                    <a href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><img class="img-responsive" src="/docs/images/private_key_ids.png" alt="screenshot" /></a>
-                    <a class="mask" href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><i class="icon fa fa-search-plus"></i></a>
-                </div>
-            </div>
         </li>
     </ol>
+    <div class="screenshot-holder">
+      <a href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><img class="img-responsive" src="/docs/images/private_key_ids.png" alt="screenshot" /></a>
+      <a class="mask" href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><i class="icon fa fa-search-plus"></i></a>
+    </div>
 </div>
 <div id="requesting-an-api-access-token" class='section-block'>
     <h4>Requesting an API Access Token</h4>
@@ -183,7 +178,7 @@ https://zube.io/api/users/CLIENT_ID/tokens</code></pre>
 -H &#x22;Accept: application/json&#x22; \
 https://zube.io/api/ANY_END_POINT</code></pre>
   <p>
-    The access token expires in 24 hours, after which you will need to request a new access token by repeating the steps outlined above.    
+    The access token expires in 24 hours, after which you will need to request a new access token by repeating the steps outlined above.
   </p>
 </div>
 <div id="verifying-a-private-key" class='section-block'>
@@ -310,6 +305,46 @@ https://zube.io/api/projects</code></pre>
 
         </div>
     
+        <div id="request-parameters-section"  class="section-block">
+            
+                <h3 class="block-title">Request Parameters</h3>
+            
+            <div id="pagination-params" class='section-block'>
+    <h4>Pagination</h4>
+    <p>
+      Most endpoints that return lists will return their data as paginated collections defaulting to 100 items per page. You can specify further pages by passing the <code class='inline'>?page</code> parameter. For pages that allow customized pagination, you can set the number of results per page with the <code class='inline'>?per_page</code> parameter.
+    </p>
+    <pre><code class='language-bash'>curl -i \
+-H "Authorization: Bearer YOUR_ACCESS_JWT" \
+-H "X-Client-ID: YOUR_CLIENT_ID" \
+"https://zube.io/api/cards?page=2&per_page=10"</code></pre>
+</div>
+<div id="ordering-params" class='section-block'>
+  <h4>Ordering</h4>
+  <p>
+    Most endpoints that return lists accept <code class="inline">order by</code> and <code class="inline">order direction</code> parameters. <code class="inline">order direction</code> accepts <code class='inline'>asc</code> or <code class='inline'>desc</code>. For endpoints that support ordering, the attributes available for <code class="inline">order by</code> appear in the table below the endpoint.
+  </p>
+  <pre><code class='language-bash'>curl -i \
+-H "Authorization: Bearer YOUR_ACCESS_JWT" \
+-H "X-Client-ID: YOUR_CLIENT_ID" \
+"https://zube.io/api/cards?order%5Bby%5D=points&order%5Bdirection%5D=desc"</code></pre>
+</div>
+<div id="where-params" class='section-block'>
+    <h4>Where</h4>
+    <p>
+      Most endpoints that return lists can be filtered using <code class='inline'>where</code>. For endpoints that support ordering <code class='inline'>where</code> filtering, the attributes available for <code class="inline">where</code> appear in the table below the endpoint.
+    </p>
+    <pre><code class='language-bash'>curl -i \
+  -H "Authorization: Bearer YOUR_ACCESS_JWT" \
+  -H "X-Client-ID: YOUR_CLIENT_ID" \
+  "https://zube.io/api/cards?where%5Bproject_id=3"</code></pre>
+</div>
+<div id="selects-params" class='section-block'>
+  <h4>Select</h4>
+</div>
+
+        </div>
+    
         <div id="etag-caching-section"  class="section-block">
             
                 <h3 class="block-title">ETag Caching</h3>
@@ -320,13 +355,6 @@ https://zube.io/api/projects</code></pre>
         <div id="rate-limiting-section"  class="section-block">
             
                 <h3 class="block-title">Rate Limiting</h3>
-            
-            
-        </div>
-    
-        <div id="pagination-section"  class="section-block">
-            
-                <h3 class="block-title">Pagination</h3>
             
             
         </div>
@@ -4747,7 +4775,7 @@ https://zube.io/api/projects</code></pre>
   
 </div>
 <div class='endpoint'>
-  <h5 class='endpoint-name' id='get-a-list-of-cards'>Get a list of cards</h5>
+  <h5 class='endpoint-name' id='get-a-list-of-project-cards'>Get a list of project cards</h5>
   <div class='endpoint-path'>
     GET /api/projects/:project_id/cards
   </div>
@@ -7606,11 +7634,11 @@ https://zube.io/api/projects</code></pre>
                     
                         <li><a class="scrollto" href="#example-request-response-section">Example Request Response</a></li>
                     
+                        <li><a class="scrollto" href="#request-parameters-section">Request Parameters</a></li>
+                    
                         <li><a class="scrollto" href="#etag-caching-section">ETag Caching</a></li>
                     
                         <li><a class="scrollto" href="#rate-limiting-section">Rate Limiting</a></li>
-                    
-                        <li><a class="scrollto" href="#pagination-section">Pagination</a></li>
                     
                 </ul>
             </li>
@@ -7820,7 +7848,7 @@ https://zube.io/api/projects</code></pre>
                         
                             <li><a class="scrollto" href="#get-a-list-of-project-collaborators">Get a list of project collaborators</a></li>
                         
-                            <li><a class="scrollto" href="#get-a-list-of-cards">Get a list of cards</a></li>
+                            <li><a class="scrollto" href="#get-a-list-of-project-cards">Get a list of project cards</a></li>
                         
                             <li><a class="scrollto" href="#get-a-list-of-cards-in-triage">Get a list of cards in triage</a></li>
                         

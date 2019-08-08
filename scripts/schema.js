@@ -679,7 +679,7 @@ const sections = [
       // Project Cards
       {
         // index
-        name: 'Get a list of cards',
+        name: 'Get a list of project cards',
         path: '/api/projects/:project_id/cards',
         rawPath: '/api/projects/:id/cards',
         method: 'GET'

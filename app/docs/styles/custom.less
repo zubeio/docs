@@ -14,6 +14,10 @@ p {
     margin: 10px 0;
 }
 
+code {
+  font-weight: normal;;
+}
+
 .page-wrapper {
     margin-bottom: -80px;
 }
@@ -139,9 +143,6 @@ pre code {
   h3.model {
     margin-bottom: 10px;
   }
-  h4 {
-    opacity: 0.75;
-  }
   a {
     cursor: pointer;
   }
@@ -153,15 +154,6 @@ pre code {
     padding: 2px 4px;
     margin: 0 3px;
     font-size: smaller;
-  }
-  .image-popper {
-    display: inline-block;
-    margin-left: .3em;
-    margin-right: .3em;
-    vertical-align: middle;
-    .popper-target {
-      display: none;
-    }
   }
   .callout-block {
     margin: 10px 0;
@@ -192,14 +184,13 @@ pre code {
       padding-right: 20px;
     }
   }
-  .json-response {
-
-  }
-
   .endpoint {
     margin-bottom: 50px;
     h5.endpoint-name {
       font-size: 14px;
+    }
+    h4 {
+      opacity: .75;
     }
     .endpoint-path {
       font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -235,7 +226,7 @@ pre code {
         }
         &.required {
           text-align: center;
-          max-width: 80px;
+          width: 80px;
         }
       }
     }
