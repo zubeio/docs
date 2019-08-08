@@ -339,7 +339,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class='note'>
-      Zube Organizations are referred to as <code class="inline">accounts</code> in the Zube API.
+      Note: Zube Organizations are referred to as <code class="inline">accounts</code> in the Zube API.
     </div>
   
   <div class='endpoint'>
@@ -347,6 +347,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/accounts
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -514,6 +516,8 @@ https://zube.io/api/projects</code></pre>
     GET /api/accounts/:account_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -521,6 +525,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/accounts/:account_id/admin_members
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -646,6 +652,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/accounts/:account_id/admin_members
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -683,6 +691,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/accounts/:account_id/admin_members/:admin_member_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -690,6 +700,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/accounts/:account_id/members
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -815,6 +827,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/accounts/:account_id/members
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -852,6 +866,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/accounts/:account_id/members/:member_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -859,6 +875,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/accounts/:account_id/projects
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -977,6 +995,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/cards
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -1225,6 +1245,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/cards
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -1442,6 +1464,8 @@ https://zube.io/api/projects</code></pre>
     GET /api/cards/:card_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -1449,6 +1473,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/cards/:card_id
   </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -1652,6 +1678,8 @@ https://zube.io/api/projects</code></pre>
     PUT /api/cards/:card_id/archive
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -1659,6 +1687,12 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/cards/:card_id/move
   </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> XXX
+    </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -1742,6 +1776,8 @@ https://zube.io/api/projects</code></pre>
     PUT /api/cards/:card_id/add_to_source
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -1778,6 +1814,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/card_relations
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -1846,6 +1884,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/card_relations
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -1898,6 +1938,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/card_relations/:card_relation_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -1905,6 +1947,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/cards/:card_id/comments
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -1986,6 +2030,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/cards/:card_id/comments
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -2022,6 +2068,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/cards/:card_id/comments/:comment_id
   </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -2060,6 +2108,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/cards/:card_id/comments/:comment_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -2068,127 +2118,11 @@ https://zube.io/api/projects</code></pre>
     GET /api/cards/:card_id/events
   </div>
   
-    <div class='params-table table-section'>
-      <h4>Parameters</h4>
-      <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>name</th><th>type</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>actor_id</code>
-                </td>
-                <td class="type">
-                  <span>integer</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>assignee_id</code>
-                </td>
-                <td class="type">
-                  <span>integer</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>commit_id</code>
-                </td>
-                <td class="type">
-                  <span>text</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>created_at</code>
-                </td>
-                <td class="type">
-                  <span>timestamp</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>event</code>
-                </td>
-                <td class="type">
-                  <span>text</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>github_issue_id</code>
-                </td>
-                <td class="type">
-                  <span>integer</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>id</code>
-                </td>
-                <td class="type">
-                  <span>bigint</span>
-                </td>
-              </tr>
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>source_id</code>
-                </td>
-                <td class="type">
-                  <span>integer</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>updated_at</code>
-                </td>
-                <td class="type">
-                  <span>timestamp</span>
-                </td>
-              </tr>
-            
-          
-        </tbody>
-      </table>
+    <div class='note'>
+      <strong>Note:</strong> Does not take any parameters.
     </div>
+  
+
   
   
 </div>
@@ -2198,6 +2132,12 @@ https://zube.io/api/projects</code></pre>
     GET /api/cards/:card_id/commit_references
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> Does not take any parameters.
+    </div>
+  
+
+  
   
 </div>
 <div class='endpoint'>
@@ -2205,6 +2145,12 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/cards/:card_id/subscriptions
   </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> Returns either zero or one subscription. Does not take any parameters
+    </div>
+  
+
   
   
 </div>
@@ -2214,6 +2160,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/cards/:card_id/subscriptions
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -2222,6 +2170,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/cards/:card_id/subscriptions/:subscription_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -2229,6 +2179,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/cards/:card_id/tickets
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -2486,6 +2438,12 @@ https://zube.io/api/projects</code></pre>
     GET /api/cards/:card_id/upvoters
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> Does not take any parameters.
+    </div>
+  
+
+  
   
 </div>
 <div class='endpoint'>
@@ -2493,6 +2451,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     POST /api/cards/:card_id/upvotes
   </div>
+  
+
   
   
 </div>
@@ -2508,6 +2468,12 @@ https://zube.io/api/projects</code></pre>
     GET /api/workspaces/:workspace_id/categories
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> Does not take any parameters.
+    </div>
+  
+
+  
   
 </div>
 <div class='endpoint'>
@@ -2515,6 +2481,12 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/workspaces/:workspace_id/categories/:_categoryId
   </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> _categoryId is an ObjectId, not an integer.
+    </div>
+  
+
   
   
 </div>
@@ -2524,6 +2496,12 @@ https://zube.io/api/projects</code></pre>
     GET /api/workspaces/:workspace_id/categories_metadata
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> Returns a set of categories without their lists of cards. Does not take any parameters.
+    </div>
+  
+
+  
   
 </div>
 <div class='endpoint'>
@@ -2531,6 +2509,12 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/workspaces/:workspace_id/categories_metadata/:_categoryId
   </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> Returns a single category without it's list of cards. _categoryId is an ObjectId, not an integer.
+    </div>
+  
+
   
   
 </div>
@@ -2545,6 +2529,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/projects/:project_id/epics
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -2815,6 +2801,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/projects/:project_id/epics
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -2927,6 +2915,8 @@ https://zube.io/api/projects</code></pre>
     GET /api/projects/:project_id/epics/:epic_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -2934,6 +2924,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/projects/:project_id/epics/:epic_id
   </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -3076,6 +3068,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/epics/:epic_id/cards
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -3324,6 +3318,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/epics/:epic_id/cards
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -3361,6 +3357,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/epics/:epic_id/cards/:card_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -3368,6 +3366,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/epics/:epic_id/comments
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -3449,6 +3449,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/epics/:epic_id/comments
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -3485,6 +3487,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/epics/:epic_id/comments/:comment_id
   </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -3523,6 +3527,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/epics/:epic_id/comments/:comment_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -3530,6 +3536,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/epics/:epic_id/events
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -3661,6 +3669,12 @@ https://zube.io/api/projects</code></pre>
     GET /api/epics/:epic_id/subscriptions
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> Returns either zero or one subscription. Does not take any parameters.
+    </div>
+  
+
+  
   
 </div>
 <div class='endpoint'>
@@ -3669,6 +3683,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/epics/:epic_id/subscriptions
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -3676,6 +3692,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     DELETE /api/epics/:epic_id/subscriptions/:subscription_id
   </div>
+  
+
   
   
 </div>
@@ -3690,6 +3708,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/projects/:project_id/labels
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -3773,6 +3793,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/projects/:project_id/labels
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -3825,6 +3847,8 @@ https://zube.io/api/projects</code></pre>
     GET /api/projects/:project_id/labels/:label_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -3832,6 +3856,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/projects/:project_id/labels/:label_id
   </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -3885,6 +3911,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/projects/:project_id/labels/:label_id
   </div>
   
+
+  
   
 </div>
 
@@ -3899,6 +3927,12 @@ https://zube.io/api/projects</code></pre>
     GET /api/notifications
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> Does not take any parameters.
+    </div>
+  
+
+  
   
 </div>
 <div class='endpoint'>
@@ -3906,6 +3940,12 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/notifications/:_notificationId
   </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> _id is an ObjectId, not an integer.
+    </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -3944,6 +3984,12 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/notifications/:_notificationId
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> _id is an ObjectId, not an integer.
+    </div>
+  
+
+  
   
 </div>
 
@@ -3957,6 +4003,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/projects
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -4070,6 +4118,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/projects
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -4137,6 +4187,8 @@ https://zube.io/api/projects</code></pre>
     GET /api/projects/:project_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -4144,6 +4196,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/projects/:project_id
   </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -4212,6 +4266,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/projects/:project_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -4219,6 +4275,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/projects/:project_id/admin_members
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -4344,6 +4402,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/projects/:project_id/admin_members/:person_id
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -4381,6 +4441,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/projects/:project_id/admin_members/:person_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -4388,6 +4450,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/projects/:project_id/members
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -4513,6 +4577,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/projects/:project_id/members
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -4550,6 +4616,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/projects/:project_id/members/:person_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -4557,6 +4625,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/projects/:project_id/collaborators
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -4681,6 +4751,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/projects/:project_id/cards
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -4929,6 +5001,12 @@ https://zube.io/api/projects</code></pre>
     GET /api/projects/:project_id/triage_cards
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> Does not take any parameters.
+    </div>
+  
+
+  
   
 </div>
 <div class='endpoint'>
@@ -4936,6 +5014,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/projects/:project_id/milestones
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -5084,6 +5164,8 @@ https://zube.io/api/projects</code></pre>
     GET /api/workspaces/:workspace_id/sprints
   </div>
   
+
+  
     <div class='params-table table-section'>
       <h4>Parameters</h4>
       <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
@@ -5218,6 +5300,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/workspaces/:workspace_id/sprints
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -5300,6 +5384,8 @@ https://zube.io/api/projects</code></pre>
     GET /api/workspaces/:workspace_id/sprints/:sprint_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -5307,6 +5393,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/workspaces/:workspace_id/sprints/:sprint_id
   </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -5405,6 +5493,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/workspaces/:workspace_id/sprints/:sprint_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -5413,127 +5503,11 @@ https://zube.io/api/projects</code></pre>
     GET /api/sprints/:sprint_id/events
   </div>
   
-    <div class='params-table table-section'>
-      <h4>Parameters</h4>
-      <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>name</th><th>type</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>actor_id</code>
-                </td>
-                <td class="type">
-                  <span>integer</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>assignee_id</code>
-                </td>
-                <td class="type">
-                  <span>integer</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>commit_id</code>
-                </td>
-                <td class="type">
-                  <span>text</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>created_at</code>
-                </td>
-                <td class="type">
-                  <span>timestamp</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>event</code>
-                </td>
-                <td class="type">
-                  <span>text</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>github_issue_id</code>
-                </td>
-                <td class="type">
-                  <span>integer</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>id</code>
-                </td>
-                <td class="type">
-                  <span>bigint</span>
-                </td>
-              </tr>
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>source_id</code>
-                </td>
-                <td class="type">
-                  <span>integer</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>updated_at</code>
-                </td>
-                <td class="type">
-                  <span>timestamp</span>
-                </td>
-              </tr>
-            
-          
-        </tbody>
-      </table>
+    <div class='note'>
+      <strong>Note:</strong> Does not take any parameters.
     </div>
+  
+
   
   
 </div>
@@ -5548,6 +5522,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/sources
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -5672,6 +5648,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/sources/:source_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -5679,6 +5657,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/sources/:source_id/collaborators
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -5803,6 +5783,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/sources/:source_id/milestones
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -5945,6 +5927,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/sources/:source_id/milestones
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -6012,6 +5996,8 @@ https://zube.io/api/projects</code></pre>
     GET /api/sources/:source_id/milestones/:milestone_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -6019,6 +6005,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/sources/:source_id/milestones/:milestone_id
   </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -6102,6 +6090,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/sources/:source_id/milestones/:milestone_id
   </div>
   
+
+  
   
 </div>
 
@@ -6115,6 +6105,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/projects/:project_id/tickets
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -6372,6 +6364,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/projects/:project_id/tickets
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -6514,6 +6508,8 @@ https://zube.io/api/projects</code></pre>
     GET /api/projects/:project_id/tickets/:ticket_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -6521,6 +6517,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/projects/:project_id/tickets/:ticket_id
   </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -6693,6 +6691,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/tickets/:ticket_id/cards
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -6941,6 +6941,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/tickets/:ticket_id/cards
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -6978,6 +6980,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/tickets/:ticket_id/cards/:card_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -6985,6 +6989,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/tickets/:ticket_id/comments
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -7066,6 +7072,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/tickets/:ticket_id/comments
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -7102,6 +7110,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/tickets/:ticket_id/comments/:comment_id
   </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -7140,6 +7150,8 @@ https://zube.io/api/projects</code></pre>
     DELETE /api/tickets/:ticket_id/comments/:comment_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -7148,127 +7160,11 @@ https://zube.io/api/projects</code></pre>
     GET /api/tickets/:ticket_id/events
   </div>
   
-    <div class='params-table table-section'>
-      <h4>Parameters</h4>
-      <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>name</th><th>type</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>actor_id</code>
-                </td>
-                <td class="type">
-                  <span>integer</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>assignee_id</code>
-                </td>
-                <td class="type">
-                  <span>integer</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>commit_id</code>
-                </td>
-                <td class="type">
-                  <span>text</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>created_at</code>
-                </td>
-                <td class="type">
-                  <span>timestamp</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>event</code>
-                </td>
-                <td class="type">
-                  <span>text</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>github_issue_id</code>
-                </td>
-                <td class="type">
-                  <span>integer</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>id</code>
-                </td>
-                <td class="type">
-                  <span>bigint</span>
-                </td>
-              </tr>
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>source_id</code>
-                </td>
-                <td class="type">
-                  <span>integer</span>
-                </td>
-              </tr>
-            
-          
-            
-              <tr>
-                <td class="name">
-                  <code class='inline'>updated_at</code>
-                </td>
-                <td class="type">
-                  <span>timestamp</span>
-                </td>
-              </tr>
-            
-          
-        </tbody>
-      </table>
+    <div class='note'>
+      <strong>Note:</strong> Does not take any parameters.
     </div>
+  
+
   
   
 </div>
@@ -7278,6 +7174,12 @@ https://zube.io/api/projects</code></pre>
     GET /api/tickets/:ticket_id/subscriptions
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> Returns either zero or one subscription. Does not take any parameters.
+    </div>
+  
+
+  
   
 </div>
 <div class='endpoint'>
@@ -7286,6 +7188,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/tickets/:ticket_id/subscriptions
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -7293,6 +7197,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     DELETE /api/tickets/:ticket_id/subscriptions/:subscription_id
   </div>
+  
+
   
   
 </div>
@@ -7307,6 +7213,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     GET /api/workspaces
   </div>
+  
+
   
     <div class='params-table table-section'>
       <h4>Parameters</h4>
@@ -7440,6 +7348,8 @@ https://zube.io/api/projects</code></pre>
     POST /api/workspaces
   </div>
   
+
+  
   
     <div class='form-data-table table-section'>
       <h4>Form Data</h4>
@@ -7507,6 +7417,8 @@ https://zube.io/api/projects</code></pre>
     GET /api/workspaces/:workspace_id
   </div>
   
+
+  
   
 </div>
 <div class='endpoint'>
@@ -7514,6 +7426,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     PUT /api/workspaces/:workspace_id
   </div>
+  
+
   
   
     <div class='form-data-table table-section'>
@@ -7656,6 +7570,8 @@ https://zube.io/api/projects</code></pre>
   <div class='endpoint-path'>
     DELETE /api/workspaces/workspace_:id
   </div>
+  
+
   
   
 </div>

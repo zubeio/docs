@@ -238,7 +238,8 @@ const sections = [
         rawPath: '/api/cards/:id/events',
         method: 'GET',
         name: 'Get a list of card events',
-        note: 'Does not take any parameters.'
+        note: 'Does not take any parameters.',
+        noParams: true,
       },
       {
         // index
@@ -246,7 +247,8 @@ const sections = [
         rawPath: '/api/cards/:id/commit_references',
         method: 'GET',
         name: 'Get a list of commit references',
-        note: 'Does not take any parameters.'
+        note: 'Does not take any parameters.',
+        noParams: true,
       },
       {
         // index
@@ -254,7 +256,8 @@ const sections = [
         rawPath: '/api/cards/:id/subscriptions',
         method: 'GET',
         name: 'Get a list of card subscriptions',
-        note: 'Returns either zero or one subscription. Does not take any parameters'
+        note: 'Returns either zero or one subscription. Does not take any parameters',
+        noParams: true,
       },
       {
         // create
@@ -285,7 +288,8 @@ const sections = [
         rawPath: '/api/cards/:id/upvoters',
         method: 'GET',
         name: 'Get a list of upvoters',
-        note: 'Does not take any parameters.'
+        note: 'Does not take any parameters.',
+        noParams: true,
       },
       // Card Upvotes
       {
@@ -308,7 +312,8 @@ const sections = [
         path: '/api/workspaces/:workspace_id/categories',
         rawPath: '/api/workspaces/:id/categories',
         method: 'GET',
-        note: 'Does not take any parameters.'
+        note: 'Does not take any parameters.',
+        noParams: true,
       },
       {
         // read
@@ -324,7 +329,8 @@ const sections = [
         path: '/api/workspaces/:workspace_id/categories_metadata',
         rawPath: '/api/workspaces/:id/categories_metadata',
         method: 'GET',
-        note: 'Returns a set of categories without their lists of cards. Does not take any parameters.'
+        note: 'Returns a set of categories without their lists of cards. Does not take any parameters.',
+        noParams: true,
       },
       {
         // read
@@ -461,7 +467,8 @@ const sections = [
         path: '/api/epics/:epic_id/subscriptions',
         rawPath: '/api/epics/:id/subscriptions',
         method: 'GET',
-        note: 'Returns either zero or one subscription. Does not take any parameters.'
+        note: 'Returns either zero or one subscription. Does not take any parameters.',
+        noParams: true,
       },
       {
         // create
@@ -539,7 +546,8 @@ const sections = [
         path: '/api/notifications',
         rawPath: '/api/notifications',
         method: 'GET',
-        note: 'Does not take any parameters.'
+        note: 'Does not take any parameters.',
+        noParams: true,
       },
       {
         // update
@@ -682,7 +690,8 @@ const sections = [
         path: '/api/projects/:project_id/triage_cards',
         rawPath: '/api/projects/:id/triage_cards',
         method: 'GET',
-        note: 'Does not take any parameters.'
+        note: 'Does not take any parameters.',
+        noParams: true,
       },
       // Milestones
       {
@@ -752,7 +761,8 @@ const sections = [
         path: '/api/sprints/:sprint_id/events',
         rawPath: '/api/sprints/:id/events',
         method: 'GET',
-        note: 'Does not take any parameters.'
+        note: 'Does not take any parameters.',
+        noParams: true,
       },
     ]
   },
@@ -953,7 +963,8 @@ const sections = [
         path: '/api/tickets/:ticket_id/events',
         rawPath: '/api/tickets/:id/events',
         method: 'GET',
-        note: 'Does not take any parameters.'
+        note: 'Does not take any parameters.',
+        noParams: true,
       },
       // Subscriptions
       {
@@ -962,7 +973,8 @@ const sections = [
         path: '/api/tickets/:ticket_id/subscriptions',
         rawPath: '/api/tickets/:id/subscriptions',
         method: 'GET',
-        note: 'Returns either zero or one subscription. Does not take any parameters.'
+        note: 'Returns either zero or one subscription. Does not take any parameters.',
+        noParams: true,
       },
       {
         // create
