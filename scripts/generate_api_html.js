@@ -24,12 +24,12 @@ const articles = [
   {
     "id": "etag-caching-section",
     "title": "ETag Caching",
-    "contentPath": "We use ETags!"
+    "contentPath": "../templates/api/articles/etags.ejs"
   },
   {
     "id": "rate-limiting-section",
     "title": "Rate Limiting",
-    "contentPath": "Don't make too many requests please"
+    "contentPath": "../templates/api/articles/rate_limiting.ejs"
   },
 ];
 

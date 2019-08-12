@@ -190,11 +190,7 @@ https://zube.io/api/ANY_END_POINT</code></pre>
     <ol class="list">
       <li>
         Generate the fingerprint for your private key locally with the following command:
-        <p>
-          <code>
-            openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha1 -c
-          </code>
-        </p>
+        <pre><code class="language-bash">openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha1 -c</code></pre>
       </li>
       <li>
         Compare the resulting fingerprint to the fingerprint displayed on Zube for your private key. They should match.
@@ -341,6 +337,9 @@ https://zube.io/api/projects</code></pre>
 </div>
 <div id="selects-params" class='section-block'>
   <h4>Select</h4>
+  <p>
+    Note: For convenience, many models return with some of their associated models populated. For endpoints where a model returns with associated model data, the associated data will not be removed when a request includes <code class='inline'>select</code>.
+  </p>
 </div>
 
         </div>
@@ -349,14 +348,25 @@ https://zube.io/api/projects</code></pre>
             
                 <h3 class="block-title">ETag Caching</h3>
             
-            
+            <div id="conditional-requests" class='section-block'>
+    <h4>Conditional requests</h4>
+    <p>
+      Most responses will return with an <code class='inline'>ETag</code> header.
+    </p>
+</div>
+
         </div>
     
         <div id="rate-limiting-section"  class="section-block">
             
                 <h3 class="block-title">Rate Limiting</h3>
             
-            
+            <div class='section-block'>
+    <p>
+      Access tokens can make up to 5000 requests per hour.
+    </p>
+</div>
+
         </div>
     
 </section>
@@ -724,7 +734,7 @@ https://zube.io/api/projects</code></pre>
   
 </div>
 <div class='endpoint'>
-  <h5 class='endpoint-name' id='get-a-list-of-account-memebers'>Get a list of account memebers</h5>
+  <h5 class='endpoint-name' id='get-a-list-of-account-members'>Get a list of account members</h5>
   <div class='endpoint-path'>
     GET /api/accounts/:account_id/members
   </div>
@@ -7664,7 +7674,7 @@ https://zube.io/api/projects</code></pre>
                         
                             <li><a class="scrollto" href="#remove-an-account-admin">Remove an account admin</a></li>
                         
-                            <li><a class="scrollto" href="#get-a-list-of-account-memebers">Get a list of account memebers</a></li>
+                            <li><a class="scrollto" href="#get-a-list-of-account-members">Get a list of account members</a></li>
                         
                             <li><a class="scrollto" href="#create-an-account-member">Create an account member</a></li>
                         

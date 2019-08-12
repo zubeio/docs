@@ -49,7 +49,7 @@ const sections = [
         path: '/api/accounts/:account_id/members',
         rawPath: '/api/accounts/:id/members',
         method: 'GET',
-        name: 'Get a list of account memebers'
+        name: 'Get a list of account members'
       },
       {
         // create

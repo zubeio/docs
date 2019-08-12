@@ -95,11 +95,7 @@ https://zube.io/api/ANY_END_POINT</code></pre>
     <ol class="list">
       <li>
         Generate the fingerprint for your private key locally with the following command:
-        <p>
-          <code>
-            openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha1 -c
-          </code>
-        </p>
+        <pre><code class="language-bash">openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha1 -c</code></pre>
       </li>
       <li>
         Compare the resulting fingerprint to the fingerprint displayed on Zube for your private key. They should match.
