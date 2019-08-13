@@ -99,8 +99,8 @@ const sections = [
           { name: 'title', type: 'String', isRequired: true },
           { name: 'project_id', type: 'Integer', isRequired: true },
           { name: 'sprint_id', type: 'Integer', isRequired: false },
-          { name: 'github_issue.source_id', type: 'Integer', isRequired: false, note: 'Required if <code class="inline">github_issue</code> object is sent' },
-          { name: 'github_issue.milestone_id', type: 'Integer', isRequired: false },
+          { name: 'github_issue[source_id]', type: 'Integer', isRequired: false, note: 'Required if <code class="inline">github_issue</code> object is sent' },
+          { name: 'github_issue[milestone_id]', type: 'Integer', isRequired: false },
           { name: 'workspace_id', type: 'Integer', isRequired: false },
           { name: 'category_name', type: 'String', isRequired: false },
           { name: 'body', type: 'Text', isRequired: false },
@@ -136,7 +136,7 @@ const sections = [
           { name: 'points', type: 'Number', isRequired: true },
           { name: 'priority', type: 'Integer', isRequired: true,  note: 'Must be one of <code class="inline">1</code>, <code class="inline">2</code>, <code class="inline">3</code>, <code class="inline">4</code>, <code class="inline">5</code>, or <code class="inline">null</code>' },
           { name: 'epic_id', type: 'Integer', isRequired: true },
-          { name: 'github_issue.milestone_id', type: 'Integer', isRequired: true },
+          { name: 'github_issue[milestone_id]', type: 'Integer', isRequired: true },
         ]
       },
       {
@@ -167,10 +167,10 @@ const sections = [
 }</code></pre>
         `,
         formData: [
-          { name: 'destination.position', type: 'Integer', isRequired: true },
-          { name: 'destination.type', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">category</code> or <code class="inline">project</code>' },
-          { name: 'destination.name', type: 'Integer', isRequired: false, note: 'Name of the destination category.' },
-          { name: 'destination.workspace_id', type: 'Integer', isRequired: false, note: 'Required if sending <code class="inline">destination.type</code> as <code class="inline">category</code>' },
+          { name: 'destination[position]', type: 'Integer', isRequired: true },
+          { name: 'destination[type]', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">category</code> or <code class="inline">project</code>' },
+          { name: 'destination[name]', type: 'Integer', isRequired: false, note: 'Name of the destination category.' },
+          { name: 'destination[workspace_id]', type: 'Integer', isRequired: false, note: 'Required if sending <code class="inline">destination[type]</code> as <code class="inline">category</code>' },
         ]
       },
       {

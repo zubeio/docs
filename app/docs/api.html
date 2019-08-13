@@ -331,22 +331,22 @@ https://zube.io/api/projects</code></pre>
       Most endpoints that return lists can be filtered using <code class='inline'>where</code>. For endpoints that support filtering, the attributes available for <code class="inline">where</code> appear in the table below the endpoint. All filtering is scoped under the <code class="inline">where</code> query parameter. For example, you'd use <code class="inline">where[project_id]</code> to filter for a direct match of cards that are on the specified project.
     </p>
     <pre><code class='language-bash'>curl -i \
-  -H "Authorization: Bearer YOUR_ACCESS_JWT" \
-  -H "X-Client-ID: YOUR_CLIENT_ID" \
-  "https://zube.io/api/cards?where%5Bproject_id%5D=3"</code></pre>
+-H "Authorization: Bearer YOUR_ACCESS_JWT" \
+-H "X-Client-ID: YOUR_CLIENT_ID" \
+"https://zube.io/api/cards?where%5Bproject_id%5D=3"</code></pre>
 </div>
 <div id="selects-params" class='section-block'>
   <h4>Select</h4>
   <p>
-    For most endpoints that return lists you can specify which data attributes you'd like included in the response using the <code class='inline'>select</code> parameter. <code class='inline'>select</code> takes an array of attributes. For example to select just the <code class='inline'>id</code> and <code class='inline'>title</code> attributes of a cards you'd use <code class='inline'>select[]=id&select[]=title</code>
+    For most endpoints that return lists you can specify which data attributes you'd like included in the response using the <code class='inline'>select</code> parameter. <code class='inline'>select</code> takes an array of attributes. For example to select just the <code class='inline'>id</code> and <code class='inline'>title</code> attributes of cards you'd use <code class='inline'>select[]=id&select[]=title</code>
   </p>
   <p>
-    Note: For convenience, many models return with some of their associated models populated. For endpoints where a model returns with associated model data, the associated data will not be removed when a request includes <code class='inline'>select</code>.
+    Note: For convenience, many models return with some of their associated models populated. For endpoints where a model returns with associated model data, the associated data will not be removed when a request includes <code class='inline'>select</code>, so <code class='inline'>select</code> may be of limited use in those cases.
   </p>
-  <pre><code class='language-bash'>curl -i \
-      -H "Authorization: Bearer YOUR_ACCESS_JWT" \
-      -H "X-Client-ID: YOUR_CLIENT_ID" \
-      "https://zube.io/api/cards?select%5B%5D=id&select%5B%5D=title"</code></pre>
+    <pre><code class='language-bash'>curl -i \
+-H "Authorization: Bearer YOUR_ACCESS_JWT" \
+-H "X-Client-ID: YOUR_CLIENT_ID" \
+"https://zube.io/api/cards?select%5B%5D=id&select%5B%5D=title"</code></pre>
 </div>
 
         </div>
@@ -358,19 +358,34 @@ https://zube.io/api/projects</code></pre>
             <div id="conditional-requests" class='section-block'>
     <h4>Conditional requests</h4>
     <p>
-      Most responses will return with an <code class='inline'>ETag</code> header.
+      Most responses will return with an <code class='inline'>ETag</code> header. You are highly encouraged to make use of ETags for subsequent requests to the same endpoint. If the response would be the same, a <code class='inline'>304 Not Modified</code> will be returned instead.
     </p>
+    <p>
+      For example, if you received a response to the cards endpoint with the response header <code class='inline'>ETag: "27e-BpOwiFj52s046/zdOTfiQ0fepw8"</code>, then you'd include it as the  value of the request header <code class='inline'>If-None-Match</code> for subsequent requests like so:
+    </p>
+    <pre><code class='language-bash'>curl -i \
+-H "Authorization: Bearer YOUR_ACCESS_JWT" \
+-H "X-Client-ID: YOUR_CLIENT_ID" \
+-H 'If-None-Match: "27e-BpOwiFj52s046/zdOTfiQ0fepw8"' \
+"https://zube.io/api/cards"</code></pre>
 </div>
 
         </div>
     
-        <div id="rate-limiting-section"  class="section-block">
+        <div id="responsible-usage-section"  class="section-block">
             
-                <h3 class="block-title">Rate Limiting</h3>
+                <h3 class="block-title">Responsible Usage</h3>
             
-            <div class='section-block'>
+            <div id="rate-limiting" class='section-block'>
+    <h4>Rate Limiting</h4>
     <p>
-      Access tokens can make up to 5000 requests per hour.
+      You can can make at most one (1) request per second. Short bursts of a few requests at a slightly higher rate are permissible.
+    </p>
+</div>
+<div id="abuse" class='section-block'>
+    <h4>Abuse</h4>
+    <p>
+      Never make concurrent requests, or make a multitude of requests at a rate faster than one per second. Failure to observe these rules will result in rejection of your request and possible suspention from future API usage.
     </p>
 </div>
 
@@ -1365,7 +1380,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>github_issue.milestone_id</code>
+                <code class='inline'>github_issue[milestone_id]</code>
               </td>
               <td class="type">
                 <span>Integer</span>
@@ -1380,7 +1395,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>github_issue.source_id</code>
+                <code class='inline'>github_issue[source_id]</code>
               </td>
               <td class="type">
                 <span>Integer</span>
@@ -1579,7 +1594,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>github_issue.milestone_id</code>
+                <code class='inline'>github_issue[milestone_id]</code>
               </td>
               <td class="type">
                 <span>Integer</span>
@@ -1768,7 +1783,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>destination.name</code>
+                <code class='inline'>destination[name]</code>
               </td>
               <td class="type">
                 <span>Integer</span>
@@ -1783,7 +1798,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>destination.position</code>
+                <code class='inline'>destination[position]</code>
               </td>
               <td class="type">
                 <span>Integer</span>
@@ -1798,7 +1813,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>destination.type</code>
+                <code class='inline'>destination[type]</code>
               </td>
               <td class="type">
                 <span>String</span>
@@ -1813,7 +1828,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>destination.workspace_id</code>
+                <code class='inline'>destination[workspace_id]</code>
               </td>
               <td class="type">
                 <span>Integer</span>
@@ -1822,7 +1837,7 @@ https://zube.io/api/projects</code></pre>
                 <span></span>
               </td>
               <td class="note">
-                <span>Required if sending <code class="inline">destination.type</code> as <code class="inline">category</code></span>
+                <span>Required if sending <code class="inline">destination[type]</code> as <code class="inline">category</code></span>
               </td>
             </tr>
           
@@ -7679,7 +7694,7 @@ https://zube.io/api/projects</code></pre>
                     
                         <li><a class="scrollto" href="#etag-caching-section">ETag Caching</a></li>
                     
-                        <li><a class="scrollto" href="#rate-limiting-section">Rate Limiting</a></li>
+                        <li><a class="scrollto" href="#responsible-usage-section">Responsible Usage</a></li>
                     
                 </ul>
             </li>

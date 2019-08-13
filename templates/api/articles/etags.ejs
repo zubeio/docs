@@ -1,6 +1,14 @@
 <div id="conditional-requests" class='section-block'>
     <h4>Conditional requests</h4>
     <p>
-      Most responses will return with an <code class='inline'>ETag</code> header.
+      Most responses will return with an <code class='inline'>ETag</code> header. You are highly encouraged to make use of ETags for subsequent requests to the same endpoint. If the response would be the same, a <code class='inline'>304 Not Modified</code> will be returned instead.
     </p>
+    <p>
+      For example, if you received a response to the cards endpoint with the response header <code class='inline'>ETag: "27e-BpOwiFj52s046/zdOTfiQ0fepw8"</code>, then you'd include it as the  value of the request header <code class='inline'>If-None-Match</code> for subsequent requests like so:
+    </p>
+    <pre><code class='language-bash'>curl -i \
+-H "Authorization: Bearer YOUR_ACCESS_JWT" \
+-H "X-Client-ID: YOUR_CLIENT_ID" \
+-H 'If-None-Match: "27e-BpOwiFj52s046/zdOTfiQ0fepw8"' \
+"https://zube.io/api/cards"</code></pre>
 </div>

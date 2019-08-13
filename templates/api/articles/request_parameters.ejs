@@ -24,20 +24,20 @@
       Most endpoints that return lists can be filtered using <code class='inline'>where</code>. For endpoints that support filtering, the attributes available for <code class="inline">where</code> appear in the table below the endpoint. All filtering is scoped under the <code class="inline">where</code> query parameter. For example, you'd use <code class="inline">where[project_id]</code> to filter for a direct match of cards that are on the specified project.
     </p>
     <pre><code class='language-bash'>curl -i \
-  -H "Authorization: Bearer YOUR_ACCESS_JWT" \
-  -H "X-Client-ID: YOUR_CLIENT_ID" \
-  "https://zube.io/api/cards?where%5Bproject_id%5D=3"</code></pre>
+-H "Authorization: Bearer YOUR_ACCESS_JWT" \
+-H "X-Client-ID: YOUR_CLIENT_ID" \
+"https://zube.io/api/cards?where%5Bproject_id%5D=3"</code></pre>
 </div>
 <div id="selects-params" class='section-block'>
   <h4>Select</h4>
   <p>
-    For most endpoints that return lists you can specify which data attributes you'd like included in the response using the <code class='inline'>select</code> parameter. <code class='inline'>select</code> takes an array of attributes. For example to select just the <code class='inline'>id</code> and <code class='inline'>title</code> attributes of a cards you'd use <code class='inline'>select[]=id&select[]=title</code>
+    For most endpoints that return lists you can specify which data attributes you'd like included in the response using the <code class='inline'>select</code> parameter. <code class='inline'>select</code> takes an array of attributes. For example to select just the <code class='inline'>id</code> and <code class='inline'>title</code> attributes of cards you'd use <code class='inline'>select[]=id&select[]=title</code>
   </p>
   <p>
-    Note: For convenience, many models return with some of their associated models populated. For endpoints where a model returns with associated model data, the associated data will not be removed when a request includes <code class='inline'>select</code>.
+    Note: For convenience, many models return with some of their associated models populated. For endpoints where a model returns with associated model data, the associated data will not be removed when a request includes <code class='inline'>select</code>, so <code class='inline'>select</code> may be of limited use in those cases.
   </p>
-  <pre><code class='language-bash'>curl -i \
-      -H "Authorization: Bearer YOUR_ACCESS_JWT" \
-      -H "X-Client-ID: YOUR_CLIENT_ID" \
-      "https://zube.io/api/cards?select%5B%5D=id&select%5B%5D=title"</code></pre>
+    <pre><code class='language-bash'>curl -i \
+-H "Authorization: Bearer YOUR_ACCESS_JWT" \
+-H "X-Client-ID: YOUR_CLIENT_ID" \
+"https://zube.io/api/cards?select%5B%5D=id&select%5B%5D=title"</code></pre>
 </div>

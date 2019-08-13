@@ -27,9 +27,9 @@ const articles = [
     "contentPath": "../templates/api/articles/etags.ejs"
   },
   {
-    "id": "rate-limiting-section",
-    "title": "Rate Limiting",
-    "contentPath": "../templates/api/articles/rate_limiting.ejs"
+    "id": "responsible-usage-section",
+    "title": "Responsible Usage",
+    "contentPath": "../templates/api/articles/responsible_usage.ejs"
   },
 ];
 
