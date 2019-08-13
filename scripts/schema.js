@@ -104,8 +104,8 @@ const sections = [
           { name: 'workspace_id', type: 'Integer', isRequired: false },
           { name: 'category_name', type: 'String', isRequired: false },
           { name: 'body', type: 'Text', isRequired: false },
-          { name: 'labels', type: 'Array', isRequired: false, note: 'Array of label objects' },
-          { name: 'assignees', type: 'Array', isRequired: false, note: 'Array of assignee objects with key <code class="inline">id</code>' },
+          { name: 'label_ids', type: 'Array', isRequired: false, note: 'Array of <code class="inline">label.id</code>s' },
+          { name: 'assignee_ids', type: 'Array', isRequired: false, note: 'Array of <code class="inline">assignee.id</code>s' },
           { name: 'points', type: 'Number', isRequired: false },
           { name: 'priority', type: 'Integer', isRequired: false, note: 'Must be one of <code class="inline">1</code>, <code class="inline">2</code>, <code class="inline">3</code>, <code class="inline">4</code>, <code class="inline">5</code>, or <code class="inline">null</code>' },
           { name: 'epic_id', type: 'Integer', isRequired: false },
@@ -127,8 +127,8 @@ const sections = [
         formData: [
           { name: 'title', type: 'String', isRequired: true },
           { name: 'body', type: 'Text', isRequired: true },
-          { name: 'labels', type: 'Array', isRequired: true, note: 'Array of label objects; see <a href="#labels">Labels</a>' },
-          { name: 'assignees', type: 'Array', isRequired: true, note: 'Array of assignee objects with key <code class="inline">id</code>' },
+          { name: 'label_ids', type: 'Array', isRequired: true, note: 'Array of <code class="inline">label.id</code>s' },
+          { name: 'assignee_ids', type: 'Array', isRequired: true, note: 'Array of <code class="inline">assignee.id</code>s' },
           { name: 'state', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">open</code> or <code class="inline">closed</code>' },
           { name: 'sprint_id', type: 'Integer', isRequired: true },
           { name: 'project_id', type: 'Integer', isRequired: true },
@@ -145,6 +145,7 @@ const sections = [
         rawPath: '/api/cards/:id/archive',
         method: 'PUT',
         name: 'Archive a card',
+        note: 'This endpoint does not take any data'
       },
       {
         // Move
@@ -152,7 +153,19 @@ const sections = [
         rawPath: '/api/cards/:id/move',
         method: 'PUT',
         name: 'Move a card',
-        note: 'XXX',
+        note: `To move a card to a column on a workspace, pass:
+        <pre><code class="language-javascript">destination: {
+  position: CARD_POSITION,
+  type: "category",
+  name: NAME_OF_CATEGORY,
+  workspace_id: YOUR_WORKSPACE_ID
+}</code></pre>
+        To move a card to a project's triage, pass:
+        <pre><code class="language-javascript">destination: {
+  position: CARD_POSITION,
+  type: "project"
+}</code></pre>
+        `,
         formData: [
           { name: 'destination.position', type: 'Integer', isRequired: true },
           { name: 'destination.type', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">category</code> or <code class="inline">project</code>' },
@@ -238,7 +251,7 @@ const sections = [
         rawPath: '/api/cards/:id/events',
         method: 'GET',
         name: 'Get a list of card events',
-        note: 'Does not take any parameters.',
+        note: 'This endpoint does not take any parameters.',
         noParams: true,
       },
       {
@@ -247,7 +260,7 @@ const sections = [
         rawPath: '/api/cards/:id/commit_references',
         method: 'GET',
         name: 'Get a list of commit references',
-        note: 'Does not take any parameters.',
+        note: 'This endpoint does not take any parameters.',
         noParams: true,
       },
       {
@@ -256,7 +269,7 @@ const sections = [
         rawPath: '/api/cards/:id/subscriptions',
         method: 'GET',
         name: 'Get a list of card subscriptions',
-        note: 'Returns either zero or one subscription. Does not take any parameters',
+        note: 'Returns either zero or one subscription for the current user. This endpoint does not take any parameters',
         noParams: true,
       },
       {
@@ -288,7 +301,7 @@ const sections = [
         rawPath: '/api/cards/:id/upvoters',
         method: 'GET',
         name: 'Get a list of upvoters',
-        note: 'Does not take any parameters.',
+        note: 'This endpoint does not take any parameters.',
         noParams: true,
       },
       // Card Upvotes
@@ -297,13 +310,15 @@ const sections = [
         path: '/api/cards/:card_id/upvotes',
         rawPath: '/api/cards/:id/upvotes',
         method: 'POST',
-        name: 'Create a card upvote'
+        name: 'Create a card upvote',
+        note: 'Creates a card upvote for the current user. This endpoint does not take any data.'
       },
     ]
   },
   {
     title: 'Categories',
     desc: '',
+    note: 'Workspace columns are referred to as <code class="inline">categories</code> in the Zube API.',
     endpoints: [
       // Workspace Categories
       {
@@ -312,7 +327,7 @@ const sections = [
         path: '/api/workspaces/:workspace_id/categories',
         rawPath: '/api/workspaces/:id/categories',
         method: 'GET',
-        note: 'Does not take any parameters.',
+        note: 'This endpoint does not take any parameters.',
         noParams: true,
       },
       {
@@ -321,7 +336,7 @@ const sections = [
         path: '/api/workspaces/:workspace_id/categories/:_categoryId',
         rawPath: '/api/workspaces/:id/categories/:_categoryId',
         method: 'GET',
-        note: '_categoryId is an ObjectId, not an integer.'
+        note: '<code class="inline">_categoryId</code> is an <code class="inline">ObjectId</code>, not an <code class="inline">integer</code>.'
       },
       {
         // index
@@ -329,7 +344,7 @@ const sections = [
         path: '/api/workspaces/:workspace_id/categories_metadata',
         rawPath: '/api/workspaces/:id/categories_metadata',
         method: 'GET',
-        note: 'Returns a set of categories without their lists of cards. Does not take any parameters.',
+        note: 'Returns a set of categories without their lists of cards. This endpoint does not take any parameters.',
         noParams: true,
       },
       {
@@ -338,7 +353,7 @@ const sections = [
         path: '/api/workspaces/:workspace_id/categories_metadata/:_categoryId',
         rawPath: '/api/workspaces/:id/categories_metadata/:_categoryId',
         method: 'GET',
-        note: 'Returns a single category without it\'s list of cards. _categoryId is an ObjectId, not an integer.'
+        note: 'Returns a single category without it\'s list of cards. <code class="inline">_categoryId</code> is an <code class="inline">ObjectId</code>, not an <code class="inline">integer</code>.'
       },
     ]
   },
@@ -467,7 +482,7 @@ const sections = [
         path: '/api/epics/:epic_id/subscriptions',
         rawPath: '/api/epics/:id/subscriptions',
         method: 'GET',
-        note: 'Returns either zero or one subscription. Does not take any parameters.',
+        note: 'Returns either zero or one subscription for the current user. This endpoint does not take any parameters.',
         noParams: true,
       },
       {
@@ -546,7 +561,7 @@ const sections = [
         path: '/api/notifications',
         rawPath: '/api/notifications',
         method: 'GET',
-        note: 'Does not take any parameters.',
+        note: 'This endpoint does not take any parameters.',
         noParams: true,
       },
       {
@@ -558,7 +573,7 @@ const sections = [
         formData: [
           { name: 'read', type: 'Boolean', isRequired: true },
         ],
-        note: '_id is an ObjectId, not an integer.'
+        note: '<code class="inline">_notificationId</code> is an <code class="inline">ObjectId</code>, not an <code class="inline">integer</code>.'
       },
       {
         // destroy
@@ -566,7 +581,7 @@ const sections = [
         path: '/api/notifications/:_notificationId',
         rawPath: '/api/notifications/:_id',
         method: 'DELETE',
-        note: '_id is an ObjectId, not an integer.'
+        note: '<code class="inline">_notificationId</code> is an <code class="inline">ObjectId</code>, not an <code class="inline">integer</code>.'
       },
     ]
   },
@@ -690,7 +705,7 @@ const sections = [
         path: '/api/projects/:project_id/triage_cards',
         rawPath: '/api/projects/:id/triage_cards',
         method: 'GET',
-        note: 'Does not take any parameters.',
+        note: 'This endpoint does not take any parameters.',
         noParams: true,
       },
       // Milestones
@@ -761,7 +776,7 @@ const sections = [
         path: '/api/sprints/:sprint_id/events',
         rawPath: '/api/sprints/:id/events',
         method: 'GET',
-        note: 'Does not take any parameters.',
+        note: 'This endpoint does not take any parameters.',
         noParams: true,
       },
     ]
@@ -963,7 +978,7 @@ const sections = [
         path: '/api/tickets/:ticket_id/events',
         rawPath: '/api/tickets/:id/events',
         method: 'GET',
-        note: 'Does not take any parameters.',
+        note: 'This endpoint does not take any parameters.',
         noParams: true,
       },
       // Subscriptions
@@ -973,7 +988,7 @@ const sections = [
         path: '/api/tickets/:ticket_id/subscriptions',
         rawPath: '/api/tickets/:id/subscriptions',
         method: 'GET',
-        note: 'Returns either zero or one subscription. Does not take any parameters.',
+        note: 'Returns either zero or one subscription for the current user. This endpoint does not take any parameters.',
         noParams: true,
       },
       {

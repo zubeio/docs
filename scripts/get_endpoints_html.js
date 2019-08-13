@@ -98,6 +98,7 @@ module.exports = function () {
   // Check that cobaltEndpointJSON does not contain any endpoints not included in schema
   _.each(cobaltEndpointCheckHash, function (v, k) {
     if (v) return;
+    if (k.match(':client_id/tokens')) return; // Skip over POST /api/users/:client_id/tokens since it's covered in the getting started guide
     console.log('Endpoint', k, 'missing from schema.');
   });
 

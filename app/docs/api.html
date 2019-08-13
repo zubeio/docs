@@ -96,11 +96,11 @@
             <div id="generating-a-private-key" class='section-block'>
     <h4>Generating a Private Key</h4>
     <p>
-        To access the Zube API, you first need to generate a private key. You will then use this private key to to sign access token requests.
+        To access the Zube API, you first need to generate a private key. You will then use this private key to sign access token requests.
     </p>
     <ol class="list">
         <li>
-            Log into Zube, navigate to your profile settings page and click on the API Access tab.
+            Log in to Zube, navigate to your profile settings page and click on the API Access tab.
             <a
                 tabindex="0"
                 data-trigger="focus"
@@ -119,7 +119,7 @@
             </div>
         </li>
         <li>
-            After you've generated your first private key, you will be issued a Client Id. You will also be shown the fingerprint for your private key, which you can use to verify the key.
+            After you've generated your first private key, you will be issued a Client Id. You will also be shown the fingerprint for your private key, which you can use to <a href='#verifying-a-private-key'>verify the key</a> if you wish.
         </li>
     </ol>
     <div class="screenshot-holder">
@@ -156,7 +156,7 @@ console.log(request_jwt);</code></pre>
       The code above creates a request JWT with a one minute expiry. You can create your request JWT with an expiry of up to 10 minutes. Once your JWT is expired, you will need to generate a new request JWT to request new access tokens.
     </p>
     <p>
-      After creating the JWT, you can request a new access token. Set your JWT and Client Id in the <code class='inline'>Header</code> of the API request:
+      After creating the JWT, you can request a new access token. Set your JWT and Client Id in the <code class='inline'>Header</code> of the API request to the tokens endpoint:
     </p>
     <p>
       <pre><code class="language-bash">curl -i \
@@ -197,16 +197,16 @@ https://zube.io/api/ANY_END_POINT</code></pre>
       </li>
     </ol>
   </p>
+  <div class="screenshot-holder">
+    <a href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><img class="img-responsive" src="/docs/images/private_key_ids.png" alt="screenshot" /></a>
+    <a class="mask" href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><i class="icon fa fa-search-plus"></i></a>
+  </div>
 </div>
 <div id="deleting-a-private-key" class='section-block'>
   <h4>Deleting a Private Key</h4>
   <p>
     You can remove a lost, compromised or unwanted private key by deleting it in the Zube interface. After you have deleted your private key, you will be able to generate a new one.
   </p>
-  <div class="screenshot-holder">
-    <a href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><img class="img-responsive" src="/docs/images/private_key_ids.png" alt="screenshot" /></a>
-    <a class="mask" href="/docs/images/private_key_ids.png" data-toggle="lightbox" data-title="Example API Key Information in Zube"><i class="icon fa fa-search-plus"></i></a>
-  </div>
 </div>
 
         </div>
@@ -1305,7 +1305,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>assignees</code>
+                <code class='inline'>assignee_ids</code>
               </td>
               <td class="type">
                 <span>Array</span>
@@ -1314,7 +1314,7 @@ https://zube.io/api/projects</code></pre>
                 <span></span>
               </td>
               <td class="note">
-                <span>Array of assignee objects with key <code class="inline">id</code></span>
+                <span>Array of <code class="inline">assignee.id</code>s</span>
               </td>
             </tr>
           
@@ -1395,7 +1395,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>labels</code>
+                <code class='inline'>label_ids</code>
               </td>
               <td class="type">
                 <span>Array</span>
@@ -1404,7 +1404,7 @@ https://zube.io/api/projects</code></pre>
                 <span></span>
               </td>
               <td class="note">
-                <span>Array of label objects</span>
+                <span>Array of <code class="inline">label.id</code>s</span>
               </td>
             </tr>
           
@@ -1534,7 +1534,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>assignees</code>
+                <code class='inline'>assignee_ids</code>
               </td>
               <td class="type">
                 <span>Array</span>
@@ -1543,7 +1543,7 @@ https://zube.io/api/projects</code></pre>
                 <span>✅</span>
               </td>
               <td class="note">
-                <span>Array of assignee objects with key <code class="inline">id</code></span>
+                <span>Array of <code class="inline">assignee.id</code>s</span>
               </td>
             </tr>
           
@@ -1594,7 +1594,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>labels</code>
+                <code class='inline'>label_ids</code>
               </td>
               <td class="type">
                 <span>Array</span>
@@ -1603,7 +1603,7 @@ https://zube.io/api/projects</code></pre>
                 <span>✅</span>
               </td>
               <td class="note">
-                <span>Array of label objects; see <a href="#labels">Labels</a></span>
+                <span>Array of <code class="inline">label.id</code>s</span>
               </td>
             </tr>
           
@@ -1723,6 +1723,10 @@ https://zube.io/api/projects</code></pre>
     PUT /api/cards/:card_id/archive
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> This endpoint does not take any data
+    </div>
+  
 
   
   
@@ -1734,7 +1738,19 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> XXX
+      <strong>Note:</strong> To move a card to a column on a workspace, pass:
+        <pre><code class="language-javascript">destination: {
+  position: CARD_POSITION,
+  type: "category",
+  name: NAME_OF_CATEGORY,
+  workspace_id: YOUR_WORKSPACE_ID
+}</code></pre>
+        To move a card to a project's triage, pass:
+        <pre><code class="language-javascript">destination: {
+  position: CARD_POSITION,
+  type: "project"
+}</code></pre>
+        
     </div>
   
 
@@ -2164,7 +2180,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -2178,7 +2194,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -2192,7 +2208,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Returns either zero or one subscription. Does not take any parameters
+      <strong>Note:</strong> Returns either zero or one subscription for the current user. This endpoint does not take any parameters
     </div>
   
 
@@ -2484,7 +2500,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -2497,6 +2513,10 @@ https://zube.io/api/projects</code></pre>
     POST /api/cards/:card_id/upvotes
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> Creates a card upvote for the current user. This endpoint does not take any data.
+    </div>
+  
 
   
   
@@ -2507,6 +2527,10 @@ https://zube.io/api/projects</code></pre>
   <h3 class="block-title section">Categories</h3>
   
   
+    <div class='note'>
+      Note: Workspace columns are referred to as <code class="inline">categories</code> in the Zube API.
+    </div>
+  
   <div class='endpoint'>
   <h5 class='endpoint-name' id='get-a-list-of-categories'>Get a list of categories</h5>
   <div class='endpoint-path'>
@@ -2514,7 +2538,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -2528,7 +2552,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> _categoryId is an ObjectId, not an integer.
+      <strong>Note:</strong> <code class="inline">_categoryId</code> is an <code class="inline">ObjectId</code>, not an <code class="inline">integer</code>.
     </div>
   
 
@@ -2542,7 +2566,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Returns a set of categories without their lists of cards. Does not take any parameters.
+      <strong>Note:</strong> Returns a set of categories without their lists of cards. This endpoint does not take any parameters.
     </div>
   
 
@@ -2556,7 +2580,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Returns a single category without it's list of cards. _categoryId is an ObjectId, not an integer.
+      <strong>Note:</strong> Returns a single category without it's list of cards. <code class="inline">_categoryId</code> is an <code class="inline">ObjectId</code>, not an <code class="inline">integer</code>.
     </div>
   
 
@@ -3715,7 +3739,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Returns either zero or one subscription. Does not take any parameters.
+      <strong>Note:</strong> Returns either zero or one subscription for the current user. This endpoint does not take any parameters.
     </div>
   
 
@@ -3973,7 +3997,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -3987,7 +4011,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> _id is an ObjectId, not an integer.
+      <strong>Note:</strong> <code class="inline">_notificationId</code> is an <code class="inline">ObjectId</code>, not an <code class="inline">integer</code>.
     </div>
   
 
@@ -4030,7 +4054,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> _id is an ObjectId, not an integer.
+      <strong>Note:</strong> <code class="inline">_notificationId</code> is an <code class="inline">ObjectId</code>, not an <code class="inline">integer</code>.
     </div>
   
 
@@ -5047,7 +5071,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -5549,7 +5573,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -7206,7 +7230,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -7220,7 +7244,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Returns either zero or one subscription. Does not take any parameters.
+      <strong>Note:</strong> Returns either zero or one subscription for the current user. This endpoint does not take any parameters.
     </div>
   
 
