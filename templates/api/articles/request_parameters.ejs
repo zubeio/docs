@@ -1,7 +1,7 @@
 <div id="pagination-params" class='section-block'>
     <h4>Pagination</h4>
     <p>
-      Most endpoints that return lists will return their data as paginated collections defaulting to 100 items per page. You can specify further pages by passing the <code class='inline'>?page</code> parameter. For pages that allow customized pagination, you can set the number of results per page with the <code class='inline'>?per_page</code> parameter.
+      Most endpoints that return lists will return their data as paginated collections defaulting to 30 items per page. You can specify further pages by passing the <code class='inline'>page</code> parameter. For pages that allow customized pagination, you can set the number of results per page with the <code class='inline'>per_page</code> parameter.
     </p>
     <pre><code class='language-bash'>curl -i \
 -H "Authorization: Bearer YOUR_ACCESS_JWT" \
@@ -11,7 +11,7 @@
 <div id="ordering-params" class='section-block'>
   <h4>Ordering</h4>
   <p>
-    Most endpoints that return lists accept <code class="inline">order by</code> and <code class="inline">order direction</code> parameters. <code class="inline">order direction</code> accepts <code class='inline'>asc</code> or <code class='inline'>desc</code>. For endpoints that support ordering, the attributes available for <code class="inline">order by</code> appear in the table below the endpoint.
+    Most endpoints that return lists accept <code class="inline">order[by]</code> and <code class="inline">order[direction]</code> parameters. <code class="inline">order[direction]</code> accepts either <code class='inline'>asc</code> or <code class='inline'>desc</code>. The possible attributes available for <code class="inline">order[by]</code> can be found in the table below the endpoint description.
   </p>
   <pre><code class='language-bash'>curl -i \
 -H "Authorization: Bearer YOUR_ACCESS_JWT" \
@@ -19,18 +19,25 @@
 "https://zube.io/api/cards?order%5Bby%5D=points&order%5Bdirection%5D=desc"</code></pre>
 </div>
 <div id="where-params" class='section-block'>
-    <h4>Where</h4>
+    <h4>Filtering</h4>
     <p>
-      Most endpoints that return lists can be filtered using <code class='inline'>where</code>. For endpoints that support ordering <code class='inline'>where</code> filtering, the attributes available for <code class="inline">where</code> appear in the table below the endpoint.
+      Most endpoints that return lists can be filtered using <code class='inline'>where</code>. For endpoints that support filtering, the attributes available for <code class="inline">where</code> appear in the table below the endpoint. All filtering is scoped under the <code class="inline">where</code> query parameter. For example, you'd use <code class="inline">where[project_id]</code> to filter for a direct match of cards that are on the specified project.
     </p>
     <pre><code class='language-bash'>curl -i \
   -H "Authorization: Bearer YOUR_ACCESS_JWT" \
   -H "X-Client-ID: YOUR_CLIENT_ID" \
-  "https://zube.io/api/cards?where%5Bproject_id=3"</code></pre>
+  "https://zube.io/api/cards?where%5Bproject_id%5D=3"</code></pre>
 </div>
 <div id="selects-params" class='section-block'>
   <h4>Select</h4>
   <p>
+    For most endpoints that return lists you can specify which data attributes you'd like included in the response using the <code class='inline'>select</code> parameter. <code class='inline'>select</code> takes an array of attributes. For example to select just the <code class='inline'>id</code> and <code class='inline'>title</code> attributes of a cards you'd use <code class='inline'>select[]=id&select[]=title</code>
+  </p>
+  <p>
     Note: For convenience, many models return with some of their associated models populated. For endpoints where a model returns with associated model data, the associated data will not be removed when a request includes <code class='inline'>select</code>.
   </p>
+  <pre><code class='language-bash'>curl -i \
+      -H "Authorization: Bearer YOUR_ACCESS_JWT" \
+      -H "X-Client-ID: YOUR_CLIENT_ID" \
+      "https://zube.io/api/cards?select%5B%5D=id&select%5B%5D=title"</code></pre>
 </div>
