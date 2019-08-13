@@ -1298,7 +1298,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>assignees</code>
+                <code class='inline'>assignee_ids</code>
               </td>
               <td class="type">
                 <span>Array</span>
@@ -1307,7 +1307,7 @@ https://zube.io/api/projects</code></pre>
                 <span></span>
               </td>
               <td class="note">
-                <span>Array of assignee objects with key <code class="inline">id</code></span>
+                <span>Array of <code class="inline">assignee.id</code>s</span>
               </td>
             </tr>
           
@@ -1388,7 +1388,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>labels</code>
+                <code class='inline'>label_ids</code>
               </td>
               <td class="type">
                 <span>Array</span>
@@ -1397,7 +1397,7 @@ https://zube.io/api/projects</code></pre>
                 <span></span>
               </td>
               <td class="note">
-                <span>Array of label objects</span>
+                <span>Array of <code class="inline">label.id</code>s</span>
               </td>
             </tr>
           
@@ -1527,7 +1527,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>assignees</code>
+                <code class='inline'>assignee_ids</code>
               </td>
               <td class="type">
                 <span>Array</span>
@@ -1536,7 +1536,7 @@ https://zube.io/api/projects</code></pre>
                 <span>✅</span>
               </td>
               <td class="note">
-                <span>Array of assignee objects with key <code class="inline">id</code></span>
+                <span>Array of <code class="inline">assignee.id</code>s</span>
               </td>
             </tr>
           
@@ -1587,7 +1587,7 @@ https://zube.io/api/projects</code></pre>
           
             <tr>
               <td class="name">
-                <code class='inline'>labels</code>
+                <code class='inline'>label_ids</code>
               </td>
               <td class="type">
                 <span>Array</span>
@@ -1596,7 +1596,7 @@ https://zube.io/api/projects</code></pre>
                 <span>✅</span>
               </td>
               <td class="note">
-                <span>Array of label objects; see <a href="#labels">Labels</a></span>
+                <span>Array of <code class="inline">label.id</code>s</span>
               </td>
             </tr>
           
@@ -1716,6 +1716,10 @@ https://zube.io/api/projects</code></pre>
     PUT /api/cards/:card_id/archive
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> This endpoint does not take any data
+    </div>
+  
 
   
   
@@ -1727,7 +1731,19 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> XXX
+      <strong>Note:</strong> To move a card to a column on a workspace, pass:
+        <pre><code class="language-javascript">destination: {
+  position: CARD_POSITION,
+  type: "category",
+  name: NAME_OF_CATEGORY,
+  workspace_id: YOUR_WORKSPACE_ID
+}</code></pre>
+        To move a card to a project's triage, pass:
+        <pre><code class="language-javascript">destination: {
+  position: CARD_POSITION,
+  type: "project"
+}</code></pre>
+        
     </div>
   
 
@@ -2157,7 +2173,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -2171,7 +2187,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -2185,7 +2201,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Returns either zero or one subscription. Does not take any parameters
+      <strong>Note:</strong> Returns either zero or one subscription for the current user. This endpoint does not take any parameters
     </div>
   
 
@@ -2477,7 +2493,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -2490,6 +2506,10 @@ https://zube.io/api/projects</code></pre>
     POST /api/cards/:card_id/upvotes
   </div>
   
+    <div class='note'>
+      <strong>Note:</strong> Creates a card upvote for the current user. This endpoint does not take any data.
+    </div>
+  
 
   
   
@@ -2500,6 +2520,10 @@ https://zube.io/api/projects</code></pre>
   <h3 class="block-title section">Categories</h3>
   
   
+    <div class='note'>
+      Note: Workspace columns are referred to as <code class="inline">categories</code> in the Zube API.
+    </div>
+  
   <div class='endpoint'>
   <h5 class='endpoint-name' id='get-a-list-of-categories'>Get a list of categories</h5>
   <div class='endpoint-path'>
@@ -2507,7 +2531,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -2521,7 +2545,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> _categoryId is an ObjectId, not an integer.
+      <strong>Note:</strong> <code class="inline">_categoryId</code> is an <code class="inline">ObjectId</code>, not an <code class="inline">integer</code>.
     </div>
   
 
@@ -2535,7 +2559,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Returns a set of categories without their lists of cards. Does not take any parameters.
+      <strong>Note:</strong> Returns a set of categories without their lists of cards. This endpoint does not take any parameters.
     </div>
   
 
@@ -2549,7 +2573,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Returns a single category without it's list of cards. _categoryId is an ObjectId, not an integer.
+      <strong>Note:</strong> Returns a single category without it's list of cards. <code class="inline">_categoryId</code> is an <code class="inline">ObjectId</code>, not an <code class="inline">integer</code>.
     </div>
   
 
@@ -3708,7 +3732,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Returns either zero or one subscription. Does not take any parameters.
+      <strong>Note:</strong> Returns either zero or one subscription for the current user. This endpoint does not take any parameters.
     </div>
   
 
@@ -3966,7 +3990,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -3980,7 +4004,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> _id is an ObjectId, not an integer.
+      <strong>Note:</strong> <code class="inline">_notificationId</code> is an <code class="inline">ObjectId</code>, not an <code class="inline">integer</code>.
     </div>
   
 
@@ -4023,7 +4047,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> _id is an ObjectId, not an integer.
+      <strong>Note:</strong> <code class="inline">_notificationId</code> is an <code class="inline">ObjectId</code>, not an <code class="inline">integer</code>.
     </div>
   
 
@@ -5040,7 +5064,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -5542,7 +5566,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -7199,7 +7223,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Does not take any parameters.
+      <strong>Note:</strong> This endpoint does not take any parameters.
     </div>
   
 
@@ -7213,7 +7237,7 @@ https://zube.io/api/projects</code></pre>
   </div>
   
     <div class='note'>
-      <strong>Note:</strong> Returns either zero or one subscription. Does not take any parameters.
+      <strong>Note:</strong> Returns either zero or one subscription for the current user. This endpoint does not take any parameters.
     </div>
   
 
