@@ -1057,7 +1057,7 @@ const sections = [
       {
         // destroy
         name: 'Delete a workspace',
-        path: '/api/workspaces/workspace_:id',
+        path: '/api/workspaces/:workspace_id',
         rawPath: '/api/workspaces/:id',
         method: 'DELETE'
       },
