@@ -2,6 +2,7 @@ const fs = require('fs');
 // const endpointDataJSON = require('./out/endpoint_data.json');
 const getEndpoints = require('./get_endpoints_html');
 const ejs = require('ejs');
+const moment = require('moment');
 const path = require('path');
 
 
@@ -71,7 +72,7 @@ ejs.renderFile(sidebarPath, sidebarData, (err, html) => {
 
 // Generate the entire document with boilerplate
 const boilerplatePath = path.join(__dirname, '../templates/boilerplate.ejs');
-ejs.renderFile(boilerplatePath, {documentationContent: gettingStartedBlock + endpointsBlock , sidebar: sidebarBlock, id: 'api-documentation' }, (err, html) => {
+ejs.renderFile(boilerplatePath, {documentationContent: gettingStartedBlock + endpointsBlock , sidebar: sidebarBlock, id: 'api-documentation', date: moment().format('MMM D, YYYY') }, (err, html) => {
     if (err) console.log(err);
     page = html;
 });
