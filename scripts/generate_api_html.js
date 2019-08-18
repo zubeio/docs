@@ -28,6 +28,11 @@ const articles = [
     "contentPath": "../templates/api/articles/etags.ejs"
   },
   {
+    "id": "data-mutations",
+    "title": "Data Mutations",
+    "contentPath": "../templates/api/articles/data_mutations.ejs"
+  },
+  {
     "id": "responsible-usage-section",
     "title": "Responsible Usage",
     "contentPath": "../templates/api/articles/responsible_usage.ejs"

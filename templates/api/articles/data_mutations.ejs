@@ -1,0 +1,13 @@
+<div id="Data Mutations" class='section-block'>
+    <h4>Body Data</h4>
+    <p>
+      When body data is sent for <code class='inline'>POST</code> or <code class='inline'>PUT</code> requests, it should be sent as valid JSON. Any request that sends body data should also include the required header <code class='inline'>"Content-Type: application/json"</code>.
+    </p>
+    <pre><code class='language-bash'>curl -i \
+-H "Authorization: Bearer ACCESS_JWT" \
+-H "X-Client-ID: CLIENT_ID" \
+-H "Content-Type: application/json" \
+-d '{"project_id":YOUR_PROJECT_ID,"title":"Hello World"}' \
+-X POST \
+https://zube.io/api/cards</code></pre>
+</div>
