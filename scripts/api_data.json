@@ -1,0 +1,94 @@
+{
+    "GettingStarted": {
+        "articles": [
+            {
+                "id": "intro-section",
+                "contentPath": "../templates/api/articles/intro.ejs"
+            },
+            {
+                "id": "authentication-section",
+                "title": "Authentication",
+                "contentPath": "../templates/api/articles/authentication.ejs"
+            },
+            {
+                "id": "example-request-response-section",
+                "title": "Example Request Response",
+                "contentPath": "An example of Request and Response"
+            },
+            {
+                "id": "etag-caching-section",
+                "title": "ETag Caching",
+                "contentPath": "We use ETags!"
+            },
+            {
+                "id": "rate-limiting-section",
+                "title": "Rate Limiting",
+                "contentPath": "Don't make too many requests please"
+            },
+            {
+                "id": "pagination-section",
+                "title": "Pagination",
+                "contentPath": "You can get your data in pages"
+            }
+        ]
+    },
+    "EndpointSections": [
+        {
+            "title": "Cards",
+            "id": "cards",
+            "endpoints": [
+                {
+                    "id": "endpoint-get-cards",
+                    "name": "Get a list of cards",
+                    "method": "GET",
+                    "path": "/api/cards",
+                    "params": [
+                        {"where": [
+                            {
+                                "name": "title",
+                                "type": "String",
+                                "desc": "Some description"
+                            }
+                        ]},
+                        {"select": [
+                            {
+                                "name": "title",
+                                "type": "String",
+                                "desc": "Some description"
+                            }
+                        ]},
+                        {"orderBy": [
+                            {
+                                "name": "title",
+                                "type": "String",
+                                "desc": "Some description"
+                            }
+                        ]}
+                    ]
+                },
+                {
+                    "id": "endpoint-create-card",
+                    "name": "Create a card",
+                    "method": "POST",
+                    "path": "/api/cards",
+                    "params": [
+                        {"formData": [
+                            {
+                                "name": "title",
+                                "type": "String",
+                                "desc": "Some description"
+                            }
+                        ]}
+                    ]
+                },
+                {
+                    "id": "endpoint-delete-card",
+                    "name": "Delete a card",
+                    "method": "DELETE",
+                    "path": "/api/cards/:id",
+                    "params": []
+                }
+            ]
+        }
+    ]
+}

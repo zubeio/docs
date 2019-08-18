@@ -1,0 +1,69 @@
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='<%= endpoint.id %>'><%= endpoint.name %></h5>
+  <div class='endpoint-path'>
+    <%= endpoint.method + ' ' + endpoint.path %>
+  </div>
+  <% if (endpoint.note) { %>
+    <div class='note'>
+      <strong>Note:</strong> <%- endpoint.note %>
+    </div>
+  <% } %>
+
+  <% if (endpoint.paramsTable && !endpoint.noParams) { %>
+    <div class='params-table table-section'>
+      <h4>Parameters</h4>
+      <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% endpoint.paramsTable.forEach(function (attr) { %>
+            <% if (attr.is_indexed) { %>
+              <tr>
+                <td class="name">
+                  <code class='inline'><%= attr.name %></code>
+                </td>
+                <td class="type">
+                  <span><%= attr.type %></span>
+                </td>
+              </tr>
+            <% } %>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+  <% if (endpoint.formData) { %>
+    <div class='form-data-table table-section'>
+      <h4>Form Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% endpoint.formData.forEach(function (attr) { %>
+            <tr>
+              <td class="name">
+                <code class='inline'><%= attr.name %></code>
+              </td>
+              <td class="type">
+                <span><%= attr.type %></span>
+              </td>
+              <td class="required">
+                <span><%- attr.isRequired ? '✅' : ''%></span>
+              </td>
+              <td class="note">
+                <span><%- attr.note %></span>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+</div>

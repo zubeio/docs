@@ -1,0 +1,83 @@
+<div id="example-request" class='section-block'>
+    <h4>Example Request</h4>
+    <p>
+      You can find instructions for getting your <code class='inline'>CLIENT_ID</code> and generating your <code class='inline'>YOUR_REQUEST_JWT</code> in the <a href='#authentication'>Authentication</a> section above.
+    </p>
+    <p>
+      To send a request to a Zube API endpoint, include your <code class='inline'>ACCESS_JWT</code> and <code class='inline'>CLIENT_ID</code> in the <code class='inline'>Header</code> for your request.
+    </p>
+    <p>
+      The code below will send a <code class='inline'>GET</code> request to the <code class='inline'>projects</code> endpoint.
+    </p>
+    <pre><code class='language-bash'>curl -i \
+-H &#x22;Authorization: Bearer ACCESS_JWT&#x22; \
+-H &#x22;X-Client-ID: CLIENT_ID&#x22; \
+-H &#x22;Accept: application/json&#x22; \
+https://zube.io/api/projects</code></pre>
+</div>
+<div id="example-response" class='section-block'>
+    <h4>Example Response</h4>
+    <p>
+      The code above will return a JSON object:
+    </p>
+
+    <pre><code class='language-json'>{
+  "pagination":{
+    "page":1,
+    "per_page":30,
+    "total_pages":1,
+    "total":1
+  },
+  "data":[
+    {
+      "id":123456,
+      "account_id":54321,
+      "description":"The place to organize our web application",
+      "name":"Web Project",
+      "created_at":"2018-07-06T03:52:29.513Z",
+      "updated_at":"2018-07-06T03:52:29.513Z",
+      "slug":"web-project",
+      "private":true,
+      "priority_format":"number",
+      "priority":true,
+      "points":true,
+      "triage":false,
+      "upvotes":false,
+      "sources":[
+        {
+          "id":123456789,
+          "github_owner_id":87654321,
+          "description":"Javascript frontend repository",
+          "full_name":"zubeio/js-frontend",
+          "homepage":null,
+          "html_url":"https://github.com/zubeio/js-frontend",
+          "name":"js-frontend",
+          "private":true,
+          "created_at":"2018-09-13T19:53:09.000Z",
+          "updated_at":"2019-07-02T22:25:48.000Z",
+          "webhook_verified_at":"2019-07-03T23:29:09.894Z",
+          "initial_import_at":"2018-12-17T04:09:49.348Z"
+        }
+      ],
+      "workspaces":[
+        {
+          "id":654321,
+          "project_id":123456,
+          "description":null,
+          "name":"Product Team Workspace",
+          "slug":"product-team-workspace",
+          "private":true,
+          "priority_format":"number",
+          "priority":true,
+          "points":true,
+          "upvotes":false,
+          "created_at":"2018-12-17T04:09:49.348Z",
+          "updated_at":"2018-12-17T04:09:49.348Z",
+          "archive_merged_prs":false,
+          "use_category_labels":false
+        }
+      ]
+    }
+  ]
+}</code></pre>
+</div>
