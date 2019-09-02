@@ -22,8 +22,10 @@ code {
     margin-bottom: -80px;
 }
 
-.doc-content {
+@media (min-width: 768px) {
+  .doc-content {
     margin-left: 260px;
+  }
 }
 
 #back-to-zube {
@@ -213,6 +215,8 @@ pre code {
   }
   .table-section {
     margin-top: 30px;
+    margin-bottom: 10px;
+    overflow: auto;
     h4 {
       margin-bottom: 4px;
     }
@@ -221,6 +225,7 @@ pre code {
       background: white;
       padding: 10px 20px;
       margin-top: 10px;
+      margin-bottom: 0;
       td:not(.note) {
         font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
       }
@@ -240,13 +245,15 @@ pre code {
   }
   #footer {
     background: transparent;
-    margin-left: 260px;
     color: #777;
     a {
       color: #777;
       &:hover {
         color: #58bbee;
       }
+    }
+    @media (min-width: 768px) {
+      margin-left: 260px;
     }
   }
 }
