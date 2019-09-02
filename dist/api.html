@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Learn how to use Zube's API endpoints to supercharge your project managemnt workflow.">
+    <meta name="description" content="Learn how to use Zube's API endpoints to supercharge your project management workflow.">
     <link rel="icon" type="image/ico" href="/favicons/favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
@@ -69,7 +69,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> API Documentation</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Aug 17, 2019</div>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Aug 19, 2019</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -113,47 +113,47 @@
 <div id="requesting-an-api-access-token" class="section-block">
     <h4>Requesting an API Access Token</h4>
     <p>
-        Before you can send requests to Zube's API endpoints, you will need an access token. To get an access token from Zube, you will need to create a <a href="https://jwt.io/introduction/" target="_blank">JSON Web Token (JWT)</a> signed by your private key and encode it using the <code class="inline">RS256</code> algorithm. Zube checks the JWT you create with your private key against the public key stored by Zube and returns a new JWT you can use to access Zube's other API endpoints.
+        Before you can send requests to Zube's API endpoints, you will need an access token. Before you can request an access token from Zube, you will need to create a refresh <a href="https://jwt.io/introduction/" target="_blank">JSON Web Token (JWT)</a> signed by your private key and encoded using the <code class="inline">RS256</code> algorithm. Zube checks the key of this refresh JWT against the public key stored by Zube and returns a new access JWT that you use to access all other API endpoints.
     </p>
     <div class="code-block">
-        As an example, the following Node.js code can be used to generate the JWT used to request an API access token.
+        As an example, the following Node.js code can be used to generate the refresh JWT used to request an API access token.
         <pre><code class="language-javascript">var fs = require(&#x27;fs&#x27;);
 var jsonwebtoken = require(&#x27;jsonwebtoken&#x27;); // $ npm install jsonwebtoken
 
-var client_id = YOUR_CLIENT_ID;
+var client_id = CLIENT_ID;
 var private_key = fs.readFileSync(PATH_TO_PEM_FILE);
 
 var now = Math.floor(Date.now() / 1000);
-var request_jwt = jsonwebtoken.sign({
+var refresh_jwt = jsonwebtoken.sign({
     iat: now,      // Issued at time
     exp: now + 60, // JWT expiration time (10 minute maximum)
     iss: client_id // Your Zube client id
 }, private_key, { algorithm: &#x27;RS256&#x27; });
 
-console.log(request_jwt);</code></pre>
+console.log(refresh_jwt);</code></pre>
     </div>
     <p>
-      Replace <code class="inline">YOUR_CLIENT_ID</code> and <code class="inline">PATH_TO_PEM_FILE</code> in the above code with your information.
+      Replace <code class="inline">CLIENT_ID</code> and <code class="inline">PATH_TO_PEM_FILE</code> in the above code with your information.
     </p>
     <p>
-      The code above creates a request JWT with a one minute expiry. You can create your request JWT with an expiry of up to 10 minutes. Once your JWT is expired, you will need to generate a new request JWT to request new access tokens.
+      The code above creates a refresh JWT with a one minute expiry. You can create your refresh JWT with an expiry of up to 10 minutes. Once your refresh JWT is expired, you will need to generate a new refresh JWT to request new access tokens.
     </p>
     <p>
-      After creating the JWT, you can request a new access token. Set your JWT and Client Id in the <code class="inline">Header</code> of the API request to the tokens endpoint:
+      After creating the refresh JWT, you can request a new access token. Set your refresh JWT and Client Id in the <code class="inline">Header</code> of the API request to the tokens endpoint:
     </p>
     <p>
       <pre><code class="language-bash">curl -i \
--H &#x22;Authorization: Bearer YOUR_REQUEST_JWT&#x22; \
+-H &#x22;Authorization: Bearer REFRESH_JWT&#x22; \
 -H &#x22;X-Client-ID: CLIENT_ID&#x22; \
 -H &#x22;Accept: application/json&#x22; \
 -X POST \
-https://zube.io/api/users/CLIENT_ID/tokens</code></pre>
+https://zube.io/api/users/tokens</code></pre>
     </p>
     <p>
-      <code class="inline">YOUR_REQUEST_JWT</code> and <code class="inline">CLIENT_ID</code> are the values you must replace.
+      <code class="inline">REFRESH_JWT</code> and <code class="inline">CLIENT_ID</code> are the values you must replace.
     </p>
     <p>
-      The API request above will return an access token which you can use to make further requests to Zube's API endpoints.
+      The API request above will return an access token, your <code class="inline">ACCESS_JWT</code>, which you can use to make further requests to Zube's API endpoints.
     </p>
     <pre><code class="language-bash">curl -i \
 -H &#x22;Authorization: Bearer ACCESS_JWT&#x22; \
@@ -161,7 +161,7 @@ https://zube.io/api/users/CLIENT_ID/tokens</code></pre>
 -H &#x22;Accept: application/json&#x22; \
 https://zube.io/api/ANY_END_POINT</code></pre>
   <p>
-    The access token expires in 24 hours, after which you will need to request a new access token by repeating the steps outlined above.
+    NOTE: The access JWT in only valid for 24 hours, after which you will need to request a new access token by repeating the steps outlined above.
   </p>
 </div>
 <div id="verifying-a-private-key" class="section-block">
@@ -201,7 +201,7 @@ https://zube.io/api/ANY_END_POINT</code></pre>
             <div id="example-request" class="section-block">
     <h4>Example Request</h4>
     <p>
-      You can find instructions for getting your <code class="inline">CLIENT_ID</code> and generating your <code class="inline">YOUR_REQUEST_JWT</code> in the <a href="#authentication">Authentication</a> section above.
+      You can find instructions for getting your <code class="inline">CLIENT_ID</code> and generating your <code class="inline">ACCESS_JWT</code> in the <a href="#authentication">Authentication</a> section above.
     </p>
     <p>
       To send a request to a Zube API endpoint, include your <code class="inline">ACCESS_JWT</code> and <code class="inline">CLIENT_ID</code> in the <code class="inline">Header</code> for your request.
@@ -294,8 +294,8 @@ https://zube.io/api/projects</code></pre>
       Most endpoints that return lists will return their data as paginated collections defaulting to 30 items per page. You can specify further pages by passing the <code class="inline">page</code> parameter. For pages that allow customized pagination, you can set the number of results per page with the <code class="inline">per_page</code> parameter.
     </p>
     <pre><code class="language-bash">curl -i \
--H "Authorization: Bearer YOUR_ACCESS_JWT" \
--H "X-Client-ID: YOUR_CLIENT_ID" \
+-H "Authorization: Bearer ACCESS_JWT" \
+-H "X-Client-ID: CLIENT_ID" \
 "https://zube.io/api/cards?page=2&per_page=10"</code></pre>
 </div>
 <div id="ordering-params" class="section-block">
@@ -304,8 +304,8 @@ https://zube.io/api/projects</code></pre>
     Most endpoints that return lists accept <code class="inline">order[by]</code> and <code class="inline">order[direction]</code> parameters. <code class="inline">order[direction]</code> accepts either <code class="inline">asc</code> or <code class="inline">desc</code>. The possible attributes available for <code class="inline">order[by]</code> can be found in the table below the endpoint description.
   </p>
   <pre><code class="language-bash">curl -i \
--H "Authorization: Bearer YOUR_ACCESS_JWT" \
--H "X-Client-ID: YOUR_CLIENT_ID" \
+-H "Authorization: Bearer ACCESS_JWT" \
+-H "X-Client-ID: CLIENT_ID" \
 "https://zube.io/api/cards?order%5Bby%5D=points&order%5Bdirection%5D=desc"</code></pre>
 </div>
 <div id="where-params" class="section-block">
@@ -314,8 +314,8 @@ https://zube.io/api/projects</code></pre>
       Most endpoints that return lists can be filtered using <code class="inline">where</code>. For endpoints that support filtering, the attributes available for <code class="inline">where</code> appear in the table below the endpoint. All filtering is scoped under the <code class="inline">where</code> query parameter. For example, you'd use <code class="inline">where[project_id]</code> to filter for a direct match of cards that are on the specified project.
     </p>
     <pre><code class="language-bash">curl -i \
--H "Authorization: Bearer YOUR_ACCESS_JWT" \
--H "X-Client-ID: YOUR_CLIENT_ID" \
+-H "Authorization: Bearer ACCESS_JWT" \
+-H "X-Client-ID: CLIENT_ID" \
 "https://zube.io/api/cards?where%5Bproject_id%5D=3"</code></pre>
 </div>
 <div id="selects-params" class="section-block">
@@ -327,8 +327,8 @@ https://zube.io/api/projects</code></pre>
     Note: For convenience, many models return with some of their associated models populated. For endpoints where a model returns with associated model data, the associated data will not be removed when a request includes <code class="inline">select</code>, so <code class="inline">select</code> may be of limited use in those cases.
   </p>
     <pre><code class="language-bash">curl -i \
--H "Authorization: Bearer YOUR_ACCESS_JWT" \
--H "X-Client-ID: YOUR_CLIENT_ID" \
+-H "Authorization: Bearer ACCESS_JWT" \
+-H "X-Client-ID: CLIENT_ID" \
 "https://zube.io/api/cards?select%5B%5D=id&select%5B%5D=title"</code></pre>
 </div>
 
@@ -347,10 +347,30 @@ https://zube.io/api/projects</code></pre>
       For example, if you received a response to the cards endpoint with the response header <code class="inline">ETag: "27e-BpOwiFj52s046/zdOTfiQ0fepw8"</code>, then you'd include it as the  value of the request header <code class="inline">If-None-Match</code> for subsequent requests like so:
     </p>
     <pre><code class="language-bash">curl -i \
--H "Authorization: Bearer YOUR_ACCESS_JWT" \
--H "X-Client-ID: YOUR_CLIENT_ID" \
+-H "Authorization: Bearer ACCESS_JWT" \
+-H "X-Client-ID: CLIENT_ID" \
 -H 'If-None-Match: "27e-BpOwiFj52s046/zdOTfiQ0fepw8"' \
-"https://zube.io/api/cards"</code></pre>
+https://zube.io/api/cards</code></pre>
+</div>
+
+        </div>
+    
+        <div id="data-mutations" class="section-block">
+            
+                <h3 class="block-title">Data Mutations</h3>
+            
+            <div id="Data Mutations" class="section-block">
+    <h4>Body Data</h4>
+    <p>
+      When body data is sent for <code class="inline">POST</code> or <code class="inline">PUT</code> requests, it should be sent as valid JSON. Any request that sends body data should also include the required header <code class="inline">"Content-Type: application/json"</code>.
+    </p>
+    <pre><code class="language-bash">curl -i \
+-H "Authorization: Bearer ACCESS_JWT" \
+-H "X-Client-ID: CLIENT_ID" \
+-H "Content-Type: application/json" \
+-d '{"project_id":YOUR_PROJECT_ID,"title":"Hello World"}' \
+-X POST \
+https://zube.io/api/cards</code></pre>
 </div>
 
         </div>
@@ -368,7 +388,7 @@ https://zube.io/api/projects</code></pre>
 <div id="abuse" class="section-block">
     <h4>Abuse</h4>
     <p>
-      Never make concurrent requests, or make requests at a rate faster than one per second. If you accidentally hit the rate limit, please back off the rate of your request immediately. If you happen to trigger abuse detection, please do your best not to trigger it again. Failure to observe these rules will result in rejection of your requests and possible suspension from future API usage.
+      Never make concurrent requests or make requests at a rate faster than one per second. If you accidentally hit the rate limit, please back off the rate of your requests immediately. If you happen to trigger abuse detection, please do your best not to trigger it again. Failure to observe these rules will result in rejection of your requests and possible suspension from future API usage.
     </p>
 </div>
 
@@ -699,7 +719,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -874,7 +894,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -1292,7 +1312,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -1521,7 +1541,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -1755,7 +1775,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -1839,7 +1859,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -1947,7 +1967,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -2093,7 +2113,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -2132,7 +2152,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -2872,7 +2892,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -2996,7 +3016,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -3389,7 +3409,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -3520,7 +3540,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -3559,7 +3579,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -3864,7 +3884,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -3928,7 +3948,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -4016,7 +4036,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -4189,7 +4209,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -4268,7 +4288,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -4473,7 +4493,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -4648,7 +4668,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -5371,7 +5391,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -5465,7 +5485,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -5998,7 +6018,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -6077,7 +6097,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -6435,7 +6455,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -6589,7 +6609,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -7012,7 +7032,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -7143,7 +7163,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -7182,7 +7202,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -7419,7 +7439,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -7498,7 +7518,7 @@ https://zube.io/api/projects</code></pre>
   
   
     <div class="form-data-table table-section">
-      <h4>Form Data</h4>
+      <h4>Body Data</h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -7676,6 +7696,8 @@ https://zube.io/api/projects</code></pre>
                         <li><a class="scrollto" href="#request-parameters-section">Request Parameters</a></li>
                     
                         <li><a class="scrollto" href="#etag-caching-section">ETag Caching</a></li>
+                    
+                        <li><a class="scrollto" href="#data-mutations">Data Mutations</a></li>
                     
                         <li><a class="scrollto" href="#responsible-usage-section">Responsible Usage</a></li>
                     

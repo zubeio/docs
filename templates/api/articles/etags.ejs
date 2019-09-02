@@ -7,8 +7,8 @@
       For example, if you received a response to the cards endpoint with the response header <code class='inline'>ETag: "27e-BpOwiFj52s046/zdOTfiQ0fepw8"</code>, then you'd include it as the  value of the request header <code class='inline'>If-None-Match</code> for subsequent requests like so:
     </p>
     <pre><code class='language-bash'>curl -i \
--H "Authorization: Bearer YOUR_ACCESS_JWT" \
--H "X-Client-ID: YOUR_CLIENT_ID" \
+-H "Authorization: Bearer ACCESS_JWT" \
+-H "X-Client-ID: CLIENT_ID" \
 -H 'If-None-Match: "27e-BpOwiFj52s046/zdOTfiQ0fepw8"' \
-"https://zube.io/api/cards"</code></pre>
+https://zube.io/api/cards</code></pre>
 </div>
