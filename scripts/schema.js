@@ -750,7 +750,7 @@ const sections = [
         noParams: true,
       },
       {
-        name: 'Get project subscription level settings by id',
+        name: 'Get your project subscription level settings by id',
         path: '/api/projects/:project_id/user_settings/:user_project_setting_id',
         rawPath: '/api/projects/:id/user_settings/:user_project_setting_id',
         method: 'GET'
@@ -775,7 +775,7 @@ const sections = [
         noParams: true,
       },
       {
-        name: 'Get project email preferences by id',
+        name: 'Get your project email preferences by id',
         path: '/api/projects/:project_id/user_email_preferences/:user_project_email_preference_id',
         rawPath: '/api/projects/:id/user_email_preferences/:user_project_email_preference_id',
         method: 'GET',
@@ -852,7 +852,7 @@ const sections = [
         noParams: true,
       },
       {
-        name: 'Get project in app preferences by id',
+        name: 'Get your project in app preferences by id',
         path: '/api/projects/:project_id/user_in_app_preferences/:user_project_in_app_preference_id',
         rawPath: '/api/projects/:id/user_in_app_preferences/:user_project_in_app_preference_id',
         method: 'GET',
@@ -1273,7 +1273,7 @@ const sections = [
         noParams: true,
       },
       {
-        name: 'Get workspace subscription level settings by id',
+        name: 'Get your workspace subscription level settings by id',
         path: '/api/workspaces/:workspace_id/user_settings/:user_workspace_setting_id',
         rawPath: '/api/workspaces/:id/user_settings/:user_workspace_setting_id',
         method: 'GET',
@@ -1298,7 +1298,7 @@ const sections = [
         noParams: true,
       },
       {
-        name: 'Get workspace in app preferences by id',
+        name: 'Get your workspace in app preferences by id',
         path: '/api/workspaces/:workspace_id/user_in_app_preferences/user_workspace_in_app_preference_id',
         rawPath: '/api/workspaces/:id/user_in_app_preferences/:user_workspace_in_app_preference_id',
         method: 'GET',
@@ -1368,7 +1368,7 @@ const sections = [
         noParams: true,
       },
       {
-        name: 'Get workspace email preferences by id',
+        name: 'Get your workspace email preferences by id',
         path: '/api/workspaces/:workspace_id/user_email_preferences/user_workspace_email_preference_id',
         rawPath: '/api/workspaces/:id/user_email_preferences/:user_workspace_email_preference_id',
         method: 'GET',
