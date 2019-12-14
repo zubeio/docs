@@ -81,7 +81,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> API Documentation</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Sep 2, 2019</div>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Dec 14, 2019</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -1298,6 +1298,17 @@ https://zube.io/api/cards</code></pre>
                 </td>
                 <td class="type">
                   <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class='inline'>was_archived_from_404</code>
+                </td>
+                <td class="type">
+                  <span>boolean</span>
                 </td>
               </tr>
             
@@ -3402,6 +3413,17 @@ https://zube.io/api/cards</code></pre>
             
               <tr>
                 <td class="name">
+                  <code class='inline'>was_archived_from_404</code>
+                </td>
+                <td class="type">
+                  <span>boolean</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
                   <code class='inline'>workspace_id</code>
                 </td>
                 <td class="type">
@@ -5085,6 +5107,17 @@ https://zube.io/api/cards</code></pre>
             
               <tr>
                 <td class="name">
+                  <code class='inline'>was_archived_from_404</code>
+                </td>
+                <td class="type">
+                  <span>boolean</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
                   <code class='inline'>workspace_id</code>
                 </td>
                 <td class="type">
@@ -5254,6 +5287,1841 @@ https://zube.io/api/cards</code></pre>
       </table>
     </div>
   
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-your-triage-subscription-level-settings'>Get your triage subscription level settings</h5>
+  <div class='endpoint-path'>
+    GET /api/projects/:project_id/triage_user_settings
+  </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> This endpoint does not take any parameters.
+    </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-your-triage-subscription-level-settings'>Get your triage subscription level settings</h5>
+  <div class='endpoint-path'>
+    GET /api/projects/:project_id/triage_user_settings/:user_triage_setting_id
+  </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='update-your-triage-subscription-level-settings'>Update your triage subscription level settings</h5>
+  <div class='endpoint-path'>
+    PUT /api/projects/:project_id/triage_user_settings/:user_triage_setting_id
+  </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> This endpoint allows you to edit how Zube automatically subscribes you to cards in Triage.
+    </div>
+  
+
+  
+  
+    <div class='form-data-table table-section'>
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>subscription_level</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span>Must be one of <code class="inline">following</code>, <code class="inline">not_following</code>, or <code class="inline">muted</code></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-your-project-subscription-level-settings'>Get your project subscription level settings</h5>
+  <div class='endpoint-path'>
+    GET /api/projects/:project_id/user_settings
+  </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> This endpoint does not take any parameters.
+    </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-project-subscription-level-settings-by-id'>Get project subscription level settings by id</h5>
+  <div class='endpoint-path'>
+    GET /api/projects/:project_id/user_settings/:user_project_setting_id
+  </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='update-your-project-subscription-level-settings'>Update your project subscription level settings</h5>
+  <div class='endpoint-path'>
+    PUT /api/projects/:project_id/user_settings/:user_project_setting_id
+  </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> This endpoint allows you to edit how Zube automatically subscribes you to Epics and Tickets.
+    </div>
+  
+
+  
+  
+    <div class='form-data-table table-section'>
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>subscription_level</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span>Must be one of <code class="inline">following</code>, <code class="inline">not_following</code>, or <code class="inline">muted</code></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-your-project-email-preferences'>Get your project email preferences</h5>
+  <div class='endpoint-path'>
+    GET /api/projects/:project_id/user_email_preferences
+  </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> This endpoint does not take any parameters.
+    </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-project-email-preferences-by-id'>Get project email preferences by id</h5>
+  <div class='endpoint-path'>
+    GET /api/projects/:project_id/user_email_preferences/:user_project_email_preference_id
+  </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='update-your-project-email-preferences'>Update your project email preferences</h5>
+  <div class='endpoint-path'>
+    PUT /api/projects/:project_id/user_email_preferences/:user_project_email_preference_id
+  </div>
+  
+
+  
+  
+    <div class='form-data-table table-section'>
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_added_to_triage</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_assigned_to_self</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_assignee_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_card_linked</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_comment_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_comment_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_epic_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_label_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_milestone_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_points_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_priority_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_ticket_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>email</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_assigned_to_self</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_assignee_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_card_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_comment_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_comment_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_created</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_due_date_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_status_closed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_status_completed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_status_in_progress</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_status_queued</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_added_to_triage</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_assigned_to_self</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_assignee_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_card_linked</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_comment_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_comment_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_epic_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_label_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_milestone_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_points_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_priority_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_ticket_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_assigned_to_self</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_assignee_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_card_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_comment_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_comment_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_created</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_due_date_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_label_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_priority_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_start_date_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_status_closed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_status_completed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_status_in_progress</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_status_queued</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-your-project-in-app-preferences'>Get your project in app preferences</h5>
+  <div class='endpoint-path'>
+    GET /api/projects/:project_id/user_in_app_preferences
+  </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> This endpoint does not take any parameters.
+    </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-project-in-app-preferences-by-id'>Get project in app preferences by id</h5>
+  <div class='endpoint-path'>
+    GET /api/projects/:project_id/user_in_app_preferences/:user_project_in_app_preference_id
+  </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='update-your-project-in-app-preferences'>Update your project in app preferences</h5>
+  <div class='endpoint-path'>
+    PUT /api/projects/:project_id/user_in_app_preferences/:user_project_in_app_preference_id
+  </div>
+  
+
+  
+  
+    <div class='form-data-table table-section'>
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_added_to_triage</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_assigned_to_self</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_assignee_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_card_linked</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_comment_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_comment_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_epic_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_label_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_milestone_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_points_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_priority_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_ticket_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_assigned_to_self</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_assignee_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_card_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_comment_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_comment_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_created</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_due_date_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_status_closed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_status_completed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_status_in_progress</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>epic_status_queued</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_added_to_triage</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_assigned_to_self</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_assignee_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_card_linked</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_comment_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_comment_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_epic_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_label_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_milestone_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_points_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_priority_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_ticket_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_assigned_to_self</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_assignee_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_card_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_comment_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_comment_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_created</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_due_date_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_label_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_priority_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_start_date_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_status_closed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_status_completed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_status_in_progress</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>ticket_status_queued</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
   
 </div>
 
@@ -7025,6 +8893,17 @@ https://zube.io/api/cards</code></pre>
             
               <tr>
                 <td class="name">
+                  <code class='inline'>was_archived_from_404</code>
+                </td>
+                <td class="type">
+                  <span>boolean</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
                   <code class='inline'>workspace_id</code>
                 </td>
                 <td class="type">
@@ -7679,6 +9558,1594 @@ https://zube.io/api/cards</code></pre>
   
   
 </div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-your-workspace-subscription-level-settings'>Get your workspace subscription level settings</h5>
+  <div class='endpoint-path'>
+    GET /api/workspaces/:workspace_id/user_settings
+  </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> This endpoint does not take any parameters.
+    </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-workspace-subscription-level-settings-by-id'>Get workspace subscription level settings by id</h5>
+  <div class='endpoint-path'>
+    GET /api/workspaces/:workspace_id/user_settings/:user_workspace_setting_id
+  </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='update-your-workspace-subscription-level-settings'>Update your workspace subscription level settings</h5>
+  <div class='endpoint-path'>
+    PUT /api/workspaces/:workspace_id/user_settings/:user_workspace_setting_id
+  </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> This endpoint allows you to edit how Zube automatically subscribes you to Cards in your Workspace.
+    </div>
+  
+
+  
+  
+    <div class='form-data-table table-section'>
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>subscription_level</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span>Must be one of <code class="inline">following</code>, <code class="inline">not_following</code>, or <code class="inline">muted</code></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-your-workspace-in-app-preferences'>Get your workspace in app preferences</h5>
+  <div class='endpoint-path'>
+    GET /api/workspaces/:workspace_id/user_in_app_preferences
+  </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> This endpoint does not take any parameters.
+    </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-workspace-in-app-preferences-by-id'>Get workspace in app preferences by id</h5>
+  <div class='endpoint-path'>
+    GET /api/workspaces/:workspace_id/user_in_app_preferences/user_workspace_in_app_preference_id
+  </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='update-your-workspace-in-app-preferences'>Update your workspace in app preferences</h5>
+  <div class='endpoint-path'>
+    PUT /api/workspaces/:workspace_id/user_in_app_preferences/user_workspace_in_app_preference_id
+  </div>
+  
+
+  
+  
+    <div class='form-data-table table-section'>
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_added_to_workspace</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_assigned_to_self</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_assignee_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_card_linked</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_column_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_comment_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_comment_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_epic_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_label_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_milestone_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_points_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_priority_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_sprint_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_state_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_status_done</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_status_in_progress</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_status_in_review</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_status_queued</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_ticket_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_added_to_workspace</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_assigned_to_self</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_assignee_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_card_linked</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_column_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_comment_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_comment_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_epic_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_label_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_merged</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_milestone_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_points_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_priority_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_sprint_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_state_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_status_done</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_status_in_progress</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_status_in_review</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_status_queued</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_ticket_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>sprint_card_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>sprint_card_removed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>sprint_created</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>sprint_end_date_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>sprint_start_date_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>sprint_state_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-your-workspace-email-preferences'>Get your workspace email preferences</h5>
+  <div class='endpoint-path'>
+    GET /api/workspaces/:workspace_id/user_email_preferences
+  </div>
+  
+    <div class='note'>
+      <strong>Note:</strong> This endpoint does not take any parameters.
+    </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-workspace-email-preferences-by-id'>Get workspace email preferences by id</h5>
+  <div class='endpoint-path'>
+    GET /api/workspaces/:workspace_id/user_email_preferences/user_workspace_email_preference_id
+  </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='update-your-workspace-email-preferences'>Update your workspace email preferences</h5>
+  <div class='endpoint-path'>
+    PUT /api/workspaces/:workspace_id/user_email_preferences/user_workspace_email_preference_id
+  </div>
+  
+
+  
+  
+    <div class='form-data-table table-section'>
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_added_to_workspace</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_assigned_to_self</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_assignee_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_card_linked</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_column_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_comment_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_comment_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_epic_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_label_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_milestone_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_points_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_priority_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_sprint_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_state_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_status_done</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_status_in_progress</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_status_in_review</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_status_queued</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>card_ticket_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>email</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_added_to_workspace</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_assigned_to_self</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_assignee_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_card_linked</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_column_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_comment_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_comment_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_epic_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_label_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_mention</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_merged</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_milestone_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_points_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_priority_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_sprint_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_state_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_status_done</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_status_in_progress</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_status_in_review</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_status_queued</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>pr_ticket_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>sprint_card_added</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>sprint_card_removed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>sprint_created</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>sprint_end_date_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>sprint_start_date_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>sprint_state_changed</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
 
 </div>
 
@@ -7932,6 +11399,30 @@ https://zube.io/api/cards</code></pre>
                         
                             <li><a class="scrollto" href="#get-a-list-of-milestones">Get a list of milestones</a></li>
                         
+                            <li><a class="scrollto" href="#get-your-triage-subscription-level-settings">Get your triage subscription level settings</a></li>
+                        
+                            <li><a class="scrollto" href="#get-your-triage-subscription-level-settings">Get your triage subscription level settings</a></li>
+                        
+                            <li><a class="scrollto" href="#update-your-triage-subscription-level-settings">Update your triage subscription level settings</a></li>
+                        
+                            <li><a class="scrollto" href="#get-your-project-subscription-level-settings">Get your project subscription level settings</a></li>
+                        
+                            <li><a class="scrollto" href="#get-project-subscription-level-settings-by-id">Get project subscription level settings by id</a></li>
+                        
+                            <li><a class="scrollto" href="#update-your-project-subscription-level-settings">Update your project subscription level settings</a></li>
+                        
+                            <li><a class="scrollto" href="#get-your-project-email-preferences">Get your project email preferences</a></li>
+                        
+                            <li><a class="scrollto" href="#get-project-email-preferences-by-id">Get project email preferences by id</a></li>
+                        
+                            <li><a class="scrollto" href="#update-your-project-email-preferences">Update your project email preferences</a></li>
+                        
+                            <li><a class="scrollto" href="#get-your-project-in-app-preferences">Get your project in app preferences</a></li>
+                        
+                            <li><a class="scrollto" href="#get-project-in-app-preferences-by-id">Get project in app preferences by id</a></li>
+                        
+                            <li><a class="scrollto" href="#update-your-project-in-app-preferences">Update your project in app preferences</a></li>
+                        
                     
                         <li>
                             <a class="scrollto" href="#sprints">
@@ -8035,6 +11526,24 @@ https://zube.io/api/cards</code></pre>
                             <li><a class="scrollto" href="#update-a-workspace">Update a workspace</a></li>
                         
                             <li><a class="scrollto" href="#delete-a-workspace">Delete a workspace</a></li>
+                        
+                            <li><a class="scrollto" href="#get-your-workspace-subscription-level-settings">Get your workspace subscription level settings</a></li>
+                        
+                            <li><a class="scrollto" href="#get-workspace-subscription-level-settings-by-id">Get workspace subscription level settings by id</a></li>
+                        
+                            <li><a class="scrollto" href="#update-your-workspace-subscription-level-settings">Update your workspace subscription level settings</a></li>
+                        
+                            <li><a class="scrollto" href="#get-your-workspace-in-app-preferences">Get your workspace in app preferences</a></li>
+                        
+                            <li><a class="scrollto" href="#get-workspace-in-app-preferences-by-id">Get workspace in app preferences by id</a></li>
+                        
+                            <li><a class="scrollto" href="#update-your-workspace-in-app-preferences">Update your workspace in app preferences</a></li>
+                        
+                            <li><a class="scrollto" href="#get-your-workspace-email-preferences">Get your workspace email preferences</a></li>
+                        
+                            <li><a class="scrollto" href="#get-workspace-email-preferences-by-id">Get workspace email preferences by id</a></li>
+                        
+                            <li><a class="scrollto" href="#update-your-workspace-email-preferences">Update your workspace email preferences</a></li>
                         
                     
                 </ul>
