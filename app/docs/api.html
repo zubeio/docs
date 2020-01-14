@@ -81,7 +81,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> API Documentation</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Dec 14, 2019</div>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Jan 14, 2020</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -586,6 +586,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -722,6 +723,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -897,6 +899,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -1060,6 +1063,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -1326,6 +1330,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -1981,6 +1986,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -2127,6 +2133,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -2535,6 +2542,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -2906,6 +2914,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -3434,6 +3443,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -3565,6 +3575,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -3785,6 +3796,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -3909,6 +3921,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -4234,6 +4247,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -4518,6 +4532,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -4693,6 +4708,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -4868,6 +4884,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -5128,6 +5145,112 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
+        <h4>Extended Parameters</h4>
+        <div class='note'>
+          <strong>Note:</strong> This endpoint accepts the following extended query parameters
+        </div>
+        <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>name</th><th>type</th><th>required</th><th>notes</th>
+              </tr>
+          </thead>
+          <tbody>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[types]</code>
+                  </td>
+                  <td class="type">
+                    <span>String</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span>Only accepts <code class="inline">issue</code>, <code class="inline">pull_request</code> or <code class="inline">null</code></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[assignee_ids]</code>
+                  </td>
+                  <td class="type">
+                    <span>Array</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span>Array of <code class="inline">assignee.id</code>s or <code class="inline">null</code></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[labels]</code>
+                  </td>
+                  <td class="type">
+                    <span>Array</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span>Array of <code class="inline">label.name</code>s or <code class="inline">null</code></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[milestones]</code>
+                  </td>
+                  <td class="type">
+                    <span>Array</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span>Array of <code class="inline">milestone.title</code>s or <code class="inline">null</code></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>order[by]</code>
+                  </td>
+                  <td class="type">
+                    <span>String</span>
+                  </td>
+                  <td class="required">
+                    <span>✅</span>
+                  </td>
+                  <td class="note">
+                    <span>Accepts <code class="inline">assignee</code>, <code class="inline">creator</code>, <code class="inline">milestone</code> or <code class="inline">sprint</code></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>order[direction]</code>
+                  </td>
+                  <td class="type">
+                    <span>String</span>
+                  </td>
+                  <td class="required">
+                    <span>✅</span>
+                  </td>
+                  <td class="note">
+                    <span>Only accepts <code class="inline">asc</code> or <code class="inline">desc</code></span>
+                  </td>
+                </tr>
+            
+          </tbody>
+        </table>
+      
     </div>
   
   
@@ -5285,6 +5408,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -7262,6 +7386,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -7610,6 +7735,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -7746,6 +7872,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -7889,6 +8016,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -8326,6 +8454,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -8914,6 +9043,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -9045,6 +9175,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   
@@ -9321,6 +9452,7 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
     </div>
   
   

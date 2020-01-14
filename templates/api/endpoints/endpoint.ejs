@@ -34,6 +34,37 @@
           <% }) %>
         </tbody>
       </table>
+      <% if (endpoint.extendedQueryParams) { %>
+        <h4>Extended Parameters</h4>
+        <div class='note'>
+          <strong>Note:</strong> This endpoint accepts the following extended query parameters
+        </div>
+        <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>name</th><th>type</th><th>required</th><th>notes</th>
+              </tr>
+          </thead>
+          <tbody>
+            <% endpoint.extendedQueryParams.forEach(function (attr) { %>
+                <tr>
+                  <td class="name">
+                    <code class='inline'><%= attr.name %></code>
+                  </td>
+                  <td class="type">
+                    <span><%= attr.type %></span>
+                  </td>
+                  <td class="required">
+                    <span><%- attr.isRequired ? '✅' : ''%></span>
+                  </td>
+                  <td class="note">
+                    <span><%- attr.note %></span>
+                  </td>
+                </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } %>
     </div>
   <% } %>
   <% if (endpoint.formData) { %>

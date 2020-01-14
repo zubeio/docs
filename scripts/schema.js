@@ -697,7 +697,15 @@ const sections = [
         name: 'Get a list of project cards',
         path: '/api/projects/:project_id/cards',
         rawPath: '/api/projects/:id/cards',
-        method: 'GET'
+        method: 'GET',
+        extendedQueryParams: [
+          { name: 'where[types]', type: 'String', isRequired: false, note: 'Only accepts <code class="inline">issue</code>, <code class="inline">pull_request</code> or <code class="inline">null</code>' },
+          { name: 'where[assignee_ids]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">assignee.id</code>s or <code class="inline">null</code>' },
+          { name: 'where[labels]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">label.name</code>s or <code class="inline">null</code>' },
+          { name: 'where[milestones]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">milestone.title</code>s or <code class="inline">null</code>' },
+          { name: 'order[by]', type: 'String', isRequired: true, note: 'Accepts <code class="inline">assignee</code>, <code class="inline">creator</code>, <code class="inline">milestone</code> or <code class="inline">sprint</code>' },
+          { name: 'order[direction]', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">asc</code> or <code class="inline">desc</code>' },
+        ]
       },
       {
         // triage
