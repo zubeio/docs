@@ -1,5 +1,18 @@
 const sections = [
   {
+    title: 'Person',
+    desc: '',
+    endpoints: [
+      {
+        // get
+        name: 'Get the current person\'s information',
+        path: '/api/current_person',
+        rawPath: '/api/current_person',
+        method: 'GET'
+      },
+    ]
+  },
+  {
     title: 'Accounts',
     note: 'Zube Organizations are referred to as <code class="inline">accounts</code> in the Zube API.',
     endpoints: [
@@ -87,7 +100,11 @@ const sections = [
         path: '/api/cards',
         rawPath: '/api/cards',
         method: 'GET',
-        name: 'Get a list of cards'
+        name: 'Get a list of cards',
+        extendedQueryParams: [
+            { name: 'where[created_after]', type: 'timestamp' },
+            { name: 'where[updated_after]', type: 'timestamp' },
+        ]
       },
       {
         // create
@@ -366,7 +383,12 @@ const sections = [
         name: 'Get a list of epics',
         path: '/api/projects/:project_id/epics',
         rawPath: '/api/projects/:id/epics',
-        method: 'GET'
+        method: 'GET',
+        extendedQueryParams: [
+            { name: 'where[after_number]', type: 'integer' },
+            { name: 'where[created_after]', type: 'timestamp' },
+            { name: 'where[updated_after]', type: 'timestamp' },
+        ]
       },
       {
         // create
@@ -699,12 +721,16 @@ const sections = [
         rawPath: '/api/projects/:id/cards',
         method: 'GET',
         extendedQueryParams: [
-          { name: 'where[types]', type: 'String', isRequired: false, note: 'Only accepts <code class="inline">issue</code>, <code class="inline">pull_request</code> or <code class="inline">null</code>' },
-          { name: 'where[assignee_ids][]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">assignee.id</code>s or <code class="inline">null</code>' },
-          { name: 'where[labels][]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">label.name</code>s or <code class="inline">null</code>' },
-          { name: 'where[milestones][]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">milestone.title</code>s or <code class="inline">null</code>' },
-          { name: 'order[by]', type: 'String', isRequired: true, note: 'Accepts <code class="inline">assignee</code>, <code class="inline">creator</code>, <code class="inline">milestone</code> or <code class="inline">sprint</code>' },
-          { name: 'order[direction]', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">asc</code> or <code class="inline">desc</code>' },
+            { name: 'where[after_number]', type: 'integer' },
+            { name: 'where[assignee_ids][]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">assignee.id</code>s or <code class="inline">null</code>' },
+            { name: 'where[created_after]', type: 'timestamp' },
+            { name: 'where[labels][]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">label.name</code>s or <code class="inline">null</code>' },
+            { name: 'where[milestones][]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">milestone.title</code>s or <code class="inline">null</code>' },
+            { name: 'where[source_ids][]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">source.id</code>s or <code class="inline">null</code>' },
+            { name: 'where[types]', type: 'String', isRequired: false, note: 'Only accepts <code class="inline">issue</code>, <code class="inline">pull_request</code> or <code class="inline">null</code>' },
+            { name: 'where[updated_after]', type: 'timestamp' },
+            { name: 'order[by]', type: 'String', isRequired: true, note: 'Accepts <code class="inline">assignee</code>, <code class="inline">creator</code>, <code class="inline">milestone</code> or <code class="inline">sprint</code>' },
+            { name: 'order[direction]', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">asc</code> or <code class="inline">desc</code>' },
         ]
       },
       {
@@ -723,6 +749,50 @@ const sections = [
         path: '/api/projects/:project_id/milestones',
         rawPath: '/api/projects/:id/milestones',
         method: 'GET'
+      },
+      // Customers
+      {
+        // index
+        name: 'Get a list of customers',
+        path: '/api/projects/:project_id/customers',
+        rawPath: '/api/projects/:id/customers',
+        method: 'GET'
+      },
+      {
+        // create
+        name: 'Add a customer',
+        path: '/api/projects/:project_id/customers',
+        rawPath: '/api/projects/:id/customers',
+        method: 'POST',
+        formData: [
+          { name: 'name', type: 'String', isRequired: true },
+          { name: 'contact', type: 'String', },
+        ]
+      },
+      {
+        // read
+        name: 'Get a customer',
+        path: '/api/projects/:project_id/customers/:customer_id',
+        rawPath: '/api/projects/:id/customers/:customer_id',
+        method: 'GET'
+      },
+      {
+        // update
+        name: 'Update a customer',
+        path: '/api/projects/:project_id/customers/:customer_id',
+        rawPath: '/api/projects/:id/customers/:customer_id',
+        method: 'PUT',
+        formData: [
+          { name: 'name', type: 'String', isRequired: true },
+          { name: 'contact', type: 'String', },
+        ]
+      },
+      {
+        // destroy
+        name: 'Remove a customer',
+        path: '/api/projects/:project_id/customers/:customer_id',
+        rawPath: '/api/projects/:id/customers/:customer_id',
+        method: 'DELETE'
       },
       // User notification settings
       {
@@ -1076,7 +1146,12 @@ const sections = [
         name: 'Get a list of tickets',
         path: '/api/projects/:project_id/tickets',
         rawPath: '/api/projects/:id/tickets',
-        method: 'GET'
+        method: 'GET',
+        extendedQueryParams: [
+            { name: 'where[after_number]', type: 'integer' },
+            { name: 'where[created_after]', type: 'timestamp' },
+            { name: 'where[updated_after]', type: 'timestamp' },
+        ]
       },
       {
         // create

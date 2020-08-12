@@ -1,6 +1,6 @@
 'use strict';
 var LIVERELOAD_PORT = 35728;
-var SERVER_PORT = 9100;
+var SERVER_PORT = 9101;
 var modRewrite = require('connect-modrewrite');
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
 var serveStatic = require('serve-static');

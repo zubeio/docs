@@ -81,7 +81,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> API Documentation</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Jan 14, 2020</div>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Aug 12, 2020</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -414,7 +414,23 @@ https://zube.io/api/cards</code></pre>
 </section>
 <section id="api-endpoints-section" class="doc-section">
     <h2 class="section-title">API Endpoints</h2>
-    <div id="accounts"  class="section-block endpoint-section">
+    <div id="person"  class="section-block endpoint-section">
+  <h3 class="block-title section">Person</h3>
+  
+  
+  <div class='endpoint'>
+  <h5 class='endpoint-name' id='get-the-current-persons-information'>Get the current person&#39;s information</h5>
+  <div class='endpoint-path'>
+    GET /api/current_person
+  </div>
+  
+
+  
+  
+</div>
+
+</div>
+<div id="accounts"  class="section-block endpoint-section">
   <h3 class="block-title section">Accounts</h3>
   
   
@@ -986,6 +1002,17 @@ https://zube.io/api/cards</code></pre>
             
               <tr>
                 <td class="name">
+                  <code class='inline'>auto_add_github_users</code>
+                </td>
+                <td class="type">
+                  <span>boolean</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
                   <code class='inline'>created_at</code>
                 </td>
                 <td class="type">
@@ -1330,6 +1357,51 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
+        <h4>Extended Parameters</h4>
+        <div class='note'>
+          <strong>Note:</strong> This endpoint accepts the following extended query parameters
+        </div>
+        <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>name</th><th>type</th><th>required</th><th>notes</th>
+              </tr>
+          </thead>
+          <tbody>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[created_after]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[updated_after]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+          </tbody>
+        </table>
       
     </div>
   
@@ -2396,6 +2468,17 @@ https://zube.io/api/cards</code></pre>
             
           
             
+              <tr>
+                <td class="name">
+                  <code class='inline'>customer_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
           
             
               <tr>
@@ -2827,6 +2910,17 @@ https://zube.io/api/cards</code></pre>
             
               <tr>
                 <td class="name">
+                  <code class='inline'>priority</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
                   <code class='inline'>project_id</code>
                 </td>
                 <td class="type">
@@ -2842,6 +2936,17 @@ https://zube.io/api/cards</code></pre>
                 </td>
                 <td class="type">
                   <span>text</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class='inline'>start_date</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
                 </td>
               </tr>
             
@@ -2914,6 +3019,66 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
+        <h4>Extended Parameters</h4>
+        <div class='note'>
+          <strong>Note:</strong> This endpoint accepts the following extended query parameters
+        </div>
+        <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>name</th><th>type</th><th>required</th><th>notes</th>
+              </tr>
+          </thead>
+          <tbody>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[after_number]</code>
+                  </td>
+                  <td class="type">
+                    <span>integer</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[created_after]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[updated_after]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+          </tbody>
+        </table>
       
     </div>
   
@@ -4170,6 +4335,17 @@ https://zube.io/api/cards</code></pre>
             
               <tr>
                 <td class="name">
+                  <code class='inline'>auto_add_github_users</code>
+                </td>
+                <td class="type">
+                  <span>boolean</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
                   <code class='inline'>created_at</code>
                 </td>
                 <td class="type">
@@ -5160,16 +5336,16 @@ https://zube.io/api/cards</code></pre>
             
                 <tr>
                   <td class="name">
-                    <code class='inline'>where[types]</code>
+                    <code class='inline'>where[after_number]</code>
                   </td>
                   <td class="type">
-                    <span>String</span>
+                    <span>integer</span>
                   </td>
                   <td class="required">
                     <span></span>
                   </td>
                   <td class="note">
-                    <span>Only accepts <code class="inline">issue</code>, <code class="inline">pull_request</code> or <code class="inline">null</code></span>
+                    <span></span>
                   </td>
                 </tr>
             
@@ -5185,6 +5361,21 @@ https://zube.io/api/cards</code></pre>
                   </td>
                   <td class="note">
                     <span>Array of <code class="inline">assignee.id</code>s or <code class="inline">null</code></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[created_after]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
                   </td>
                 </tr>
             
@@ -5215,6 +5406,51 @@ https://zube.io/api/cards</code></pre>
                   </td>
                   <td class="note">
                     <span>Array of <code class="inline">milestone.title</code>s or <code class="inline">null</code></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[source_ids][]</code>
+                  </td>
+                  <td class="type">
+                    <span>Array</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span>Array of <code class="inline">source.id</code>s or <code class="inline">null</code></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[types]</code>
+                  </td>
+                  <td class="type">
+                    <span>String</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span>Only accepts <code class="inline">issue</code>, <code class="inline">pull_request</code> or <code class="inline">null</code></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[updated_after]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
                   </td>
                 </tr>
             
@@ -5410,6 +5646,237 @@ https://zube.io/api/cards</code></pre>
       </table>
       
     </div>
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-a-list-of-customers'>Get a list of customers</h5>
+  <div class='endpoint-path'>
+    GET /api/projects/:project_id/customers
+  </div>
+  
+
+  
+    <div class='params-table table-section'>
+      <h4>Parameters</h4>
+      <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+              <tr>
+                <td class="name">
+                  <code class='inline'>contact</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class='inline'>created_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class='inline'>creator_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class='inline'>id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class='inline'>name</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class='inline'>project_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class='inline'>updated_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+        </tbody>
+      </table>
+      
+    </div>
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='add-a-customer'>Add a customer</h5>
+  <div class='endpoint-path'>
+    POST /api/projects/:project_id/customers
+  </div>
+  
+
+  
+  
+    <div class='form-data-table table-section'>
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>contact</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>name</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='get-a-customer'>Get a customer</h5>
+  <div class='endpoint-path'>
+    GET /api/projects/:project_id/customers/:customer_id
+  </div>
+  
+
+  
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='update-a-customer'>Update a customer</h5>
+  <div class='endpoint-path'>
+    PUT /api/projects/:project_id/customers/:customer_id
+  </div>
+  
+
+  
+  
+    <div class='form-data-table table-section'>
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>contact</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class='inline'>name</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class='endpoint'>
+  <h5 class='endpoint-name' id='remove-a-customer'>Remove a customer</h5>
+  <div class='endpoint-path'>
+    DELETE /api/projects/:project_id/customers/:customer_id
+  </div>
+  
+
   
   
 </div>
@@ -8308,6 +8775,17 @@ https://zube.io/api/cards</code></pre>
             
           
             
+              <tr>
+                <td class="name">
+                  <code class='inline'>customer_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
           
             
               <tr>
@@ -8454,6 +8932,66 @@ https://zube.io/api/cards</code></pre>
           
         </tbody>
       </table>
+      
+        <h4>Extended Parameters</h4>
+        <div class='note'>
+          <strong>Note:</strong> This endpoint accepts the following extended query parameters
+        </div>
+        <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>name</th><th>type</th><th>required</th><th>notes</th>
+              </tr>
+          </thead>
+          <tbody>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[after_number]</code>
+                  </td>
+                  <td class="type">
+                    <span>integer</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[created_after]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class='inline'>where[updated_after]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+          </tbody>
+        </table>
       
     </div>
   
@@ -9345,6 +9883,17 @@ https://zube.io/api/cards</code></pre>
               <tr>
                 <td class="name">
                   <code class='inline'>archive_merged_prs</code>
+                </td>
+                <td class="type">
+                  <span>boolean</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class='inline'>auto_archive_closed_cards</code>
                 </td>
                 <td class="type">
                   <span>boolean</span>
@@ -11324,6 +11873,17 @@ https://zube.io/api/cards</code></pre>
                 <ul class="nav doc-sub-menu">
                     
                         <li>
+                            <a class="scrollto" href="#person">
+                                <strong>
+                                    Person
+                                </strong>
+                            </a>
+                        </li>
+                        
+                            <li><a class="scrollto" href="#get-the-current-persons-information">Get the current person&#39;s information</a></li>
+                        
+                    
+                        <li>
                             <a class="scrollto" href="#accounts">
                                 <strong>
                                     Accounts
@@ -11530,6 +12090,16 @@ https://zube.io/api/cards</code></pre>
                             <li><a class="scrollto" href="#get-a-list-of-cards-in-triage">Get a list of cards in triage</a></li>
                         
                             <li><a class="scrollto" href="#get-a-list-of-milestones">Get a list of milestones</a></li>
+                        
+                            <li><a class="scrollto" href="#get-a-list-of-customers">Get a list of customers</a></li>
+                        
+                            <li><a class="scrollto" href="#add-a-customer">Add a customer</a></li>
+                        
+                            <li><a class="scrollto" href="#get-a-customer">Get a customer</a></li>
+                        
+                            <li><a class="scrollto" href="#update-a-customer">Update a customer</a></li>
+                        
+                            <li><a class="scrollto" href="#remove-a-customer">Remove a customer</a></li>
                         
                             <li><a class="scrollto" href="#get-your-triage-subscription-level-settings">Get your triage subscription level settings</a></li>
                         
