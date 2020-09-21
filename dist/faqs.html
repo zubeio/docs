@@ -67,7 +67,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><span aria-hidden="true" class="icon icon_lifesaver"></span> FAQs</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Aug 12, 2020</div>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Sept 21, 2020</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -152,21 +152,11 @@
                             <section id="support" class="doc-section">
                                 <h2 class="section-title">Support</h2>
                                 <div class="section-block">
-                                    <h3 class="question"><i class="fa fa-question-circle"></i> What's the difference between a Sprint and a Milestone?</h3>
+                                    <h3 class="question"><i class="fa fa-question-circle"></i> I logged in with Google, how do I import my GitHub repositories?</h3>
                                     <div class="answer">
                                         <p>
-                                            Sprints let you timebox what work you'd like to get done. You typically begin a sprint by setting the sprint duration (1, 2 and 4 weeks are common) and filling the sprint backlog with the work your team intends to accomplish in that time frame. As the sprint progresses, your team will pick off items in the sprint backlog to work on with the goal of having all work completed by the end of the sprint. In Zube, creating a sprint lets you use the Sprint Board and Burndown charts to track your work. Working in sprints lets you get the most out of Zube.
+                                            You must connect your GitHub account to Zube before you can import your GitHub information into Zube. To connect your GitHub account, navigate to your settings page. Click the GitHub login button and follow the authentication steps.
                                         </p>
-                                        <p>
-                                            Milestones generally encompass a larger objective, such as hitting a major goal on your roadmap. While it may be important that cards on a milestone are prioritized, which cards are supposed to be completed this week is outside the scope of a milestone. In Zube, a milestone is similar to a label that denotes that the cards is part of a larger objective.
-                                        </p>
-                                    </div>
-                                </div><!--//section-block-->
-
-                                <div class="section-block">
-                                    <h3 class="question"><i class="fa fa-question-circle"></i> How do I customize my columns?</h3>
-                                    <div class="answer">
-                                        You can customize your columns from the Workspace Settings page. You can add columns, remove columns, and change the ordering of the columns. You can also change the column names, whether they have the state 'Open' or 'Closed', what the status of the column's cards is and which columns serve as the default columns for newly added cards, closed cards and the sprint backlog.
                                     </div>
                                 </div><!--//section-block-->
 
@@ -192,12 +182,146 @@
                                 </div><!--//section-block-->
 
                                 <div class="section-block">
+                                    <h3 class="question"><i class="fa fa-question-circle"></i> I logged in with GitHub authentication but I cannot find the GitHub organization or repository I want to import.</h3>
+                                    <div class="answer">
+                                        <p>
+                                            The following is a list of reasons you may not be able to find your GitHub organization or repository and the solutions for each situation.
+                                        </p>
+                                        <div id="missing-repos-info-panels">
+                                            <div class="panel-group">
+                                                <div class="panel panel-default" style="margin-bottom: 15px">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            GitHub Organization Belongs to Another Zube Organization
+                                                        </h4>
+                                                    </div>
+                                                    <div id="linked-github-org-info" class="panel-collapse collapse in">
+                                                        <div class="panel-body">
+                                                            <p class="p">
+                                                                GitHub organizations can only be linked to one Zube organization. If your GitHub organization has already been imported to Zube, request access to your Zube organizations from your Zube account admins.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-group">
+                                                    <div class="panel panel-default" style="margin-bottom: 15px">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                GitHub Repository Linked to an Existing Zube Project
+                                                            </h4>
+                                                        </div>
+                                                        <div id="linked-github-org-info" class="panel-collapse collapse in">
+                                                            <div class="panel-body">
+                                                                <p class="p">
+                                                                    GitHub repositories can only belong to one Zube Project at a time. Request access to the Project from the Project admins or Zube organization admins. You can see a list of all organization Projects on the <a href="/[[= data.account.get('slug') ]]/edit/projects">organization settings</a> page.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="panel panel-default" style="margin-bottom: 15px">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                Third Party App Restrictions
+                                                            </h4>
+                                                        </div>
+                                                        <div id="third-party-info" class="panel-collapse collapse in">
+                                                            <div class="panel-body">
+                                                                <p class="p">
+                                                                    GitHub allows organizations to control which third-party applications can access their repositories. If your organization has third party restrictions enabled, you will need to grant Zube access to your organization. You can read about how to do that here:
+                                                                </p>
+                                                                <p class="p">
+                                                                    <a href="https://help.github.com/articles/approving-third-party-applications-for-your-organization/" target="_blank">https://help.github.com/articles/approving-third-party-applications-for-your-organization/</a>
+                                                                </p>
+
+                                                                <p class="p">
+                                                                    And more about Third Party App Restrictions here: <br>
+                                                                    <a href="https://help.github.com/articles/about-third-party-application-restrictions/" target="_blank">https://help.github.com/articles/about-third-party-application-restrictions/</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default" style="margin-bottom: 15px">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                Issues Disabled for Repository
+                                                            </h4>
+                                                        </div>
+                                                        <div id="issues-disabled-info" class="panel-collapse collapse in">
+                                                            <div class="panel-body">
+                                                                <p class="p">Repositories must have Issues enabled on GitHub to be imported into Zube. Forked repositories have Issues turned off by default.</p>
+                                                                <p class="p">To enable Issues for a repository:</p>
+                                                                <ol>
+                                                                    <li><p class="p">Go to the main page of the repository on GitHub.</p></li>
+                                                                    <li><p class="p">Click the <strong><i class="zubeicon-cog"></i> Settings</strong> tab.</p></li>
+                                                                    <li><p class="p">At the bottom of the <strong>Features</strong> section, select the <strong>Issues</strong> checkbox.</p></li>
+                                                                </ol>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="panel panel-default" style="margin-bottom: 15px">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                Insufficient Authorization Level
+                                                            </h4>
+                                                        </div>
+                                                        <div id="wrong-auth-info" class="panel-collapse collapse in">
+                                                            <div class="panel-body">
+                                                                <p class="p">If you were not a member of a GitHub organization when you first logged into Zube, you may need to re-authorize Zube in order for your new organization to show up.</p>
+
+                                                                <p class="p">To update your auth token:</p>
+
+                                                                <ol>
+                                                                    <li><p class="p">Log out of Zube - <a href="https://zube.io/signout">https://zube.io/signout</a> (write these instructions down).</p></li>
+                                                                    <li><p class="p">Log in to your account on <a href="https://github.com" target="_blank">https://github.com</a>.</p></li>
+                                                                    <li><p class="p">Click on your avatar at the top right of the screen.</p></li>
+                                                                    <li><p class="p">Click on <strong>Settings</strong> from the dropdown menu.</p></li>
+                                                                    <li><p class="p">Click on <strong>Authorized applications</strong> from the menu on the left.</p></li>
+                                                                    <li><p class="p">Click the <strong>Revoke</strong> button next to Zube.</p></li>
+                                                                    <li><p class="p">Go to the Zube homepage <a href="https://zube.io">https://zube.io</a> and log in.</p></li>
+                                                                    <li><p class="p">When prompted during log in, authorize Zube on GitHub.</p></li>
+                                                                </ol>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="p help-text">
+                                                    Still having trouble? Contact <a href="mailto:support@zube.io" target="_top">support@zube.io</a> for help.
+                                                </p>
+                                            </div>
+                                        <div>
+                                    </div>
+                                </div><!--//section-block-->
+
+                                <div class="section-block">
+                                    <h3 class="question"><i class="fa fa-question-circle"></i> How do I customize my workspace columns?</h3>
+                                    <div class="answer">
+                                        You can customize your columns from the Workspace Settings page. You can add columns, remove columns, and change the ordering of the columns. You can also change the column names, whether they have the state 'Open' or 'Closed', what the status of the column's cards is and which columns serve as the default columns for newly added cards, closed cards and the sprint backlog.
+                                    </div>
+                                </div><!--//section-block-->
+
+                                <div class="section-block">
+                                    <h3 class="question"><i class="fa fa-question-circle"></i> What's the difference between a Sprint and a Milestone?</h3>
+                                    <div class="answer">
+                                        <p>
+                                            Sprints let you timebox what work you'd like to get done. You typically begin a sprint by setting the sprint duration (1, 2 and 4 weeks are common) and filling the sprint backlog with the work your team intends to accomplish in that time frame. As the sprint progresses, your team will pick off items in the sprint backlog to work on with the goal of having all work completed by the end of the sprint. In Zube, creating a sprint lets you use the Sprint Board and Burndown charts to track your work. Working in sprints lets you get the most out of Zube.
+                                        </p>
+                                        <p>
+                                            Milestones generally encompass a larger objective, such as hitting a major goal on your roadmap. While it may be important that cards on a milestone are prioritized, which cards are supposed to be completed this week is outside the scope of a milestone. In Zube, a milestone is similar to a label that denotes that the cards is part of a larger objective.
+                                        </p>
+                                    </div>
+                                </div><!--//section-block-->
+
+                                <div class="section-block">
                                     <h3 class="question"><i class="fa fa-question-circle"></i> How can I get in touch with more questions, comments or feedback?</h3>
                                     <div class="answer">
                                         We are here to help! You can reach us by email at <a href="mailto:team@zube.io">team@zube.io</a> or join us in our Slack channel - <a href="http://slack.zube.io/">http://slack.zube.io/</a>. We are also on Twitter - <a href="https://twitter.com/zubeio" target="_blank">@zubeio</a>.
                                     </div>
                                 </div><!--//section-block-->
-                            </section><!--//doc-section-->
+                            </div></div></section><!--//doc-section-->
 
                             <div class="section-block">
                                 <div class="callout-block contact-callout">
