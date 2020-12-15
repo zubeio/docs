@@ -646,7 +646,10 @@ const sections = [
         formData: [
           { name: 'name', type: 'String', isRequired: true },
           { name: 'description', type: 'String', isRequired: false },
+          { name: 'color', type: 'String', isRequired: false, note: 'Hex color code string without preceding "#"' },
           { name: 'triage', type: 'Boolean', isRequired: false, note: 'Only valid for projects with one workspace' },
+          { name: 'auto_add_github_users', type: 'Boolean', isRequired: false },
+          { name: 'should_use_fibonacci_scale', type: 'Boolean', isRequired: false },
         ]
       },
       {
@@ -1330,13 +1333,17 @@ const sections = [
         method: 'PUT',
         formData: [
           { name: 'name', type: 'String', isRequired: true },
+          { name: 'description', type: 'Text', isRequired: true },
           { name: 'archive_merged_prs', type: 'Boolean', isRequired: true },
           { name: 'points', type: 'Boolean', isRequired: true },
           { name: 'priority_format', type: 'String', isRequired: true, note: 'Must be one of <code class="inline">number</code>, <code class="inline">name</code>, or <code class="inline">color</code>' },
           { name: 'priority', type: 'Boolean', isRequired: true },
           { name: 'upvotes', type: 'Boolean', isRequired: true },
           { name: 'use_category_labels', type: 'Boolean', isRequired: true },
-          { name: 'description', type: 'Text', isRequired: true },
+          { name: 'add_category_labels_to_imported_cards', type: 'Boolean', isRequired: true },
+          { name: 'should_use_fibonacci_scale', type: 'Boolean', isRequired: true },
+          { name: 'add_category_labels_to_imported_cards', type: 'Boolean', isRequired: true },
+          { name: 'auto_archive_closed_cards', type: 'Boolean', isRequired: true },
         ]
       },
       {
@@ -1511,6 +1518,53 @@ const sections = [
           { name: 'sprint_start_date_changed', type: 'Boolean', isRequired: true },
           { name: 'sprint_state_changed', type: 'Boolean', isRequired: true },
         ]
+      },
+      // workspace_card_templates
+      {
+        // index
+        name: 'Get a list of workspace card templates',
+        path: '/api/workspaces/:workspace_id/workspace_card_templates',
+        rawPath: '/api/workspaces/:id/workspace_card_templates',
+        method: 'GET'
+      },
+      {
+        // create
+        name: 'Create a workspace card template',
+        path: '/api/workspaces/:workspace_id/workspace_card_templates',
+        rawPath: '/api/workspaces/:id/workspace_card_templates',
+        method: 'POST',
+        formData: [
+          { name: 'workspace_id', type: 'Integer', isRequired: true },
+          { name: 'content', type: 'Text', isRequired: true },
+          { name: 'title', type: 'Text', isRequired: true },
+          { name: 'description', type: 'Text', isRequired: false },
+        ]
+      },
+      {
+        // read
+        name: 'Get a workspace card template',
+        path: '/api/workspaces/:workspace_id/workspace_card_templates/workspace_card_template_id',
+        rawPath: '/api/workspaces/:id/workspace_card_templates/:workspace_card_template_id',
+        method: 'GET'
+      },
+      {
+        // update
+        name: 'Update a workspace',
+        path: '/api/workspaces/:workspace_id/workspace_card_templates/workspace_card_template_id',
+        rawPath: '/api/workspaces/:id/workspace_card_templates/:workspace_card_template_id',
+        method: 'PUT',
+        formData: [
+          { name: 'content', type: 'Text', isRequired: true },
+          { name: 'title', type: 'Text', isRequired: true },
+          { name: 'description', type: 'Text', isRequired: true },
+        ]
+      },
+      {
+        // destroy
+        name: 'Delete a workspace',
+        path: '/api/workspaces/:workspace_id/workspace_card_templates/workspace_card_template_id',
+        rawPath: '/api/workspaces/:id/workspace_card_templates/:workspace_card_template_id',
+        method: 'DELETE'
       },
     ]
   },
