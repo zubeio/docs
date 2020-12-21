@@ -1170,6 +1170,7 @@ const sections = [
           { name: 'due_on', type: 'Timestamp', isRequired: false },
           { name: 'start_date', type: 'Timestamp', isRequired: false },
           { name: 'track_cards', type: 'Boolean', isRequired: false },
+          { name: 'customer_id', type: 'Integer', isRequired: false },
           { name: 'assignee_id', type: 'Integer', isRequired: false },
         ]
       },
@@ -1195,6 +1196,7 @@ const sections = [
           { name: 'start_date', type: 'Timestamp', isRequired: true },
           { name: 'track_cards', type: 'Boolean', isRequired: true },
           { name: 'assignee_id', type: 'Integer', isRequired: true },
+          { name: 'customer_id', type: 'Integer', isRequired: true },
           { name: 'state', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">open</code> or <code class="inline">closed</code>' },
           { name: 'status', type: 'String', isRequired: true, note: 'Must be one of <code class="inline">new</code>, <code class="inline">queued</code>, <code class="inline">in_progress</code>, <code class="inline">completed</code>, <code class="inline">closed</code>, or <code class="inline">archived</code>' },
         ]
