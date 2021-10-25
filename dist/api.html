@@ -69,7 +69,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> API Documentation</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Dec 21, 2020</div>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Oct 25, 2021</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -1007,6 +1007,17 @@ https://zube.io/api/cards</code></pre>
             
           
             
+              <tr>
+                <td class="name">
+                  <code class="inline">default_epic_list_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
           
             
               <tr>
@@ -1116,6 +1127,15 @@ https://zube.io/api/cards</code></pre>
         </thead>
         <tbody>
           
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">body</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
+                </td>
+              </tr>
             
           
             
@@ -1859,16 +1879,16 @@ https://zube.io/api/cards</code></pre>
     <div class="note">
       <strong>Note:</strong> To move a card to a column on a workspace, pass:
         <pre><code class="language-javascript">destination: {
-  position: CARD_POSITION,
-  type: "category",
-  name: NAME_OF_CATEGORY,
-  workspace_id: YOUR_WORKSPACE_ID
-}</code></pre>
-        To move a card to a project's triage, pass:
-        <pre><code class="language-javascript">destination: {
-  position: CARD_POSITION,
-  type: "project"
-}</code></pre>
+          position: CARD_POSITION,
+          type: "category",
+          name: NAME_OF_CATEGORY,
+          workspace_id: YOUR_WORKSPACE_ID
+        }</code></pre>
+                To move a card to a project's triage, pass:
+                <pre><code class="language-javascript">destination: {
+          position: CARD_POSITION,
+          type: "project"
+        }</code></pre>
         
     </div>
   
@@ -2288,6 +2308,886 @@ https://zube.io/api/cards</code></pre>
   <h5 class="endpoint-name" id="remove-a-card-comment">Remove a card comment</h5>
   <div class="endpoint-path">
     DELETE /api/cards/:card_id/comments/:comment_id
+  </div>
+  
+
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-list-of-card-card-custom-field-dates">Get a list of card card custom field dates</h5>
+  <div class="endpoint-path">
+    GET /api/cards/:card_id/card_custom_field_dates
+  </div>
+  
+
+  
+    <div class="params-table table-section">
+      <h4>Parameters</h4>
+      <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">card_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">created_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">custom_field_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">date</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">updated_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+        </tbody>
+      </table>
+      
+    </div>
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-card-custom-field-date">Get a card custom field date</h5>
+  <div class="endpoint-path">
+    GET /api/cards/:card_id/card_custom_field_dates/:card_custom_field_date_id
+  </div>
+  
+
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="create-a-new-card-custom-field-date">Create a new card custom field date</h5>
+  <div class="endpoint-path">
+    POST /api/cards/:card_id/card_custom_field_dates
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">custom_field_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">date</code>
+              </td>
+              <td class="type">
+                <span>Timestamp</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="update-a-card-custom-field-date">Update a card custom field date</h5>
+  <div class="endpoint-path">
+    PUT /api/cards/:card_id/card_custom_field_dates/:card_custom_field_date_id
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">custom_field_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">date</code>
+              </td>
+              <td class="type">
+                <span>Timestamp</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="remove-a-card-custom-field-date">Remove a card custom field date</h5>
+  <div class="endpoint-path">
+    DELETE /api/cards/:card_id/card_custom_field_dates/:card_custom_field_date_id
+  </div>
+  
+
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-list-of-card-card-custom-field-numbers">Get a list of card card custom field numbers</h5>
+  <div class="endpoint-path">
+    GET /api/cards/:card_id/card_custom_field_numbers
+  </div>
+  
+
+  
+    <div class="params-table table-section">
+      <h4>Parameters</h4>
+      <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">card_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">created_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">custom_field_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">number</code>
+                </td>
+                <td class="type">
+                  <span>double precision</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">updated_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+        </tbody>
+      </table>
+      
+    </div>
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-card-custom-field-number">Get a card custom field number</h5>
+  <div class="endpoint-path">
+    GET /api/cards/:card_id/card_custom_field_numbers/:card_custom_field_number_id
+  </div>
+  
+
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="create-a-new-card-custom-field-number">Create a new card custom field number</h5>
+  <div class="endpoint-path">
+    POST /api/cards/:card_id/card_custom_field_numbers
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">custom_field_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">number</code>
+              </td>
+              <td class="type">
+                <span>Float</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="update-a-card-custom-field-number">Update a card custom field number</h5>
+  <div class="endpoint-path">
+    PUT /api/cards/:card_id/card_custom_field_numbers/:card_custom_field_number_id
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">custom_field_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">number</code>
+              </td>
+              <td class="type">
+                <span>Float</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="remove-a-card-custom-field-number">Remove a card custom field number</h5>
+  <div class="endpoint-path">
+    DELETE /api/cards/:card_id/card_custom_field_numbers/:card_custom_field_number_id
+  </div>
+  
+
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-list-of-card-card-custom-field-texts">Get a list of card card custom field texts</h5>
+  <div class="endpoint-path">
+    GET /api/cards/:card_id/card_custom_field_texts
+  </div>
+  
+
+  
+    <div class="params-table table-section">
+      <h4>Parameters</h4>
+      <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">card_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">created_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">custom_field_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">text</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">updated_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+        </tbody>
+      </table>
+      
+    </div>
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-card-custom-field-text">Get a card custom field text</h5>
+  <div class="endpoint-path">
+    GET /api/cards/:card_id/card_custom_field_texts/:card_custom_field_text_id
+  </div>
+  
+
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="create-a-new-card-custom-field-text">Create a new card custom field text</h5>
+  <div class="endpoint-path">
+    POST /api/cards/:card_id/card_custom_field_texts
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">custom_field_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">text</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="update-a-card-custom-field-text">Update a card custom field text</h5>
+  <div class="endpoint-path">
+    PUT /api/cards/:card_id/card_custom_field_texts/:card_custom_field_text_id
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">custom_field_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">text</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="remove-a-card-custom-field-text">Remove a card custom field text</h5>
+  <div class="endpoint-path">
+    DELETE /api/cards/:card_id/card_custom_field_texts/:card_custom_field_text_id
+  </div>
+  
+
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-list-of-card-card-custom-field-single-selections">Get a list of card card custom field single selections</h5>
+  <div class="endpoint-path">
+    GET /api/cards/:card_id/card_custom_field_single_selections
+  </div>
+  
+
+  
+    <div class="params-table table-section">
+      <h4>Parameters</h4>
+      <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">card_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">created_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">custom_field_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">single_select_option_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">updated_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+        </tbody>
+      </table>
+      
+    </div>
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-card-custom-field-single-selection">Get a card custom field single selection</h5>
+  <div class="endpoint-path">
+    GET /api/cards/:card_id/card_custom_field_single_selections/:card_custom_field_single_selection_id
+  </div>
+  
+
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="create-a-new-card-custom-field-single-selection">Create a new card custom field single selection</h5>
+  <div class="endpoint-path">
+    POST /api/cards/:card_id/card_custom_field_single_selections
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">custom_field_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">single_select_option_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="update-a-card-custom-field-single-selection">Update a card custom field single selection</h5>
+  <div class="endpoint-path">
+    PUT /api/cards/:card_id/card_custom_field_single_selections/:card_custom_field_single_selection_id
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">custom_field_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">single_select_option_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="remove-a-card-custom-field-single-selection">Remove a card custom field single selection</h5>
+  <div class="endpoint-path">
+    DELETE /api/cards/:card_id/card_custom_field_single_selections/:card_custom_field_single_selection_id
   </div>
   
 
@@ -2722,6 +3622,396 @@ https://zube.io/api/cards</code></pre>
 </div>
 
 </div>
+<div id="custom-fields" class="section-block endpoint-section">
+  <h3 class="block-title section">Custom Fields</h3>
+  
+  
+  <div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-list-of-custom-fields">Get a list of custom fields</h5>
+  <div class="endpoint-path">
+    GET /api/projects/:project_id/custom_fields
+  </div>
+  
+
+  
+    <div class="params-table table-section">
+      <h4>Parameters</h4>
+      <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">created_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">data_type</code>
+                </td>
+                <td class="type">
+                  <span>USER-DEFINED</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">name</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">project_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">updated_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+        </tbody>
+      </table>
+      
+    </div>
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-custom-field">Get a custom field</h5>
+  <div class="endpoint-path">
+    GET /api/projects/:project_id/custom_fields/:custom_field_id
+  </div>
+  
+
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="create-a-new-custom-field">Create a new custom field</h5>
+  <div class="endpoint-path">
+    POST /api/projects/:project_id/custom_fields
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">data_type</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span>Must be one of <code class="inline">date</code>, <code class="inline">number</code>, <code class="inline">text</code>, or <code class="inline">single_select</code></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">name</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="update-a-custom-field">Update a custom field</h5>
+  <div class="endpoint-path">
+    PUT /api/projects/:project_id/custom_fields/:custom_field_id
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">text</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="remove-a-custom-field">Remove a custom field</h5>
+  <div class="endpoint-path">
+    DELETE /api/projects/:project_id/custom_fields/:custom_field_id
+  </div>
+  
+
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-list-of-custom-field-single-select-options">Get a list of custom field single select options</h5>
+  <div class="endpoint-path">
+    GET /api/custom_fields/:custom_field_id/single_select_options
+  </div>
+  
+
+  
+    <div class="params-table table-section">
+      <h4>Parameters</h4>
+      <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">created_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">custom_field_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">text</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">updated_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+        </tbody>
+      </table>
+      
+    </div>
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-custom-field-single-select-option">Get a custom field single select option</h5>
+  <div class="endpoint-path">
+    GET /api/custom_fields/:custom_field_id/single_select_options/:single_select_option_id
+  </div>
+  
+
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="create-a-new-custom-field-single-select-option">Create a new custom field single select option</h5>
+  <div class="endpoint-path">
+    POST /api/custom_fields/:custom_field_id/single_select_options
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">text</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="update-a-custom-field-single-select-option">Update a custom field single select option</h5>
+  <div class="endpoint-path">
+    PUT /api/custom_fields/:custom_field_id/single_select_options/:single_select_option_id
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">text</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="remove-a-custom-field-single-select-option">Remove a custom field single select option</h5>
+  <div class="endpoint-path">
+    DELETE /api/custom_fields/:custom_field_id/single_select_options/:single_select_option_id
+  </div>
+  
+
+  
+  
+</div>
+
+</div>
 <div id="epics" class="section-block endpoint-section">
   <h3 class="block-title section">Epics</h3>
   
@@ -2862,6 +4152,17 @@ https://zube.io/api/cards</code></pre>
             
               <tr>
                 <td class="name">
+                  <code class="inline">epic_list_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
                   <code class="inline">id</code>
                 </td>
                 <td class="type">
@@ -2921,6 +4222,17 @@ https://zube.io/api/cards</code></pre>
                 </td>
                 <td class="type">
                   <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">rank</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
                 </td>
               </tr>
             
@@ -3101,6 +4413,21 @@ https://zube.io/api/cards</code></pre>
           
             <tr>
               <td class="name">
+                <code class="inline">after_target_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span><code class="inline">after_target_id</code> is the <code class="inline">id</code> of the epic after which this epic should be placed</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
                 <code class="inline">assignee_id</code>
               </td>
               <td class="type">
@@ -3111,6 +4438,21 @@ https://zube.io/api/cards</code></pre>
               </td>
               <td class="note">
                 <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">before_target_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span><code class="inline">before_target_id</code> is the <code class="inline">id</code> of the epic before which this epic should be placed</span>
               </td>
             </tr>
           
@@ -3156,6 +4498,51 @@ https://zube.io/api/cards</code></pre>
               </td>
               <td class="note">
                 <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">epic_list_id</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">label_ids</code>
+              </td>
+              <td class="type">
+                <span>Array</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span>Array of <code class="inline">label.id</code>s</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">target_position</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span>Refers to the target index position of the epic</span>
               </td>
             </tr>
           
@@ -3285,6 +4672,36 @@ https://zube.io/api/cards</code></pre>
           
             <tr>
               <td class="name">
+                <code class="inline">epic_list_id</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">label_ids</code>
+              </td>
+              <td class="type">
+                <span>Array</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span>Array of <code class="inline">label.id</code>s</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
                 <code class="inline">state</code>
               </td>
               <td class="type">
@@ -3349,6 +4766,229 @@ https://zube.io/api/cards</code></pre>
   
 </div>
 <div class="endpoint">
+  <h5 class="endpoint-name" id="move-an-epic">Move an epic</h5>
+  <div class="endpoint-path">
+    PUT /api/projects/:project_id/epics/:epic_id/move
+  </div>
+  
+    <div class="note">
+      <strong>Note:</strong> Provide only one of <code class="inline">target_position</code>, <code class="inline">after_target_id</code> or <code class="inline">before_target_id</code>.
+    </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">after_target_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span><code class="inline">after_target_id</code> is the <code class="inline">id</code> of the epic after which this epic should be placed</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">assignee_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">before_target_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span><code class="inline">before_target_id</code> is the <code class="inline">id</code> of the epic before which this epic should be placed</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">color</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span>Hex color code string without preceding "#"</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">description</code>
+              </td>
+              <td class="type">
+                <span>Text</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">due_on</code>
+              </td>
+              <td class="type">
+                <span>Timestamp</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">epic_list_id</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">label_ids</code>
+              </td>
+              <td class="type">
+                <span>Array</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span>Array of <code class="inline">label.id</code>s</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">state</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span>Only accepts <code class="inline">open</code> or <code class="inline">closed</code></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">status</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span>Must be one of <code class="inline">new</code>, <code class="inline">queued</code>, <code class="inline">in_progress</code>, <code class="inline">completed</code>, <code class="inline">closed</code>, or <code class="inline">archived</code></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">target_position</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span>Refers to the target index position of the epic</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">title</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">track_cards</code>
+              </td>
+              <td class="type">
+                <span>Boolean</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
   <h5 class="endpoint-name" id="get-a-list-of-epic-cards">Get a list of epic cards</h5>
   <div class="endpoint-path">
     GET /api/epics/:epic_id/cards
@@ -3367,6 +5007,15 @@ https://zube.io/api/cards</code></pre>
         </thead>
         <tbody>
           
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">body</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
+                </td>
+              </tr>
             
           
             
@@ -3998,6 +5647,324 @@ https://zube.io/api/cards</code></pre>
 </div>
 
 </div>
+<div id="epic-lists" class="section-block endpoint-section">
+  <h3 class="block-title section">Epic Lists</h3>
+  
+  
+  <div class="endpoint">
+  <h5 class="endpoint-name" id="get-a-list-of-epic-lists">Get a list of epic lists</h5>
+  <div class="endpoint-path">
+    GET /api/projects/:project_id/epic_lists
+  </div>
+  
+
+  
+    <div class="params-table table-section">
+      <h4>Parameters</h4>
+      <small>These parameters can be used in the <code class="inline">where</code> clause and <code class="inline">order</code> clause.</small>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">created_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">name</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">project_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">rank</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">updated_at</code>
+                </td>
+                <td class="type">
+                  <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+        </tbody>
+      </table>
+      
+    </div>
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="create-an-epic-list">Create an epic list</h5>
+  <div class="endpoint-path">
+    POST /api/projects/:project_id/epic_lists
+  </div>
+  
+    <div class="note">
+      <strong>Note:</strong> Provide only one of <code class="inline">target_position</code>, <code class="inline">after_target_id</code> or <code class="inline">before_target_id</code>.
+    </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">after_target_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span><code class="inline">after_target_id</code> is the <code class="inline">id</code> of the epic list after which this epic list should be placed</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">before_target_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span><code class="inline">before_target_id</code> is the <code class="inline">id</code> of the epic list before which this epic list should be placed</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">name</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">target_position</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span>Refers to the target index position of the list.</span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="get-an-epic-list">Get an epic list</h5>
+  <div class="endpoint-path">
+    GET /api/projects/:project_id/epic_lists/:epic_list_id
+  </div>
+  
+
+  
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="update-an-epic-list">Update an epic list</h5>
+  <div class="endpoint-path">
+    PUT /api/projects/:project_id/epic_lists/:epic_list_id
+  </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">name</code>
+              </td>
+              <td class="type">
+                <span>String</span>
+              </td>
+              <td class="required">
+                <span>✅</span>
+              </td>
+              <td class="note">
+                <span></span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="move-an-epic-list">Move an epic list</h5>
+  <div class="endpoint-path">
+    PUT /api/projects/:project_id/epic_lists/:epic_list_id/move
+  </div>
+  
+    <div class="note">
+      <strong>Note:</strong> Provide only one of <code class="inline">target_position</code>, <code class="inline">after_target_id</code> or <code class="inline">before_target_id</code>.
+    </div>
+  
+
+  
+  
+    <div class="form-data-table table-section">
+      <h4>Body Data</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th><th>type</th><th>required</th><th>notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">after_target_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span><code class="inline">after_target_id</code> is the <code class="inline">id</code> of the epic list after which this epic list should be placed</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">before_target_id</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span><code class="inline">before_target_id</code> is the <code class="inline">id</code> of the epic list before which this epic list should be placed</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="name">
+                <code class="inline">target_position</code>
+              </td>
+              <td class="type">
+                <span>Integer</span>
+              </td>
+              <td class="required">
+                <span></span>
+              </td>
+              <td class="note">
+                <span>Refers to the target index position of the list.</span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+<div class="endpoint">
+  <h5 class="endpoint-name" id="delete-an-epic-list">Delete an epic list</h5>
+  <div class="endpoint-path">
+    DELETE /api/projects/:project_id/epic_lists/:epic_list_id
+  </div>
+  
+
+  
+  
+</div>
+
+</div>
 <div id="labels" class="section-block endpoint-section">
   <h3 class="block-title section">Labels</h3>
   
@@ -4348,6 +6315,17 @@ https://zube.io/api/cards</code></pre>
                 </td>
                 <td class="type">
                   <span>timestamp</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">default_epic_list_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
                 </td>
               </tr>
             
@@ -5138,6 +7116,15 @@ https://zube.io/api/cards</code></pre>
         </thead>
         <tbody>
           
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">body</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
+                </td>
+              </tr>
             
           
             
@@ -9429,6 +11416,15 @@ https://zube.io/api/cards</code></pre>
         <tbody>
           
             
+              <tr>
+                <td class="name">
+                  <code class="inline">body</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
+                </td>
+              </tr>
+            
           
             
               <tr>
@@ -10008,6 +12004,17 @@ https://zube.io/api/cards</code></pre>
             
           
             
+              <tr>
+                <td class="name">
+                  <code class="inline">default_card_template_id</code>
+                </td>
+                <td class="type">
+                  <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
           
             
               <tr>
@@ -10016,6 +12023,17 @@ https://zube.io/api/cards</code></pre>
                 </td>
                 <td class="type">
                   <span>integer</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">is_archived</code>
+                </td>
+                <td class="type">
+                  <span>boolean</span>
                 </td>
               </tr>
             
@@ -10062,6 +12080,17 @@ https://zube.io/api/cards</code></pre>
             
               <tr>
                 <td class="name">
+                  <code class="inline">should_display_prs</code>
+                </td>
+                <td class="type">
+                  <span>boolean</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
                   <code class="inline">should_use_fibonacci_scale</code>
                 </td>
                 <td class="type">
@@ -10074,6 +12103,17 @@ https://zube.io/api/cards</code></pre>
               <tr>
                 <td class="name">
                   <code class="inline">slug</code>
+                </td>
+                <td class="type">
+                  <span>text</span>
+                </td>
+              </tr>
+            
+          
+            
+              <tr>
+                <td class="name">
+                  <code class="inline">timezone</code>
                 </td>
                 <td class="type">
                   <span>text</span>
@@ -12381,6 +14421,46 @@ https://zube.io/api/cards</code></pre>
                         
                             <li><a class="scrollto" href="#remove-a-card-comment">Remove a card comment</a></li>
                         
+                            <li><a class="scrollto" href="#get-a-list-of-card-card-custom-field-dates">Get a list of card card custom field dates</a></li>
+                        
+                            <li><a class="scrollto" href="#get-a-card-custom-field-date">Get a card custom field date</a></li>
+                        
+                            <li><a class="scrollto" href="#create-a-new-card-custom-field-date">Create a new card custom field date</a></li>
+                        
+                            <li><a class="scrollto" href="#update-a-card-custom-field-date">Update a card custom field date</a></li>
+                        
+                            <li><a class="scrollto" href="#remove-a-card-custom-field-date">Remove a card custom field date</a></li>
+                        
+                            <li><a class="scrollto" href="#get-a-list-of-card-card-custom-field-numbers">Get a list of card card custom field numbers</a></li>
+                        
+                            <li><a class="scrollto" href="#get-a-card-custom-field-number">Get a card custom field number</a></li>
+                        
+                            <li><a class="scrollto" href="#create-a-new-card-custom-field-number">Create a new card custom field number</a></li>
+                        
+                            <li><a class="scrollto" href="#update-a-card-custom-field-number">Update a card custom field number</a></li>
+                        
+                            <li><a class="scrollto" href="#remove-a-card-custom-field-number">Remove a card custom field number</a></li>
+                        
+                            <li><a class="scrollto" href="#get-a-list-of-card-card-custom-field-texts">Get a list of card card custom field texts</a></li>
+                        
+                            <li><a class="scrollto" href="#get-a-card-custom-field-text">Get a card custom field text</a></li>
+                        
+                            <li><a class="scrollto" href="#create-a-new-card-custom-field-text">Create a new card custom field text</a></li>
+                        
+                            <li><a class="scrollto" href="#update-a-card-custom-field-text">Update a card custom field text</a></li>
+                        
+                            <li><a class="scrollto" href="#remove-a-card-custom-field-text">Remove a card custom field text</a></li>
+                        
+                            <li><a class="scrollto" href="#get-a-list-of-card-card-custom-field-single-selections">Get a list of card card custom field single selections</a></li>
+                        
+                            <li><a class="scrollto" href="#get-a-card-custom-field-single-selection">Get a card custom field single selection</a></li>
+                        
+                            <li><a class="scrollto" href="#create-a-new-card-custom-field-single-selection">Create a new card custom field single selection</a></li>
+                        
+                            <li><a class="scrollto" href="#update-a-card-custom-field-single-selection">Update a card custom field single selection</a></li>
+                        
+                            <li><a class="scrollto" href="#remove-a-card-custom-field-single-selection">Remove a card custom field single selection</a></li>
+                        
                             <li><a class="scrollto" href="#get-a-list-of-card-events">Get a list of card events</a></li>
                         
                             <li><a class="scrollto" href="#get-a-list-of-commit-references">Get a list of commit references</a></li>
@@ -12416,6 +14496,35 @@ https://zube.io/api/cards</code></pre>
                         
                     
                         <li>
+                            <a class="scrollto" href="#custom-fields">
+                                <strong>
+                                    Custom Fields
+                                </strong>
+                            </a>
+                        </li>
+                        
+                            <li><a class="scrollto" href="#get-a-list-of-custom-fields">Get a list of custom fields</a></li>
+                        
+                            <li><a class="scrollto" href="#get-a-custom-field">Get a custom field</a></li>
+                        
+                            <li><a class="scrollto" href="#create-a-new-custom-field">Create a new custom field</a></li>
+                        
+                            <li><a class="scrollto" href="#update-a-custom-field">Update a custom field</a></li>
+                        
+                            <li><a class="scrollto" href="#remove-a-custom-field">Remove a custom field</a></li>
+                        
+                            <li><a class="scrollto" href="#get-a-list-of-custom-field-single-select-options">Get a list of custom field single select options</a></li>
+                        
+                            <li><a class="scrollto" href="#get-a-custom-field-single-select-option">Get a custom field single select option</a></li>
+                        
+                            <li><a class="scrollto" href="#create-a-new-custom-field-single-select-option">Create a new custom field single select option</a></li>
+                        
+                            <li><a class="scrollto" href="#update-a-custom-field-single-select-option">Update a custom field single select option</a></li>
+                        
+                            <li><a class="scrollto" href="#remove-a-custom-field-single-select-option">Remove a custom field single select option</a></li>
+                        
+                    
+                        <li>
                             <a class="scrollto" href="#epics">
                                 <strong>
                                     Epics
@@ -12430,6 +14539,8 @@ https://zube.io/api/cards</code></pre>
                             <li><a class="scrollto" href="#get-an-epic">Get an epic</a></li>
                         
                             <li><a class="scrollto" href="#update-an-epic">Update an epic</a></li>
+                        
+                            <li><a class="scrollto" href="#move-an-epic">Move an epic</a></li>
                         
                             <li><a class="scrollto" href="#get-a-list-of-epic-cards">Get a list of epic cards</a></li>
                         
@@ -12452,6 +14563,27 @@ https://zube.io/api/cards</code></pre>
                             <li><a class="scrollto" href="#create-an-epic-subscription">Create an epic subscription</a></li>
                         
                             <li><a class="scrollto" href="#remove-an-epic-subscription">Remove an epic subscription</a></li>
+                        
+                    
+                        <li>
+                            <a class="scrollto" href="#epic-lists">
+                                <strong>
+                                    Epic Lists
+                                </strong>
+                            </a>
+                        </li>
+                        
+                            <li><a class="scrollto" href="#get-a-list-of-epic-lists">Get a list of epic lists</a></li>
+                        
+                            <li><a class="scrollto" href="#create-an-epic-list">Create an epic list</a></li>
+                        
+                            <li><a class="scrollto" href="#get-an-epic-list">Get an epic list</a></li>
+                        
+                            <li><a class="scrollto" href="#update-an-epic-list">Update an epic list</a></li>
+                        
+                            <li><a class="scrollto" href="#move-an-epic-list">Move an epic list</a></li>
+                        
+                            <li><a class="scrollto" href="#delete-an-epic-list">Delete an epic list</a></li>
                         
                     
                         <li>
