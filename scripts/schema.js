@@ -172,16 +172,16 @@ const sections = [
         name: 'Move a card',
         note: `To move a card to a column on a workspace, pass:
         <pre><code class="language-javascript">destination: {
-  position: CARD_POSITION,
-  type: "category",
-  name: NAME_OF_CATEGORY,
-  workspace_id: YOUR_WORKSPACE_ID
-}</code></pre>
-        To move a card to a project's triage, pass:
-        <pre><code class="language-javascript">destination: {
-  position: CARD_POSITION,
-  type: "project"
-}</code></pre>
+          position: CARD_POSITION,
+          type: "category",
+          name: NAME_OF_CATEGORY,
+          workspace_id: YOUR_WORKSPACE_ID
+        }</code></pre>
+                To move a card to a project's triage, pass:
+                <pre><code class="language-javascript">destination: {
+          position: CARD_POSITION,
+          type: "project"
+        }</code></pre>
         `,
         formData: [
           { name: 'destination[position]', type: 'Integer', isRequired: true },
@@ -261,6 +261,187 @@ const sections = [
         method: 'DELETE',
         name: 'Remove a card comment'
       },
+      // Card Custom Fields
+      // card_custom_field_dates
+      {
+        // index
+        path: '/api/cards/:card_id/card_custom_field_dates',
+        rawPath: '/api/cards/:id/card_custom_field_dates',
+        method: 'GET',
+        name: 'Get a list of card card custom field dates'
+      },
+      {
+        // read
+        path: '/api/cards/:card_id/card_custom_field_dates/:card_custom_field_date_id',
+        rawPath: '/api/cards/:id/card_custom_field_dates/:card_custom_field_date_id',
+        method: 'GET',
+        name: 'Get a card custom field date',
+      },
+      {
+        // create
+        path: '/api/cards/:card_id/card_custom_field_dates',
+        rawPath: '/api/cards/:id/card_custom_field_dates',
+        method: 'POST',
+        name: 'Create a new card custom field date',
+        formData: [
+          { name: 'custom_field_id', type: 'Integer', isRequired: true },
+          { name: 'date', type: 'Timestamp', isRequired: true },
+        ]
+      },
+      {
+        // update
+        path: '/api/cards/:card_id/card_custom_field_dates/:card_custom_field_date_id',
+        rawPath: '/api/cards/:id/card_custom_field_dates/:card_custom_field_date_id',
+        method: 'PUT',
+        name: 'Update a card custom field date',
+        formData: [
+          { name: 'custom_field_id', type: 'Integer', isRequired: true },
+          { name: 'date', type: 'Timestamp', isRequired: true },
+        ]
+      },
+      {
+        // destroy
+        path: '/api/cards/:card_id/card_custom_field_dates/:card_custom_field_date_id',
+        rawPath: '/api/cards/:id/card_custom_field_dates/:card_custom_field_date_id',
+        method: 'DELETE',
+        name: 'Remove a card custom field date'
+      },
+
+      // card_custom_field_numbers
+      {
+          // index
+          path: '/api/cards/:card_id/card_custom_field_numbers',
+          rawPath: '/api/cards/:id/card_custom_field_numbers',
+          method: 'GET',
+          name: 'Get a list of card card custom field numbers'
+      },
+      {
+          // read
+          path: '/api/cards/:card_id/card_custom_field_numbers/:card_custom_field_number_id',
+          rawPath: '/api/cards/:id/card_custom_field_numbers/:card_custom_field_number_id',
+          method: 'GET',
+          name: 'Get a card custom field number',
+      },
+      {
+          // create
+          path: '/api/cards/:card_id/card_custom_field_numbers',
+          rawPath: '/api/cards/:id/card_custom_field_numbers',
+          method: 'POST',
+          name: 'Create a new card custom field number',
+          formData: [
+              { name: 'custom_field_id', type: 'Integer', isRequired: true },
+              { name: 'number', type: 'Float', isRequired: true },
+          ]
+      },
+      {
+          // update
+          path: '/api/cards/:card_id/card_custom_field_numbers/:card_custom_field_number_id',
+          rawPath: '/api/cards/:id/card_custom_field_numbers/:card_custom_field_number_id',
+          method: 'PUT',
+          name: 'Update a card custom field number',
+          formData: [
+              { name: 'custom_field_id', type: 'Integer', isRequired: true },
+              { name: 'number', type: 'Float', isRequired: true },
+          ]
+      },
+      {
+          // destroy
+          path: '/api/cards/:card_id/card_custom_field_numbers/:card_custom_field_number_id',
+          rawPath: '/api/cards/:id/card_custom_field_numbers/:card_custom_field_number_id',
+          method: 'DELETE',
+          name: 'Remove a card custom field number'
+      },
+
+      // card_custom_field_texts
+      {
+          // index
+          path: '/api/cards/:card_id/card_custom_field_texts',
+          rawPath: '/api/cards/:id/card_custom_field_texts',
+          method: 'GET',
+          name: 'Get a list of card card custom field texts'
+      },
+      {
+          // read
+          path: '/api/cards/:card_id/card_custom_field_texts/:card_custom_field_text_id',
+          rawPath: '/api/cards/:id/card_custom_field_texts/:card_custom_field_text_id',
+          method: 'GET',
+          name: 'Get a card custom field text',
+      },
+      {
+          // create
+          path: '/api/cards/:card_id/card_custom_field_texts',
+          rawPath: '/api/cards/:id/card_custom_field_texts',
+          method: 'POST',
+          name: 'Create a new card custom field text',
+          formData: [
+              { name: 'custom_field_id', type: 'Integer', isRequired: true },
+              { name: 'text', type: 'String', isRequired: true },
+          ]
+      },
+      {
+          // update
+          path: '/api/cards/:card_id/card_custom_field_texts/:card_custom_field_text_id',
+          rawPath: '/api/cards/:id/card_custom_field_texts/:card_custom_field_text_id',
+          method: 'PUT',
+          name: 'Update a card custom field text',
+          formData: [
+              { name: 'custom_field_id', type: 'Integer', isRequired: true },
+              { name: 'text', type: 'String', isRequired: true },
+          ]
+      },
+      {
+          // destroy
+          path: '/api/cards/:card_id/card_custom_field_texts/:card_custom_field_text_id',
+          rawPath: '/api/cards/:id/card_custom_field_texts/:card_custom_field_text_id',
+          method: 'DELETE',
+          name: 'Remove a card custom field text'
+      },
+
+      // card_custom_field_single_selections
+      {
+          // index
+          path: '/api/cards/:card_id/card_custom_field_single_selections',
+          rawPath: '/api/cards/:id/card_custom_field_single_selections',
+          method: 'GET',
+          name: 'Get a list of card card custom field single selections'
+      },
+      {
+          // read
+          path: '/api/cards/:card_id/card_custom_field_single_selections/:card_custom_field_single_selection_id',
+          rawPath: '/api/cards/:id/card_custom_field_single_selections/:card_custom_field_single_selection_id',
+          method: 'GET',
+          name: 'Get a card custom field single selection',
+      },
+      {
+          // create
+          path: '/api/cards/:card_id/card_custom_field_single_selections',
+          rawPath: '/api/cards/:id/card_custom_field_single_selections',
+          method: 'POST',
+          name: 'Create a new card custom field single selection',
+          formData: [
+              { name: 'custom_field_id', type: 'Integer', isRequired: true },
+              { name: 'single_select_option_id', type: 'Integer', isRequired: true },
+          ]
+      },
+      {
+          // update
+          path: '/api/cards/:card_id/card_custom_field_single_selections/:card_custom_field_single_selection_id',
+          rawPath: '/api/cards/:id/card_custom_field_single_selections/:card_custom_field_single_selection_id',
+          method: 'PUT',
+          name: 'Update a card custom field single selection',
+          formData: [
+              { name: 'custom_field_id', type: 'Integer', isRequired: true },
+              { name: 'single_select_option_id', type: 'Integer', isRequired: true },
+          ]
+      },
+      {
+          // destroy
+          path: '/api/cards/:card_id/card_custom_field_single_selections/:card_custom_field_single_selection_id',
+          rawPath: '/api/cards/:id/card_custom_field_single_selections/:card_custom_field_single_selection_id',
+          method: 'DELETE',
+          name: 'Remove a card custom field single selection'
+      },
+
       // Card Events
       {
         // index
@@ -375,6 +556,98 @@ const sections = [
     ]
   },
   {
+    title: 'Custom Fields',
+    desc: '',
+    endpoints: [
+        // Custom Field
+        {
+            // index
+            path: '/api/projects/:project_id/custom_fields',
+            rawPath: '/api/projects/:id/custom_fields',
+            method: 'GET',
+            name: 'Get a list of custom fields'
+        },
+        {
+            // read
+            path: '/api/projects/:project_id/custom_fields/:custom_field_id',
+            rawPath: '/api/projects/:id/custom_fields/:custom_field_id',
+            method: 'GET',
+            name: 'Get a custom field',
+        },
+        {
+            // create
+            path: '/api/projects/:project_id/custom_fields',
+            rawPath: '/api/projects/:id/custom_fields',
+            method: 'POST',
+            name: 'Create a new custom field',
+            formData: [
+                { name: 'data_type', type: 'String', isRequired: true, note: 'Must be one of <code class="inline">date</code>, <code class="inline">number</code>, <code class="inline">text</code>, or <code class="inline">single_select</code>' },
+                { name: 'name', type: 'String', isRequired: true },
+            ]
+        },
+        {
+            // update
+            path: '/api/projects/:project_id/custom_fields/:custom_field_id',
+            rawPath: '/api/projects/:id/custom_fields/:custom_field_id',
+            method: 'PUT',
+            name: 'Update a custom field',
+            formData: [
+                { name: 'text', type: 'String', isRequired: true },
+            ]
+        },
+        {
+            // destroy
+            path: '/api/projects/:project_id/custom_fields/:custom_field_id',
+            rawPath: '/api/projects/:id/custom_fields/:custom_field_id',
+            method: 'DELETE',
+            name: 'Remove a custom field'
+        },
+
+        // Single Select Options
+        {
+            // index
+            path: '/api/custom_fields/:custom_field_id/single_select_options',
+            rawPath: '/api/custom_fields/:id/single_select_options',
+            method: 'GET',
+            name: 'Get a list of custom field single select options'
+        },
+        {
+            // read
+            path: '/api/custom_fields/:custom_field_id/single_select_options/:single_select_option_id',
+            rawPath: '/api/custom_fields/:id/single_select_options/:single_select_option_id',
+            method: 'GET',
+            name: 'Get a custom field single select option',
+        },
+        {
+            // create
+            path: '/api/custom_fields/:custom_field_id/single_select_options',
+            rawPath: '/api/custom_fields/:id/single_select_options',
+            method: 'POST',
+            name: 'Create a new custom field single select option',
+            formData: [
+                { name: 'text', type: 'String', isRequired: true },
+            ]
+        },
+        {
+            // update
+            path: '/api/custom_fields/:custom_field_id/single_select_options/:single_select_option_id',
+            rawPath: '/api/custom_fields/:id/single_select_options/:single_select_option_id',
+            method: 'PUT',
+            name: 'Update a custom field single select option',
+            formData: [
+                { name: 'text', type: 'String', isRequired: true },
+            ]
+        },
+        {
+            // destroy
+            path: '/api/custom_fields/:custom_field_id/single_select_options/:single_select_option_id',
+            rawPath: '/api/custom_fields/:id/single_select_options/:single_select_option_id',
+            method: 'DELETE',
+            name: 'Remove a custom field single select option'
+        },
+    ]
+  },
+  {
     title: 'Epics',
     desc: '',
     endpoints: [
@@ -400,9 +673,14 @@ const sections = [
           { name: 'title', type: 'String', isRequired: true },
           { name: 'description', type: 'Text', isRequired: false },
           { name: 'assignee_id', type: 'Integer', isRequired: false },
+          { name: 'epic_list_id', type: 'Boolean', isRequired: false },
+          { name: 'label_ids', type: 'Array', isRequired: false, note: 'Array of <code class="inline">label.id</code>s' },
           { name: 'due_on', type: 'Timestamp', isRequired: false },
           { name: 'track_cards', type: 'Boolean', isRequired: false },
           { name: 'color', type: 'String', isRequired: false, note: 'Hex color code string without preceding "#"' },
+          { name: 'after_target_id', type: 'Integer', note: '<code class="inline">after_target_id</code> is the <code class="inline">id</code> of the epic after which this epic should be placed' },
+          { name: 'before_target_id', type: 'Integer', note: '<code class="inline">before_target_id</code> is the <code class="inline">id</code> of the epic before which this epic should be placed' },
+          { name: 'target_position', type: 'Integer', note: 'Refers to the target index position of the epic' },
         ]
       },
       {
@@ -419,15 +697,40 @@ const sections = [
         rawPath: '/api/projects/:id/epics/:epic_id',
         method: 'PUT',
         formData: [
-          { name: 'title', type: 'String', isRequired: true },
-          { name: 'description', type: 'Text', isRequired: true },
-          { name: 'assignee_id', type: 'Integer', isRequired: true },
-          { name: 'due_on', type: 'Timestamp', isRequired: true },
-          { name: 'track_cards', type: 'Boolean', isRequired: true },
-          { name: 'state', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">open</code> or <code class="inline">closed</code>' },
-          { name: 'status', type: 'String', isRequired: true, note: 'Must be one of <code class="inline">new</code>, <code class="inline">queued</code>, <code class="inline">in_progress</code>, <code class="inline">completed</code>, <code class="inline">closed</code>, or <code class="inline">archived</code>' },
-          { name: 'color', type: 'String', isRequired: true, note: 'Hex color code string without preceding "#"' },
+            { name: 'assignee_id', type: 'Integer', isRequired: true },
+            { name: 'color', type: 'String', isRequired: true, note: 'Hex color code string without preceding "#"' },
+            { name: 'description', type: 'Text', isRequired: true },
+            { name: 'due_on', type: 'Timestamp', isRequired: true },
+            { name: 'epic_list_id', type: 'Boolean', isRequired: true },
+            { name: 'label_ids', type: 'Array', isRequired: true, note: 'Array of <code class="inline">label.id</code>s' },
+            { name: 'state', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">open</code> or <code class="inline">closed</code>' },
+            { name: 'status', type: 'String', isRequired: true, note: 'Must be one of <code class="inline">new</code>, <code class="inline">queued</code>, <code class="inline">in_progress</code>, <code class="inline">completed</code>, <code class="inline">closed</code>, or <code class="inline">archived</code>' },
+            { name: 'title', type: 'String', isRequired: true },
+            { name: 'track_cards', type: 'Boolean', isRequired: true },
         ]
+      },
+      {
+          // Move
+          name: 'Move an epic',
+          path: '/api/projects/:project_id/epics/:epic_id/move',
+          rawPath: '/api/projects/:id/epics/:epic_id/move',
+          method: 'PUT',
+          formData: [
+              { name: 'assignee_id', type: 'Integer', isRequired: true },
+              { name: 'color', type: 'String', isRequired: true, note: 'Hex color code string without preceding "#"' },
+              { name: 'description', type: 'Text', isRequired: true },
+              { name: 'due_on', type: 'Timestamp', isRequired: true },
+              { name: 'epic_list_id', type: 'Boolean', isRequired: true },
+              { name: 'label_ids', type: 'Array', isRequired: true, note: 'Array of <code class="inline">label.id</code>s' },
+              { name: 'state', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">open</code> or <code class="inline">closed</code>' },
+              { name: 'status', type: 'String', isRequired: true, note: 'Must be one of <code class="inline">new</code>, <code class="inline">queued</code>, <code class="inline">in_progress</code>, <code class="inline">completed</code>, <code class="inline">closed</code>, or <code class="inline">archived</code>' },
+              { name: 'title', type: 'String', isRequired: true },
+              { name: 'track_cards', type: 'Boolean', isRequired: true },
+              { name: 'after_target_id', type: 'Integer', note: '<code class="inline">after_target_id</code> is the <code class="inline">id</code> of the epic after which this epic should be placed' },
+              { name: 'before_target_id', type: 'Integer', note: '<code class="inline">before_target_id</code> is the <code class="inline">id</code> of the epic before which this epic should be placed' },
+              { name: 'target_position', type: 'Integer', note: 'Refers to the target index position of the epic' },
+          ],
+          note: 'Provide only one of <code class="inline">target_position</code>, <code class="inline">after_target_id</code> or <code class="inline">before_target_id</code>.'
       },
       // Epic Cards
       {
@@ -521,6 +824,71 @@ const sections = [
         rawPath: '/api/epics/:epic_id/subscriptions/:id',
         method: 'DELETE'
       },
+    ]
+  },
+  {
+    title: 'Epic Lists',
+    desc: '',
+    endpoints: [
+      // Epic Lists
+      {
+        // index
+        name: 'Get a list of epic lists',
+        path: '/api/projects/:project_id/epic_lists',
+        rawPath: '/api/projects/:id/epic_lists',
+        method: 'GET',
+      },
+      {
+          // create
+          name: 'Create an epic list',
+          path: '/api/projects/:project_id/epic_lists',
+          rawPath: '/api/projects/:id/epic_lists',
+          method: 'POST',
+          formData: [
+              { name: 'name', type: 'String', isRequired: true },
+              { name: 'after_target_id', type: 'Integer', note: '<code class="inline">after_target_id</code> is the <code class="inline">id</code> of the epic list after which this epic list should be placed' },
+              { name: 'before_target_id', type: 'Integer', note: '<code class="inline">before_target_id</code> is the <code class="inline">id</code> of the epic list before which this epic list should be placed' },
+              { name: 'target_position', type: 'Integer', note: 'Refers to the target index position of the list.' },
+          ],
+          note: 'Provide only one of <code class="inline">target_position</code>, <code class="inline">after_target_id</code> or <code class="inline">before_target_id</code>.'
+      },
+      {
+          // read
+          name: 'Get an epic list',
+          path: '/api/projects/:project_id/epic_lists/:epic_list_id',
+          rawPath: '/api/projects/:id/epic_lists/:epic_list_id',
+          method: 'GET',
+      },
+      {
+          // update
+          name: 'Update an epic list',
+          path: '/api/projects/:project_id/epic_lists/:epic_list_id',
+          rawPath: '/api/projects/:id/epic_lists/:epic_list_id',
+          method: 'PUT',
+          formData: [
+              { name: 'name', type: 'String', isRequired: true },
+          ]
+      },
+      {
+          // Move
+          name: 'Move an epic list',
+          path: '/api/projects/:project_id/epic_lists/:epic_list_id/move',
+          rawPath: '/api/projects/:id/epic_lists/:epic_list_id/move',
+          method: 'PUT',
+          formData: [
+              { name: 'after_target_id', type: 'Integer', note: '<code class="inline">after_target_id</code> is the <code class="inline">id</code> of the epic list after which this epic list should be placed' },
+              { name: 'before_target_id', type: 'Integer', note: '<code class="inline">before_target_id</code> is the <code class="inline">id</code> of the epic list before which this epic list should be placed' },
+              { name: 'target_position', type: 'Integer', note: 'Refers to the target index position of the list.' },
+          ],
+          note: 'Provide only one of <code class="inline">target_position</code>, <code class="inline">after_target_id</code> or <code class="inline">before_target_id</code>.'
+      },
+      {
+          // destroy
+          name: 'Delete an epic list',
+          path: '/api/projects/:project_id/epic_lists/:epic_list_id',
+          rawPath: '/api/projects/:id/epic_lists/:epic_list_id',
+          method: 'DELETE'
+      }
     ]
   },
   {
