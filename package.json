@@ -5,7 +5,7 @@
     "autoprefixer": "^7.1.1",
     "grunt-postcss": "^0.8.0",
     "lodash": "^4.17.19",
-    "moment": "^2.27.0"
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "apache-server-configs": "^2.13.0",
