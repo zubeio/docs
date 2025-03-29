@@ -103,7 +103,9 @@ const sections = [
         name: 'Get a list of cards',
         extendedQueryParams: [
             { name: 'where[created_after]', type: 'timestamp' },
+            { name: 'where[created_before]', type: 'timestamp' },
             { name: 'where[updated_after]', type: 'timestamp' },
+            { name: 'where[updated_before]', type: 'timestamp' },
         ]
       },
       {
@@ -660,7 +662,9 @@ const sections = [
         extendedQueryParams: [
             { name: 'where[after_number]', type: 'integer' },
             { name: 'where[created_after]', type: 'timestamp' },
+            { name: 'where[created_before]', type: 'timestamp' },
             { name: 'where[updated_after]', type: 'timestamp' },
+            { name: 'where[updated_before]', type: 'timestamp' },
         ]
       },
       {
@@ -1095,11 +1099,13 @@ const sections = [
             { name: 'where[after_number]', type: 'integer' },
             { name: 'where[assignee_ids][]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">assignee.id</code>s or <code class="inline">null</code>' },
             { name: 'where[created_after]', type: 'timestamp' },
+            { name: 'where[created_before]', type: 'timestamp' },
             { name: 'where[labels][]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">label.name</code>s or <code class="inline">null</code>' },
             { name: 'where[milestones][]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">milestone.title</code>s or <code class="inline">null</code>' },
             { name: 'where[source_ids][]', type: 'Array', isRequired: false, note: 'Array of <code class="inline">source.id</code>s or <code class="inline">null</code>' },
             { name: 'where[types]', type: 'String', isRequired: false, note: 'Only accepts <code class="inline">issue</code>, <code class="inline">pull_request</code> or <code class="inline">null</code>' },
             { name: 'where[updated_after]', type: 'timestamp' },
+            { name: 'where[updated_before]', type: 'timestamp' },
             { name: 'order[by]', type: 'String', isRequired: true, note: 'Accepts <code class="inline">assignee</code>, <code class="inline">creator</code>, <code class="inline">milestone</code> or <code class="inline">sprint</code>' },
             { name: 'order[direction]', type: 'String', isRequired: true, note: 'Only accepts <code class="inline">asc</code> or <code class="inline">desc</code>' },
         ]
@@ -1521,7 +1527,9 @@ const sections = [
         extendedQueryParams: [
             { name: 'where[after_number]', type: 'integer' },
             { name: 'where[created_after]', type: 'timestamp' },
+            { name: 'where[created_before]', type: 'timestamp' },
             { name: 'where[updated_after]', type: 'timestamp' },
+            { name: 'where[updated_before]', type: 'timestamp' },
         ]
       },
       {
