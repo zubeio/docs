@@ -69,7 +69,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> API Documentation</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Mar 29, 2025</div>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: Apr 2, 2025</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -1396,6 +1396,36 @@ https://zube.io/api/cards</code></pre>
               </tr>
           </thead>
           <tbody>
+            
+                <tr>
+                  <td class="name">
+                    <code class="inline">where[closed_after]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class="inline">where[closed_before]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
             
                 <tr>
                   <td class="name">
@@ -4387,6 +4417,36 @@ https://zube.io/api/cards</code></pre>
                   </td>
                   <td class="type">
                     <span>integer</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class="inline">where[closed_after]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class="inline">where[closed_before]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
                   </td>
                   <td class="required">
                     <span></span>
@@ -7489,6 +7549,36 @@ https://zube.io/api/cards</code></pre>
             
                 <tr>
                   <td class="name">
+                    <code class="inline">where[closed_after]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class="inline">where[closed_before]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
                     <code class="inline">where[created_after]</code>
                   </td>
                   <td class="type">
@@ -7564,16 +7654,16 @@ https://zube.io/api/cards</code></pre>
             
                 <tr>
                   <td class="name">
-                    <code class="inline">where[types]</code>
+                    <code class="inline">where[types][]</code>
                   </td>
                   <td class="type">
-                    <span>String</span>
+                    <span>Array</span>
                   </td>
                   <td class="required">
                     <span></span>
                   </td>
                   <td class="note">
-                    <span>Only accepts <code class="inline">issue</code>, <code class="inline">pull_request</code> or <code class="inline">null</code></span>
+                    <span>Array of <code class="inline">issue</code>, <code class="inline">pull_request</code> or <code class="inline">null</code></span>
                   </td>
                 </tr>
             
@@ -11104,6 +11194,36 @@ https://zube.io/api/cards</code></pre>
                   </td>
                   <td class="type">
                     <span>integer</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class="inline">where[closed_after]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
+                  </td>
+                  <td class="required">
+                    <span></span>
+                  </td>
+                  <td class="note">
+                    <span></span>
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td class="name">
+                    <code class="inline">where[closed_before]</code>
+                  </td>
+                  <td class="type">
+                    <span>timestamp</span>
                   </td>
                   <td class="required">
                     <span></span>
